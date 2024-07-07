@@ -1,4 +1,3 @@
-<div class="container-xxl flex-grow-1 container-p-y">
 <div class="authentication-wrapper authentication-cover authentication-bg">
     <div class="authentication-inner row">
         <!-- /Left Text -->
@@ -21,7 +20,7 @@
             <div class="w-px-400 mx-auto">
                 <!-- Logo -->
                 <div class="app-brand mb-4">
-                    <a href="index.html" class="app-brand-link gap-2">
+                    <a href="/" class="app-brand-link gap-2">
                         <span class="app-brand-logo demo">
                             <svg width="32" height="22" viewBox="0 0 32 22" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -45,21 +44,26 @@
                 <h3 class="mb-1">Welcome to Vuexy! 👋</h3>
                 <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-                <form id="formAuthentication" class="mb-3" action="index.html" method="GET">
+                <form wire:submit.prevent='save' class="mb-3">
+                    @if(session('error'))
+                    <div class="mt-2 bg-red-500 text-sm text-white rounded-lg p-4 mb-4" role="alert">
+                      {{ session('error')}}
+                    </div>
+                    @endif
                     <div class="mb-3">
                         <label for="email" class="form-label">Email or Username</label>
-                        <input type="text" class="form-control" id="email" name="email-username"
+                        <input type="text" class="form-control" wire:model="email" name="email-username"
                             placeholder="Enter your email or username" autofocus />
                     </div>
                     <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
-                            <label class="form-label" for="password">Password</label>
-                            <a href="auth-forgot-password-cover.html">
+                            <label class="form-label"  for="password">Password</label>
+                            <a href="/forgot-password">
                                 <small>Forgot Password?</small>
                             </a>
                         </div>
                         <div class="input-group input-group-merge">
-                            <input type="password" id="password" class="form-control" name="password"
+                            <input type="password" wire:model="password" class="form-control" name="password"
                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                 aria-describedby="password" />
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
@@ -71,7 +75,7 @@
                             <label class="form-check-label" for="remember-me"> Remember Me </label>
                         </div>
                     </div>
-                    <button class="btn btn-primary d-grid w-100">Sign in</button>
+                    <button type="submit" class="btn btn-primary d-grid w-100">Sign in</button>
                 </form>
 
                 <p class="text-center">
@@ -85,23 +89,8 @@
                     <div class="divider-text">or</div>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                    <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
-                        <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                    </a>
-
-                    <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-                        <i class="tf-icons fa-brands fa-google fs-5"></i>
-                    </a>
-
-                    <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-                        <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-                    </a>
-                </div>
             </div>
         </div>
         <!-- /Login -->
     </div>
 </div>
-</div>
-

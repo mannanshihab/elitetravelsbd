@@ -1,20 +1,32 @@
 <?php
 
+use App\Livewire\Auth\ForgotPassword;
+use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Register;
+use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Form;
-use App\Livewire\FormLayouts\FormLayoutsHorizontal;
 use App\Livewire\Home;
-use App\Livewire\Login;
-use App\Livewire\Register;
+
 use Illuminate\Support\Facades\Route;
 
-use function Laravel\Prompts\form;
 
-Route::get('/', Login::class);
-Route::get('/register', Register::class);
-Route::get('/home', Home::class);
-Route::get('/form', Form::class);
-
-Route::get('/test', function(){
-    return view('content.apps.app-logistics-dashboard');
-   /*  return view('_partials._modals.modal-add-new-address'); */
+Route::middleware('guest')->group(function(){
+    Route::get('/', Login::class)->name('login');
+    Route::get('/register', Register::class);
+    Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
+    Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
 });
+Route::middleware('auth')->group(function(){
+    Route::get('/logout', function(){
+        auth()->logout();
+        return redirect('/');
+    })->name('logout');
+    Route::get('/home', Home::class);
+    Route::get('/form', Form::class);
+});
+
+/* Route::get('/test', function(){
+    return view('content.apps.app-logistics-dashboard');
+}); */
+
+

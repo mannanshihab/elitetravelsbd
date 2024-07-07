@@ -38,12 +38,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="/home" class="menu-link">
+                    <a  href="{{ url('home') }}" class="menu-link">
                         <div data-i18n="Logistics">Logistics</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="/form" class="menu-link">
+                    <a href="{{ url('form') }}" class="menu-link">
                         <div data-i18n="Academy">Form</div>
                     </a>
                 </li>
