@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Illuminate\Support\Str;
@@ -49,7 +50,7 @@ class ResetPassword extends Component
             }
         );
 
-        return $status === Password::PASSWORD_RESET?redirect()->route('login'):Session()->flash('error', 'Something went wrong');
+        return $status === Password::PASSWORD_RESET?redirect()->route('login'):Session::flash('error', 'Something went wrong');
     }
     public function render()
     {

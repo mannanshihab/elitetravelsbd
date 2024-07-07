@@ -1,16 +1,17 @@
+<div>
 <div class="authentication-wrapper authentication-cover authentication-bg">
     <div class="authentication-inner row">
         <!-- /Left Text -->
         <div class="d-none d-lg-flex col-lg-7 p-0">
             <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-                <img src="../../assets/img/illustrations/auth-login-illustration-light.png" alt="auth-login-cover"
-                    class="img-fluid my-5 auth-illustration"
-                    data-app-light-img="illustrations/auth-login-illustration-light.png"
-                    data-app-dark-img="illustrations/auth-login-illustration-dark.png" />
+                <img src="../../assets/img/illustrations/auth-login-illustration-light.png" 
+                    alt="auth-login-cover" class="img-fluid my-5 auth-illustration"
+                    data-app-light-img="../../assets/img/illustrations/auth-login-illustration-light.png"
+                    data-app-dark-img="../../assets/img/illustrations/auth-login-illustration-dark.png" />
 
                 <img src="../../assets/img/illustrations/bg-shape-image-light.png" alt="auth-login-cover"
-                    class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png"
-                    data-app-dark-img="illustrations/bg-shape-image-dark.png" />
+                    class="platform-bg" data-app-light-img="../../assets/img/illustrations/bg-shape-image-light.png"
+                    data-app-dark-img="../../assets/img/illustrations/bg-shape-image-dark.png" />
             </div>
         </div>
         <!-- /Left Text -->
@@ -46,9 +47,9 @@
 
                 <form wire:submit.prevent='save' class="mb-3">
                     @if(session('error'))
-                    <div class="mt-2 bg-red-500 text-sm text-white rounded-lg p-4 mb-4" role="alert">
-                      {{ session('error')}}
-                    </div>
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error')}}
+                        </div>
                     @endif
                     <div class="mb-3">
                         <label for="email" class="form-label">Email or Username</label>
@@ -57,8 +58,8 @@
                     </div>
                     <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
-                            <label class="form-label"  for="password">Password</label>
-                            <a href="/forgot-password">
+                            <label class="form-label" for="password">Password</label>
+                            <a href="{{ url('forgot-password') }}">
                                 <small>Forgot Password?</small>
                             </a>
                         </div>
@@ -93,4 +94,5 @@
         </div>
         <!-- /Login -->
     </div>
+</div>
 </div>

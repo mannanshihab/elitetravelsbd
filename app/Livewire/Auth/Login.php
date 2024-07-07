@@ -3,8 +3,9 @@
 namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Title;
 use Livewire\Component;
-
+#[Title('Login')]
 class Login extends Component
 {   
     public $email;
@@ -19,7 +20,7 @@ class Login extends Component
         ]);
 
         if(!auth()->attempt(['email' => $this->email, 'password' => $this->password])){
-            Session()->flash('error', 'Invalidate Credentials');
+            Session::flash('error', 'Invalidate Credentials');
             return;
         }
 

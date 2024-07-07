@@ -4,9 +4,9 @@
       <!-- /Left Text -->
       <div class="d-none d-lg-flex col-lg-7 p-0">
         <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-          <img src="{{ asset('assets/img/illustrations/auth-reset-password-illustration.png') }}" alt="auth-reset-password-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-reset-password-illustration-light.png" data-app-dark-img="illustrations/auth-reset-password-illustration-dark.png">
+          <img src="assets/img/illustrations/auth-reset-password-illustration.png" alt="auth-reset-password-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-reset-password-illustration-light.png" data-app-dark-img="illustrations/auth-reset-password-illustration-dark.png">
   
-          <img src="{{ asset('assets/img/illustrations/bg-shape-image.png') }}" alt="auth-reset-password-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
+          <img src="assets/img/illustrations/bg-shape-image.png" alt="auth-reset-password-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
         </div>
       </div>
       <!-- /Left Text -->
@@ -24,6 +24,11 @@
           <h4 class="mb-1">Reset Password 🔒</h4>
           {{-- <p class="mb-4">for <span class="fw-medium">john.doe@email.com</span></p> --}}
           <form wire:submit.prevent='save' id="formAuthentication" class="mb-3">
+            @if(session('error'))
+              <div class="alert alert-danger" role="alert">
+                  {{ session('error')}}
+              </div>
+            @endif
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">New Password</label>
               <div class="input-group input-group-merge">

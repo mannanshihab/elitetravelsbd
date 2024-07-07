@@ -4,9 +4,15 @@
       <!-- /Left Text -->
       <div class="d-none d-lg-flex col-lg-7 p-0">
         <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-          <img src="{{ asset('assets/img/illustrations/auth-forgot-password-illustration.png') }}" alt="auth-forgot-password-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-forgot-password-illustration-light.png" data-app-dark-img="illustrations/auth-forgot-password-illustration-dark.png">
-  
-          <img src="{{ asset('assets/img/illustrations/bg-shape-image.png') }}" alt="auth-forgot-password-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
+          <img src="../../assets/img/illustrations/auth-forgot-password-illustration.png" 
+               alt="auth-forgot-password-cover" class="img-fluid my-5 auth-illustration" 
+               data-app-light-img="illustrations/auth-forgot-password-illustration-light.png" 
+               data-app-dark-img="illustrations/auth-forgot-password-illustration-dark.png">
+          
+          <img src="../../assets/img/illustrations/bg-shape-image.png" 
+               alt="auth-forgot-password-cover" class="platform-bg" 
+               data-app-light-img="illustrations/bg-shape-image-light.png" 
+               data-app-dark-img="illustrations/bg-shape-image-dark.png">
         </div>
       </div>
       <!-- /Left Text -->
@@ -16,14 +22,19 @@
         <div class="w-px-400 mx-auto">
           <!-- Logo -->
           <div class="app-brand mb-4">
-            <a href="{{url('/')}}" class="app-brand-link gap-2">
-              <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20,"withbg"=>'fill: #fff;'])</span>
+            <a href="#" class="app-brand-link gap-2">
+              <span class="app-brand-logo demo"></span>
             </a>
           </div>
           <!-- /Logo -->
           <h3 class="mb-1">Forgot Password? 🔒</h3>
           <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
           <form wire:submit.prevent='save' id="formAuthentication" class="mb-3">
+            @if(session('success'))
+              <div class="alert alert-success" role="alert">
+                {{ session('success')}}
+              </div>
+            @endif
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="text" class="form-control" wire:model="email" id="email" name="email" placeholder="Enter your email" autofocus>

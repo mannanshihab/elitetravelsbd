@@ -6,7 +6,6 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Form;
 use App\Livewire\Home;
-
 use Illuminate\Support\Facades\Route;
 
 
