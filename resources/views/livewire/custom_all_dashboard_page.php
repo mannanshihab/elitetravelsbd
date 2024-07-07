@@ -9,9 +9,9 @@
             <div class="content-wrapper">
 
             <!-- Content -->
-
-            <!-- Paste your content here -->
-             
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <!-- Paste your content here -->
+            </div>
             <!-- / Content -->
             
             @livewire('partials.content-footer')
