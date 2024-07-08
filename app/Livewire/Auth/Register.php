@@ -15,7 +15,7 @@ class Register extends Component
     public $password;
 
     public function save(){
-        //dd($this->username);
+        dd($this);
 
         #validate   
         $this->validate([
