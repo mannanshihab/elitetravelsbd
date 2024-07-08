@@ -6,6 +6,7 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Form;
 use App\Livewire\Home;
+use App\Livewire\ProfileSettings;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,6 +21,8 @@ Route::middleware('auth')->group(function(){
         auth()->logout();
         return redirect('/');
     })->name('logout');
+    
+    Route::get('/profile', ProfileSettings::class);    
     Route::get('/home', Home::class);
     Route::get('/form', Form::class);
 });

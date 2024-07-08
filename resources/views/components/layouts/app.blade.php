@@ -47,6 +47,11 @@
             'resources/assets/vendor/libs/@form-validation/auto-focus.js',
             'resources/assets/js/main.js',
             'resources/assets/js/pages-auth.js',
+            'resources/assets/vendor/libs/select2/select2.js',
+            'resources/assets/vendor/libs/cleavejs/cleave.js',
+            'resources/assets/vendor/libs/cleavejs/cleave-phone.js',
+            'resources/assets/vendor/libs/sweetalert2/sweetalert2.js',
+            'resources/assets/js/pages-account-settings-account.js',
             'resources/assets/vendor/libs/apex-charts/apexcharts.js',
             'resources/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js',
             'resources/assets/js/app-logistics-dashboard.js',
@@ -67,7 +72,9 @@
                     <div class="content-wrapper">
         @endauth
         <main>
-            {{ $slot }}
+            <div class="container-xxl flex-grow-1 container-p-y">
+                {{ $slot }}
+            </div>
         </main>
         @auth
                                 @livewire('partials.content-footer')
