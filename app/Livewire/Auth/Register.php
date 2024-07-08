@@ -15,7 +15,7 @@ class Register extends Component
     public $password;
 
     public function save(){
-        dd($this);
+        // dd($this);
 
         #validate   
         $this->validate([
@@ -28,7 +28,7 @@ class Register extends Component
             'name' => $this->name,
             'email'    => $this->email,
             'password' => Hash::make($this->password)           
-        ])->Session::flash('error', 'Invalidate Credentials');
+        ]);
 
         auth()->login($user);
 
