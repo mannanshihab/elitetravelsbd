@@ -37,8 +37,11 @@
             @endif
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="text" class="form-control" wire:model="email" id="email" name="email" placeholder="Enter your email" autofocus>
+              <input type="text" class="form-control" wire:model="email" id="email" name="email" placeholder="Enter your email">
             </div>
+            @error('email')
+                <p class="text-danger mt-2" id="email">{{ $message }}</p>
+            @enderror
             <button class="btn btn-primary d-grid w-100">Send Reset Link</button>
           </form>
           <div class="text-center">

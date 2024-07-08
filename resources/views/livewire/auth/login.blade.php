@@ -52,10 +52,13 @@
                         </div>
                     @endif
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email or Username</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" wire:model="email" name="email-username"
-                            placeholder="Enter your email or username" autofocus />
+                            placeholder="Enter your email" autofocus />
                     </div>
+                    @error('email')
+                        <p class="text-danger mt-2" id="password">{{ $message }}</p>
+                    @enderror
                     <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
                             <label class="form-label" for="password">Password</label>
@@ -69,6 +72,9 @@
                                 aria-describedby="password" />
                             <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                         </div>
+                        @error('password')
+                            <p class="text-danger mt-2" id="password">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <div class="form-check">

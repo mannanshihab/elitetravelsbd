@@ -60,32 +60,49 @@
           <p class="mb-4">Make your app management easy and fun!</p>
   
           <form wire:submit.prevent='save' class="mb-3">
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error')}}
+                </div>
+            @endif
             <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
+              <label for="name" class="form-label">Name</label>
               <input
                 type="text"
                 class="form-control"
                 wire:model="name"
-                name="username"
-                placeholder="Enter your username"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
                 autofocus />
             </div>
+            @error('name')
+                <p class="text-danger mt-2" id="name">{{ $message }}</p>
+            @enderror
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="text" class="form-control" wire:model="email" name="email" placeholder="Enter your email" />
             </div>
+            @error('email')
+                <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
+            @enderror
+
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">Password</label>
               <div class="input-group input-group-merge">
                 <input
                   type="password"
                   wire:model="password"
+                  id="password"
                   class="form-control"
                   name="password"
                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                   aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
               </div>
+              @error('password')
+                  <p class="text-danger mt-2" id="password">{{ $message }}</p>
+              @enderror
             </div>
   
             <div class="mb-3">
