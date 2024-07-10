@@ -3,11 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 #[Title('Profile Settings')]
 class ProfileSettings extends Component
-{
+{   
     public $name;
     public $email;
 
@@ -15,22 +16,23 @@ class ProfileSettings extends Component
     {
         $this->validate([
             'name'     => 'required',  
-            'email'    => 'required|email|unique:users|max:255',
+            'email' => 'required',  
         ]);
         
         $user = User::find(auth()->user()->id)->update([
             'name' => $this->name,
             'email' => $this->email
         ]);
-        $user->save();
-        
-        return redirect()->intended();
+        Session::flash('message', 'Update Succesfully');
+        return redirect()->back();
+    }
+    public function delete($id)
+    {
+        $user = User::find(auth()->user()->id)->delete();
+        return redirect()->route('/login');
     }
     public function render()
     {    
-        $user = User::find(auth()->user()->id);
-        return view('livewire.profile-settings',[
-            'user'=> $user
-        ]);
+        return view('livewire.profile-settings');
     }
 }

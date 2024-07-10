@@ -1,6 +1,6 @@
 <div>
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Account Settings /</span> {{ $user->name }}
+        <span class="text-muted fw-light">Account Settings / {{Auth::user()->name}}</span>
     </h4>
     
     <div class="row">
@@ -30,61 +30,71 @@
         </div>
         <hr class="my-0">
         <div class="card-body">
+            @if(session('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('message')}}
+                </div>
+            @endif
             <form wire:submit.prevent="update" id="formAccountSettings">
-                @if(session('message'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('message')}}
-                    </div>
-                @endif
-            <div class="row">
-                <div class="mb-3 col-md-6">
-                    <label for="Name" class="form-label">Name</label>
-                    <input class="form-control" type="text" wire:model="name" name="name"/>
-                </div>
                 
-                <div class="mb-3 col-md-6">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input class="form-control" type="text" wire:model="email" name="email"/>
-                </div>
-                
-                <div class="mb-3 col-md-6">
-                    <label class="form-label" for="phoneNumber">Phone Number</label>
-                    <div class="input-group input-group-merge">
-                        <span class="input-group-text">US (+1)</span>
-                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="202 555 0111" />
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <div>
+                            <label for="Name" class="form-label">Name</label>
+                            <input class="form-control" type="text" wire:model="name" name="name" placeholder="{{Auth::user()->name}}"/>
+                        </div>
+                       
+                        @error('name')
+                            <p class="text-danger mt-2" id="password">{{ $message }}</p>
+                        @enderror
                     </div>
-                </div>
+                   
+                    
+                    <div class="mb-3 col-md-6">
+                        <div>
+                            <label for="email" class="form-label">E-mail</label>
+                            <input class="form-control" type="text" wire:model="email" name="email" placeholder="{{Auth::user()->email}}"/>
+                        </div>
+                        @error('email')
+                            <p class="text-danger mt-2" id="password">{{ $message }}</p>
+                        @enderror
+                    </div>
+                   
+                    
+                    {{-- <div class="mb-3 col-md-6">
+                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                        <div class="input-group input-group-merge">
+                            <span class="input-group-text">BD (+880)</span>
+                            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="202 555 0111" />
+                        </div>
+                    </div> --}}
 
-                <div class="mb-3 col-md-6">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
+                    {{-- <div class="mb-3 col-md-6">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
+                    </div> --}}
                 </div>
-            </div>
-            <div class="mt-2">
-                <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                <button type="reset" class="btn btn-label-secondary">Cancel</button>
-            </div>
+                <div class="mt-2">
+                    <button wire:submit.prevent="update" class="btn btn-primary me-2">Save changes</button>
+                    <a href="/home"class="btn btn-label-secondary">Cancel</a>
+                </div>
             </form>
         </div>
         <!-- /Account -->
         </div>
-        <div class="card">
-        <h5 class="card-header">Delete Account</h5>
-        <div class="card-body">
-            <div class="">
-            <div class="alert alert-warning">
-                <h5 class="alert-heading mb-1">Are you sure you want to delete your account?</h5>
-                <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+        <div class="card container-xxl flex-grow-1 container-p-y">
+            <h5 class="card-header">Delete Account</h5>
+            <div class="card-body">
+                <div class="">
+                    <div class="alert alert-warning">
+                        <h5 class="alert-heading mb-1">Are you sure you want to delete your account?</h5>
+                        <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                    </div>
+                </div>
+                <span class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Account?') || event.stopImmediatePropagation()" wire:click="delete({{Auth::user()->id}})"">
+                    Deleted
+                </span>
             </div>
-            </div>
-            <form id="formAccountDeactivation" onsubmit="return false">
-            <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
-                <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
-            </div>
-            <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
-            </form>
-        </div>
         </div>
     </div>
     </div>
