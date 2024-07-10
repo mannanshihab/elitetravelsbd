@@ -30,20 +30,20 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-        <li class="menu-item open">
+        <li class="menu-item" x-bind:class="$current('/home') || $current('/form') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
                 <div class="badge bg-primary rounded-pill ms-auto">5</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item  {{ request()->routeIs('home') ? 'active' : '' }}">
-                    <a href="/home"  wire:navigate class="menu-link">
+                <li class="menu-item" x-bind:class="$current('/home') ? 'active' : ''">
+                    <a href="{{ route('home') }}"  wire:navigate class="menu-link">
                         <div data-i18n="Logistics">Logistics</div>
                     </a>
                 </li>
-                <li class="menu-item  {{ request()->routeIs('form') ? 'active' : '' }}">
-                    <a href="/form" wire:navigate class="menu-link ">
+                <li class="menu-item" x-bind:class="$current('/form') ? 'active' : ''">
+                    <a href="{{ route('form') }}" wire:navigate class="menu-link">
                         <div data-i18n="Academy">Form</div>
                     </a>
                 </li>

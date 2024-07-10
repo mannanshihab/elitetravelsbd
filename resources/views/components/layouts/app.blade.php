@@ -101,6 +101,32 @@
                 <div class="drag-target"></div>
             @endauth
     @endif
+
+    <script data-navigate-once>
+        document.addEventListener('alpine:init', () => {
+            let state = Alpine.reactive({ path: window.location.pathname })
+    
+            document.addEventListener('livewire:navigated', () => {
+                queueMicrotask(() => {
+                    state.path = window.location.pathname
+                })
+            })
+    
+            let strip = (subject) => subject.replace(/^\/|\/$/g, '')
+    
+            if (! String.prototype.startsWith) {
+                    String.prototype.startsWith = function(searchString, position){
+                    position = position || 0;
+                    return this.substr(position, searchString.length) === searchString;
+                };
+            }
+    
+            Alpine.magic('current', (el) => (expected = '') => {
+                let regexMatch = strip(expected).substr(-1) === '*';
+                return regexMatch ? strip(state.path).startsWith(strip(expected.replace(/.$/, ""))) : strip(state.path) === strip(expected)
+            })
+        })
+    </script>
     @livewireScripts
 </body>
 
