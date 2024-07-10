@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-#[Title('Register | Dashboard')]
+#[Title('Register | Elite Travels')]
 
 class Register extends Component
 {   
