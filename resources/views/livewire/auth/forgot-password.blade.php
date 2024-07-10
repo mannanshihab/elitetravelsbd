@@ -4,15 +4,9 @@
       <!-- /Left Text -->
       <div class="d-none d-lg-flex col-lg-7 p-0">
         <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-          <img src="../../assets/img/illustrations/auth-forgot-password-illustration.png" 
-               alt="auth-forgot-password-cover" class="img-fluid my-5 auth-illustration" 
-               data-app-light-img="illustrations/auth-forgot-password-illustration-light.png" 
-               data-app-dark-img="illustrations/auth-forgot-password-illustration-dark.png">
-          
-          <img src="../../assets/img/illustrations/bg-shape-image.png" 
-               alt="auth-forgot-password-cover" class="platform-bg" 
-               data-app-light-img="illustrations/bg-shape-image-light.png" 
-               data-app-dark-img="illustrations/bg-shape-image-dark.png">
+          <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
+              <img src="{{ asset('images/travels.png') }}" alt="auth-login-cover" class="img-fluid my-5 auth-illustration"/>
+          </div>
         </div>
       </div>
       <!-- /Left Text -->
@@ -20,13 +14,11 @@
       <!-- Forgot Password -->
       <div class="d-flex col-12 col-lg-5 align-items-center p-sm-5 p-4">
         <div class="w-px-400 mx-auto">
-          <!-- Logo -->
-          <div class="app-brand mb-4">
-            <a href="#" class="app-brand-link gap-2">
-              <span class="app-brand-logo demo"></span>
-            </a>
-          </div>
-          <!-- /Logo -->
+           <!-- Logo -->
+            <div class="app-brand mb-4">
+              <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="auth-login-cover" class="img-fluid">
+            </div>
+            <!-- /Logo -->
           <h3 class="mb-1">Forgot Password? 🔒</h3>
           <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
           <form wire:submit.prevent='save' id="formAuthentication" class="mb-3">
@@ -42,7 +34,14 @@
             @error('email')
                 <p class="text-danger mt-2" id="email">{{ $message }}</p>
             @enderror
-            <button class="btn btn-primary d-grid w-100">Send Reset Link</button>
+            <button class="btn btn-primary d-grid w-100">
+              <span wire:loading.remove>Send Reset Link</span>
+              <span wire:loading>
+                <div class="spinner-border text-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </span>
+            </button>
           </form>
           <div class="text-center">
             <a href="{{route('login')}}" class="d-flex align-items-center justify-content-center">

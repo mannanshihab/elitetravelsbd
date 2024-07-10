@@ -57,7 +57,14 @@
                                 <label class="form-check-label" for="remember-me"> Remember Me </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary d-grid w-100">Sign in</button>
+                        <button type="submit" class="btn btn-primary d-grid w-100">
+                            <span wire:loading.remove>Sign in</span>
+                            <span wire:loading>
+                              <div class="spinner-border text-light" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                            </span>
+                        </button>
                     </form>
 
                     <p class="text-center">

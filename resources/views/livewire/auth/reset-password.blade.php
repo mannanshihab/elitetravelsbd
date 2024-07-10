@@ -4,9 +4,9 @@
       <!-- /Left Text -->
       <div class="d-none d-lg-flex col-lg-7 p-0">
         <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-          <img src="assets/img/illustrations/auth-reset-password-illustration.png" alt="auth-reset-password-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-reset-password-illustration-light.png" data-app-dark-img="illustrations/auth-reset-password-illustration-dark.png">
-  
-          <img src="assets/img/illustrations/bg-shape-image.png" alt="auth-reset-password-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
+          <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
+              <img src="{{ asset('images/travels.png') }}" alt="auth-login-cover" class="img-fluid my-5 auth-illustration"/>
+          </div>
         </div>
       </div>
       <!-- /Left Text -->
@@ -14,11 +14,9 @@
       <!-- Reset Password -->
       <div class="d-flex col-12 col-lg-5 align-items-center p-4 p-sm-5">
         <div class="w-px-400 mx-auto">
-          <!-- Logo -->
+         <!-- Logo -->
           <div class="app-brand mb-4">
-            <a href="{{url('/')}}" class="app-brand-link gap-2">
-              <span class="app-brand-logo demo">@include('_partials.macros',['height'=>20,'withbg' => "fill: #fff;"])</span>
-            </a>
+            <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="auth-login-cover" class="img-fluid">
           </div>
           <!-- /Logo -->
           <h4 class="mb-1">Reset Password 🔒</h4>
@@ -50,7 +48,12 @@
                 <p class="text-danger mt-2" id="confirm-password">{{ $message }}</p>
             @enderror
             <button class="btn btn-primary d-grid w-100 mb-3">
-              Set new password
+              <span wire:loading.remove>Set new password</span>
+              <span wire:loading>
+                <div class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </span>
             </button>
             <div class="text-center">
               <a href="{{route('login')}}">

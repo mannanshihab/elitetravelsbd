@@ -44,7 +44,7 @@
           @enderror
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" wire:model="email" name="email" placeholder="Enter your email" />
+            <input type="text" class="form-control" wire:model="email"  id="email" name="email" placeholder="Enter your email" />
           </div>
           @error('email')
               <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
@@ -77,7 +77,14 @@
               </label>
             </div>
           </div>
-          <button class="btn btn-primary d-grid w-100">Sign up</button>
+          <button class="btn btn-primary d-grid w-100">
+            <span wire:loading.remove>Sign up</span>
+            <span wire:loading>
+              <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </span>
+          </button>
         </form>
 
         <p class="text-center">
