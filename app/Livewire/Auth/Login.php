@@ -5,7 +5,7 @@ namespace App\Livewire\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-#[Title('Login')]
+#[Title('Login | Elite Travels')]
 class Login extends Component
 {   
     public $email;

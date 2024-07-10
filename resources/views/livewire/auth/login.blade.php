@@ -45,7 +45,7 @@
                 <h3 class="mb-1">Welcome to Vuexy! 👋</h3>
                 <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-                <form wire:submit="save" class="mb-3">
+                <form wire:submit.prevent='save' class="mb-3">
                     @if(session('error'))
                         <div class="alert alert-danger" role="alert">
                             {{ session('error')}}
