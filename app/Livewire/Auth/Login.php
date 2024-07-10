@@ -24,7 +24,7 @@ class Login extends Component
             return;
         }
 
-        return redirect()->intended();
+        $this->redirect('/home');
     }
     public function render()
     {

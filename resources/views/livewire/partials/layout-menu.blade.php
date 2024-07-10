@@ -34,7 +34,7 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-primary rounded-pill ms-auto">5</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item" x-bind:class="$current('/home') ? 'active' : ''">
