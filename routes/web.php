@@ -22,9 +22,9 @@ Route::middleware('auth')->group(function(){
         return redirect('/');
     })->name('logout');
     
-    Route::get('/profile', ProfileSettings::class);    
-    Route::get('/home', Home::class);
-    Route::get('/form', Form::class);
+    Route::get('/profile', ProfileSettings::class)->name('profile');    
+    Route::get('/home', Home::class)->name('home');
+    Route::get('/form', Form::class)->name('form');
 });
 
 /* Route::get('/test', function(){
