@@ -10,19 +10,19 @@ use App\Livewire\ProfileSettings;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('guest')->group(function(){
+Route::middleware('guest')->group(function () {
     Route::get('/', Login::class)->name('login');
     Route::get('/register', Register::class);
     Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
     Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
 });
-Route::middleware('auth')->group(function(){
-    Route::get('/logout', function(){
-        auth()->logout();
-        return redirect('/');
-    })->name('logout');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [Home::class, 'logout'])->name('logout');
+
     
-    Route::get('/profile', ProfileSettings::class)->name('profile');    
+    Route::get('/profile', ProfileSettings::class)->name('profile');
     Route::get('/home', Home::class)->name('home');
     Route::get('/form', Form::class)->name('form');
 });
@@ -30,5 +30,3 @@ Route::middleware('auth')->group(function(){
 /* Route::get('/test', function(){
     return view('content.apps.app-logistics-dashboard');
 }); */
-
-

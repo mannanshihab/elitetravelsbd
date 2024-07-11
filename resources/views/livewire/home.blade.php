@@ -1,7 +1,7 @@
 <div>
     <!-- Content -->
         {{-- <livewire:test /> --}}
-        <h4 class="py-3 mb-4"><span class="text-muted fw-light">Logistics /</span> Dashboard</h4>
+        <h4 class="py-3 mb-4"><span class="text-muted fw-light">Home /</span> Dashboard</h4>
 
         <!-- Card Border Shadow -->
         <div class="row">

@@ -13,15 +13,18 @@ class Register extends Component
     public $name;
     public $email;
     public $password;
+    public $password_confirmation;
 
     public function save(){
         // dd($this);
+
 
         #validate   
         $this->validate([
             'name' => 'required',  
             'email'    => 'required|email|unique:users|max:255',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required|min:8|max:255|confirmed',
+            'password_confirmation' => 'required|min:8|max:255'
         ]);
 
         $user = User::create([
@@ -32,7 +35,7 @@ class Register extends Component
 
         auth()->login($user);
 
-        return redirect()->intended();
+        $this->redirect('/home', navigate: true);
     }
     public function render()
     {

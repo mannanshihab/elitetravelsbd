@@ -11,4 +11,10 @@ class Home extends Component
     {
         return view('livewire.home');
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
+    }
 }

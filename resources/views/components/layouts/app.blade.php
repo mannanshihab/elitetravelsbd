@@ -57,6 +57,8 @@
         'resources/assets/js/app-logistics-dashboard.js',
     ])
 
+    
+
 
     @livewireStyles
 </head>

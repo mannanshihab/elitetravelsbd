@@ -12,14 +12,9 @@
 }
 
 .app-brand-logo.demo {
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -ms-flexbox;
   display: flex;
-  width: 34px;
-  height: 24px;
+  width: 92%;
+  height: 50px;
 }
 
 .app-brand-logo.demo svg {
