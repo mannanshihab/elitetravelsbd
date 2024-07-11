@@ -46,6 +46,7 @@
         'resources/assets/vendor/libs/@form-validation/bootstrap5.js',
         'resources/assets/vendor/libs/@form-validation/auto-focus.js',
         'resources/assets/js/main.js',
+        'resources/assets/js/tables-datatables-basic.js',
         'resources/assets/js/pages-auth.js',
         'resources/assets/vendor/libs/select2/select2.js',
         'resources/assets/vendor/libs/cleavejs/cleave.js',
