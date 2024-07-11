@@ -49,7 +49,24 @@
                 </li>
             </ul>
         </li>
+        <!--/ Dashboards -->
 
+        <!-- Users -->
+        <li class="menu-item" x-bind:class="$current('/users') || $current('/role') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div data-i18n="Users">Users</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" x-bind:class="$current('/users') ? 'active' : ''">
+                    <a href="{{ route('users') }}"  wire:navigate class="menu-link">
+                        <div data-i18n="Users">Users List</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!--/ Users -->
         <!-- Misc -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Misc">Misc</span>
