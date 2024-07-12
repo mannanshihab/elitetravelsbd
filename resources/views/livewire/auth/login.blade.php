@@ -21,11 +21,9 @@
                     <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                     <form wire:submit.prevent='save' class="mb-3">
-                        @if(session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error')}}
-                            </div>
-                        @endif
+                        <!-- flash message -->
+                            @include('livewire.partials.flash-session')
+                        <!-- /flash message -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="text" class="form-control" wire:model="email" name="email-username"

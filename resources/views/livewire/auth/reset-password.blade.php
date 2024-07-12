@@ -22,11 +22,9 @@
           <h4 class="mb-1">Reset Password 🔒</h4>
           {{-- <p class="mb-4">for <span class="fw-medium">john.doe@email.com</span></p> --}}
           <form wire:submit.prevent='save' id="formAuthentication" class="mb-3">
-            @if(session('error'))
-              <div class="alert alert-danger" role="alert">
-                  {{ session('error')}}
-              </div>
-            @endif
+            <!-- flash message -->
+              @include('livewire.partials.flash-session')
+            <!-- /flash message -->
             <div class="mb-3 form-password-toggle">
               <label class="form-label" for="password">New Password</label>
               <div class="input-group input-group-merge">
@@ -56,7 +54,7 @@
               </span>
             </button>
             <div class="text-center">
-              <a href="{{route('login')}}">
+              <a wire:navigate href="{{route('login')}}">
                 <i class="ti ti-chevron-left scaleX-n1-rtl"></i>
                 Back to login
               </a>

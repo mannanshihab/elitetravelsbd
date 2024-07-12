@@ -19,17 +19,7 @@
                     <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="auth-login-cover" class="img-fluid">
                 </div>
                 <!-- /Logo -->
-                {{--  <h3 class="mb-1">Elite Travels adventure starts here 🚀</h3>
-        <p class="mb-4">Make your app management easy and fun!</p> --}}
-
                 <form wire:submit.prevent='save' class="mb-3">
-                    @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-
-
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" wire:model="name" id="name" name="name"

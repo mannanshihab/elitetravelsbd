@@ -22,11 +22,9 @@
           <h3 class="mb-1">Forgot Password? 🔒</h3>
           <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
           <form wire:submit.prevent='save' id="formAuthentication" class="mb-3">
-            @if(session('success'))
-              <div class="alert alert-success" role="alert">
-                {{ session('success')}}
-              </div>
-            @endif
+            <!-- flash message -->
+              @include('livewire.partials.flash-session')
+            <!-- /flash message -->
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="text" class="form-control" wire:model="email" id="email" name="email" placeholder="Enter your email">
@@ -34,7 +32,7 @@
             @error('email')
                 <p class="text-danger mt-2" id="email">{{ $message }}</p>
             @enderror
-            <button class="btn btn-primary d-grid w-100">
+            <button type="submit" class="btn btn-primary d-grid w-100">
               <span wire:loading.remove>Send Reset Link</span>
               <span wire:loading>
                 <div class="spinner-border text-dark" role="status">
@@ -44,7 +42,7 @@
             </button>
           </form>
           <div class="text-center">
-            <a href="{{route('login')}}" class="d-flex align-items-center justify-content-center">
+            <a wire:navigate href="{{route('login')}}" class="d-flex align-items-center justify-content-center">
               <i class="ti ti-chevron-left scaleX-n1-rtl"></i>
               Back to login
             </a>
