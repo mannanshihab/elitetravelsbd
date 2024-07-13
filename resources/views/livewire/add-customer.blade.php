@@ -1,24 +1,19 @@
 <div>
-
-    @vite(['resources/assets/vendor/libs/select2/select2.scss', 'resources/assets/vendor/libs/tagify/tagify.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/typeahead-js/typeahead.scss'])
-    @vite(['resources/assets/vendor/libs/select2/select2.js', 'resources/assets/vendor/libs/tagify/tagify.js', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/typeahead-js/typeahead.js', 'resources/assets/vendor/libs/bloodhound/bloodhound.js', 'resources/assets/js/forms-selects.js'])
-
     <!-- Content -->
-
     <h4 class="py-3 mb-4">
+        <span class="text-muted fw-light">Customers /</span> Add Customer
     </h4>
     <div class="row">
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Adds Customers</h5>
+                <h5 class="card-header">Add Customers</h5>
                 <div class="card-body">
 
                     <form id="formValidationExamples" class="row g-3" wire:submit.prevent="addCustomer">
 
                         <!-- Account Details -->
                         <div class="col-12">
-                            <h6>1. Account Details</h6>
                             <hr class="mt-0" />
                         </div>
                         @include('livewire.partials.flash-session')
@@ -45,7 +40,7 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationMobile">Mobile</label>
-                            <input type="text" id="formValidationMobile" class="form-control" wire:model="mobile"
+                            <input type="number" id="formValidationMobile" class="form-control" wire:model="mobile"
                                 placeholder="01613456789" name="formValidationMobile" />
                             {{-- show error --}}
                             @error('mobile')

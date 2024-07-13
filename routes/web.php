@@ -8,6 +8,7 @@ use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
+use App\Livewire\CustomerList;
 use App\Livewire\Form;
 use App\Livewire\Home;
 use App\Livewire\ProfileSettings;
@@ -53,7 +54,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('add-customer', AddCustomer::class)->name('add-customer');
     Route::get('edit-customer/{id}', AddCustomer::class)->name('edit-customer');
-    Route::get('list-customer', AddCustomer::class)->name('list-customer');
+    Route::get('list-customer', CustomerList::class)->name('list-customer');
 
     Route::get('/add-users', UserList::class)->name('add-users');
     Route::get('/edit-users/{id}', UserList::class)->name('edit-users');

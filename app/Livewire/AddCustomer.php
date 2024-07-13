@@ -21,7 +21,7 @@ class AddCustomer extends Component
     {
         $this->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:customers',
             'mobile' => 'required',
             'address' => 'required',
             'source' => 'required',
