@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\AddAgents;
+use App\Livewire\AddInvoice;
+use App\Livewire\AddVendors;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
@@ -9,6 +12,12 @@ use App\Livewire\Home;
 use App\Livewire\ProfileSettings;
 use App\Livewire\UserList;
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('/testy', function () {
+    return view('content.form-elements.forms-selects');
+});
+
 
 
 Route::middleware('guest')->group(function () {
@@ -33,7 +42,29 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', ProfileSettings::class)->name('profile');
     Route::get('/home', Home::class)->name('home');
     Route::get('/form', Form::class)->name('form');
-    Route::get('/users', UserList::class)->name('users');
+
+
+
+    Route::get('invoice', AddInvoice::class)->name('invoice');
+    Route::get('invoice-list', AddInvoice::class)->name('invoice-list');
+
+
+
+    Route::get('/add-users', UserList::class)->name('add-users');
+    Route::get('/edit-users/{id}', UserList::class)->name('edit-users');
+    Route::get('/list-users', UserList::class)->name('list-users');
+
+    Route::get('add-agent', AddAgents::class)->name('add-agent');
+    Route::get('edit-agent/{id}', AddAgents::class)->name('edit-agent');
+    Route::get('list-agent', AddAgents::class)->name('list-agent');
+    
+    Route::get('add-vendor', AddVendors::class)->name('add-vendor');
+    Route::get('edit-vendor/{id}', AddVendors::class)->name('edit-vendor');
+    Route::get('list-vendor', AddVendors::class)->name('list-vendor');
+
+    Route::get('add-customer', AddVendors::class)->name('add-customer');
+    Route::get('edit-customer/{id}', AddVendors::class)->name('edit-customer');
+    Route::get('list-customer', AddVendors::class)->name('list-customer');
     
 });
 

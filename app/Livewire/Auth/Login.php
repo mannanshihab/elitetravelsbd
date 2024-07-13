@@ -16,7 +16,7 @@ class Login extends Component
          
         $this->validate([
             'email'     => 'required',
-            'password'  => 'required|min:8',
+            'password'  => 'required|min:6',
         ]);
 
         if(!auth()->attempt(['email' => $this->email, 'password' => $this->password])){
@@ -24,7 +24,7 @@ class Login extends Component
             return;
         }
 
-        $this->redirect('/home', navigate: true);
+        $this->redirect('/home');
     }
     public function render()
     {

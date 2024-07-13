@@ -24,13 +24,14 @@
         'resources/assets/css/demo.css',
         'resources/assets/vendor/libs/node-waves/node-waves.scss',
         'resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.scss',
-        'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
         'resources/assets/vendor/libs/@form-validation/form-validation.scss',
         'resources/assets/vendor/scss/pages/page-auth.scss',
         'resources/assets/vendor/libs/apex-charts/apex-charts.scss',
         'resources/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.scss',
         'resources/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.scss',
         'resources/assets/vendor/scss/pages/app-logistics-dashboard.scss',
+        'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss',
+        'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
         'resources/assets/vendor/js/helpers.js',
         'resources/assets/vendor/js/template-customizer.js',
         'resources/assets/js/config.js',
@@ -40,7 +41,6 @@
         'resources/assets/vendor/libs/node-waves/node-waves.js',
         'resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js',
         'resources/assets/vendor/libs/hammer/hammer.js',
-        'resources/assets/vendor/libs/typeahead-js/typeahead.js',
         'resources/assets/vendor/js/menu.js',
         'resources/assets/vendor/libs/@form-validation/popular.js',
         'resources/assets/vendor/libs/@form-validation/bootstrap5.js',
@@ -48,7 +48,6 @@
         'resources/assets/js/main.js',
         'resources/assets/js/tables-datatables-basic.js',
         'resources/assets/js/pages-auth.js',
-        'resources/assets/vendor/libs/select2/select2.js',
         'resources/assets/vendor/libs/cleavejs/cleave.js',
         'resources/assets/vendor/libs/cleavejs/cleave-phone.js',
         'resources/assets/vendor/libs/sweetalert2/sweetalert2.js',
@@ -58,7 +57,7 @@
         'resources/assets/js/app-logistics-dashboard.js',
     ])
 
-    
+
 
 
     @livewireStyles
