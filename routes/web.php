@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AddAgents;
+use App\Livewire\AddCustomer;
 use App\Livewire\AddInvoice;
 use App\Livewire\AddVendors;
 use App\Livewire\Auth\ForgotPassword;
@@ -14,8 +15,8 @@ use App\Livewire\UserList;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/testy', function () {
-    return view('content.form-elements.forms-selects');
+Route::get('/asdf', function () {
+    return view('content.form-elements.forms-basic-inputs');
 });
 
 
@@ -50,6 +51,10 @@ Route::middleware('auth')->group(function () {
 
 
 
+    Route::get('add-customer', AddCustomer::class)->name('add-customer');
+    Route::get('edit-customer/{id}', AddCustomer::class)->name('edit-customer');
+    Route::get('list-customer', AddCustomer::class)->name('list-customer');
+
     Route::get('/add-users', UserList::class)->name('add-users');
     Route::get('/edit-users/{id}', UserList::class)->name('edit-users');
     Route::get('/list-users', UserList::class)->name('list-users');
@@ -62,9 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::get('edit-vendor/{id}', AddVendors::class)->name('edit-vendor');
     Route::get('list-vendor', AddVendors::class)->name('list-vendor');
 
-    Route::get('add-customer', AddVendors::class)->name('add-customer');
-    Route::get('edit-customer/{id}', AddVendors::class)->name('edit-customer');
-    Route::get('list-customer', AddVendors::class)->name('list-customer');
+
     
 });
 

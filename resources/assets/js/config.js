@@ -2,7 +2,7 @@
  * Config
  * -------------------------------------------------------------------------------------
  * ! IMPORTANT: Make sure you clear the browser local storage In order to see the config changes in the template.
- * ! To clear local storage: (https://www.leadshook.com/help/how-to-clear-local-storage-in-google-chrome-browser/).
+ * ! To clear local dstorage: (https://www.leadshook.com/help/how-to-clear-local-storage-in-google-chrome-browser/).
  */
 
 'use strict';
@@ -21,7 +21,7 @@ window.config = {
     white: '#fff',
     cardColor: '#fff',
     bodyBg: '#f8f7fa',
-    bodyColor: '#6f6b7d',
+    bodyColor: '#000000',
     headingColor: '#5d596c',
     textMuted: '#a5a3ae',
     borderColor: '#dbdade'
