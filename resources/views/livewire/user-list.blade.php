@@ -68,7 +68,7 @@
             <div class="col-12 col-md-6">
               <label class="form-label" for="Email">Email</label>
               <input type="text" wire:model="email" id="email" name="email" class="form-control" placeholder="example@domain.com" />
-              <span class="text-danger">@error('name') {{ $message }} @enderror</span>
+              <span class="text-danger">@error('email') {{ $message }} @enderror</span>
             </div>
             
             <div class="col-12 col-md-6">
