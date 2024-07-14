@@ -1,5 +1,10 @@
+    @vite([
+        'resources/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.scss',
+        'resources/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.scss',
+        'resources/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js',
+        'resources/assets/js/tables-datatables-advanced.js'
+    ])
 <div class="card">
-    @vite(['resources/assets/js/tables-datatables-advanced.js'])
 
     <h5 class="card-header">Responsive Datatable</h5>
     <div class="card-datatable table-responsive">
