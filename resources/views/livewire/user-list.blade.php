@@ -62,15 +62,20 @@
             <div class="col-12">
               <label class="form-label" for="Name">Name</label>
               <input type="text" wire:model="name" id="name" name="Name" class="form-control" placeholder="user name" />
+              <span class="text-danger">@error('name') {{ $message }} @enderror</span>
             </div>
+        
             <div class="col-12 col-md-6">
               <label class="form-label" for="Email">Email</label>
               <input type="text" wire:model="email" id="email" name="email" class="form-control" placeholder="example@domain.com" />
+              <span class="text-danger">@error('name') {{ $message }} @enderror</span>
             </div>
+            
             <div class="col-12 col-md-6">
               <label class="form-label" for="Password">Password</label>
               <input type="password" wire:model="password" id="password" name="email" class="form-control" />
             </div>
+
             <div class="col-12 col-md-6">
               <label class="form-label" for="Status">Status</label>
               <select id="Status" name="Status" class="select2 form-select" aria-label="Default select example">
@@ -82,7 +87,7 @@
             </div>
             
             <div class="col-12 col-md-6">
-              <label class="form-label" for="modalEditUserPhone">Phone Number</label>
+              <label class="form-label" for="UserPhone">Phone Number</label>
               <div class="input-group">
                 <span class="input-group-text">US (+1)</span>
                 <input type="text" id="modalEditUserPhone" name="modalEditUserPhone" class="form-control phone-number-mask" placeholder="202 555 0111" />

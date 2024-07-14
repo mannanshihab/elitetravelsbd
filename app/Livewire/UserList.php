@@ -42,7 +42,7 @@ class UserList extends Component
     {
         $this->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email'    => 'required|email|unique:users|max:255',
         ]);
 
         User::create([
