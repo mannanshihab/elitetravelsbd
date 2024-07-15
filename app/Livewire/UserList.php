@@ -8,7 +8,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Title('Users')]
+#[Title('Users List')]
 class UserList extends Component
 {
     use WithPagination; 

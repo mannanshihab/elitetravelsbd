@@ -3,6 +3,7 @@
 use App\Livewire\AddAgents;
 use App\Livewire\AddCustomer;
 use App\Livewire\AddInvoice;
+use App\Livewire\AddUsers;
 use App\Livewire\AddVendors;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
@@ -56,8 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::get('edit-customer/{id}', AddCustomer::class)->name('edit-customer');
     Route::get('list-customer', CustomerList::class)->name('list-customer');
 
-    Route::get('/add-users', UserList::class)->name('add-users');
-    Route::get('/edit-users/{id}', UserList::class)->name('edit-users');
+    Route::get('/add-users', AddUsers::class)->name('add-users');
+    Route::get('/edit-users/{id}', AddUsers::class)->name('edit-users');
     Route::get('/list-users', UserList::class)->name('list-users');
 
     Route::get('add-agent', AddAgents::class)->name('add-agent');
