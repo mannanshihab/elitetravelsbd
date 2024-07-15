@@ -27,7 +27,6 @@
         'resources/assets/vendor/libs/@form-validation/form-validation.scss',
         'resources/assets/vendor/scss/pages/page-auth.scss',
         'resources/assets/vendor/libs/apex-charts/apex-charts.scss',
-        'resources/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.scss',
         'resources/assets/vendor/scss/pages/app-logistics-dashboard.scss',
         'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss',
         'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
