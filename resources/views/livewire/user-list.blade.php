@@ -71,7 +71,7 @@
                               </td>
                           </tr>
                       @empty
-                          <td class="col-span-3">No records found</td>
+                          <td colspan="3">No records found</td>
                       @endforelse
 
                   </tbody>
