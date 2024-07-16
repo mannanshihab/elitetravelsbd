@@ -5,6 +5,7 @@ use App\Livewire\AddCustomer;
 use App\Livewire\AddInvoice;
 use App\Livewire\AddUsers;
 use App\Livewire\AddVendors;
+use App\Livewire\AgentsList;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
@@ -14,6 +15,7 @@ use App\Livewire\Form;
 use App\Livewire\Home;
 use App\Livewire\ProfileSettings;
 use App\Livewire\UserList;
+use App\Livewire\VendorsList;
 use Illuminate\Support\Facades\Route;
 
 
@@ -63,11 +65,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('add-agent', AddAgents::class)->name('add-agent');
     Route::get('edit-agent/{id}', AddAgents::class)->name('edit-agent');
-    Route::get('list-agent', AddAgents::class)->name('list-agent');
+    Route::get('list-agent', AgentsList::class)->name('list-agent');
     
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
     Route::get('edit-vendor/{id}', AddVendors::class)->name('edit-vendor');
-    Route::get('list-vendor', AddVendors::class)->name('list-vendor');
+    Route::get('list-vendor', VendorsList::class)->name('list-vendor');
 
 
     

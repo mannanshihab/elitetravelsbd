@@ -4,11 +4,11 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-#[Title('Add Vendors')]
-class AddVendors extends Component
+#[Title('Agents List')]
+class AgentsList extends Component
 {
     public function render()
-    {
-        return view('livewire.add-vendors');
+    {   
+        return view('livewire.agents-list');
     }
 }

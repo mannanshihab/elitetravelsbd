@@ -5,7 +5,9 @@ namespace App\Livewire;
 use App\Models\Customer;
 use Livewire\Component;
 use Illuminate\Contracts\Session\Session;
+use Livewire\Attributes\Title;
 
+#[Title('Add Customer')]
 class AddCustomer extends Component
 {
 

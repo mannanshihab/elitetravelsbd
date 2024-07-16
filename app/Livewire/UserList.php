@@ -11,24 +11,33 @@ use Livewire\WithPagination;
 #[Title('Users List')]
 class UserList extends Component
 {
-    use WithPagination; 
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    public $search = '';
+    public $rows = 10;
+
     public $user_id;
     public $name;
     public $email;
-
+    
     public function render()
     {
-        $users = User::all();
-        return view('livewire.user-list',[
-           'users' =>$users
-        ]);
+        if($this->search){
+            $users = User::where('name', 'like', '%'.$this->search.'%')
+            ->orWhere('email', 'like', '%'.$this->search.'%')
+            ->orderBy('id', 'desc')->paginate($this->rows);
+            
+        }else{
+            $users = User::orderBy('id', 'desc')->paginate($this->rows);
+        }
+        return view('livewire.user-list', ['users' =>$users]);
+        
     }
 
     public function delete($id)
     {
         User::find($id)->delete();
         Session::flash('success', 'User deleted successfully.');
-        $this->reset('name','email');
     }
 
 }

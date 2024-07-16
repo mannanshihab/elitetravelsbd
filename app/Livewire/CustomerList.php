@@ -4,8 +4,9 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Customer;
+use Livewire\Attributes\Title;
 use Livewire\WithPagination;
-
+#[Title('Customer List')]
 class CustomerList extends Component
 {
     
