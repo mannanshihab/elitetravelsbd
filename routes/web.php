@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/asdf', function () {
-    return view('content.tables.tables-datatables-advanced');
+    return view('content.tables.tables-basic');
 });
 
 
