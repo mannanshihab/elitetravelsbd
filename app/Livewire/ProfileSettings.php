@@ -22,6 +22,14 @@ class ProfileSettings extends Component
     public $password_confirmation;
     public $photo;
 
+
+
+    public function mount()
+    {
+        $this->name = auth()->user()->name;
+        $this->email = auth()->user()->email;
+    }
+
     public function update()
     {
         $this->validate([
@@ -30,7 +38,7 @@ class ProfileSettings extends Component
         ]);
 
 
-        if ($this->old_password) {
+        if ($this->old_password && $this->password) {
             $password = $this->validate([
                 'old_password' => 'required',
                 'password' => 'required|confirmed|min:6',
@@ -54,16 +62,17 @@ class ProfileSettings extends Component
 
     function updatedPhoto()
     {
+
         $this->validate([
             'photo' => 'image|max:1024', // 1MB Max
         ]);
 
-        $user = User::find(auth()->user()->id);
-        $user->update([
-            'photo' => $this->photo->storePublicly('photos', 'public'),
+        $upload = $this->photo->store('uploads', 'real_public');
+        $user = User::where('id', auth()->user()->id)->update([
+            'photo' => $upload
         ]);
 
-        Session::flash('success', 'Photo updated successfully');
+        return redirect()->back()->with('success', 'Photo updated successfully');
     }
 
     public function render()

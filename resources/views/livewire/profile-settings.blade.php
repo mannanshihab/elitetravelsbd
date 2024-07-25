@@ -13,11 +13,14 @@
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
 
                         @if ($photo)
-                            <img src="{{ $photo }}" alt="user-avatar"
-                                class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar" />
+                            <img src="{{ $photo->temporaryUrl() }}" alt="user-avatar"
+                                class="d-block w-px-100 h-px-100 rounded avatar" id="uploadedAvatar" />
+                        @elseif (auth()->user()->photo)
+                            <img src="{{ asset(auth()->user()->photo) }}" alt="user-avatar"
+                                class="d-block w-px-100 h-px-100 rounded avatar" id="uploadedAvatar" />
                         @else
                             <img src="{{ asset('assets/img/avatars/14.png') }}" alt="user-avatar"
-                                class="d-block w-px-100 h-px-100 rounded" id="uploadedAvatar" />
+                                class="d-block w-px-100 h-px-100 rounded avatar" id="uploadedAvatar" />
                         @endif
 
                         <div class="button-wrapper">
@@ -37,7 +40,7 @@
 
                     @include('livewire.partials.flash-session')
 
-                    <form wire:submit.prevent="update" id="formAccountSettings" enctype="multipart/form-data">
+                    <form wire:submit.prevent="update" id="formAccountSettings">
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
@@ -100,7 +103,7 @@
 
                         </div>
                         <div class="mt-2">
-                            <button wire:submit.prevent="update" class="btn btn-primary me-2">
+                            <button class="btn btn-primary me-2">
                                 <span wire:loading.remove>Save changes</span>
                                 <span wire:loading>
                                     <div class="spinner-border text-light" role="status">
@@ -108,7 +111,7 @@
                                     </div>
                                 </span>
                             </button>
-                            <a href="/home"class="btn btn-label-secondary">Cancel</a>
+                            <a href="/home"class="btn btn-label-secondary" wire:navigate>Cancel</a>
                         </div>
                     </form>
                 </div>
