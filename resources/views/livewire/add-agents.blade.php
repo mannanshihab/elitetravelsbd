@@ -8,7 +8,7 @@
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-            <h5 class="card-header">Add Agents</h5>
+            <h5 class="card-header">Add Agents information</h5>
             <div class="card-body">
                 <form id="formValidationExamples" wire:submit.prevent="addAgent" class="row g-3">
                     <div class="col-md-6">
@@ -63,16 +63,12 @@
                         <input type="file" class="form-control" id="basic-default-upload-file" required />
                     </div>
                     <div class="col-12">
-                        <h6 class="mt-2">Account Details</h6>
+                        <h6 class="mt-2">Bank Account Details</h6>
                         <hr class="mt-0" />
                     </div>
                     <div class="input-group">
-                        <span class="input-group-text">Bank</span>
-                        <input type="text" aria-label="First name" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-text">More Bank</span>
-                        <input type="text" aria-label="First name" class="form-control">
+                        <span class="input-group-text">Banks</span>
+                        <textarea class="form-control" rows="6" aria-label="With textarea"></textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" name="submitButton" class="btn btn-primary"><span

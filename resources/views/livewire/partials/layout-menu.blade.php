@@ -82,29 +82,6 @@
             </ul>
         </li>
 
-        <!-- Users -->
-        <li class="menu-item" x-bind:class="$current('/users') || $current('/role') ? 'open' : ''">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-users"></i>
-                <div data-i18n="Users">Users</div>
-                <div class="badge bg-primary rounded-pill ms-auto"></div>
-            </a>
-            <ul class="menu-sub">
-
-                <li class="menu-item" x-bind:class="$current('/add-users') ? 'active' : ''">
-                    <a href="{{ route('add-users') }}" wire:navigate class="menu-link">
-                        <div data-i18n="Users">Add User</div>
-                    </a>
-                </li>
-
-                <li class="menu-item" x-bind:class="$current('/list-users') ? 'active' : ''">
-                    <a href="{{ route('list-users') }}" wire:navigate class="menu-link">
-                        <div data-i18n="Users">List Users</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!--/ Users -->
 
         {{-- Agent --}}
         <li class="menu-item" x-bind:class="$current('/agent') || $current('/agent-list') ? 'open' : ''">
@@ -151,6 +128,31 @@
             </ul>
         </li>
 
+
+        <!-- Users -->
+        <li class="menu-item" x-bind:class="$current('/users') || $current('/role') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div data-i18n="Users">Users</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
+            </a>
+            <ul class="menu-sub">
+
+                <li class="menu-item" x-bind:class="$current('/add-users') ? 'active' : ''">
+                    <a href="{{ route('add-users') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Users">Add User</div>
+                    </a>
+                </li>
+
+                <li class="menu-item" x-bind:class="$current('/list-users') ? 'active' : ''">
+                    <a href="{{ route('list-users') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Users">List Users</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!--/ Users -->
+        
         <!-- Misc -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Misc">Misc</span>
