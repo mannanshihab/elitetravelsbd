@@ -7,7 +7,7 @@
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Add Customers</h5>
+                <h5 class="card-header">Add Customers Information</h5>
                 <div class="card-body">
 
                     <form id="formValidationExamples" class="row g-3" wire:submit.prevent="addCustomer">

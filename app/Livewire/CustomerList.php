@@ -15,6 +15,13 @@ class CustomerList extends Component
     public $search = '';
     public $rows = 10;
 
+
+    public function delete($id)
+    {
+        Customer::find($id)->delete();
+        return redirect()->back()->with('success', 'Customer Deleted Successfully');
+    }
+
     public function render()
     {
         if($this->search){

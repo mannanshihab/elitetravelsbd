@@ -61,7 +61,7 @@
         </li>
 
 
-        <li class="menu-item" x-bind:class="$current('/add-customer') || $current('/list-customer') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/add-customer') || $current('/list-customer') || $current('/edit-customer*')  ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Customer">Customers</div>

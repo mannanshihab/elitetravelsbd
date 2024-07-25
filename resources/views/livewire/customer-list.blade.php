@@ -33,8 +33,6 @@
         </div>
 
 
-
-
         <div class="card-body">
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover table-bordered table-striped">
@@ -80,9 +78,11 @@
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                             data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('edit-customer', $customer->id) }}" wire:navigate><i
-                                                    class="ti ti-pencil me-1"></i> Edit</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                            <a class="dropdown-item" href="{{ route('edit-customer', $customer->id) }}"
+                                                wire:navigate><i class="ti ti-pencil me-1"></i> Edit</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"
+                                                wire:click="delete({{ $customer->id }})"
+                                                wire:confirm="Are you sure you want to delete this post?"><i
                                                     class="ti ti-trash me-1"></i> Delete</a>
                                         </div>
                                     </div>

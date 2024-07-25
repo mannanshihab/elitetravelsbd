@@ -1,16 +1,16 @@
 <div>
     <!-- Content -->
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Customers /</span> Add Customer
+        <span class="text-muted fw-light">Customers /</span> Update Customer
     </h4>
     <div class="row">
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">Add Customers</h5>
+                <h5 class="card-header">Update Customers Information</h5>
                 <div class="card-body">
 
-                    <form id="formValidationExamples" class="row g-3" wire:submit.prevent="addCustomer">
+                    <form id="formValidationExamples" class="row g-3" wire:submit.prevent="updateCustomer">
 
                         <!-- Account Details -->
                         <div class="col-12">

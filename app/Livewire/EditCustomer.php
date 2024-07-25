@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class EditCustomer extends Component
 {
-
+    public $id;
     public $name = '';
     public $email = '';
     public $mobile = '';
@@ -15,10 +15,9 @@ class EditCustomer extends Component
     public $source = '';
     public $gender = '';
 
-
-
     public function mount($id)
     {
+        $this->id = $id;
         $this->name = Customer::find($id)->name;
         $this->email = Customer::find($id)->email;
         $this->mobile = Customer::find($id)->mobile;
@@ -26,6 +25,33 @@ class EditCustomer extends Component
         $this->source = Customer::find($id)->source;
         $this->gender = Customer::find($id)->gender;
     }
+
+
+    public function updateCustomer()
+    {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'source' => 'required',
+            'gender' => 'required',
+        ]);
+
+        $customer = Customer::find($this->id);
+        $customer->update([
+            'name' => $this->name,
+            'email' => $this->email,
+            'mobile' => $this->mobile,
+            'address' => $this->address,
+            'source' => $this->source,
+            'gender' => $this->gender,
+        ]);
+
+        return back()->with('success', 'Customer updated successfully');
+    }
+
+    
 
     public function render()
     {
