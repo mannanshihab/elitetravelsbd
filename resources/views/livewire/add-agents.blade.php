@@ -10,12 +10,18 @@
             <div class="card">
             <h5 class="card-header">Add Agents information</h5>
             <div class="card-body">
-                <form id="formValidationExamples" wire:submit.prevent="addAgent" class="row g-3">
+                <form id="formValidationExamples" class="row g-3" wire:submit.prevent="addAgent">
+                    <!--Agents Details -->
+                    <div class="col-12">
+                        <hr class="mt-0" />
+                    </div>
+                    @include('livewire.partials.flash-session')
+
                     <div class="col-md-6">
                         <label class="form-label" for="formValidationName">Company Name</label>
                         <input type="text" wire:model="company_name" id="formValidationName" class="form-control" placeholder="John Doe" name="formValidationName" />
                         {{-- show error --}}
-                        @error('ceo_name')
+                        @error('company_name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -56,11 +62,17 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-upload-file">Trade License No</label>
-                        <input type="file" class="form-control" id="basic-default-upload-file" required />
+                        <input type="file" class="form-control" wire:model="trade_license_no" id="basic-default-upload-file" required />
+                        @error('trade_license_no')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-upload-file">NID No</label>
-                        <input type="file" class="form-control" id="basic-default-upload-file" required />
+                        <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" required />
+                        @error('nid_no')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     {{--  Add Bank Account --}}
                     <div class="col-12">
@@ -70,10 +82,14 @@
                     
                     <div class="input-group">
                         <span class="input-group-text">Banks</span>
-                        <textarea class="form-control" rows="6" aria-label="With textarea"></textarea>
+                        <textarea class="form-control" wire:model="banks_details" rows="6" aria-label="With textarea"></textarea>
+                        @error('banks_details')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     {!! $bankNames !!}
+
                     <button type="button" class="btn btn-primary" wire:click="addBankNameField">
                         <span wire:loading.remove>Add Bank</span>
                         <span wire:loading>

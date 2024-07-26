@@ -44,19 +44,59 @@
                         <tr>
                             <th>Company Name</th>
                             <th>CEO Name</th>
+                            <th>Email</th>
                             <th>Mobile</th>
+                            <th>Address</th>
+                            <th>Trade License</th>
+                            <th>Nid</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td class="text-center" colspan="4">No records found</td>
-                        </tr>
+                        @forelse ($agents as $agent)
+                            <tr>
+                                <td>{{ $agent->company_name }}</td>
+                                <td>{{ $agent->ceo_name }}</td>
+                                <td>{{ $agent->email }}</td>
+                                <td><i class="ti ti-phone ti-md text-danger me-4"></i>
+                                    <span class="fw-medium">{{ $agent->mobile }}</span>
+                                </td>
+                                <td><span>{{ ucwords($agent->address) }}</span></td>
+                                <td>
+                                    <img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
+                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
+                                </td>
+                                <td>
+                                    <img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
+                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                            data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ route('edit-agent', $agent->id) }}"
+                                                wire:navigate><i class="ti ti-pencil me-1"></i> Edit</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"
+                                                wire:click="delete({{ $agent->id }})"
+                                                wire:confirm="Are you sure you want to delete this post?"><i
+                                                    class="ti ti-trash me-1"></i> Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td class="text-center" colspan="4">No records found</td>
+                            </tr>
+                        @endforelse
+                        
                     </tbody>
                 </table>
             </div>
             <br>
-            {{-- {{ $users->links() }} --}}
+            {{ $agents->links() }}
         </div>
         {{--/ End Table List --}}
     </div>
