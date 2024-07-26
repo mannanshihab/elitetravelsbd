@@ -62,17 +62,30 @@
                         <label class="form-label" for="basic-default-upload-file">NID No</label>
                         <input type="file" class="form-control" id="basic-default-upload-file" required />
                     </div>
+                    {{--  Add Bank Account --}}
                     <div class="col-12">
                         <h6 class="mt-2">Bank Account Details</h6>
                         <hr class="mt-0" />
                     </div>
+                    
                     <div class="input-group">
                         <span class="input-group-text">Banks</span>
                         <textarea class="form-control" rows="6" aria-label="With textarea"></textarea>
                     </div>
+
+                    {!! $bankNames !!}
+                    <button type="button" class="btn btn-primary" wire:click="addBankNameField">
+                        <span wire:loading.remove>Add Bank</span>
+                        <span wire:loading>
+                            <div class="spinner-border text-light" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </span>
+                    </button>
+                    {{--  Add Bank Account --}}
                     <div class="col-12">
-                        <button type="submit" name="submitButton" class="btn btn-primary"><span
-                            wire:loading.remove>Submit</span>
+                        <button type="submit" name="submitButton" class="btn btn-primary">
+                            <span wire:loading.remove>Submit</span>
                             <span wire:loading>
                                 <div class="spinner-border text-light" role="status">
                                     <span class="visually-hidden">Loading...</span>
