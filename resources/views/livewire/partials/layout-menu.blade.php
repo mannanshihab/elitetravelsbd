@@ -107,7 +107,7 @@
 
 
         {{-- vendor --}}
-        <li class="menu-item" x-bind:class="$current('/vendor') || $current('/vendor-list') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/vendor') || $current('/vendor-list') || $current('/edit-vendor*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Vendor">Vendor</div>
@@ -120,7 +120,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-vendor') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/list-vendor') || $current('/edit-vendor*') ? 'active' : ''">
                     <a href="{{ route('list-vendor') }}" wire:navigate class="menu-link">
                         <div data-i18n="Vendor">List Vendor</div>
                     </a>

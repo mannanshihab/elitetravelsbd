@@ -6,7 +6,7 @@
 
     <div class="card">
 
-        <h5 class="card-header pb-0">Customer list</h5>
+        <h5 class="card-header pb-0">Customers list</h5>
 
         <div class="row">
             <div class="col-md-6 d-flex justify-content-start">
