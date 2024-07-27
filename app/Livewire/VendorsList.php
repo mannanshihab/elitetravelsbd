@@ -18,7 +18,7 @@ class VendorsList extends Component
     public function render()
     {
         if($this->search){
-            $agents = Vendor::where('vendor_name', 'like', '%'.$this->search.'%')
+            $vendors = Vendor::where('vendor_name', 'like', '%'.$this->search.'%')
             ->orWhere('mobile', 'like', '%'.$this->search.'%')
             ->orWhere('address', 'like', '%'.$this->search.'%')
             ->orderBy('id', 'desc')->paginate($this->rows);

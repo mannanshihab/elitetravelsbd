@@ -84,7 +84,7 @@
                 </table>
             </div>
             <br>
-            
+            {{ $vendors->links() }}
         </div>
         {{--/ End Table List --}}
     </div>
