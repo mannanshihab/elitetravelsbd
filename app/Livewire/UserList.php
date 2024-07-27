@@ -37,7 +37,11 @@ class UserList extends Component
     public function delete($id)
     {
         User::find($id)->delete();
-        Session::flash('success', 'User deleted successfully.');
+        $this->dispatch('swal', [
+            'title' => 'User Deleted Successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
 }
