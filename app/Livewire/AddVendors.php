@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Vendor;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+
 #[Title('Add Vendors')]
 class AddVendors extends Component
 {
@@ -14,14 +15,15 @@ class AddVendors extends Component
     public $vendor_type = '';
     public $account_details = '';
 
-    public function addVendors(){
-       $this->validate([
+    public function addVendors()
+    {
+        $this->validate([
             'vendor_name'   => 'required',
             'mobile'        => 'required',
             'address'       => 'required',
             'vendor_type'   => 'required',
             'account_details' => 'required',
-       ]);
+        ]);
 
         Vendor::insert([
             'vendor_name'   => $this->vendor_name,
@@ -31,8 +33,10 @@ class AddVendors extends Component
             'account_details' => $this->account_details
         ]);
 
-    return back()->with('success', 'Vendor added successfully');
-
+        $this->dispatch('swal', [
+            'title' => 'Vendor added successfully.',
+            'icon' => 'success',
+        ]);
     }
     public function render()
     {

@@ -45,11 +45,12 @@ class ProfileSettings extends Component
             ]);
 
             if (!Hash::check($this->old_password, auth()->user()->password)) {
-
                 $this->dispatch('swal', [
                     'title' => 'The old password is incorrect.',
                     'icon' => 'error',
                 ]);
+
+                return;
             }
         }
 

@@ -33,6 +33,10 @@ class VendorsList extends Component
     public function delete($id)
     {
         Vendor::find($id)->delete();
-        return redirect()->back()->with('success', 'Vendor Deleted Successfully');
+        $this->dispatch('swal', [
+            'title' => 'Vendor deleted successfully.',
+            'icon' => 'success',
+        ]);
+        // return redirect()->back()->with('success', 'Vendor Deleted Successfully');
     }
 }

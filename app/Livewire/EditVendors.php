@@ -44,7 +44,10 @@ class EditVendors extends Component
             'account_details' => $this->account_details
         ]);
         
-        return back()->with('success', 'Vendor updated successfully');
+        $this->dispatch('swal', [
+            'title' => 'Vendor updated successfully.',
+            'icon' => 'success',
+        ]);
     }
 
     public function render()
