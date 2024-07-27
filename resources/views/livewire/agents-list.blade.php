@@ -63,12 +63,12 @@
                                 </td>
                                 <td><span>{{ ucwords($agent->address) }}</span></td>
                                 <td>
-                                    <img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
-                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
+                                    <a href="{{ asset($agent->trade_license_no) }}" target="_blank"><img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
+                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
-                                    <img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
-                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
+                                    <a href="{{ asset($agent->trade_license_no) }}" target="_blank"><img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
+                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
                                     <div class="dropdown">

@@ -1,16 +1,16 @@
 <div>
    
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Agents /</span> Add Agents
+        <span class="text-muted fw-light">Agents /</span> Edit Agents
     </h4>
     
     <div class="row">
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-            <h5 class="card-header">Add Agents information</h5>
+            <h5 class="card-header">Update Agents information</h5>
             <div class="card-body">
-                <form id="formValidationExamples" class="row g-3" wire:submit.prevent="addAgent">
+                <form id="formValidationExamples" class="row g-3" wire:submit.prevent="updateAgent">
                     <!--Agents Details -->
                     <div class="col-12">
                         <hr class="mt-0" />
@@ -62,14 +62,14 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-upload-file">Trade License No</label>
-                        <input type="file" class="form-control" wire:model="trade_license_no" id="basic-default-upload-file" required />
+                        <input type="file" class="form-control" wire:model="trade_license_no" id="basic-default-upload-file" />
                         @error('trade_license_no')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-upload-file">NID No</label>
-                        <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" required />
+                        <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" />
                         @error('nid_no')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

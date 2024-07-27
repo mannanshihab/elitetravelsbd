@@ -189,16 +189,15 @@
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
 
-
                                             @if (auth()->user()->photo)
-                                                <img src="{{ asset(auth()->user()->photo) }}" alt
-                                                    class="h-auto rounded-circle" />
+                                                <img src="{{ asset(auth()->user()->photo) }}" alt="user-avatar"
+                                                    class="d-block w-px-100 h-px-100 rounded avatar"
+                                                    id="uploadedAvatar" />
                                             @else
-                                                <img src="{{ asset('assets/img/avatars/14.png') }}" alt
-                                                    class="h-auto rounded-circle" />
+                                                <img src="{{ asset('assets/img/avatars/14.png') }}" alt="user-avatar"
+                                                    class="d-block w-px-100 h-px-100 rounded avatar"
+                                                    id="uploadedAvatar" />
                                             @endif
-
-
 
                                         </div>
                                     </div>

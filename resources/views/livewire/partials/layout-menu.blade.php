@@ -28,11 +28,11 @@
                         <div data-i18n="Home">Home</div>
                     </a>
                 </li>
-                <li class="menu-item" x-bind:class="$current('/form') ? 'active' : ''">
+                {{-- <li class="menu-item" x-bind:class="$current('/form') ? 'active' : ''">
                     <a href="{{ route('form') }}" wire:navigate class="menu-link">
                         <div data-i18n="Academy">Form</div>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
         <!--/ Dashboards -->
@@ -74,7 +74,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-customer') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/list-customer') || $current('/edit-customer*') ? 'active' : ''">
                     <a href="{{ route('list-customer') }}" wire:navigate class="menu-link">
                         <div data-i18n="Customer">List Customer</div>
                     </a>
@@ -84,7 +84,7 @@
 
 
         {{-- Agent --}}
-        <li class="menu-item" x-bind:class="$current('/agent') || $current('/agent-list') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/add-agent') || $current('/list-agent') || $current('/edit-agent*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Agent">Agent</div>
@@ -97,7 +97,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-agent') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/list-agent') || $current('/edit-agent*') ? 'active' : ''">
                     <a href="{{ route('list-agent') }}" wire:navigate class="menu-link">
                         <div data-i18n="Agent">List Agent</div>
                     </a>
