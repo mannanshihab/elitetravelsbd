@@ -1,18 +1,13 @@
 <div>
-
-    @vite(['resources/assets/vendor/libs/select2/select2.scss', 'resources/assets/vendor/libs/tagify/tagify.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/typeahead-js/typeahead.scss'])
-    @vite(['resources/assets/vendor/libs/select2/select2.js', 'resources/assets/vendor/libs/tagify/tagify.js', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/typeahead-js/typeahead.js', 'resources/assets/vendor/libs/bloodhound/bloodhound.js', 'resources/assets/js/forms-selects.js'])
-
     <!-- Content -->
-
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Forms /</span> Validation
+        <span class="text-muted fw-light">Add /</span> Invoice
     </h4>
     <div class="row">
         <!-- FormValidation -->
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header">FormValidation</h5>
+                <h5 class="card-header">Create Invoice</h5>
                 <div class="card-body">
 
                     <form id="formValidationExamples" class="row g-3">
@@ -20,214 +15,248 @@
                         <!-- Account Details -->
 
                         <div class="col-12">
-                            <h6>1. Account Details</h6>
+                            <h6>Client Details</h6>
                             <hr class="mt-0" />
-                        </div>
-
-
-                        <div class="col-md-6 mb-4">
-                            <label for="select2Basic" class="form-label">Basic</label>
-                            <select id="select2Basic" class="select2 form-select form-select-lg">
-                                <option value="asdf">asdf</option>
-                            </select>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationName">Full Name</label>
-                            <input type="text" id="formValidationName" class="form-control" placeholder="John Doe"
-                                name="formValidationName" />
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationEmail">Email</label>
-                            <input class="form-control" type="email" id="formValidationEmail"
-                                name="formValidationEmail" placeholder="john.doe" />
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-password-toggle">
-                                <label class="form-label" for="formValidationPass">Password</label>
-                                <div class="input-group input-group-merge">
-                                    <input class="form-control" type="password" id="formValidationPass"
-                                        name="formValidationPass"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="multicol-password2" />
-                                    <span class="input-group-text cursor-pointer" id="multicol-password2"><i
-                                            class="ti ti-eye-off"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-password-toggle">
-                                <label class="form-label" for="formValidationConfirmPass">Confirm Password</label>
-                                <div class="input-group input-group-merge">
-                                    <input class="form-control" type="password" id="formValidationConfirmPass"
-                                        name="formValidationConfirmPass"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="multicol-confirm-password2" />
-                                    <span class="input-group-text cursor-pointer" id="multicol-confirm-password2"><i
-                                            class="ti ti-eye-off"></i></span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Personal Info -->
-
-                        <div class="col-12">
-                            <h6 class="mt-2">2. Personal Info</h6>
-                            <hr class="mt-0" />
+                            <input type="text" 
+                                   id="formValidationName" 
+                                   class="form-control"
+                                   wire:model="name" 
+                                   placeholder="Type Client Name"
+                                   name="formValidationName" />
+                            <!-- show error Validation-->
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label for="formValidationFile" class="form-label">Profile Pic</label>
-                            <input class="form-control" type="file" id="formValidationFile"
-                                name="formValidationFile">
+                            <label class="form-label" for="formValidationPassportNo">Passport No</label>
+                            <input type="text" 
+                                   id="formValidationPassportNo" 
+                                   class="form-control"
+                                   wire:model="passport_no" 
+                                   placeholder="Type Passport No"
+                                   name="formValidationPassportNo" />
+                            <!-- show error Validation-->
+                            @error('PassportNo')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
+                       
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationDob">DOB</label>
-                            <input type="text" class="form-control flatpickr-validation" name="formValidationDob"
-                                id="formValidationDob" required />
+                            <input type="date" 
+                                    class="form-control flatpickr-validation" 
+                                    name="formValidationDob"
+                                    wire:model="dob"
+                                    id="formValidationDob" required />
+                            <!-- show error Validation-->
+                            @error('dob')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationSelect2">Country</label>
-                            <select id="formValidationSelect2" name="formValidationSelect2" class="form-select select2"
-                                data-allow-clear="true">
-                                <option value="">Select</option>
-                                <option value="Australia">Australia</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="Belarus">Belarus</option>
-                                <option value="Brazil">Brazil</option>
-                                <option value="Canada">Canada</option>
-                                <option value="China">China</option>
-                                <option value="France">France</option>
-                                <option value="Germany">Germany</option>
-                                <option value="India">India</option>
-                                <option value="Indonesia">Indonesia</option>
-                                <option value="Israel">Israel</option>
-                                <option value="Italy">Italy</option>
-                                <option value="Japan">Japan</option>
-                                <option value="Korea">Korea, Republic of</option>
-                                <option value="Mexico">Mexico</option>
-                                <option value="Philippines">Philippines</option>
-                                <option value="Russia">Russian Federation</option>
-                                <option value="South Africa">South Africa</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Turkey">Turkey</option>
-                                <option value="Ukraine">Ukraine</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
+                            <label class="form-label" for="Web FIle No">Web FIle No</label>
+                            <input type="text" 
+                                   id="formValidationWebFIleNo" 
+                                   class="form-control"
+                                   wire:model="web_fIle_no" 
+                                   placeholder="Type Web FIle No"
+                                   name="formValidationWebFIleNo" />
+                            <!-- show error Validation-->
+                            @error('web_fIle_no')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="TokenNo">Token No</label>
+                            <input type="text" 
+                                   id="formValidationTokenNo" 
+                                   class="form-control"
+                                   wire:model="token_no" 
+                                   placeholder="Type Token No"
+                                   name="formValidationTokenNo" />
+                            <!-- show error Validation-->
+                            @error('web_fIle_no')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="Member Id">Member Id</label>
+                            <input type="text" 
+                                   id="formValidationMemberId" 
+                                   class="form-control"
+                                   wire:model="member_id" 
+                                   placeholder="Type MemberId"
+                                   name="formValidationMemberId" />
+                            <!-- show error Validation-->
+                            @error('member_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        
+                        <div class="col-md-6">
+                            <label class="form-label" for="formValidationGender">Work Type</label>
+                            <select id="formValidationWorkType" 
+                                    class="form-select" wire:model="work_type"
+                                    name="formValidationWorkType">
+                                <option value="">Select Work Type</option>
+                                <option value="VISA">VISA</option>
+                                <option value="AIR Ticket">AIR Ticket</option>
+                                <option value="Tour Packege">Tour Packege</option>
                             </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationLang">Languages</label>
-                            <input type="text" value="" class="form-control" name="formValidationLang"
-                                id="formValidationLang" />
+                            {{-- show error --}}
+                            @error('work_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationTech">Tech</label>
-                            <input class="form-control typeahead" type="text" id="formValidationTech"
-                                name="formValidationTech" autocomplete="off" />
+                            <label class="form-label" for="Member Id">Refer Agent</label>
+                            <input type="text" 
+                                   id="formValidationReferAgent" 
+                                   class="form-control"
+                                   wire:model="ReferAgent" 
+                                   placeholder="Type Refer Agent"
+                                   name="formValidationReferAgent" />
+                            <!-- show error Validation-->
+                            @error('refer_agent')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
+
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationHobbies">Hobbies</label>
-                            <select class="selectpicker hobbies-select w-100" id="formValidationHobbies"
-                                data-style="btn-default" data-icon-base="ti" data-tick-icon="ti-check text-white"
-                                name="formValidationHobbies" multiple>
-                                <option>Sports</option>
-                                <option>Movies</option>
-                                <option>Books</option>
+                            <label class="form-label" for="RCV Date">RCV Date</label>
+                            <input type="date" 
+                                   id="formValidationRCVDate" 
+                                   class="form-control"
+                                   wire:model="RCV_date" 
+                                   min="{{ date('Y-m-d') }}"
+                                   name="formValidationRCVDate" />
+                            <!-- show error Validation-->
+                            @error('RCV_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="formValidationGender">File Status</label>
+                            <select id="formValidationWorkType" 
+                                    class="form-select" wire:model="file_status"
+                                    name="formValidationWorkType">
+                                <option value="Pending">Pending</option>
+                                <option value="Complete">Complete</option>
+                                <option value="Cancel">Cancel</option>
                             </select>
+                            {{-- show error --}}
+                            @error('file_status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationBio">Bio</label>
-                            <textarea class="form-control" id="formValidationBio" name="formValidationBio" rows="3"></textarea>
+                            <label class="form-label" for="Delivery Date">Delivery Date</label>
+                            <input type="date" 
+                                   id="formValidationDeliveryDate" 
+                                   class="form-control"
+                                   wire:model="delivery_date" 
+                                   min="{{ date('Y-m-d') }}"
+                                   name="formValidationDeliveryDate" />
+                            <!-- show error Validation-->
+                            @error('delivery_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Gender</label>
-                            <div class="form-check custom mb-2">
-                                <input type="radio" id="formValidationGender" name="formValidationGender"
-                                    class="form-check-input" checked />
-                                <label class="form-check-label" for="formValidationGender">Male</label>
-                            </div>
+                        
+                        <div class="col-md-6"></div>
+                        <br class="mt-5">
 
-                            <div class="form-check custom">
-                                <input type="radio" id="formValidationGender2" name="formValidationGender"
-                                    class="form-check-input" />
-                                <label class="form-check-label" for="formValidationGender2">Female</label>
-                            </div>
-                        </div>
-
-
-                        <!-- Choose Your Plan -->
-
-                        <div class="col-12">
-                            <h6 class="mt-2">3. Choose Your Plan</h6>
-                            <hr class="mt-0" />
-                        </div>
-                        <div class="row gy-3 mt-0">
-                            <div class="col-xl-3 col-md-5 col-sm-6 col-12">
-                                <div class="form-check custom-option custom-option-icon">
-                                    <label class="form-check-label custom-option-content" for="basicPlanMain1">
-                                        <span class="custom-option-body">
-                                            <i class="ti ti-brand-telegram"></i>
-                                            <span class="custom-option-title"> Starter </span>
-                                            <small> Get 5gb of space and 1 team member. </small>
-                                        </span>
-                                        <input name="formValidationPlan" class="form-check-input" type="radio"
-                                            value="" id="basicPlanMain1" checked />
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-5 col-sm-6 col-12">
-                                <div class="form-check custom-option custom-option-icon">
-                                    <label class="form-check-label custom-option-content" for="basicPlanMain2">
-                                        <span class="custom-option-body">
-                                            <i class="ti ti-users"></i>
-                                            <span class="custom-option-title"> Personal </span>
-                                            <small> Get 15gb of space and 5 team member. </small>
-                                        </span>
-                                        <input name="formValidationPlan" class="form-check-input" type="radio"
-                                            value="" id="basicPlanMain2" />
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-5 col-sm-6 col-12">
-                                <div class="form-check custom-option custom-option-icon">
-                                    <label class="form-check-label custom-option-content" for="basicPlanMain3">
-                                        <span class="custom-option-body">
-                                            <i class="ti ti-crown"></i>
-                                            <span class="custom-option-title"> Premium </span>
-                                            <small> Get 25gb of space and 15 members. </small>
-                                        </span>
-                                        <input name="formValidationPlan" class="form-check-input" type="radio"
-                                            value="" id="basicPlanMain3" />
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="col-md-3">
+                            <label class="form-label" for="Amount">Amount</label>
+                            <input type="number" 
+                                   id="formValidationAmount" 
+                                   class="form-control"
+                                   wire:model="amount"
+                                   name="formValidationAmount" />
+                            <!-- show error Validation-->
+                            @error('amount')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
-                        <div class="col-12">
-                            <label class="switch switch-primary">
-                                <input type="checkbox" class="switch-input" name="formValidationSwitch" />
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label">Send me related emails</span>
-                            </label>
+                        <div class="col-md-3">
+                            <label class="form-label" for="Qty">Qty</label>
+                            <input type="number" 
+                                   id="formValidationQty" 
+                                   class="form-control"
+                                   wire:model="Qty" 
+                                   name="formValidationQty" />
+                            <!-- show error Validation-->
+                            @error('amount')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="formValidationCheckbox"
-                                    name="formValidationCheckbox" />
-                                <label class="form-check-label" for="formValidationCheckbox">Agree to our terms and
-                                    conditions</label>
-                            </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="Total">Total</label>
+                            <input type="number" 
+                                   id="formValidationTotal" 
+                                   class="form-control"
+                                   wire:model="total" 
+                                   name="formValidationTotal" />
+                            <!-- show error Validation-->
+                            @error('total')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="Costing">Costing</label>
+                            <input type="number" 
+                                   id="formValidationCosting" 
+                                   class="form-control"
+                                   wire:model="costing" 
+                                   name="formValidationCosting" />
+                            <!-- show error Validation-->
+                            @error('costing')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="VisaFee">Visa Fee</label>
+                            <input type="number" 
+                                   id="formValidationVisaFee" 
+                                   class="form-control"
+                                   wire:model="visa_fee" 
+                                   name="formValidationVisaFee" />
+                            <!-- show error Validation-->
+                            @error('visa_fee')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label" for="Service Charge">Service Charge</label>
+                            <input type="number" 
+                                   id="formValidationServiceCharge" 
+                                   class="form-control"
+                                   wire:model="service_charge" 
+                                   name="formValidationService Charge" />
+                            <!-- show error Validation-->
+                            @error('service_charge')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-12">
                             <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
                         </div>
