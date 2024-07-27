@@ -13,6 +13,7 @@ use App\Livewire\Auth\ResetPassword;
 use App\Livewire\CustomerList;
 use App\Livewire\EditAgents;
 use App\Livewire\EditCustomer;
+use App\Livewire\EditVendors;
 use App\Livewire\Form;
 use App\Livewire\Home;
 use App\Livewire\ProfileSettings;
@@ -70,11 +71,9 @@ Route::middleware('auth')->group(function () {
     Route::get('list-agent', AgentsList::class)->name('list-agent');
     
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
-    Route::get('edit-vendor/{id}', AddVendors::class)->name('edit-vendor');
+    Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
 
-
-    
 });
 
 /* Route::get('/test', function(){

@@ -38,6 +38,7 @@
   
         {{-- Table List --}}
         <div class="card-body">
+            @include('livewire.partials.flash-session')
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
@@ -88,7 +89,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td class="text-center" colspan="4">No records found</td>
+                                <td class="text-center" colspan="8">No records found</td>
                             </tr>
                         @endforelse
                         

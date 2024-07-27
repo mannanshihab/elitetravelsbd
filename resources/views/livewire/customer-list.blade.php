@@ -34,6 +34,7 @@
 
 
         <div class="card-body">
+            @include('livewire.partials.flash-session')
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover table-bordered table-striped">
                     <thead>

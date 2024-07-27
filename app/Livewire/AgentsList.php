@@ -33,6 +33,6 @@ class AgentsList extends Component
     public function delete($id)
     {
         Agent::find($id)->delete();
-        return redirect()->back()->with('success', 'Customer Deleted Successfully');
+        return redirect()->back()->with('success', 'Agents Deleted Successfully');
     }
 }

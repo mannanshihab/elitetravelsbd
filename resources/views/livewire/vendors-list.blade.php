@@ -35,23 +35,51 @@
             {{--End Search --}}
         </div>
         {{--/ table header --}}
-  
+        
         {{-- Table List --}}
         <div class="card-body">
+            @include('livewire.partials.flash-session')
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Vendors Name</th>
-                            <th>CEO Name</th>
                             <th>Mobile</th>
+                            <th>Address</th>
+                            <th>Vendor Type</th>
+                            <th>Account Details</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        @forelse ($vendors as $vendor)
                         <tr>
-                            <td class="text-center" colspan="4">No records found</td>
+                            <td>{{ $vendor->vendor_name }}</td>
+                            <td>{{ $vendor->mobile }}</td>
+                            <td>{{ $vendor->address }}</td>
+                            <td>{{ $vendor->vendor_type }}</td>
+                            <td>{{ $vendor->account_details }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('edit-vendor', $vendor->id) }}"
+                                            wire:navigate><i class="ti ti-pencil me-1"></i> Edit</a>
+                                        <a class="dropdown-item" href="javascript:void(0);"
+                                            wire:click="delete({{ $vendor->id }})"
+                                            wire:confirm="Are you sure you want to delete this post?"><i
+                                                class="ti ti-trash me-1"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td class="text-center" colspan="6">No records found</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
