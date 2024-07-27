@@ -62,7 +62,12 @@ class EditAgents extends Component
         }
         $agent->save();
 
-        return redirect('list-agent')->with('success', 'Agent updated successfully');
+
+        $this->dispatch('swal', [
+            'title' => 'Agent updated successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
 

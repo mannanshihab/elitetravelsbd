@@ -45,7 +45,11 @@ class ProfileSettings extends Component
             ]);
 
             if (!Hash::check($this->old_password, auth()->user()->password)) {
-                return redirect()->back()->with('error', 'The old password is incorrect');
+
+                $this->dispatch('swal', [
+                    'title' => 'The old password is incorrect.',
+                    'icon' => 'error',
+                ]);
             }
         }
 
@@ -56,7 +60,10 @@ class ProfileSettings extends Component
         ]);
 
 
-        return redirect()->back()->with('success', 'Profile updated successfully');
+        $this->dispatch('swal', [
+            'title' => 'Profile updated successfully.',
+            'icon' => 'success',
+        ]);
     }
 
 
@@ -72,7 +79,10 @@ class ProfileSettings extends Component
             'photo' => $upload
         ]);
 
-        return redirect()->back()->with('success', 'Photo updated successfully');
+        $this->dispatch('swal', [
+            'title' => 'Photo updated successfully.',
+            'icon' => 'success',
+        ]);
     }
 
     public function render()

@@ -39,9 +39,14 @@ class AddCustomer extends Component
             'gender' => $this->gender
         ]);
 
-        return back()->with('success', 'Customer added successfully');
+
+        $this->dispatch('swal', [
+            'title' => 'Customer added successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
-    
+
     public function render()
     {
         return view('livewire.add-customer');

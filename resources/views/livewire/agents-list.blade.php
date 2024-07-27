@@ -57,9 +57,9 @@
                             <tr>
                                 <td>{{ $agent->company_name }}</td>
                                 <td>{{ $agent->ceo_name }}</td>
-                                <td>{{ $agent->email }}</td>
+                                <td><a href="mailto:{{ $agent->email }}">{{ $agent->email }}</a></td>
                                 <td><i class="ti ti-phone ti-md text-danger me-4"></i>
-                                    <span class="fw-medium">{{ $agent->mobile }}</span>
+                                    <span class="fw-medium"><a href="tel:{{ $agent->mobile }}">{{ $agent->mobile }}</a></span>
                                 </td>
                                 <td><span>{{ ucwords($agent->address) }}</span></td>
                                 <td>
@@ -67,7 +67,7 @@
                                     class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
-                                    <a href="{{ asset($agent->trade_license_no) }}" target="_blank"><img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
+                                    <a href="{{ asset($agent->nid_no) }}" target="_blank"><img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
                                     class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>

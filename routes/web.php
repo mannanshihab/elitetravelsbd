@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/asdf', function () {
-    return view('content.tables.tables-basic');
+    return view('content.laravel-example.user-management');
 });
 
 

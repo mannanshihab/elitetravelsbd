@@ -30,7 +30,7 @@
         'resources/assets/vendor/scss/pages/app-logistics-dashboard.scss',
         'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss',
         'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
-        'resources/assets/vendor/js/bootstrap.js',	
+        'resources/assets/vendor/js/bootstrap.js',
         'resources/assets/vendor/libs/jquery/jquery.js',
         'resources/assets/vendor/libs/popper/popper.js',
         'resources/assets/vendor/libs/node-waves/node-waves.js',
@@ -46,7 +46,6 @@
         'resources/assets/js/pages-auth.js',
         'resources/assets/vendor/libs/cleavejs/cleave.js',
         'resources/assets/vendor/libs/cleavejs/cleave-phone.js',
-        'resources/assets/vendor/libs/sweetalert2/sweetalert2.js',
         'resources/assets/vendor/libs/apex-charts/apexcharts.js',
         'resources/assets/js/main.js',
         // 'resources/assets/js/app-logistics-dashboard.js',
@@ -127,7 +126,12 @@
                     state.path) === strip(expected)
             })
         })
+        
     </script>
+
+    
+
+
     @livewireScripts
 </body>
 

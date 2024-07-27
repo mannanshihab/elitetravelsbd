@@ -30,7 +30,11 @@ class AddUsers extends Component
             'password' => Hash::make($this->password)           
         ]);
 
-        return back()->with('success', 'User Created successfully');
+        $this->dispatch('swal', [
+            'title' => 'User Created successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
     public function render()

@@ -46,7 +46,12 @@ class AddAgents extends Component
             'banks_details'     => $this->banks_details
         ]);
 
-        return back()->with('success', 'Agent added successfully');
+
+        $this->dispatch('swal', [
+            'title' => 'Agent added successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
     public function render()

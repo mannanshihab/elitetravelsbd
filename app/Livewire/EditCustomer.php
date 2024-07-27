@@ -48,7 +48,12 @@ class EditCustomer extends Component
             'gender' => $this->gender,
         ]);
 
-        return back()->with('success', 'Customer updated successfully');
+        
+        $this->dispatch('swal', [
+            'title' => 'Customer updated successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
     

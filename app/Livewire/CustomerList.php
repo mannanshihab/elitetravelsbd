@@ -19,7 +19,12 @@ class CustomerList extends Component
     public function delete($id)
     {
         Customer::find($id)->delete();
-        return redirect()->back()->with('success', 'Customer Deleted Successfully');
+
+        $this->dispatch('swal', [
+            'title' => 'Customer Deleted Successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
     }
 
     public function render()
