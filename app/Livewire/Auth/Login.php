@@ -20,7 +20,10 @@ class Login extends Component
         ]);
 
         if(!auth()->attempt(['email' => $this->email, 'password' => $this->password])){
-            Session::flash('error', 'Invalidate Credentials');
+            $this->dispatch('swal', [
+                'title' => 'Invalidate Credentials.',
+                'icon' => 'error',
+            ]);
             return;
         }
 

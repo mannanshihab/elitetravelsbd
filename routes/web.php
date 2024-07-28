@@ -44,12 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', ProfileSettings::class)->name('profile');
     Route::get('/home', Home::class)->name('home');
 
-
-
     Route::get('invoice', AddInvoice::class)->name('invoice');
     Route::get('invoice-list', InvoiceList::class)->name('invoice-list');
-
-
 
     Route::get('add-customer', AddCustomer::class)->name('add-customer');
     Route::get('edit-customer/{id}', EditCustomer::class)->name('edit-customer');
@@ -66,6 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
     Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
-
 });
 
