@@ -1,4 +1,6 @@
 <div class="authentication-wrapper authentication-cover authentication-bg">
+    @vite(['resources/assets/vendor/scss/pages/page-auth.scss', 'resources/assets/js/pages-auth.js'])
+
     <div class="authentication-inner row">
         <!-- /Left Text -->
         <div class="d-none d-lg-flex col-lg-7 p-0">

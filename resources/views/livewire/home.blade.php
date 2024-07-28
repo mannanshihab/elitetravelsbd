@@ -1,4 +1,14 @@
 <div>
+
+
+    @vite([
+        'resources/assets/vendor/libs/apex-charts/apex-charts.scss',
+        'resources/assets/vendor/scss/pages/app-logistics-dashboard.scss',
+        'resources/assets/vendor/libs/apex-charts/apexcharts.js',
+        'resources/assets/js/app-logistics-dashboard.js',
+    ])
+
+
     <!-- Content -->
         {{-- <livewire:test /> --}}
         <h4 class="py-3 mb-4"><span class="text-muted fw-light">Home /</span> Dashboard</h4>

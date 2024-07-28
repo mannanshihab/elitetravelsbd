@@ -23,11 +23,6 @@ use App\Livewire\VendorsList;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/asdf', function () {
-    return view('content.laravel-example.user-management');
-});
-
-
 
 Route::middleware('guest')->group(function () {
     Route::get('/', Login::class)->name('login');
@@ -62,5 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
     Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
+
+
+
 });
 

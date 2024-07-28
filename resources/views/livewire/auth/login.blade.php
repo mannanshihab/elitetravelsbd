@@ -1,10 +1,13 @@
 <div>
+    @vite(['resources/assets/vendor/scss/pages/page-auth.scss', 'resources/assets/js/pages-auth.js'])
+
     <div class="authentication-wrapper authentication-cover authentication-bg">
         <div class="authentication-inner row">
             <!-- /Left Text -->
             <div class="d-none d-lg-flex col-lg-7 p-0">
                 <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('images/travels.png') }}" alt="auth-login-cover" class="img-fluid my-5 auth-illustration"/>
+                    <img src="{{ asset('images/travels.png') }}" alt="auth-login-cover"
+                        class="img-fluid my-5 auth-illustration" />
                 </div>
             </div>
             <!-- /Left Text -->
@@ -14,7 +17,8 @@
                 <div class="w-px-400 mx-auto">
                     <!-- Logo -->
                     <div class="app-brand mb-4">
-                        <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="auth-login-cover" class="img-fluid">
+                        <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="auth-login-cover"
+                            class="img-fluid">
                     </div>
                     <!-- /Logo -->
                     <h3 class="mb-1">Welcome to Elite Travels! 👋</h3>
@@ -22,7 +26,7 @@
 
                     <form wire:submit.prevent='save' class="mb-3">
                         <!-- flash message -->
-                            @include('livewire.partials.flash-session')
+                        @include('livewire.partials.flash-session')
                         <!-- /flash message -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -58,9 +62,9 @@
                         <button type="submit" class="btn btn-primary d-grid w-100">
                             <span wire:loading.remove>Sign in</span>
                             <span wire:loading>
-                              <div class="spinner-border text-light" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                              </div>
+                                <div class="spinner-border text-light" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
                             </span>
                         </button>
                     </form>
