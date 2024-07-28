@@ -4,9 +4,10 @@ namespace App\Livewire;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+#[Title('Edit Agents')]
 class EditAgents extends Component
 {
 

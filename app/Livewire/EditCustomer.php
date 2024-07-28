@@ -3,8 +3,9 @@
 namespace App\Livewire;
 
 use App\Models\Customer;
+use Livewire\Attributes\Title;
 use Livewire\Component;
-
+#[Title('Edit Customer')]
 class EditCustomer extends Component
 {
     public $id;

@@ -34,13 +34,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', Register::class);
     Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
     Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
-    
-    Route::get('/test', function(){
-        //return view('content.apps.app-logistics-dashboard');
-        //return view('content.laravel-example.user-management');
-        //return view('content.cards.cards-actions');
-        //return view('content.modal.modal-examples');
-    });
 });
 
 
@@ -50,7 +43,6 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/profile', ProfileSettings::class)->name('profile');
     Route::get('/home', Home::class)->name('home');
-    Route::get('/form', Form::class)->name('form');
 
 
 
@@ -77,6 +69,3 @@ Route::middleware('auth')->group(function () {
 
 });
 
-/* Route::get('/test', function(){
-    return view('content.apps.app-logistics-dashboard');
-}); */

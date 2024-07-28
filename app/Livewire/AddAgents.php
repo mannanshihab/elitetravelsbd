@@ -25,7 +25,7 @@ class AddAgents extends Component
         $this->validate([
             'company_name' => 'required',
             'ceo_name'     => 'required',
-            'email'        => 'required|unique:customers',
+            'email'        => 'required|unique:agents',
             'mobile'       => 'required',
             'address'      => 'required',
             'trade_license_no' => 'required|image',
