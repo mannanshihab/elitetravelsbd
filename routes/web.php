@@ -2,6 +2,7 @@
 
 use App\Livewire\AddAgents;
 use App\Livewire\AddCustomer;
+use App\Livewire\AddEmployee;
 use App\Livewire\AddInvoice;
 use App\Livewire\AddUsers;
 use App\Livewire\AddVendors;
@@ -13,8 +14,9 @@ use App\Livewire\Auth\ResetPassword;
 use App\Livewire\CustomerList;
 use App\Livewire\EditAgents;
 use App\Livewire\EditCustomer;
+use App\Livewire\EditEmployee;
 use App\Livewire\EditVendors;
-use App\Livewire\Form;
+use App\Livewire\EmployeeList;
 use App\Livewire\Home;
 use App\Livewire\InvoiceList;
 use App\Livewire\ProfileSettings;
@@ -49,6 +51,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-users', AddUsers::class)->name('add-users');
     // Route::get('/edit-users/{id}', AddUsers::class)->name('edit-users');
     Route::get('/list-users', UserList::class)->name('list-users');
+
+    Route::get('/add-employee', AddEmployee::class)->name('add-employee');
+    Route::get('/edit-employee/{id}', EditEmployee::class)->name('edit-employee');
+    Route::get('/list-employees', EmployeeList::class)->name('list-employees');
 
     Route::get('add-agent', AddAgents::class)->name('add-agent');
     Route::get('edit-agent/{id}', EditAgents::class)->name('edit-agent');
