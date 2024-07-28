@@ -1,4 +1,6 @@
 <div>
+
+    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/js/forms-selects.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js', 'resources/assets/js/forms-pickers.js'])
     <!-- Content -->
     <h4 class="py-3 mb-4">
         <span class="text-muted fw-light">Add /</span> Invoice
@@ -15,15 +17,25 @@
                         <!-- Account Details -->
 
                         <div class="col-12">
-                            <h6>Client Details</h6>
+                            <h6>Invoice Information</h6>
                             <hr class="mt-0" />
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationName">Full Name*</label>
-                            <input type="text" id="formValidationName" class="form-control" wire:model="name"
-                                placeholder="Type Client Name" required name="formValidationName" />
-                            <!-- show error Validation-->
+                            <select id="selectpickerLiveSearch" wire:model.defer='customers_search'
+                                class="selectpicker w-100" data-style="btn-default" data-live-search="true"
+                                tabindex="null" data-style="btn-danger">
+                                <option value="">Select Work Type</option>
+                                <option><a href="https://google.com">Google</a></option>
+                                @if (@$customers)
+                                    @foreach ($customers as $customer)
+                                        <option value="{{ $customer->id }}">
+                                            {{ $customer->name . ' - ' . $customer->mobile }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            </select>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -31,9 +43,9 @@
 
 
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationDob">DOB*</label>
-                            <input type="date" class="form-control flatpickr-validation" name="formValidationDob"
-                                wire:model="dob" required id="formValidationDob" required />
+                            <label class="form-label" for="formValidationDob">Date of Birth*</label>
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
+                                class="form-control" required autocomplete="off" />
                             <!-- show error Validation-->
                             @error('dob')
                                 <span class="text-danger">{{ $message }}</span>
@@ -100,11 +112,13 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="Member Id">Refer Agent</label>
-                            <select id="formValidationWorkType" class="form-select select2" wire:model="agent_id"
-                                name="formValidationWorkType" required>
+                            <select id="selectpickerLiveSearch" wire:model='agent_id' class="selectpicker w-100"
+                                data-style="btn-default" data-live-search="true" tabindex="null">
                                 <option value="">Select Work Type</option>
                                 @foreach ($agents as $agent)
-                                <option value="{{$agent->id}}">{{$agent->company_name}}</option>
+                                    <option value="{{ $agent->id }}">
+                                        {{ $agent->company_name . ' - ' . $agent->mobile }}
+                                    </option>
                                 @endforeach
                             </select>
                             <!-- show error Validation-->
@@ -115,8 +129,8 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="RCV Date">RCV Date</label>
-                            <input type="date" id="formValidationRCVDate" class="form-control" wire:model="RCV_date"
-                                min="{{ date('Y-m-d') }}" name="formValidationRCVDate" />
+                            <input type="date" id="formValidationRCVDate" class="form-control"
+                                wire:model="RCV_date" min="{{ date('Y-m-d') }}" name="formValidationRCVDate" />
                             <!-- show error Validation-->
                             @error('RCV_date')
                                 <span class="text-danger">{{ $message }}</span>
@@ -225,3 +239,10 @@
 
     <!-- / Content -->
 </div>
+
+
+@push('scripts')
+    <script>
+        alert(1)
+    </script>
+@endpush

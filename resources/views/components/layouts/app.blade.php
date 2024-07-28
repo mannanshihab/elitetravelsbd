@@ -27,22 +27,6 @@
         'resources/assets/vendor/js/menu.js',
         'resources/assets/vendor/js/helpers.js',
         'resources/assets/js/main.js',
-        // 'resources/assets/vendor/fonts/fontawesome.scss',
-        // 'resources/assets/vendor/fonts/flag-icons.scss',
-        // 'resources/assets/vendor/libs/typeahead-js/typeahead.scss',
-        // 'resources/assets/vendor/libs/node-waves/node-waves.scss',
-        // 'resources/assets/vendor/libs/node-waves/node-waves.js',
-        // 'resources/assets/vendor/libs/@form-validation/form-validation.scss',
-        // 'resources/assets/vendor/libs/hammer/hammer.js',
-        // 'resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.scss',
-        // 'resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js',
-        // 'resources/assets/vendor/js/template-customizer.js',
-        // 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss',
-        // 'resources/assets/vendor/libs/@form-validation/popular.js',
-        // 'resources/assets/vendor/libs/@form-validation/bootstrap5.js',
-        // 'resources/assets/vendor/libs/@form-validation/auto-focus.js',
-        // 'resources/assets/vendor/libs/cleavejs/cleave.js',
-        // 'resources/assets/vendor/libs/cleavejs/cleave-phone.js',
     ])
 
 
@@ -121,8 +105,6 @@
         })
         
     </script>
-
-    
 
 
     @livewireScripts

@@ -3,20 +3,29 @@
 namespace App\Livewire;
 
 use App\Models\Agent;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Models\Customer;
+use Livewire\Attributes\Title;
 #[Title('Add Invoice')]
 class AddInvoice extends Component
 {
 
-    function CustomerData()
+    public $agents;
+    public $customers_search;
+    public $customers = '';
+
+    public function mount()
     {
-        return 'test';
+        $this->customers = Customer::get();
+        $this->agents = Agent::get();
     }
 
     public function render()
     {
-        $agents = Agent::get();
-        return view('livewire.add-invoice', ['agents' => $agents]);
+        if($this->customers_search){
+            dd($this->customers_search);
+            $this->customers = Customer::where('name', 'like', '%'.$this->customers_search.'%')->orWhere('mobile', 'like', '%'.$this->customers_search.'%')->get();
+        }
+        return view('livewire.add-invoice', ['customers' => $this->customers]);
     }
 }
