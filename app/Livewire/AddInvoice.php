@@ -11,8 +11,7 @@ class AddInvoice extends Component
 {
 
     public $agents;
-    public $customers_search;
-    public $customers = '';
+    public $customers;
 
     public function mount()
     {
@@ -22,10 +21,6 @@ class AddInvoice extends Component
 
     public function render()
     {
-        if($this->customers_search){
-            dd($this->customers_search);
-            $this->customers = Customer::where('name', 'like', '%'.$this->customers_search.'%')->orWhere('mobile', 'like', '%'.$this->customers_search.'%')->get();
-        }
-        return view('livewire.add-invoice', ['customers' => $this->customers]);
+        return view('livewire.add-invoice');
     }
 }
