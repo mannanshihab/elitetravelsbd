@@ -63,7 +63,7 @@
 
         <li class="menu-item" x-bind:class="$current('/add-customer') || $current('/list-customer') || $current('/edit-customer*')  ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-users"></i>
+                <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Customer">Customers</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
@@ -86,7 +86,7 @@
         {{-- Agent --}}
         <li class="menu-item" x-bind:class="$current('/add-agent') || $current('/list-agent') || $current('/edit-agent*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-users"></i>
+                <i class="menu-icon tf-icons ti ti-a-b"></i>
                 <div data-i18n="Agent">Agent</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
@@ -109,7 +109,7 @@
         {{-- vendor --}}
         <li class="menu-item" x-bind:class="$current('/vendor') || $current('/vendor-list') || $current('/edit-vendor*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-users"></i>
+                <i class="menu-icon tf-icons ti ti-vector"></i>
                 <div data-i18n="Vendor">Vendor</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
@@ -132,7 +132,7 @@
         <!-- Users -->
         <li class="menu-item" x-bind:class="$current('/users') || $current('/role') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-users"></i>
+                <i class="menu-icon tf-icons ti ti-user-cog"></i>
                 <div data-i18n="Users">Users</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
@@ -155,7 +155,7 @@
         
         <!-- Misc -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text" data-i18n="Misc">Misc</span>
+            <span class="menu-header-text" data-i18n="Misc">Reports</span>
         </li>
         <li class="menu-item">
             <a href="#" target="_blank" class="menu-link">

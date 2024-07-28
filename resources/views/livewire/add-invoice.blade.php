@@ -45,7 +45,7 @@
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationDob">Date of Birth*</label>
                             <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
-                                class="form-control" required autocomplete="off" />
+                                class="form-control bs-datepicker-format" required autocomplete="off" />
                             <!-- show error Validation-->
                             @error('dob')
                                 <span class="text-danger">{{ $message }}</span>
@@ -129,8 +129,8 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="RCV Date">RCV Date</label>
-                            <input type="date" id="formValidationRCVDate" class="form-control"
-                                wire:model="RCV_date" min="{{ date('Y-m-d') }}" name="formValidationRCVDate" />
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY" class="form-control bs-datepicker-format"
+                                wire:model="RCV_date" name="formValidationRCVDate" />
                             <!-- show error Validation-->
                             @error('RCV_date')
                                 <span class="text-danger">{{ $message }}</span>
@@ -153,8 +153,8 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="Delivery Date">Delivery Date</label>
-                            <input type="date" id="formValidationDeliveryDate" class="form-control"
-                                wire:model="delivery_date" min="{{ date('Y-m-d') }}"
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY" class="form-control bs-datepicker-format"
+                                wire:model="delivery_date"
                                 name="formValidationDeliveryDate" />
                             <!-- show error Validation-->
                             @error('delivery_date')

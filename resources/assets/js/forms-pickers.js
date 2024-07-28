@@ -97,7 +97,7 @@ document.addEventListener("livewire:navigated", () => {
         // Bootstrap Datepicker
         // --------------------------------------------------------------------
         var bsDatepickerBasic = $("#bs-datepicker-basic"),
-            bsDatepickerFormat = $("#bs-datepicker-format"),
+            bsDatepickerFormat = $(".bs-datepicker-format"),
             bsDatepickerRange = $("#bs-datepicker-daterange"),
             bsDatepickerDisabledDays = $("#bs-datepicker-disabled-days"),
             bsDatepickerMultidate = $("#bs-datepicker-multidate"),
