@@ -78,10 +78,11 @@
                                         </a><!-- End Edit Button -->
 
                                         <!-- Start Make User Button -->
-                                        <a class="btn rounded-pill btn-icon btn-secondary" href=""
+                                        {{-- <a class="btn rounded-pill btn-icon btn-secondary" href=""
                                             wire:navigate>
                                           <span class="ti ti-eye"></span>
-                                        </a><!-- End User Button -->
+                                        </a> --}}
+                                        <!-- End User Button -->
                                         
                                         <!-- Start Delete Button -->
                                         <a type="button" 

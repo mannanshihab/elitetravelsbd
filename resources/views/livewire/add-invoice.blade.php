@@ -129,8 +129,9 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="RCV Date">RCV Date</label>
-                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY" class="form-control bs-datepicker-format"
-                                wire:model="RCV_date" name="formValidationRCVDate" />
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
+                                class="form-control bs-datepicker-format" wire:model="RCV_date" autocomplete="off"
+                                name="formValidationRCVDate" />
                             <!-- show error Validation-->
                             @error('RCV_date')
                                 <span class="text-danger">{{ $message }}</span>
@@ -153,8 +154,8 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="Delivery Date">Delivery Date</label>
-                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY" class="form-control bs-datepicker-format"
-                                wire:model="delivery_date"
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
+                                class="form-control bs-datepicker-format" wire:model="delivery_date" autocomplete="off"
                                 name="formValidationDeliveryDate" />
                             <!-- show error Validation-->
                             @error('delivery_date')
@@ -239,10 +240,3 @@
 
     <!-- / Content -->
 </div>
-
-
-@push('scripts')
-    <script>
-        alert(1)
-    </script>
-@endpush
