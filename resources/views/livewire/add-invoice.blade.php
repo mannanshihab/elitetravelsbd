@@ -16,10 +16,10 @@
 
                         <!-- Account Details -->
 
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <h6>Invoice Information</h6>
                             <hr class="mt-0" />
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationName">Full Name*</label>

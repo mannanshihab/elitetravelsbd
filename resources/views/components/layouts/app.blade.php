@@ -16,21 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    @vite([
-        'resources/assets/vendor/fonts/tabler-icons.scss',
-        'resources/assets/vendor/scss/rtl/core.scss',
-        'resources/assets/vendor/scss/rtl/theme-default.scss',
-        'resources/assets/css/demo.css',
-        'resources/assets/vendor/js/bootstrap.js',
-        'resources/assets/vendor/libs/jquery/jquery.js',
-        'resources/assets/vendor/libs/popper/popper.js',
-        'resources/assets/js/config.js',
-        'resources/assets/vendor/js/menu.js',
-        'resources/assets/vendor/js/helpers.js',
-        'resources/assets/js/main.js',
-    ])
-
-
+    @vite(['resources/assets/vendor/fonts/tabler-icons.scss', 'resources/assets/vendor/scss/rtl/core.scss', 'resources/assets/vendor/scss/rtl/theme-default.scss', 'resources/assets/css/demo.css', 'resources/assets/vendor/js/bootstrap.js', 'resources/assets/vendor/libs/jquery/jquery.js', 'resources/assets/vendor/libs/popper/popper.js', 'resources/assets/js/config.js', 'resources/assets/vendor/js/menu.js', 'resources/assets/vendor/js/helpers.js', 'resources/assets/js/main.js'])
 
 
     @livewireStyles
@@ -104,7 +90,6 @@
                     state.path) === strip(expected)
             })
         })
-        
     </script>
 
 

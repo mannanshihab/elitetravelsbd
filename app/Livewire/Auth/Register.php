@@ -23,8 +23,8 @@ class Register extends Component
         $this->validate([
             'name' => 'required',  
             'email'    => 'required|email|unique:users|max:255',
-            'password' => 'required|min:8|max:255|confirmed',
-            'password_confirmation' => 'required|min:8|max:255'
+            'password' => 'required|min:6|max:255|confirmed',
+            'password_confirmation' => 'required|min:6|max:255'
         ]);
 
         $user = User::create([
@@ -35,7 +35,7 @@ class Register extends Component
 
         auth()->login($user);
 
-        $this->redirect('/home', navigate: true);
+        $this->redirect('/home');
     }
     public function render()
     {

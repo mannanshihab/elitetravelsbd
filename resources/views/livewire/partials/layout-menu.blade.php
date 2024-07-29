@@ -130,7 +130,7 @@
 
 
         <!-- Employee -->
-        <li class="menu-item" x-bind:class="$current('/employee') || $current('/role') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/add-employee') || $current('/list-employees') || $current('/edit-employees*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user-cog"></i>
                 <div data-i18n="Employees">Employee</div>
@@ -144,7 +144,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-employees') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/list-employees') || $current('/edit-employees*') ? 'active' : ''">
                     <a href="{{ route('list-employees') }}" wire:navigate class="menu-link">
                         <div data-i18n="Users">List Employee</div>
                     </a>

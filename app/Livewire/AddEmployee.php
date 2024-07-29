@@ -15,7 +15,7 @@ class AddEmployee extends Component
     public $name = '';
     public $email = '';
     public $designation = '';
-    public $sallery = '';
+    public $salary = '';
     public $ta_da = '';
     public $mobile = '';
     public $address = '';
@@ -31,12 +31,12 @@ class AddEmployee extends Component
             'name'          => 'required',
             'email'         => 'required|unique:employees',
             'designation'   => 'required',
-            'sallery'       => 'required',
+            'salary'       => 'required',
             'ta_da'         => 'required',
             'mobile'        => 'required',
             'address'       => 'required',
             'nid_no'        => 'required|image',
-            'employee_cv'   => 'required|mimes:pdf',
+            'employee_cv'   => 'required|mimes:pdf,jpg,jpeg,png',
             'bkash'         => 'required',
             'banks_details' => 'required',
         ]);
@@ -48,7 +48,7 @@ class AddEmployee extends Component
             'name'          => $this->name,
             'email'         => $this->email,
             'designation'   => $this->designation,
-            'sallery'       => $this->sallery,
+            'salary'       => $this->salary,
             'ta_da'         => $this->ta_da,
             'mobile'        => $this->mobile,
             'address'       => $this->address,

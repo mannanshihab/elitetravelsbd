@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('designation');
-            $table->string('sallery');
+            $table->string('salary');
             $table->string('ta_da');
             $table->string('mobile');
             $table->string('address');
             $table->string('nid_no');
             $table->string('employee_cv');
-            $table->string('bkash');
-            $table->string('banks_details');
+            $table->string('bkash')->nullable();
+            $table->string('banks_details')->nullable();
             $table->timestamps();
         });
     }
