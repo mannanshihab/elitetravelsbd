@@ -17,17 +17,17 @@ class EmployeeList extends Component
     public $search = '';
     public $rows = 10;
 
-    public function addUser($id){
+    // public function addUser($id){
 
-        $employee = Employee::select('name', 'email')->find($id);
+    //     $employee = Employee::select('name', 'email')->find($id);
 
-        $user = User::firstOrCreate(
-            ['email' => $employee->email],
-            ['name' => $employee->name, 'password' => Hash::make('password')]
-        );
+    //     $user = User::firstOrCreate(
+    //         ['email' => $employee->email],
+    //         ['name' => $employee->name, 'password' => Hash::make('password')]
+    //     );
        
-        $this->redirect('/list-users', navigate: true);
-    }
+    //     $this->redirect('/list-users', navigate: true);
+    // }
 
     public function render()
     {   

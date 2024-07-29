@@ -64,7 +64,5 @@ Route::middleware('auth')->group(function () {
     Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
 
-
-
 });
 

@@ -3,10 +3,10 @@
         <span class="text-muted fw-light">Employee /</span> List
     </h4>
     <hr class="my-2">
-  
+
     <div class="card">
-  
-        <h5 class="card-header pb-0">Employee  List</h5>
+
+        <h5 class="card-header pb-0">Employee List</h5>
         {{-- table header --}}
         <div class="row">
             {{-- view Pages --}}
@@ -22,8 +22,8 @@
                     </select>
                     &nbsp;<label for="inputCity" class="mt-2">entries</label>
                 </div>
-            </div>{{--/ view Pages --}}
-  
+            </div>{{-- / view Pages --}}
+
             {{-- Search --}}
             <div class="col-md-6 d-flex justify-content-end">
                 <div class="form-group d-flex card-header">
@@ -32,10 +32,10 @@
                         placeholder="search ...">
                 </div>
             </div>
-            {{--End Search --}}
+            {{-- End Search --}}
         </div>
-        {{--/ table header --}}
-  
+        {{-- / table header --}}
+
         {{-- Table List --}}
         <div class="card-body">
             @include('livewire.partials.flash-session')
@@ -55,11 +55,13 @@
                         @forelse ($employees as $employee)
                             <tr>
                                 <td>
-                                   <span>Name : {{ $employee->name }}</span> <br>
-                                   <span>Email : <a href="mailto:{{ $employee->email }}">{{ $employee->email }}</a></span><br>
-                                   <span class="fw-medium"> Mobile : <a href="tel:{{ $employee->mobile }}">{{ $employee->mobile }}</a></span>
+                                    <span>Name : {{ $employee->name }}</span> <br>
+                                    <span>Email : <a
+                                            href="mailto:{{ $employee->email }}">{{ $employee->email }}</a></span><br>
+                                    <span class="fw-medium"> Mobile : <a
+                                            href="tel:{{ $employee->mobile }}">{{ $employee->mobile }}</a></span>
                                 </td>
-                                
+
                                 <td>
                                     <span>Designation : {{ $employee->designation }}</span><br>
                                     <span>Sallery : {{ $employee->sallery }}</span><br>
@@ -68,74 +70,87 @@
 
                                 <td>
                                     <span>Bkash : {{ $employee->bkash }}</span><br>
-                                    <span>Bank Details : {{ ucwords($employee->banks_details ) }}</span><br>
+                                    <span>Bank Details : {{ ucwords($employee->banks_details) }}</span><br>
                                 </td>
-                                    
+
                                 <td><span>{{ ucwords($employee->address) }}</span></td>
-                               
+
                                 <td>
-                                    <a href="{{ asset($employee->nid_no) }}" target="_blank"><img src="{{ asset($employee->nid_no) }}" alt="user-avatar"
-                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
+                                    <a href="{{ asset($employee->nid_no) }}" target="_blank"><img
+                                            src="{{ asset($employee->nid_no) }}" alt="user-avatar"
+                                            class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
-                                        <a class="btn rounded-pill btn-icon btn-outline-primary" 
-                                           href="{{ route('edit-employee', $employee->id) }}"
-                                           wire:navigate><span class="ti ti-pencil"></span>
+                                        <a class="btn rounded-pill btn-icon btn-outline-primary"
+                                            href="{{ route('edit-employee', $employee->id) }}" wire:navigate><span
+                                                class="ti ti-pencil"></span>
                                         </a><!-- End Edit Button -->
 
                                         <!-- Start Make User Button -->
-                                        <a type="button" 
-                                                class="btn rounded-pill btn-icon btn-outline-secondary" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#addNewUserModal"> <span class="ti ti-user"> 
-                                        </a><!-- End User Button -->
+                                        {{-- <a type="button" class="btn rounded-pill btn-icon btn-outline-secondary"
+                                            data-bs-toggle="modal" data-bs-target="#addNewUserModal"> <span
+                                                class="ti ti-user">
+                                        </a> --}}
+                                        <!-- End User Button -->
                                         <!-- User Modal -->
-                                        <div class="modal fade" id="addNewUserModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-                                            <div class="modal-content p-3 p-md-5">
-                                                <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <div class="text-center mb-4">
-                                                    <h3 class="mb-2">Make New User</h3>
-                                                    <p class="text-muted">Are you sure you want to this employee an new User?</p>
-                                                </div>
+                                        {{-- <div class="modal fade" id="addNewUserModal" tabindex="-1" aria-hidden="true">
+                                            <div
+                                                class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                                <div class="modal-content p-3 p-md-5">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                        <div class="text-center mb-4">
+                                                            <h3 class="mb-2">Make New User</h3>
+                                                            <p class="text-muted">Are you sure you want to this employee
+                                                                an new User?</p>
+                                                        </div>
 
-                                                <div class="col-12 text-center">
-                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
-                                                    <a type="submit" wire:click="addUser({{ $employee->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
-                                                </div>
+                                                        <div class="col-12 text-center">
+                                                            <a type="reset" class="btn btn-label-secondary btn-reset"
+                                                                data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                            <a type="submit" wire:click="addUser({{ $employee->id }})"
+                                                                class="btn btn-danger me-sm-3 me-5"
+                                                                data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            </div>
-                                        </div>
+                                        </div> --}}
                                         <!--/ User Modal -->
 
                                         <!-- Start Delete Button -->
-                                        <a type="button" 
-                                                class="btn rounded-pill btn-icon btn-outline-danger" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#deleteModal"> <span class="ti ti-trash"> 
+                                        <a type="button" class="btn rounded-pill btn-icon btn-outline-danger"
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $employee->id }}">
+                                            <span class="ti ti-trash">
                                         </a><!--/End Delete Button -->
 
                                         <!-- Delete Modal -->
-                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-                                            <div class="modal-content p-3 p-md-5">
-                                                <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <div class="text-center mb-4">
-                                                    <h3 class="mb-2">Delete </h3>
-                                                    <p class="text-muted">Are you sure you want to delete this Employee?</p>
-                                                </div>
+                                        <div class="modal fade" id="deleteModal-{{ $employee->id }}" tabindex="-1"
+                                            aria-hidden="true">
+                                            <div
+                                                class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                                <div class="modal-content p-3 p-md-5">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                        <div class="text-center mb-4">
+                                                            <h3 class="mb-2">Delete </h3>
+                                                            <p class="text-muted">Are you sure you want to delete this
+                                                                Employee?</p>
+                                                        </div>
 
-                                                <div class="col-12 text-center">
-                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
-                                                    <a type="submit" wire:click="delete({{ $employee->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        <div class="col-12 text-center">
+                                                            <a type="reset" class="btn btn-label-secondary btn-reset"
+                                                                data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                            <a type="submit" wire:click="delete({{ $employee->id }})"
+                                                                class="btn btn-danger me-sm-3 me-5"
+                                                                data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <!--/ Delete Modal -->
@@ -147,15 +162,13 @@
                                 <td class="text-center" colspan="6">No records found</td>
                             </tr>
                         @endforelse
-                        
+
                     </tbody>
                 </table>
             </div>
             <br>
             {{ $employees->links() }}
         </div>
-        {{--/ End Table List --}}
+        {{-- / End Table List --}}
     </div>
-  </div>
-  
-
+</div>
