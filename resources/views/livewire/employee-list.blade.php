@@ -48,6 +48,7 @@
                             <th>Bank Info</th>
                             <th>Address</th>
                             <th>Nid</th>
+                            <th>CV</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -78,12 +79,19 @@
                                 <td>
                                     <a href="{{ asset($employee->nid_no) }}" target="_blank"><img
                                             src="{{ asset($employee->nid_no) }}" alt="user-avatar"
-                                            class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
+                                            class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ asset($employee->employee_cv) }}" target="_blank" 
+                                        class="w-px-50 h-px-50 btn btn-icon btn-info text-white">
+                                        <span class="ti ti-file-invoice"></span>
+                                    </a>
                                 </td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
-                                        <a class="btn rounded-pill btn-icon btn-outline-primary"
+                                        <a class="btn rounded-pill btn-icon btn-primary"
                                             href="{{ route('edit-employee', $employee->id) }}" wire:navigate><span
                                                 class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
@@ -122,7 +130,7 @@
                                         <!--/ User Modal -->
 
                                         <!-- Start Delete Button -->
-                                        <a type="button" class="btn rounded-pill btn-icon btn-outline-danger"
+                                        <a type="button" class="btn rounded-pill btn-icon btn-danger"
                                             data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $employee->id }}">
                                             <span class="ti ti-trash text-white">
                                         </a><!--/End Delete Button -->

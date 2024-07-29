@@ -51,20 +51,6 @@
                             @enderror
                         </div>
                          
-                        {{-- <div class="col-md-6">
-                            <label class="form-label" for="formValidationDesignation">Designation</label>
-                            <select id="formValidationDesignation" class="form-select" name="formValidationDesignation"
-                                wire:model="designation">
-                                <option value="">Select Designation</option>
-                                <option value="Senior">Senior</option>
-                                <option value="Junior">Junior</option>
-                            </select>
-                            
-                            @error('designation')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>  --}}
-
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="Sallery" class="form-label">salary</label>

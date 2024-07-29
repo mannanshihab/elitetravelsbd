@@ -39,18 +39,15 @@
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationDesignation">Designation</label>
-                            <select id="formValidationDesignation" class="form-select" name="formValidationDesignation"
-                                wire:model="designation">
-                                <option value="">Select Designation</option>
-                                <option value="Senior">Senior</option>
-                                <option value="Junior">Junior</option>
-                            </select>
-                            {{-- show error --}}
+                            <div class="mb-3">
+                                <label for="designation" class="form-label">Designation</label>
+                                <input type="text" class="form-control" wire:model="designation" id="designation" name="designation"
+                                    placeholder="Enter employee designation" required/>
+                            </div>
                             @error('designation')
-                                <span class="text-danger">{{ $message }}</span>
+                                <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
                             @enderror
                         </div>
 
