@@ -48,7 +48,7 @@
                             <th>Bank Info</th>
                             <th>Address</th>
                             <th>Nid</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -78,25 +78,67 @@
                                     class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('edit-employee', $employee->id) }}"
-                                                wire:navigate><i class="ti ti-pencil me-1"></i> Edit
-                                            </a>
+                                    <div class="demo-inline-spacing text-center">
+                                        <!-- Start Edit Button -->
+                                        <a class="btn rounded-pill btn-icon btn-outline-primary" 
+                                           href="{{ route('edit-employee', $employee->id) }}"
+                                           wire:navigate><span class="ti ti-pencil"></span>
+                                        </a><!-- End Edit Button -->
 
-                                            <a class="dropdown-item" href="" wire:click="addUser({{ $employee->id }})"
-                                                wire:navigate><i class="ti ti-user me-1"></i> Make User
-                                            </a>
-                                            
-                                            <a class="dropdown-item" href="javascript:void(0);"
-                                                wire:click="delete({{ $employee->id }})"
-                                                wire:confirm="Are you sure you want to delete this post?">
-                                                <i class="ti ti-trash me-1"></i> Delete
-                                            </a>
+                                        <!-- Start Make User Button -->
+                                        <a type="button" 
+                                                class="btn rounded-pill btn-icon btn-outline-secondary" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#addNewUserModal"> <span class="ti ti-user"> 
+                                        </a><!-- End User Button -->
+                                        <!-- User Modal -->
+                                        <div class="modal fade" id="addNewUserModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                            <div class="modal-content p-3 p-md-5">
+                                                <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="text-center mb-4">
+                                                    <h3 class="mb-2">Make New User</h3>
+                                                    <p class="text-muted">Are you sure you want to this employee an new User?</p>
+                                                </div>
+
+                                                <div class="col-12 text-center">
+                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                    <a type="submit" wire:click="addUser({{ $employee->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
                                         </div>
+                                        <!--/ User Modal -->
+
+                                        <!-- Start Delete Button -->
+                                        <a type="button" 
+                                                class="btn rounded-pill btn-icon btn-outline-danger" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#deleteModal"> <span class="ti ti-trash"> 
+                                        </a><!--/End Delete Button -->
+
+                                        <!-- Delete Modal -->
+                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                            <div class="modal-content p-3 p-md-5">
+                                                <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="text-center mb-4">
+                                                    <h3 class="mb-2">Delete </h3>
+                                                    <p class="text-muted">Are you sure you want to delete this Employee?</p>
+                                                </div>
+
+                                                <div class="col-12 text-center">
+                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                    <a type="submit" wire:click="delete({{ $employee->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Delete Modal -->
                                     </div>
                                 </td>
                             </tr>

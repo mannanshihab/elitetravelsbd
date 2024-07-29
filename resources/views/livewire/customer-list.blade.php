@@ -75,17 +75,45 @@
                                 <td><span>{{ ucwords($customer->address) }}</span></td>
                                 <td><span>{{ ucwords($customer?->source) }}</span></td>
                                 <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('edit-customer', $customer->id) }}"
-                                                wire:navigate><i class="ti ti-pencil me-1"></i> Edit</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"
-                                                wire:click="delete({{ $customer->id }})"
-                                                wire:confirm="Are you sure you want to delete this post?"><i
-                                                    class="ti ti-trash me-1"></i> Delete</a>
-                                        </div>
+                                    <div class="demo-inline-spacing text-center">
+                                        <!-- Start Edit Button -->
+                                        <a class="btn rounded-pill btn-icon btn-primary" 
+                                           href="{{ route('edit-customer', $customer->id) }}"
+                                           wire:navigate><span class="ti ti-pencil"></span>
+                                        </a><!-- End Edit Button -->
+                                        
+                                        <!-- Start Make User Button -->
+                                        <a class="btn rounded-pill btn-icon btn-secondary" 
+                                           wire:click=""
+                                           wire:navigate><span class="ti ti-eye"></span>
+                                        </a><!-- End User Button -->
+
+                                        <!-- Start Delete Button -->
+                                        <a type="button" 
+                                                class="btn rounded-pill btn-icon btn-danger" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#deleteModal"> <span class="ti ti-trash"> 
+                                        </a><!--/End Delete Button -->
+
+                                        <!-- Delete Modal -->
+                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                            <div class="modal-content p-3 p-md-5">
+                                                <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="text-center mb-4">
+                                                    <h3 class="mb-2">Delete </h3>
+                                                    <p class="text-muted">Are you sure you want to delete this Customer?</p>
+                                                </div>
+
+                                                <div class="col-12 text-center">
+                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                    <a type="submit" wire:click="delete({{ $customer->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div><!--/ Delete Modal -->
                                     </div>
                                 </td>
                             </tr>

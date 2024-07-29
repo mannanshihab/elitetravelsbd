@@ -23,11 +23,6 @@ class EmployeeList extends Component
             ['email' => $employee->email],
             ['name' => $employee->name, 'password' => Hash::make('password')]
         );
-        
-        $employee->dispatch('swal', [
-            'title' => 'Invalidate Credentials.',
-            'icon' => 'error',
-        ]);
        
         $this->redirect('/list-users', navigate: true);
     }

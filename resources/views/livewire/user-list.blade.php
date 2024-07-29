@@ -46,7 +46,7 @@
                         <tr>
                             <th>Full Name</th>
                             <th>Email</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -57,13 +57,34 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                            data-bs-toggle="dropdown"></button>
-                                        <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?') || event.stopImmediatePropagation()"
-                                            wire:click="delete({{ $user->id }})" href="javascript:void(0);">
-                                            <i class="ti ti-trash me-1"></i> Delete
-                                        </a>
+                                    <div class="demo-inline-spacing text-center">
+                                        <!-- Start Delete Button -->
+                                        <a type="button" 
+                                                class="btn rounded-pill btn-icon btn-danger" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#deleteModal"> <span class="ti ti-trash"> 
+                                        </a><!--/ End Delete Button -->
+
+                                        <!-- Delete Modal -->
+                                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                            <div class="modal-content p-3 p-md-5">
+                                                <div class="modal-body">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="text-center mb-4">
+                                                    <h3 class="mb-2">Delete </h3>
+                                                    <p class="text-muted">Are you sure you want to delete this User?</p>
+                                                </div>
+
+                                                <div class="col-12 text-center">
+                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                    <a type="submit" wire:click="delete({{ $user->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Delete Modal -->
                                     </div>
                                 </td>
                             </tr>

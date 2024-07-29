@@ -35,7 +35,7 @@ class AgentsList extends Component
         Agent::find($id)->delete();
 
         $this->dispatch('swal', [
-            'title' => 'Customer Deleted Successfully.',
+            'title' => 'Agent Deleted Successfully.',
             'icon' => 'success',
             'iconColor' => 'blue',
         ]);
