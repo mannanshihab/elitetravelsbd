@@ -25,7 +25,7 @@
                             <label class="form-label" for="formValidationName">Full Name*</label>
                             <select id="selectpickerLiveSearch" wire:model='customers' class="selectpicker w-100"
                                 data-style="btn-default" data-live-search="true" tabindex="null"
-                                data-style="btn-danger">
+                                data-style="btn-danger" required>
                                 <option value="">Select Work Type</option>
                                 @foreach ($customers as $customer)
                                     <option value="{{ $customer->id }}">
@@ -64,7 +64,7 @@
                             <label class="form-label" for="Web FIle No">Web FIle No</label>
                             <input type="text" id="formValidationWebFIleNo" class="form-control"
                                 wire:model="web_fIle_no" placeholder="Type Web FIle No"
-                                name="formValidationWebFIleNo" />
+                                name="formValidationWebFIleNo" required />
                             <!-- show error Validation-->
                             @error('web_fIle_no')
                                 <span class="text-danger">{{ $message }}</span>
@@ -74,7 +74,7 @@
                         <div class="col-md-6">
                             <label class="form-label" for="TokenNo">Token No</label>
                             <input type="text" id="formValidationTokenNo" class="form-control" wire:model="token_no"
-                                placeholder="Type Token No" name="formValidationTokenNo" />
+                                placeholder="Type Token No" name="formValidationTokenNo" required />
                             <!-- show error Validation-->
                             @error('web_fIle_no')
                                 <span class="text-danger">{{ $message }}</span>
@@ -84,7 +84,7 @@
                         <div class="col-md-6">
                             <label class="form-label" for="Member Id">Member Id</label>
                             <input type="text" id="formValidationMemberId" class="form-control"
-                                wire:model="member_id" placeholder="Type MemberId" name="formValidationMemberId" />
+                                wire:model="member_id" placeholder="Type MemberId" name="formValidationMemberId" required />
                             <!-- show error Validation-->
                             @error('member_id')
                                 <span class="text-danger">{{ $message }}</span>
@@ -150,7 +150,7 @@
                         <div class="col-md-6 selectpicker-bootstrap">
                             <label class="form-label" for="formValidationGender">File Status</label>
                             <select id="formValidationWorkType" class="form-control selectpicker"
-                                wire:model="file_status" name="formValidationWorkType" data-style="btn-default">
+                                wire:model="file_status" name="formValidationWorkType" data-style="btn-default" required>
                                 <option value="Pending">Pending</option>
                                 <option value="Complete">Complete</option>
                                 <option value="Cancel">Cancel</option>
@@ -246,11 +246,6 @@
 
 @script
     <script>
-        $(document).on('keyup', '.bs-searchbox input', function() {
-            // $wire.updateLive($(this).val());
-        });
-
-
         setTimeout(() => {
             const selectPicker = $(".selectpicker"),
                 select2 = $(".select2"),
@@ -262,10 +257,8 @@
                 selectPicker.selectpicker();
             }
 
-
             // date by robi
             var bsDatepickerFormat = $(".bs-datepicker-format")
-
 
             if (bsDatepickerFormat.length) {
                 bsDatepickerFormat.datepicker({

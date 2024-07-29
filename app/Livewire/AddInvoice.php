@@ -20,11 +20,6 @@ class AddInvoice extends Component
         $this->agents = Agent::get();
     }
 
-    public function updateLive($data)
-    {
-        $this->customers = Agent::get();
-    }
-
     public function render()
     {
         return view('livewire.add-invoice');
