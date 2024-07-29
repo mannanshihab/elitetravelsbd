@@ -13,10 +13,16 @@ class AddInvoice extends Component
     public $agents;
     public $customers;
 
+
     public function mount()
     {
         $this->customers = Customer::get();
         $this->agents = Agent::get();
+    }
+
+    public function updateLive($data)
+    {
+        $this->customers = Agent::get();
     }
 
     public function render()

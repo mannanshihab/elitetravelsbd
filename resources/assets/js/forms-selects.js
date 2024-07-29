@@ -13,6 +13,12 @@ function run() {
         selectPicker.selectpicker();
     }
 
+    $(document).on('keyup', '.bs-searchbox input', function() {
+        setInterval(() => {
+            $wire.$refresh()
+        }, 2000)
+    });
+
     // Select2
     // --------------------------------------------------------------------
 

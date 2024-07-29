@@ -1,6 +1,6 @@
 <div>
 
-    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/js/forms-selects.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js', 'resources/assets/js/forms-pickers.js'])
+    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <!-- Content -->
     <h4 class="py-3 mb-4">
         <span class="text-muted fw-light">Add /</span> Invoice
@@ -23,18 +23,15 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationName">Full Name*</label>
-                            <select id="selectpickerLiveSearch" wire:model.defer='customers_search'
-                                class="selectpicker w-100" data-style="btn-default" data-live-search="true"
-                                tabindex="null" data-style="btn-danger">
+                            <select id="selectpickerLiveSearch" wire:model='customers' class="selectpicker w-100"
+                                data-style="btn-default" data-live-search="true" tabindex="null"
+                                data-style="btn-danger">
                                 <option value="">Select Work Type</option>
-                                <option><a href="https://google.com">Google</a></option>
-                                @if (@$customers)
-                                    @foreach ($customers as $customer)
-                                        <option value="{{ $customer->id }}">
-                                            {{ $customer->name . ' - ' . $customer->mobile }}
-                                        </option>
-                                    @endforeach
-                                @endif
+                                @foreach ($customers as $customer)
+                                    <option value="{{ $customer->id }}">
+                                        {{ $customer->name . ' - ' . $customer->mobile }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -95,10 +92,10 @@
                         </div>
 
 
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationGender">Work Type</label>
-                            <select id="formValidationWorkType" class="form-select" wire:model="work_type"
-                                name="formValidationWorkType" required>
+                        <div class="col-md-6 ">
+                            <label class="form-label" for="Work Type">Work Type</label>
+                            <select id="formValidationWorkType" class="selectpicker w-100" wire:model="work_type"
+                                name="formValidationWorkType" required data-style="btn-default">
                                 <option value="">Select Work Type</option>
                                 <option value="VISA">VISA</option>
                                 <option value="AIR Ticket">AIR Ticket</option>
@@ -138,27 +135,28 @@
                             @enderror
                         </div>
 
+
                         <div class="col-md-6">
+                            <label class="form-label" for="Delivery Date">Delivery Date</label>
+                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
+                                class="form-control bs-datepicker-format" wire:model="delivery_date"
+                                autocomplete="off" name="formValidationDeliveryDate" />
+                            <!-- show error Validation-->
+                            @error('delivery_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6 selectpicker-bootstrap">
                             <label class="form-label" for="formValidationGender">File Status</label>
-                            <select id="formValidationWorkType" class="form-select" wire:model="file_status"
-                                name="formValidationWorkType">
+                            <select id="formValidationWorkType" class="form-control selectpicker"
+                                wire:model="file_status" name="formValidationWorkType" data-style="btn-default">
                                 <option value="Pending">Pending</option>
                                 <option value="Complete">Complete</option>
                                 <option value="Cancel">Cancel</option>
                             </select>
                             {{-- show error --}}
                             @error('file_status')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label" for="Delivery Date">Delivery Date</label>
-                            <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
-                                class="form-control bs-datepicker-format" wire:model="delivery_date" autocomplete="off"
-                                name="formValidationDeliveryDate" />
-                            <!-- show error Validation-->
-                            @error('delivery_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -171,7 +169,7 @@
                         <div class="col-md-3">
                             <label class="form-label" for="Amount">Amount</label>
                             <input type="number" id="formValidationAmount" class="form-control" wire:model="amount"
-                                name="formValidationAmount" />
+                                name="formValidationAmount" placeholder="Please Enter Amount" />
                             <!-- show error Validation-->
                             @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
@@ -181,7 +179,7 @@
                         <div class="col-md-3">
                             <label class="form-label" for="Qty">Qty</label>
                             <input type="number" id="formValidationQty" class="form-control" wire:model="Qty"
-                                name="formValidationQty" />
+                                name="formValidationQty" placeholder="Please Enter Quantity" />
                             <!-- show error Validation-->
                             @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
@@ -191,7 +189,7 @@
                         <div class="col-md-3">
                             <label class="form-label" for="Total">Total</label>
                             <input type="number" id="formValidationTotal" class="form-control" wire:model="total"
-                                name="formValidationTotal" />
+                                name="formValidationTotal" placeholder="Please Enter Total" />
                             <!-- show error Validation-->
                             @error('total')
                                 <span class="text-danger">{{ $message }}</span>
@@ -201,7 +199,8 @@
                         <div class="col-md-3">
                             <label class="form-label" for="Costing">Costing</label>
                             <input type="number" id="formValidationCosting" class="form-control"
-                                wire:model="costing" name="formValidationCosting" />
+                                wire:model="costing" name="formValidationCosting"
+                                placeholder="Please Enter Costing" />
                             <!-- show error Validation-->
                             @error('costing')
                                 <span class="text-danger">{{ $message }}</span>
@@ -211,7 +210,8 @@
                         <div class="col-md-3">
                             <label class="form-label" for="VisaFee">Visa Fee</label>
                             <input type="number" id="formValidationVisaFee" class="form-control"
-                                wire:model="visa_fee" name="formValidationVisaFee" />
+                                wire:model="visa_fee" name="formValidationVisaFee"
+                                placeholder="Please Enter Visa Fee" />
                             <!-- show error Validation-->
                             @error('visa_fee')
                                 <span class="text-danger">{{ $message }}</span>
@@ -221,7 +221,8 @@
                         <div class="col-md-3">
                             <label class="form-label" for="Service Charge">Service Charge</label>
                             <input type="number" id="formValidationServiceCharge" class="form-control"
-                                wire:model="service_charge" name="formValidationService Charge" />
+                                wire:model="service_charge" name="formValidationService Charge"
+                                placeholder="Please Enter Service Charge" />
                             <!-- show error Validation-->
                             @error('service_charge')
                                 <span class="text-danger">{{ $message }}</span>
@@ -240,3 +241,39 @@
 
     <!-- / Content -->
 </div>
+
+
+
+@script
+    <script>
+        $(document).on('keyup', '.bs-searchbox input', function() {
+            // $wire.updateLive($(this).val());
+        });
+
+
+        setTimeout(() => {
+            const selectPicker = $(".selectpicker"),
+                select2 = $(".select2"),
+                select2Icons = $(".select2-icons");
+
+            // Bootstrap Select
+            // --------------------------------------------------------------------
+            if (selectPicker.length) {
+                selectPicker.selectpicker();
+            }
+
+
+            // date by robi
+            var bsDatepickerFormat = $(".bs-datepicker-format")
+
+
+            if (bsDatepickerFormat.length) {
+                bsDatepickerFormat.datepicker({
+                    todayHighlight: true,
+                    format: "dd/mm/yyyy",
+                    orientation: isRtl ? "auto right" : "auto left",
+                });
+            }
+        }, 500);
+    </script>
+@endscript
