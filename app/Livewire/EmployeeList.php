@@ -5,8 +5,10 @@ namespace App\Livewire;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+#[Title('Employees List')]
 
 class EmployeeList extends Component
 {

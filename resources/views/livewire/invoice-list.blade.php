@@ -44,7 +44,7 @@
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Coustomer Details</th>
+                            <th>Customer Details</th>
                             <th>Work Type</th>
                             <th>Descr</th>
                             <th>Qty</th>
