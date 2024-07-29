@@ -66,7 +66,7 @@ $(function () {
               '<a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a>' +
               '</div>' +
               '</div>' +
-              '<a href="javascript:;" class="item-edit text-body"><i class="text-primary ti ti-pencil"></i></a>'
+              '<a href="javascript:;" class="item-edit text-body"><i class="text-primary ti ti ti-pencil text-white"></i></a>'
             );
           }
         }
@@ -213,7 +213,7 @@ $(function () {
               '<a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a>' +
               '</div>' +
               '</div>' +
-              '<a href="javascript:;" class="btn btn-sm btn-icon item-edit"><i class="text-primary ti ti-pencil"></i></a>'
+              '<a href="javascript:;" class="btn btn-sm btn-icon item-edit"><i class="text-primary ti ti ti-pencil text-white"></i></a>'
             );
           }
         }
@@ -320,7 +320,7 @@ $(function () {
               '<a href="javascript:;" class="dropdown-item text-danger delete-record"></i>Delete</a>' +
               '</div>' +
               '</div>' +
-              '<a href="javascript:;" class="item-edit text-body"><i class="text-primary ti ti-pencil"></i></a>'
+              '<a href="javascript:;" class="item-edit text-body"><i class="text-primary ti ti ti-pencil text-white"></i></a>'
             );
           }
         }

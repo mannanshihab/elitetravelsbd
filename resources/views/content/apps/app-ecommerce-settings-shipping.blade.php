@@ -83,8 +83,8 @@
                 </div>
               </div>
               <div>
-                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-pencil me-3'></i></a>
-                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-trash'></i></a>
+                <a href="javascript:void(0);" class="text-muted"><i class='ti ti ti-pencil text-white me-3'></i></a>
+                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-trash text-white'></i></a>
               </div>
             </div>
 
@@ -110,8 +110,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-1"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-1"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-1"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -126,8 +126,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-2"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-2"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-2"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-2"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -140,8 +140,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-2"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-2"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-2"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-2"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -164,8 +164,8 @@
                 </div>
               </div>
               <div>
-                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-pencil me-3'></i></a>
-                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-trash'></i></a>
+                <a href="javascript:void(0);" class="text-muted"><i class='ti ti ti-pencil text-white me-3'></i></a>
+                <a href="javascript:void(0);" class="text-muted"><i class='ti ti-trash text-white'></i></a>
               </div>
             </div>
 
@@ -191,8 +191,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-1"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-1"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-1"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-1"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -207,8 +207,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-2"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-2"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-2"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-2"></i> Delete</a>
                           </div>
                         </div>
                       </td>
@@ -221,8 +221,8 @@
                         <div class="dropdown pe-3">
                           <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-edit me-2"></i> Edit</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash me-2"></i> Delete</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-pencil me-2"></i> Edit</a>
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="ti ti-trash text-white me-2"></i> Delete</a>
                           </div>
                         </div>
                       </td>

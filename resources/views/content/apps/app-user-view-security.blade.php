@@ -199,8 +199,8 @@
         <div class="d-flex justify-content-between border-bottom mb-3 pb-2">
           <span>+1(968) 945-8832</span>
           <div class="action-icons">
-            <a href="javascript:;" class="text-body me-1" data-bs-target="#enableOTP" data-bs-toggle="modal"><i class="ti ti-edit ti-sm"></i></a>
-            <a href="javascript:;" class="text-body"><i class="ti ti-trash ti-sm"></i></a>
+            <a href="javascript:;" class="text-body me-1" data-bs-target="#enableOTP" data-bs-toggle="modal"><i class="ti ti-pencil ti-sm"></i></a>
+            <a href="javascript:;" class="text-body"><i class="ti ti-trash text-white ti-sm"></i></a>
           </div>
         </div>
         <p class="mb-0">Two-factor authentication adds an additional layer of security to your account by requiring more than just a password to log in.

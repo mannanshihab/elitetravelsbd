@@ -169,8 +169,8 @@ $configData = Helper::appClasses();
               <div class="dropdown api-key-actions">
                 <a class="btn dropdown-toggle text-muted hide-arrow p-0" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm"></i></a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-pencil me-2"></i>Edit</a>
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash me-2"></i>Delete</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti ti-pencil text-white me-2"></i>Edit</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash text-white me-2"></i>Delete</a>
                 </div>
               </div>
               <div class="d-flex align-items-center mb-3">
@@ -187,8 +187,8 @@ $configData = Helper::appClasses();
               <div class="dropdown api-key-actions">
                 <a class="btn dropdown-toggle text-muted hide-arrow p-0" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm"></i></a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-pencil me-2"></i>Edit</a>
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash me-2"></i>Delete</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti ti-pencil text-white me-2"></i>Edit</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash text-white me-2"></i>Delete</a>
                 </div>
               </div>
               <div class="d-flex align-items-center mb-3">
@@ -205,8 +205,8 @@ $configData = Helper::appClasses();
               <div class="dropdown api-key-actions">
                 <a class="btn dropdown-toggle text-muted hide-arrow p-0" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm"></i></a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-pencil me-2"></i>Edit</a>
-                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash me-2"></i>Delete</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti ti-pencil text-white me-2"></i>Edit</a>
+                  <a href="javascript:;" class="dropdown-item"><i class="ti ti-trash text-white me-2"></i>Delete</a>
                 </div>
               </div>
               <div class="d-flex align-items-center mb-3">

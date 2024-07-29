@@ -165,8 +165,8 @@ $(function () {
           render: function (data, type, full, meta) {
             return (
               '<div class="d-flex align-items-sm-center justify-content-sm-center">' +
-              '<button class="btn btn-sm btn-icon delete-record me-2"><i class="ti ti-trash"></i></button>' +
-              '<button class="btn btn-sm btn-icon"><i class="ti ti-edit"></i></button>' +
+              '<button class="btn btn-sm btn-icon delete-record me-2"><i class="ti ti-trash text-white"></i></button>' +
+              '<button class="btn btn-sm btn-icon"><i class="ti ti-pencil"></i></button>' +
               '</div>'
             );
           }

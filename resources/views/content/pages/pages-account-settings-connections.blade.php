@@ -137,7 +137,7 @@
                   <a href="{{config('variables.twitterUrl')}}" target="_blank">{{ (!empty(config('variables.creatorName')) ? config('variables.creatorName') : '') }}</a>
                 </div>
                 <div class="col-5 text-end mt-sm-0 mt-2">
-                  <button class="btn btn-label-danger btn-icon"><i class="ti ti-trash ti-sm"></i></button>
+                  <button class="btn btn-label-danger btn-icon"><i class="ti ti-trash text-white ti-sm"></i></button>
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@
                   <a href="{{config('variables.instagramUrl')}}" target="_blank">{{ (!empty(config('variables.creatorName')) ? config('variables.creatorName') : '') }}</a>
                 </div>
                 <div class="col-5 text-end mt-sm-0 mt-2">
-                  <button class="btn btn-label-danger btn-icon"><i class="ti ti-trash ti-sm"></i></button>
+                  <button class="btn btn-label-danger btn-icon"><i class="ti ti-trash text-white ti-sm"></i></button>
                 </div>
               </div>
             </div>

@@ -91,7 +91,7 @@
               <span class="align-middle">Invite Friends</span>
             </li>
             <li>
-              <i class="ti ti-trash me-1 ti-sm"></i>
+              <i class="ti ti-trash text-white me-1 ti-sm"></i>
               <span class="align-middle">Delete Account</span>
             </li>
           </ul>
@@ -577,7 +577,7 @@
               <span class="align-middle ms-2">Shared Media</span>
             </li>
             <li class="cursor-pointer d-flex align-items-center">
-              <i class='ti ti-trash ti-sm'></i>
+              <i class='ti ti-trash text-white ti-sm'></i>
               <span class="align-middle ms-2">Delete Contact</span>
             </li>
             <li class="cursor-pointer d-flex align-items-center">

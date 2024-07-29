@@ -74,7 +74,7 @@
                                         <!-- Start Edit Button -->
                                         <a class="btn rounded-pill btn-icon btn-primary" href=""
                                             wire:navigate>
-                                          <span class="ti ti-pencil"></span>
+                                          <span class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
 
                                         <!-- Start Make User Button -->
@@ -88,7 +88,7 @@
                                         <a type="button" 
                                                 class="btn rounded-pill btn-icon btn-danger" 
                                                 data-bs-toggle="modal" 
-                                                data-bs-target="#deleteModal-{{ @$user->id }}"> <span class="ti ti-trash"> 
+                                                data-bs-target="#deleteModal-{{ @$user->id }}"> <span class="ti ti-trash text-white"> 
                                         </a><!--/End Delete Button -->
 
                                         <!-- Delete Modal -->

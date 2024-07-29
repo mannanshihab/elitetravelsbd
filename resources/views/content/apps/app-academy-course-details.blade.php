@@ -58,7 +58,7 @@
               <p class="text-nowrap "><i class='ti ti-file ti-sm me-2 mt-n2'></i>Captions: Yes</p>
             </div>
             <div>
-              <p class="text-nowrap"><i class='ti ti-pencil ti-sm me-2 mt-n2'></i>Lectures: 19</p>
+              <p class="text-nowrap"><i class='ti ti ti-pencil text-white ti-sm me-2 mt-n2'></i>Lectures: 19</p>
               <p class="text-nowrap "><i class='ti ti-clock ti-sm me-2 mt-n2'></i>Video: 1.5 total hours</p>
             </div>
           </div>

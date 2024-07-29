@@ -64,14 +64,14 @@
                                     <!-- Start Edit Button -->
                                     <a class="btn rounded-pill btn-icon btn-primary" 
                                        href="{{ route('edit-vendor', $vendor->id) }}"
-                                       wire:navigate><span class="ti ti-pencil"></span>
+                                       wire:navigate><span class="ti ti ti-pencil text-white"></span>
                                     </a><!-- End Edit Button -->
                                     
                                     <!-- Start Delete Button -->
                                     <a type="button" 
                                             class="btn rounded-pill btn-icon btn-danger" 
                                             data-bs-toggle="modal" 
-                                            data-bs-target="#deleteModal-{{ $vendor->id }}"> <span class="ti ti-trash"> 
+                                            data-bs-target="#deleteModal-{{ $vendor->id }}"> <span class="ti ti-trash text-white"> 
                                     </a><!--/End Delete Button -->
 
                                     <!-- Delete Modal -->

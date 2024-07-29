@@ -77,7 +77,7 @@
           </li>
           <li class="d-flex align-items-center" data-target="trash">
             <a href="javascript:void(0);" class="d-flex flex-wrap align-items-center">
-              <i class="ti ti-trash ti-sm"></i>
+              <i class="ti ti-trash text-white ti-sm"></i>
               <span class="align-middle ms-2">Trash</span>
             </a>
           </li>
@@ -157,7 +157,7 @@
                 <input class="form-check-input" type="checkbox" id="email-select-all">
                 <label class="form-check-label" for="email-select-all"></label>
               </div>
-              <i class="ti ti-trash ti-sm email-list-delete cursor-pointer me-2"></i>
+              <i class="ti ti-trash text-white ti-sm email-list-delete cursor-pointer me-2"></i>
               <i class="ti ti-mail-opened ti-sm email-list-read cursor-pointer me-2"></i>
               <div class="dropdown me-2">
                 <button class="btn p-0" type="button" id="dropdownMenuFolderOne" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -173,7 +173,7 @@
                     <span class="align-middle">Draft</span>
                   </a>
                   <a class="dropdown-item" href="javascript:void(0)">
-                    <i class="ti ti-trash ti-xs me-1"></i>
+                    <i class="ti ti-trash text-white ti-xs me-1"></i>
                     <span class="align-middle">Trash</span>
                   </a>
                 </div>
@@ -230,7 +230,7 @@
                   <small class="email-list-item-time text-muted">08:40 AM</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-read"> <i class='ti ti-mail-opened ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -253,7 +253,7 @@
                   <small class="email-list-item-time text-muted">10:12 AM</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -279,7 +279,7 @@
                   <small class="email-list-item-time text-muted">12:44 AM</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-read"> <i class='ti ti-mail-opened ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -302,7 +302,7 @@
                   <small class="email-list-item-time text-muted">Yesterday</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -325,7 +325,7 @@
                   <small class="email-list-item-time text-muted">Yesterday</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -350,7 +350,7 @@
                   <small class="email-list-item-time text-muted">5 May</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-read"> <i class='ti ti-mail-opened ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -373,7 +373,7 @@
                   <small class="email-list-item-time text-muted">15 May</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -397,7 +397,7 @@
                   <small class="email-list-item-time text-muted">20 Apr</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -422,7 +422,7 @@
                   <small class="email-list-item-time text-muted">25 Mar</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -445,7 +445,7 @@
                   <small class="email-list-item-time text-muted">25 Feb</small>
                   <ul class="list-inline email-list-item-actions text-nowrap">
                     <li class="list-inline-item email-unread"> <i class='ti ti-mail ti-sm'></i> </li>
-                    <li class="list-inline-item email-delete"> <i class='ti ti-trash ti-sm'></i></li>
+                    <li class="list-inline-item email-delete"> <i class='ti ti-trash text-white ti-sm'></i></li>
                     <li class="list-inline-item"> <i class="ti ti-archive ti-sm"></i> </li>
                   </ul>
                 </div>
@@ -510,7 +510,7 @@
         <hr class="app-email-view-hr mx-n3 mb-2">
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
-            <i class='ti ti-trash ti-sm cursor-pointer me-3' data-bs-toggle="sidebar" data-target="#app-email-view"></i>
+            <i class='ti ti-trash text-white ti-sm cursor-pointer me-3' data-bs-toggle="sidebar" data-target="#app-email-view"></i>
             <i class='ti ti-mail-opened ti-sm cursor-pointer me-3'></i>
             <div class="dropdown me-3">
               <button class="btn p-0" type="button" id="dropdownMenuFolderTwo" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -522,11 +522,11 @@
                   <span class="align-middle">Spam</span>
                 </a>
                 <a class="dropdown-item" href="javascript:void(0)">
-                  <i class="ti ti-pencil ti-xs me-1"></i>
+                  <i class="ti ti ti-pencil text-white ti-xs me-1"></i>
                   <span class="align-middle">Draft</span>
                 </a>
                 <a class="dropdown-item" href="javascript:void(0)">
-                  <i class="ti ti-trash ti-xs me-1"></i>
+                  <i class="ti ti-trash text-white ti-xs me-1"></i>
                   <span class="align-middle">Trash</span>
                 </a>
               </div>
@@ -816,7 +816,7 @@
                     <li><button type="button" class="dropdown-item">Check Spelling</button></li>
                   </ul>
                 </div>
-                <button type="reset" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="ti ti-trash"></i></button>
+                <button type="reset" class="btn" data-bs-dismiss="modal" aria-label="Close"><i class="ti ti-trash text-white"></i></button>
               </div>
             </div>
           </form>

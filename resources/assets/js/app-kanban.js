@@ -78,8 +78,8 @@
       "<div class='dropdown'>" +
       "<i class='dropdown-toggle ti ti-dots-vertical cursor-pointer' id='board-dropdown' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'></i>" +
       "<div class='dropdown-menu dropdown-menu-end' aria-labelledby='board-dropdown'>" +
-      "<a class='dropdown-item delete-board' href='javascript:void(0)'> <i class='ti ti-trash ti-xs' me-1></i> <span class='align-middle'>Delete</span></a>" +
-      "<a class='dropdown-item' href='javascript:void(0)'><i class='ti ti-edit ti-xs' me-1></i> <span class='align-middle'>Rename</span></a>" +
+      "<a class='dropdown-item delete-board' href='javascript:void(0)'> <i class='ti ti-trash text-white ti-xs' me-1></i> <span class='align-middle'>Delete</span></a>" +
+      "<a class='dropdown-item' href='javascript:void(0)'><i class='ti ti-pencil ti-xs' me-1></i> <span class='align-middle'>Rename</span></a>" +
       "<a class='dropdown-item' href='javascript:void(0)'><i class='ti ti-archive ti-xs' me-1></i> <span class='align-middle'>Archive</span></a>" +
       '</div>' +
       '</div>'

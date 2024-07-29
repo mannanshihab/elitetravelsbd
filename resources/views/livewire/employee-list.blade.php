@@ -85,7 +85,7 @@
                                         <!-- Start Edit Button -->
                                         <a class="btn rounded-pill btn-icon btn-outline-primary"
                                             href="{{ route('edit-employee', $employee->id) }}" wire:navigate><span
-                                                class="ti ti-pencil"></span>
+                                                class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
 
                                         <!-- Start Make User Button -->
@@ -124,7 +124,7 @@
                                         <!-- Start Delete Button -->
                                         <a type="button" class="btn rounded-pill btn-icon btn-outline-danger"
                                             data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $employee->id }}">
-                                            <span class="ti ti-trash">
+                                            <span class="ti ti-trash text-white">
                                         </a><!--/End Delete Button -->
 
                                         <!-- Delete Modal -->

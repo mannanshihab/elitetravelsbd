@@ -119,7 +119,7 @@ $(function () {
               Maintainer:
                 '<span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2"><i class="ti ti-chart-pie-2 ti-sm"></i></span>',
               Editor:
-                '<span class="badge badge-center rounded-pill bg-label-info w-px-30 h-px-30 me-2"><i class="ti ti-edit ti-sm"></i></span>',
+                '<span class="badge badge-center rounded-pill bg-label-info w-px-30 h-px-30 me-2"><i class="ti ti-pencil ti-sm"></i></span>',
               Admin:
                 '<span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2"><i class="ti ti-device-laptop ti-sm"></i></span>'
             };
@@ -159,8 +159,8 @@ $(function () {
           render: function (data, type, full, meta) {
             return (
               '<div class="d-flex align-items-center">' +
-              '<a href="javascript:;" class="text-body"><i class="ti ti-edit ti-sm me-2"></i></a>' +
-              '<a href="javascript:;" class="text-body delete-record"><i class="ti ti-trash ti-sm mx-2"></i></a>' +
+              '<a href="javascript:;" class="text-body"><i class="ti ti-pencil ti-sm me-2"></i></a>' +
+              '<a href="javascript:;" class="text-body delete-record"><i class="ti ti-trash text-white ti-sm mx-2"></i></a>' +
               '<a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm mx-1"></i></a>' +
               '<div class="dropdown-menu dropdown-menu-end m-0">' +
               '<a href="' +

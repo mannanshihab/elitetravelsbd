@@ -232,7 +232,7 @@
     },
     {
       "name": "Invoice Edit",
-      "icon": "ti-pencil",
+      "icon": "ti ti-pencil",
       "url": "app/invoice/edit"
     },
     {
@@ -427,7 +427,7 @@
     },
     {
       "name": "Tabler",
-      "icon": "ti-pencil",
+      "icon": "ti ti-pencil",
       "url": "icons/tabler"
     },
     {

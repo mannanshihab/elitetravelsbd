@@ -183,8 +183,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as default address</a></li>
@@ -210,8 +210,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as default address</a></li>
@@ -238,8 +238,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as default address</a></li>
@@ -286,8 +286,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as Primary</a></li>
@@ -365,8 +365,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as Primary</a></li>
@@ -442,8 +442,8 @@ $configData = Helper::appClasses();
                 </span>
               </a>
               <div class="d-flex gap-3 p-4 p-sm-0 pt-0 ms-1 ms-sm-0">
-                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti-pencil text-secondary ti-sm"></i></a>
-                <a href="javascript:void(0);"><i class="ti ti-trash text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editCCModal"><i class="ti ti ti-pencil text-white text-secondary ti-sm"></i></a>
+                <a href="javascript:void(0);"><i class="ti ti-trash text-white text-secondary ti-sm"></i></a>
                 <button class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i class="ti ti-dots-vertical text-secondary ti-sm mt-1"></i></button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="javascript:void(0);">Set as Primary</a></li>

@@ -255,7 +255,7 @@ $(function () {
               '<li><a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a></li>' +
               '</ul>' +
               '</div>' +
-              '<a href="javascript:;" class="btn btn-sm btn-icon item-edit"><i class="text-primary ti ti-pencil"></i></a>'
+              '<a href="javascript:;" class="btn btn-sm btn-icon item-edit"><i class="text-primary ti ti ti-pencil text-white"></i></a>'
             );
           }
         }

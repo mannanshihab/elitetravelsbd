@@ -65,7 +65,7 @@
       <ul class="nav nav-tabs tabs-line">
         <li class="nav-item">
           <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-update">
-            <i class="ti ti-edit me-2"></i>
+            <i class="ti ti-pencil me-2"></i>
             <span class="align-middle">Edit</span>
           </button>
         </li>
