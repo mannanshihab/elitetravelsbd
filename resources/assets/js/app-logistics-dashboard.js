@@ -4,6 +4,8 @@
 
 'use strict';
 
+
+function run() {
 (function () {
   let labelColor, headingColor;
 
@@ -502,3 +504,9 @@ $(function () {
     $('.dataTables_info').addClass('pt-0');
   }
 });
+}
+
+document.addEventListener("livewire:navigated", (e) => {
+  run();
+});
+run();
