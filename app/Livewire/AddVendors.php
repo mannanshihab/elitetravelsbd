@@ -25,7 +25,7 @@ class AddVendors extends Component
             'account_details' => 'required',
         ]);
 
-        Vendor::insert([
+        Vendor::create([
             'vendor_name'   => $this->vendor_name,
             'mobile'        => $this->mobile,
             'address'       => $this->address,

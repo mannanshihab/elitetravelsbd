@@ -30,7 +30,7 @@
                                     Customer</a>
                                 <select id="selectpickerLiveSearch" wire:model="customer_id"
                                     class="selectpicker form-select" data-style="btn-default" data-live-search="true"
-                                    onchange="this.dispatchEvent(new InputEvent('input'))">
+                                    required onchange="this.dispatchEvent(new InputEvent('input'))">
                                     <option value="">Select Work Type</option>
                                     @foreach ($customers as $customer)
                                         <option value="{{ $customer->id }}">
@@ -121,7 +121,7 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="Work Type">Work Type</label>
-                            <div class="input-group">
+                            <div class="input-group" wire:ignore>
                                 <select id="formValidationWorkType" class="selectpicker w-100" wire:model="work_type"
                                     name="formValidationWorkType" required data-style="btn-default">
                                     <option value="">Select Work Type</option>
@@ -130,21 +130,21 @@
                                     <option value="tour package">Tour Packege</option>
                                 </select>
                                 {{-- show error --}}
-                                @error('work_type')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
+                            @error('work_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
-                        <div class="col-md-6" wire:ignore>
+                        <div class="col-md-6">
                             <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
-                            <div class="input-group">
+                            <div class="input-group" wire:ignore>
                                 <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
                                     wire:navigate>Add
                                     Agent</a>
                                 <select id="selectpickerLiveSearch" wire:model="agent_id"
                                     class="selectpicker form-control" data-style="btn-default"
-                                    data-live-search="true" tabindex="null">
+                                    data-live-search="true" tabindex="null" required>
                                     <option value="">Select Work Type</option>
                                     @foreach ($agents as $agent)
                                         <option value="{{ $agent->id }}">
@@ -154,7 +154,7 @@
                                 </select>
                             </div>
                             <!-- show error Validation-->
-                            @error('refer_agent')
+                            @error('agent_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -345,7 +345,15 @@
                         </div>
 
                         <div class="col-12">
-                            <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="submitButton" class="btn btn-primary">
+                                <span wire:loading.remove>Submit</span>
+                                <span wire:loading>
+                                    <div class="spinner-border text-light" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </span>
+                            </button>
+
                         </div>
                     </form>
                 </div>

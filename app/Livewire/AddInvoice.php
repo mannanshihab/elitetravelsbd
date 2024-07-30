@@ -56,7 +56,7 @@ class AddInvoice extends Component
             'service_charge' => 'required',
         ]);
 
-        Invoice::insert($data);
+        Invoice::create($data);
 
 
         $this->dispatch('swal', [
