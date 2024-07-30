@@ -12,7 +12,7 @@
                 <h5 class="card-header">Create Invoice</h5>
                 <div class="card-body">
 
-                    <form id="formValidationExamples" class="row g-3">
+                    <form id="formValidationExamples" wire:submit.prevent="addInvoice" class="row g-3">
 
                         <!-- Account Details -->
 
@@ -20,15 +20,17 @@
                             <h6>Invoice Information</h6>
                             <hr class="mt-0" />
                         </div> --}}
+                        @include('livewire.partials.flash-session')
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationName">Full Name*</label>
-                            <div class="input-group">
-                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}" wire:navigate>Add
+                            <div class="input-group" wire:ignore>
+                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}"
+                                    wire:navigate>Add
                                     Customer</a>
-                                <select id="selectpickerLiveSearch" wire:model='customers'
+                                <select id="selectpickerLiveSearch" wire:model="customer_id"
                                     class="selectpicker form-select" data-style="btn-default" data-live-search="true"
-                                    required>
+                                    onchange="this.dispatchEvent(new InputEvent('input'))">
                                     <option value="">Select Work Type</option>
                                     @foreach ($customers as $customer)
                                         <option value="{{ $customer->id }}">
@@ -37,21 +39,22 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @error('name')
+                            @error('customer_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-6"->
                             <label class="form-label" for="formValidationDob">Date of Birth*</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-calendar"></i></span>
-                                <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
-                                    class="form-control bs-datepicker-format" required autocomplete="off" />
+                                <input type="text" placeholder="DD/MM/YYYY" name="date_of_birth"
+                                    wire:model="date_of_birth" class="form-control bsdatepicker" autocomplete="off"
+                                    onchange="this.dispatchEvent(new InputEvent('input'))" />
                                 <!-- show error Validation-->
-                                @error('dob')
+                                @error('date_of_birth')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -62,7 +65,7 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i
                                         class="ti ti-e-passport"></i></span>
-                                <input type="number" class="form-control" placeholder="Please Enter Passport No"
+                                <input type="text" class="form-control" placeholder="Please Enter Passport No"
                                     wire:model="passport_no" />
 
                                 <!-- show error Validation-->
@@ -116,27 +119,30 @@
                         </div>
 
 
-                        <div class="col-md-6 ">
+                        <div class="col-md-6">
                             <label class="form-label" for="Work Type">Work Type</label>
-                            <select id="formValidationWorkType" class="selectpicker w-100" wire:model="work_type"
-                                name="formValidationWorkType" required data-style="btn-default">
-                                <option value="">Select Work Type</option>
-                                <option value="VISA">VISA</option>
-                                <option value="AIR Ticket">AIR Ticket</option>
-                                <option value="Tour Packege">Tour Packege</option>
-                            </select>
-                            {{-- show error --}}
-                            @error('work_type')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <select id="formValidationWorkType" class="selectpicker w-100" wire:model="work_type"
+                                    name="formValidationWorkType" required data-style="btn-default">
+                                    <option value="">Select Work Type</option>
+                                    <option value="visa">VISA</option>
+                                    <option value="air ticket">AIR Ticket</option>
+                                    <option value="tour package">Tour Packege</option>
+                                </select>
+                                {{-- show error --}}
+                                @error('work_type')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" wire:ignore>
                             <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
                             <div class="input-group">
-                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}" wire:navigate>Add
+                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
+                                    wire:navigate>Add
                                     Agent</a>
-                                <select id="selectpickerLiveSearch" wire:model='agent_id'
+                                <select id="selectpickerLiveSearch" wire:model="agent_id"
                                     class="selectpicker form-control" data-style="btn-default"
                                     data-live-search="true" tabindex="null">
                                     <option value="">Select Work Type</option>
@@ -159,9 +165,9 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i
                                         class="ti ti-calendar-event"></i></span>
-                                <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
-                                    class="form-control bs-datepicker-format" wire:model="RCV_date"
-                                    autocomplete="off" name="formValidationRCVDate" />
+                                <input type="text" placeholder="DD/MM/YYYY" class="form-control bsdatepicker"
+                                    wire:model="rcv_date" autocomplete="off" name="formValidationRCVDate"
+                                    onchange="this.dispatchEvent(new InputEvent('input'))" />
                                 <!-- show error Validation-->
                                 @error('RCV_date')
                                     <span class="text-danger">{{ $message }}</span>
@@ -176,9 +182,9 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i
                                         class="ti ti-calendar-stats"></i></span>
-                                <input type="text" id="bs-datepicker-format" placeholder="DD/MM/YYYY"
-                                    class="form-control bs-datepicker-format" wire:model="delivery_date"
-                                    autocomplete="off" name="formValidationDeliveryDate" />
+                                <input type="text" placeholder="DD/MM/YYYY" class="form-control bsdatepicker"
+                                    wire:model="delivery_date" autocomplete="off" name="formValidationDeliveryDate"
+                                    onchange="this.dispatchEvent(new InputEvent('input'))" />
                                 <!-- show error Validation-->
                                 @error('delivery_date')
                                     <span class="text-danger">{{ $message }}</span>
@@ -201,8 +207,8 @@
                                                         <span class="custom-option-title">Pending</span>
                                                         <small>Still in progress or awaiting further action.</small>
                                                     </span>
-                                                    <input name="customOptionRadioIcon" class="form-check-input"
-                                                        type="radio" value="" id="customRadioIcon1"
+                                                    <input name="status" value="pending" wire:model="status"
+                                                        class="form-check-input" type="radio" id="customRadioIcon1"
                                                         checked />
                                                 </label>
                                             </div>
@@ -216,8 +222,9 @@
                                                         <span class="custom-option-title"> Complete </span>
                                                         <small> Fully finished and finalized. </small>
                                                     </span>
-                                                    <input name="customOptionRadioIcon" class="form-check-input"
-                                                        type="radio" value="" id="customRadioIcon2" />
+                                                    <input name="status" value="complete" wire:model="status"
+                                                        class="form-check-input" type="radio" value=""
+                                                        id="customRadioIcon2" />
                                                 </label>
                                             </div>
                                         </div>
@@ -230,14 +237,19 @@
                                                         <span class="custom-option-title"> Cancel </span>
                                                         <small> The action or process is no longer proceeding. </small>
                                                     </span>
-                                                    <input name="customOptionRadioIcon" class="form-check-input"
-                                                        type="radio" value="" id="customRadioIcon3" />
+                                                    <input name="status" value="cancel" wire:model="status"
+                                                        class="form-check-input" type="radio" value=""
+                                                        id="customRadioIcon3" />
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            @error('status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
@@ -267,7 +279,7 @@
                             <div class="input-group">
                                 <span class="input-group-text">Qty</span>
                                 <input type="number" class="form-control" placeholder="Please Enter Quantity"
-                                    wire:model="Qty" aria-label="Amount (to the nearest dollar)" />
+                                    wire:model="qty" aria-label="Amount (to the nearest dollar)" />
                                 <span class="input-group-text">.00</span>
                                 <!-- show error Validation-->
                                 @error('Qty')
@@ -361,13 +373,11 @@
             }
 
             // date by robi
-            var bsDatepickerFormat = $(".bs-datepicker-format")
+            const bsDatepickerFormat = $(".bsdatepicker")
 
             if (bsDatepickerFormat.length) {
                 bsDatepickerFormat.datepicker({
-                    todayHighlight: true,
-                    format: "dd/mm/yyyy",
-                    orientation: isRtl ? "auto right" : "auto left",
+                    format: "dd-mm-yyyy",
                 });
             }
         }, 500);
