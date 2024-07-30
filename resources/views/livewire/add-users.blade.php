@@ -48,6 +48,7 @@
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-lock"></i></span>
                                     <input type="password" wire:model="password" id="password" class="form-control"
                                         name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -64,6 +65,7 @@
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password_confirmation">Confirm Password</label>
                                 <div class="input-group input-group-merge">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-lock"></i></span>
                                     <input type="password" wire:model="password_confirmation" id="password_confirmation"
                                         class="form-control" name="password_confirmation" placeholder="Confirm your password"
                                         aria-describedby="password_confirmation" />
