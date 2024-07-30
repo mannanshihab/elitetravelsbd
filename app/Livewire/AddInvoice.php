@@ -55,7 +55,8 @@ class AddInvoice extends Component
             'visa_fee' => 'required',
             'service_charge' => 'required',
         ]);
-
+        $data['user_id'] = auth()->user()->id;
+        $data['invoice'] = rand(100000, 999999);
         Invoice::create($data);
 
 

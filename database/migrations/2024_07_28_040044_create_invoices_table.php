@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
+            $table->integer('invoice');
+            $table->integer('user_id');
             $table->integer('customer_id');
             $table->integer('agent_id');
             $table->string('date_of_birth');
             $table->string('passport_no');
-            $table->string('web_fIle_no');
+            $table->string('web_file_no');
             $table->string('token_no');
             $table->string('member_id');
             $table->string('work_type');
