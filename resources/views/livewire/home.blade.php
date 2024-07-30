@@ -17,12 +17,12 @@
                         <div class="avatar me-2">
                             <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-users ti-md"></i></span>
                         </div>
-                        <h4 class="ms-1 mb-0">42</h4>
+                        <h4 class="ms-1 mb-0">{{ $customerCount }}</h4>
                     </div>
                     <p class="mb-1">Customers</p>
                     <p class="mb-0">
-                        <span class="fw-medium me-1">+18.2%</span>
-                        <small class="text-muted">than last week</small>
+                        {{-- <span class="fw-medium me-1">+18.2%</span> --}}
+                        <small class="text-muted">Total Customers</small>
                     </p>
                 </div>
             </div>
@@ -36,12 +36,12 @@
                                 <span class="avatar-initial rounded bg-label-warning"><i
                                         class="ti ti-a-b ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">8</h4>
+                            <h4 class="ms-1 mb-0">{{ $agentCount }}</h4>
                         </div>
                         <p class="mb-1">Agents</p>
                         <p class="mb-0">
-                            <span class="fw-medium me-1">-8.7%</span>
-                            <small class="text-muted">than last week</small>
+                            {{-- <span class="fw-medium me-1">-8.7%</span> --}}
+                            <small class="text-muted">Total Agents</small>
                         </p>
                     </div>
                 </a>
@@ -55,12 +55,12 @@
                             <span class="avatar-initial rounded bg-label-danger"><i
                                     class="ti ti-shopping-cart ti-md"></i></span>
                         </div>
-                        <h4 class="ms-1 mb-0">27</h4>
+                        <h4 class="ms-1 mb-0">{{ $vendorsCount }}</h4>
                     </div>
                     <p class="mb-1">Vendors</p>
                     <p class="mb-0">
-                        <span class="fw-medium me-1">+4.3%</span>
-                        <small class="text-muted">than last week</small>
+                        {{-- <span class="fw-medium me-1">+4.3%</span> --}}
+                        <small class="text-muted">Total Vendors</small>
                     </p>
                 </div>
             </div>
@@ -72,12 +72,12 @@
                         <div class="avatar me-2">
                             <span class="avatar-initial rounded bg-label-info"><i class="ti ti-briefcase ti-md"></i></span>
                         </div>
-                        <h4 class="ms-1 mb-0">13</h4>
+                        <h4 class="ms-1 mb-0">{{ $employeesCount }}</h4>
                     </div>
                     <p class="mb-1">Employees</p>
                     <p class="mb-0">
-                        <span class="fw-medium me-1">-2.5%</span>
-                        <small class="text-muted">than last week</small>
+                        {{-- <span class="fw-medium me-1">-2.5%</span> --}}
+                        <small class="text-muted">Total Employees</small>
                     </p>
                 </div>
             </div>
