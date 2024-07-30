@@ -65,7 +65,7 @@
 
                                 <td>
                                     <span>Designation : {{ $employee->designation }}</span><br>
-                                    <span>Sallery : {{ $employee->sallery }}</span><br>
+                                    <span>Salary : {{ $employee->salary }}</span><br>
                                     <span>TA-DA : {{ $employee->ta_da }}</span>
                                 </td>
 

@@ -51,44 +51,54 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationPassportNo">Passport No*</label>
-                            <input type="text" id="formValidationPassportNo" class="form-control"
-                                wire:model="passport_no" placeholder="Type Passport No" required
-                                name="formValidationPassportNo" />
-                            <!-- show error Validation-->
-                            @error('PassportNo')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">Passport No</span>
+                                <input type="number" class="form-control" placeholder="Please Enter Passport No" wire:model="passport_no"/>
+                                
+                                <!-- show error Validation-->
+                                @error('passport_no')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="Web FIle No">Web FIle No</label>
-                            <input type="text" id="formValidationWebFIleNo" class="form-control"
-                                wire:model="web_fIle_no" placeholder="Type Web FIle No"
-                                name="formValidationWebFIleNo" required />
-                            <!-- show error Validation-->
-                            @error('web_fIle_no')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">Web FIle No</span>
+                                <input type="text" class="form-control" placeholder="Please Enter Web FIle No" wire:model="web_fIle_no"/>
+                                
+                                <!-- show error Validation-->
+                                @error('web_fIle_no')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="TokenNo">Token No</label>
-                            <input type="text" id="formValidationTokenNo" class="form-control" wire:model="token_no"
-                                placeholder="Type Token No" name="formValidationTokenNo" required />
-                            <!-- show error Validation-->
-                            @error('web_fIle_no')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">Token No</span>
+                                <input type="text" class="form-control" placeholder="Please Enter Token No" wire:model="token_no"/>
+                                
+                                <!-- show error Validation-->
+                                @error('token_no')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="Member Id">Member Id</label>
-                            <input type="text" id="formValidationMemberId" class="form-control"
-                                wire:model="member_id" placeholder="Type MemberId" name="formValidationMemberId" required />
-                            <!-- show error Validation-->
-                            @error('member_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">Member Id</span>
+                                <input type="text" class="form-control" placeholder="Please Enter Member Id" wire:model="member_id"/>
+                                
+                                <!-- show error Validation-->
+                                @error('member_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
 
@@ -147,7 +157,7 @@
                             @enderror
                         </div>
 
-                        <div class="col-md-6 selectpicker-bootstrap">
+                        <div class="col-md-6 mb-5 selectpicker-bootstrap">
                             <label class="form-label" for="formValidationGender">File Status</label>
                             <select id="formValidationWorkType" class="form-control selectpicker"
                                 wire:model="file_status" name="formValidationWorkType" data-style="btn-default" required>
@@ -162,71 +172,88 @@
                         </div>
 
                         <div class="col-12">
-                            <hr class="mt-0" />
                             <h6>Payment Details</h6>
+                            <hr class="mt-0" />
                         </div>
 
-                        <div class="col-md-3">
+                        
+
+                        <div class="col-md-4">
                             <label class="form-label" for="Amount">Amount</label>
-                            <input type="number" id="formValidationAmount" class="form-control" wire:model="amount"
-                                name="formValidationAmount" placeholder="Please Enter Amount" />
-                            <!-- show error Validation-->
-                            @error('amount')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">৳</span>
+                                <input type="number" class="form-control" placeholder="Please Enter Amount" wire:model="amount" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('amount')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label" for="Qty">Qty</label>
-                            <input type="number" id="formValidationQty" class="form-control" wire:model="Qty"
-                                name="formValidationQty" placeholder="Please Enter Quantity" />
-                            <!-- show error Validation-->
-                            @error('amount')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">Qty</span>
+                                <input type="number" class="form-control" placeholder="Please Enter Quantity" wire:model="Qty" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('Qty')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label" for="Total">Total</label>
-                            <input type="number" id="formValidationTotal" class="form-control" wire:model="total"
-                                name="formValidationTotal" placeholder="Please Enter Total" />
-                            <!-- show error Validation-->
-                            @error('total')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">৳</span>
+                                <input type="number" class="form-control" placeholder="120" wire:model="total_amount" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('total_amount')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label" for="Costing">Costing</label>
-                            <input type="number" id="formValidationCosting" class="form-control"
-                                wire:model="costing" name="formValidationCosting"
-                                placeholder="Please Enter Costing" />
-                            <!-- show error Validation-->
-                            @error('costing')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">৳</span>
+                                <input type="number" class="form-control" placeholder="120" wire:model="costing" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('costing')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label" for="VisaFee">Visa Fee</label>
-                            <input type="number" id="formValidationVisaFee" class="form-control"
-                                wire:model="visa_fee" name="formValidationVisaFee"
-                                placeholder="Please Enter Visa Fee" />
-                            <!-- show error Validation-->
-                            @error('visa_fee')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">৳</span>
+                                <input type="number" class="form-control" placeholder="120" wire:model="visa_fee" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('visa_fee')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label class="form-label" for="Service Charge">Service Charge</label>
-                            <input type="number" id="formValidationServiceCharge" class="form-control"
-                                wire:model="service_charge" name="formValidationService Charge"
-                                placeholder="Please Enter Service Charge" />
-                            <!-- show error Validation-->
-                            @error('service_charge')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <div class="input-group">
+                                <span class="input-group-text">৳</span>
+                                <input type="number" class="form-control" placeholder="120" wire:model="service_charge" aria-label="Amount (to the nearest dollar)" />
+                                <span class="input-group-text">.00</span>
+                                <!-- show error Validation-->
+                                @error('service_charge')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="col-12">

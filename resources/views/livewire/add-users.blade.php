@@ -19,24 +19,28 @@
                         @include('livewire.partials.flash-session')
 
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" wire:model="name" id="name" name="name"
-                                    placeholder="Enter your name" autofocus />
+                            <label class="form-label" for="formValidationName">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Please enter Name" wire:model="name" aria-label="name"  />
                             </div>
+                           
+                            {{-- show error --}}
                             @error('name')
-                                <p class="text-danger mt-2" id="name">{{ $message }}</p>
+                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" wire:model="email" id="email" name="email"
-                                    placeholder="Enter your email" />
+                            <label class="form-label" for="formValidationEmail">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-mail"></i></span>
+                                <input type="email" class="form-control" placeholder="Please enter email" wire:model="email" aria-label="email"  />
                             </div>
+                           
+                            {{-- show error --}}
                             @error('email')
-                                <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
+                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 

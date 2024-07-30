@@ -20,9 +20,11 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationVendorName">Vendor Name</label>
-                            <input type="text" id="formValidationVendorName" class="form-control" placeholder="John Doe"
-                                wire:model="vendor_name" name="formValidationVendorName" />
-                            {{-- show error --}}
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Please Enter Vendor Name" wire:model="vendor_name" aria-label="vendor_name"  />
+                            </div>
+                            
                             @error('vendor_name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -30,8 +32,10 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationMobile">Mobile No</label>
-                            <input type="number" id="formValidationMobile" class="form-control" wire:model="mobile"
-                                placeholder="01613456789" name="formValidationMobile" />
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-phone"></i></span>
+                                <input type="number" class="form-control" placeholder="01613456789" wire:model="mobile" aria-label="mobile"  />
+                            </div>
                             {{-- show error --}}
                             @error('mobile')
                                 <span class="text-danger">{{ $message }}</span>
@@ -40,8 +44,11 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="address">Address</label>
-                            <input type="text" id="address" class="form-control" wire:model="address"
-                                placeholder="Enter Address" name="address" />
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-id-badge"></i></span>
+                                <input type="text" class="form-control" placeholder="Please Enter Address" wire:model="address" aria-label="address"  />
+                            </div>
+                           
                             {{-- show error --}}
                             @error('address')
                                 <span class="text-danger">{{ $message }}</span>
@@ -61,7 +68,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        
                         <div class="col-md-12">
                             <label class="form-label" for="account_details">Account Details</label>
                             <textarea class="form-control" wire:model="account_details" name="account_details" rows="3" aria-label="With textarea"></textarea>

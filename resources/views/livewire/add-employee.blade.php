@@ -19,24 +19,50 @@
                         @include('livewire.partials.flash-session')
 
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" wire:model="name" id="name" name="name"
-                                    placeholder="Enter your name" autofocus required/>
+                            <label class="form-label" for="formValidationName">Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Please enter CEO Name"  wire:model="name" aria-label="name"  />
                             </div>
+                           
                             @error('name')
-                                <p class="text-danger mt-2" id="name">{{ $message }}</p>
+                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" wire:model="email" id="email" name="email"
-                                    placeholder="Enter your email" required/>
+                            <label class="form-label" for="formValidationEmail">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-mail"></i></span>
+                                <input type="email" class="form-control" placeholder="Please enter email" wire:model="email" aria-label="email"  />
                             </div>
                             @error('email')
-                                <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label" for="formValidationMobile">Mobile No</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-phone"></i></span>
+                                <input type="number" class="form-control" placeholder="01613456789" wire:model="mobile" aria-label="mobile"  />
+                            </div>
+                            {{-- show error --}}
+                            @error('mobile')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label" for="address">Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-id-badge"></i></span>
+                                <input type="text" class="form-control" placeholder="Please Enter Address" wire:model="address" aria-label="address"  />
+                            </div>
+                        
+                            {{-- show error --}}
+                            @error('address')
+                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -53,10 +79,14 @@
                          
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="Sallery" class="form-label">salary</label>
-                                <input type="number" class="form-control" wire:model="salary" id="salary" name="salary" required/>
+                                <label for="Sallery" class="form-label">Sallery</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">৳</span>
+                                    <input type="number" class="form-control" placeholder="Please Enter salary" wire:model="salary" id="salary" name="salary"/>
+                                    
+                                </div>
                             </div>
-                            @error('sallery')
+                            @error('salary')
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
                             @enderror
                         </div>
@@ -64,30 +94,13 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="TA / DA" class="form-label">TA / DA</label>
-                                <input type="number" class="form-control" wire:model="ta_da" id="ta_da" name="ta_da" required/>
+                                <div class="input-group">
+                                    <span class="input-group-text">৳</span>
+                                    <input type="number" class="form-control" placeholder="Please Enter TA | DA"  wire:model="ta_da" id="ta_da" name="ta_da"/>  
+                                </div>
                             </div>
                             @error('ta_da')
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationMobile">Mobile</label>
-                            <input type="number" id="formValidationMobile" class="form-control" wire:model="mobile"
-                                placeholder="01613456789" name="formValidationMobile" required/>
-                            {{-- show error --}}
-                            @error('mobile')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationAddress">Address</label>
-                            <input type="text" id="formValidationAddress" class="form-control" wire:model="address"
-                                placeholder="Enter Address" name="formValidationAddress" required/>
-                            {{-- show error --}}
-                            @error('address')
-                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -110,23 +123,23 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="Bkash" class="form-label">Bkash</label>
-                                <input type="number" class="form-control" wire:model="bkash" id="bkash" name="bkash"/>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-phone"></i></span>
+                                    <input type="number" class="form-control" placeholder="01613456789" wire:model="bkash" aria-label="bkash"/>
+                                </div>
                             </div>
-                            @error('ta_da')
+                            @error('bkash')
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="col-md-6">
-                            {{-- <span class="input-group-text">Banks</span> --}}
                             <label class="form-label" for="basic-default-upload-file">Banks</label>
                             <textarea class="form-control" wire:model="banks_details"  aria-label="With textarea"></textarea>
                             @error('banks_details')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
-
 
                         <div class="col-12">
                             <button type="submit" name="submitButton" class="btn btn-primary"><span

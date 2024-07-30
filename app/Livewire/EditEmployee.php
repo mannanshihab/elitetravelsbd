@@ -14,7 +14,7 @@ class EditEmployee extends Component
     public $name = '';
     public $email = '';
     public $designation = '';
-    public $sallery = '';
+    public $salary = '';
     public $ta_da = '';
     public $mobile = '';
     public $address = '';
@@ -30,10 +30,11 @@ class EditEmployee extends Component
         $this->name = $employee->name;
         $this->email = $employee->email;
         $this->designation = $employee->designation;
-        $this->sallery = $employee->sallery;
+        $this->salary = $employee->salary;
         $this->ta_da = $employee->ta_da;
         $this->mobile = $employee->mobile;
         $this->address = $employee->address;
+        $this->bkash = $employee->bkash;
         $this->banks_details = $employee->banks_details;
     }
 
@@ -51,10 +52,11 @@ class EditEmployee extends Component
         $employee->name = $this->name;
         $employee->email = $this->email;
         $employee->designation = $this->designation;
-        $employee->sallery = $this->sallery;
+        $employee->salary = $this->salary;
         $employee->ta_da = $this->ta_da;
         $employee->mobile = $this->mobile;
         $employee->address = $this->address;
+        $employee->bkash = $this->bkash;
         $employee->banks_details = $this->banks_details;
         
         if (!empty($this->nid_no)) {
