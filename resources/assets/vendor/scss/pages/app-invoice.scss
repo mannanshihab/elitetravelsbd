@@ -1,34 +1,77 @@
 // * Invoice
 // *******************************************************************************
-@import '../_bootstrap-extended/include';
+@import "../_bootstrap-extended/include";
 
 // Invoice Edit & Add
 .invoice-edit,
 .invoice-add {
-  @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(sm) {
+        .invoice-preview-card {
+            .invoice-calculations {
+                width: 100%;
+            }
+        }
+    }
+    @include media-breakpoint-up(md) {
+        .repeater-title {
+            position: absolute;
+            top: -1.75rem;
+        }
+    }
     .invoice-preview-card {
-      .invoice-calculations {
+        .repeater-wrapper {
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    @media print {
+        hr {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .invoice-edit .invoice-preview-card .invoice-calculations,
+    .invoice-add .invoice-preview-card .invoice-calculations {
         width: 100%;
-      }
     }
-  }
-  @include media-breakpoint-up(md) {
-    .repeater-title {
-      position: absolute;
-      top: -1.75rem;
+}
+@media (min-width: 768px) {
+    .invoice-edit .repeater-title,
+    .invoice-add .repeater-title {
+        position: absolute;
+        top: -2.4rem;
     }
-  }
-  .invoice-preview-card {
-    .repeater-wrapper {
-      &:not(:last-child) {
-        margin-bottom: 1.5rem;
-      }
+}
+.invoice-edit .invoice-preview-card .repeater-wrapper:not(:last-child),
+.invoice-add .invoice-preview-card .repeater-wrapper:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+@media print {
+    .invoice-edit hr,
+    .invoice-add hr {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
     }
-  }
-  @media print {
-    hr {
-      margin-top: 1rem !important;
-      margin-bottom: 1rem !important;
-    }
-  }
+}
+.invoice-preview .invoice-preview-header,
+.invoice-edit .invoice-preview-header,
+.invoice-add .invoice-preview-header {
+    background-color: #2f2b3d0f;
+}
+.dark-style .invoice-preview .invoice-preview-header,
+.dark-style .invoice-edit .invoice-preview-header,
+.dark-style .invoice-add .invoice-preview-header {
+    background-color: #e1def50f;
+}
+
+.invoice-preview-header {
+  color: black !important;
+}
+
+.robi-black{
+    color: black !important;
 }

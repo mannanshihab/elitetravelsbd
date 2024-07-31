@@ -18,7 +18,7 @@ class InvoiceList extends Component
     public function render()
     {
         if($this->search){
-            $invoices = Invoice::with('customer')->where('invoice', 'like', '%'.$this->search.'%')
+            $invoices = Invoice::with('customer', 'billed')->where('invoice', 'like', '%'.$this->search.'%')
             ->orWhere('passport_no', 'like', '%'.$this->search.'%')
             ->orWhere('web_file_no', 'like', '%'.$this->search.'%')
             ->orWhere('token_no', 'like', '%'.$this->search.'%')
@@ -27,8 +27,12 @@ class InvoiceList extends Component
             ->orderBy('id', 'desc')->paginate($this->rows);
             
         }else{
-            $invoices = Invoice::with('customer')->orderBy('id', 'desc')->paginate($this->rows);
+            $invoices = Invoice::with('customer', 'billed')->orderBy('id', 'desc')->paginate($this->rows);
         }
-        return view('livewire.invoice-list', ['invoices' => $invoices]);
+
+        $total_clients = Invoice::distinct()->count('customer_id');
+        $total_invoices = Invoice::count();
+
+        return view('livewire.invoice-list', ['invoices' => $invoices, 'total_clients' => $total_clients, 'total_invoices' => $total_invoices]);
     }
 }

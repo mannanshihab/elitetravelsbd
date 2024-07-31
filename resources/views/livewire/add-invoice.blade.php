@@ -1,5 +1,5 @@
 <div>
-
+<?php header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'); ?>
     @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <!-- Content -->
     <h4 class="py-3 mb-4">
@@ -203,7 +203,7 @@
                                                 <label class="form-check-label custom-option-content"
                                                     for="customRadioIcon1">
                                                     <span class="custom-option-body">
-                                                        <i class="ti ti-loader-2"></i>
+                                                        <i class="ti ti-loader-2 text-primary"></i>
                                                         <span class="custom-option-title">Pending</span>
                                                         <small>Still in progress or awaiting further action.</small>
                                                     </span>
@@ -218,7 +218,7 @@
                                                 <label class="form-check-label custom-option-content"
                                                     for="customRadioIcon2">
                                                     <span class="custom-option-body">
-                                                        <i class="ti ti-star"></i>
+                                                        <i class="ti ti-star text-success"></i>
                                                         <span class="custom-option-title"> Complete </span>
                                                         <small> Fully finished and finalized. </small>
                                                     </span>
@@ -233,11 +233,11 @@
                                                 <label class="form-check-label custom-option-content"
                                                     for="customRadioIcon3">
                                                     <span class="custom-option-body">
-                                                        <i class="ti ti-circle-x"></i>
-                                                        <span class="custom-option-title"> Cancel </span>
-                                                        <small> The action or process is no longer proceeding. </small>
+                                                        <i class="ti ti-circle-x  text-danger"></i>
+                                                        <span class="custom-option-title"> Cancelled </span>
+                                                        <small> Process is no longer proceeding. </small>
                                                     </span>
-                                                    <input name="status" value="cancel" wire:model="status"
+                                                    <input name="status" value="Cancelled" wire:model="status"
                                                         class="form-check-input" type="radio" value=""
                                                         id="customRadioIcon3" />
                                                 </label>
@@ -377,6 +377,7 @@
             // Bootstrap Select
             // --------------------------------------------------------------------
             if (selectPicker.length) {
+                selectPicker.selectpicker('destroy');
                 selectPicker.selectpicker();
             }
 
@@ -389,5 +390,7 @@
                 });
             }
         }, 500);
+
+        
     </script>
 @endscript

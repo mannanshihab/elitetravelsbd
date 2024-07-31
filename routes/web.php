@@ -19,10 +19,16 @@ use App\Livewire\EditVendors;
 use App\Livewire\EmployeeList;
 use App\Livewire\Home;
 use App\Livewire\InvoiceList;
+use App\Livewire\InvoicePreview;
 use App\Livewire\ProfileSettings;
 use App\Livewire\UserList;
 use App\Livewire\VendorsList;
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('/asdf', function(){
+    return view('content.apps.app-invoice-preview');
+});
 
 
 
@@ -43,6 +49,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('invoice', AddInvoice::class)->name('invoice');
     Route::get('invoice-list', InvoiceList::class)->name('invoice-list');
+    Route::get('invoice-preview/{invoice_id}', InvoicePreview::class)->name('preview');
 
     Route::get('add-customer', AddCustomer::class)->name('add-customer');
     Route::get('edit-customer/{id}', EditCustomer::class)->name('edit-customer');

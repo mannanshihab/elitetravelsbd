@@ -15,4 +15,9 @@ class Invoice extends Model
         return $this->hasOne(Customer::class, 'id', 'customer_id');
     }
 
+    public function billed()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
 }
