@@ -35,7 +35,7 @@ class AddAgents extends Component
         $tradeLicensePath = $this->trade_license_no->store('uploads', 'real_public');
         $nidPath = $this->nid_no->store('uploads', 'real_public');
 
-        Agent::insert([
+        Agent::create([
             'company_name'      => $this->company_name,
             'ceo_name'          => $this->ceo_name,
             'email'             => $this->email,

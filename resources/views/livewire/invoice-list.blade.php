@@ -43,32 +43,29 @@
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Sl</th>
+                            <th>Invoice ID</th>
                             <th>Customer Details</th>
                             <th>Work Type</th>
-                            <th>Descr</th>
-                            <th>Qty</th>
                             <th>Amount</th>
+                            <th>Qty</th>
                             <th>Total</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                       @php
-                        $sl = 1;
-                       @endphp
-                      {{--  @forelse ($invoices as $user) --}}
+                       
+                       @forelse ($invoices as $invoice)
                             <tr>
-                                <td>{{ $sl++ }}</td>
+                                <td class="sorting_1"><a href="#" class="text-primary">#{{ $invoice->invoice }}</a></td>
                                 <td>
-                                    <span>Name: Mannan</span><br>
-                                    <span>Passport No: 123234</span>
+                                    <span>Name: {{ ucwords($invoice->customer->name) }}</span><br>
+                                    <span>Passport No: {{ $invoice->passport_no }}</span><br>
+                                    <span>Mobile No: {{ $invoice->customer->mobile }}</span>
                                 </td>
-                                <td>Visa</td>
-                                <td>Tourist</td>
-                                <td>03</td>
-                                <td>100</td>
-                                <td>300</td>
+                                <td>{{ ucwords($invoice->work_type) }}</td>
+                                <td>{{ $invoice->amount }}</td>
+                                <td>{{ $invoice->qty }}</td>
+                                <td>{{ $invoice->total_amount }}</td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
@@ -78,10 +75,10 @@
                                         </a><!-- End Edit Button -->
 
                                         <!-- Start Make User Button -->
-                                        {{-- <a class="btn rounded-pill btn-icon btn-secondary" href=""
+                                        <a class="btn rounded-pill btn-icon btn-secondary" href="#"
                                             wire:navigate>
                                           <span class="ti ti-eye"></span>
-                                        </a> --}}
+                                        </a>
                                         <!-- End User Button -->
                                         
                                         <!-- Start Delete Button -->
@@ -114,17 +111,17 @@
                                     </div>
                                 </td>
                             </tr>
-                        {{-- @empty --}}
+                        @empty
                             <tr>
                                 <td class="text-center" colspan="8">No records found</td>
                             </tr>
-                        {{-- @endforelse --}}
+                        @endforelse
                         
                     </tbody>
                 </table>
             </div>
             <br>
-            {{-- {{ $invoices->links() }} --}}
+            {{ $invoices->links() }}
         </div>
         {{--/ End Table List --}}
     </div>

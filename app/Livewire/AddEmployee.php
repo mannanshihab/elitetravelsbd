@@ -44,7 +44,7 @@ class AddEmployee extends Component
         $nidPath = $this->nid_no->store('uploads', 'real_public');
         $ecvPath = $this->employee_cv->store('uploads', 'real_public');
 
-        Employee::insert([
+        Employee::create([
             'name'          => $this->name,
             'email'         => $this->email,
             'designation'   => $this->designation,

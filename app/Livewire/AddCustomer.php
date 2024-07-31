@@ -30,7 +30,7 @@ class AddCustomer extends Component
             'gender' => 'required',
         ]);
 
-        Customer::insert([
+        Customer::create([
             'name' => $this->name,
             'email' => $this->email,
             'mobile' => $this->mobile,
