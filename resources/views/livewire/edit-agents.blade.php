@@ -67,13 +67,20 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <div class="col-md-6">
                         <label class="form-label" for="formValidationName">Company Name</label>
-                        <input type="text" wire:model="company_name" id="formValidationName" class="form-control" placeholder="John Doe" name="formValidationName" />
-                        {{-- show error --}}
-                        @error('company_name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon11"><i class="ti ti-armchair"></i></span>
+                            <input type="text" wire:model="company_name" id="formValidationName"
+                                class="form-control" placeholder="Please enter Company Name" name="formValidationName" />
+                            {{-- show error --}}
+                            @error('company_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
                     </div>
 
                     <div class="col-md-6">

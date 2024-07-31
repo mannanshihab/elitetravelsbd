@@ -43,11 +43,8 @@
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Company Name</th>
-                            <th>CEO Name</th>
-                            <th>Email</th>
-                            <th>Mobile</th>
-                            <th>Address</th>
+                            <th>CEO Info</th>
+                            <th>Company Info</th>
                             <th>Trade License</th>
                             <th>Nid</th>
                             <th>Action</th>
@@ -56,16 +53,20 @@
                     <tbody class="table-border-bottom-0">
                         @forelse ($agents as $agent)
                             <tr>
-                                <td>{{ $agent->company_name }}</td>
-                                <td>{{ $agent->ceo_name }}</td>
-                                <td><a href="mailto:{{ $agent->email }}">{{ $agent->email }}</a></td>
-                                <td><i class="ti ti-phone ti-md text-danger me-4"></i>
-                                    <span class="fw-medium"><a href="tel:{{ $agent->mobile }}">{{ $agent->mobile }}</a></span>
-                                </td>
-                                <td><span>{{ ucwords($agent->address) }}</span></td>
                                 <td>
-                                    <a href="{{ asset($agent->trade_license_no) }}" target="_blank"><img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
-                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
+                                    <span>CEO Name : {{ $agent->ceo_name }}</span><br>
+                                    <span>Email : <a href="mailto:{{ $agent->email }}">{{ $agent->email }}</a></span><br>
+                                    <span class="fw-medium">Mobile : <a href="tel:{{ $agent->mobile }}">{{ $agent->mobile }}</a></span>
+                                </td>
+                                <td> 
+                                    <span>Company Name : {{ $agent->company_name }}</span><br>
+                                    <span>Address : {{ ucwords($agent->address) }}</span>
+                                </td>
+                                <td>
+                                    <a href="{{ asset($agent->trade_license_no) }}" target="_blank">
+                                        <img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
+                                        class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar"/>
+                                    </a>
                                 </td>
                                 <td>
                                     <a href="{{ asset($agent->nid_no) }}" target="_blank"><img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
@@ -110,7 +111,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td class="text-center" colspan="8">No records found</td>
+                                <td class="text-center" colspan="5">No records found</td>
                             </tr>
                         @endforelse
                         

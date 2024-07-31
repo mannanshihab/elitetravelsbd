@@ -69,8 +69,10 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="designation" class="form-label">Designation</label>
-                                <input type="text" class="form-control" wire:model="designation" id="designation" name="designation"
-                                    placeholder="Enter employee designation" required/>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-tag"></i></span>
+                                    <input type="text" class="form-control" placeholder="Enter employee designation" wire:model="designation" aria-label="designation" id="designation" name="designation" />
+                                </div>
                             </div>
                             @error('designation')
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>

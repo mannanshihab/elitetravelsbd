@@ -72,8 +72,13 @@
                             <div class="mb-3 col-md-6">
                                 <div>
                                     <label for="old_password" class="form-label">Old Password</label>
-                                    <input class="form-control" type="password" wire:model="old_password"
-                                        name="old_password" placeholder="Enter your old password" />
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text" id="basic-addon11"><i class="ti ti-lock"></i></span>
+                                        <input type="password" wire:model="old_password" id="old_password"
+                                            class="form-control" name="old_password" placeholder="Enter your old password"
+                                            aria-describedby="old_password" />
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
                                 </div>
                                 @error('old_password')
                                     <p class="text-danger mt-2" id="password">{{ $message }}</p>
@@ -83,8 +88,14 @@
                             <div class="mb-3 col-md-6">
                                 <div>
                                     <label for="password" class="form-label">Password</label>
-                                    <input class="form-control" type="password" wire:model="password" name="password"
-                                        placeholder="Enter your password" />
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text" id="basic-addon11"><i class="ti ti-lock"></i></span>
+                                        <input type="password" wire:model="password" id="password" class="form-control"
+                                            name="password"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            aria-describedby="password" />
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
                                 </div>
                                 @error('password')
                                     <p class="text-danger mt-2" id="password">{{ $message }}</p>
@@ -94,8 +105,13 @@
                             <div class="mb-3 col-md-6">
                                 <div>
                                     <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                    <input class="form-control" type="password" wire:model="password_confirmation"
-                                        name="password_confirmation" placeholder="Confirm your password" />
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text" id="basic-addon11"><i class="ti ti-lock"></i></span>
+                                        <input type="password" wire:model="password_confirmation" id="password_confirmation"
+                                            class="form-control" name="password_confirmation" placeholder="Confirm your password"
+                                            aria-describedby="password_confirmation" />
+                                        <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                    </div>
                                 </div>
                                 @error('password_confirmation')
                                     <p class="text-danger mt-2" id="password">{{ $message }}</p>
