@@ -105,12 +105,14 @@
                         <hr class="mt-0" />
                     </div>
                     
-                    <div class="input-group">
-                        <span class="input-group-text">Banks</span>
-                        <textarea class="form-control" wire:model="banks_details" rows="6" aria-label="With textarea"></textarea>
-                        @error('banks_details')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-text">Banks</span>
+                            <textarea class="form-control" wire:model="banks_details" rows="3" aria-label="With textarea"></textarea>
+                            @error('banks_details')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="col-12">
@@ -122,6 +124,8 @@
                                 </div>
                             </span>
                         </button>
+                        <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
+                            class="ti ti-arrow-left"></i> Back to Invoice </a>
                     </div>
                 </form>
             </div>

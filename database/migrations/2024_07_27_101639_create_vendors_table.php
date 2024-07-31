@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('address');
             $table->string('vendor_type');
-            $table->string('account_details');
+            $table->string('banks_details');
             $table->timestamps();
         });
     }

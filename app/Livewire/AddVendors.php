@@ -13,7 +13,7 @@ class AddVendors extends Component
     public $mobile = '';
     public $address = '';
     public $vendor_type = '';
-    public $account_details = '';
+    public $banks_details = '';
 
     public function addVendors()
     {
@@ -22,7 +22,7 @@ class AddVendors extends Component
             'mobile'        => 'required',
             'address'       => 'required',
             'vendor_type'   => 'required',
-            'account_details' => 'required',
+            'banks_details' => 'required',
         ]);
 
         Vendor::create([
@@ -30,7 +30,7 @@ class AddVendors extends Component
             'mobile'        => $this->mobile,
             'address'       => $this->address,
             'vendor_type'   => $this->vendor_type,
-            'account_details' => $this->account_details
+            'banks_details' => $this->banks_details
         ]);
 
         $this->dispatch('swal', [

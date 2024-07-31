@@ -68,15 +68,22 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
+                        <div class="col-12">
+                            <h6 class="mt-2">Bank Account Details</h6>
+                            <hr class="mt-0" />
+                        </div>
+
                         <div class="col-md-12">
-                            <label class="form-label" for="account_details">Account Details</label>
-                            <textarea class="form-control" wire:model="account_details" name="account_details" rows="3" aria-label="With textarea"></textarea>
-                            @error('account_details')
+                            <div class="input-group">
+                                <span class="input-group-text">Banks</span>
+                                <textarea class="form-control" wire:model="banks_details" rows="3" aria-label="With textarea"></textarea>
+                            </div>
+                            @error('banks_details')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        
                         <div class="col-12">
                             <button type="submit" name="submitButton" class="btn btn-primary"><span
                                     wire:loading.remove>Submit</span>
@@ -84,7 +91,11 @@
                                     <div class="spinner-border text-light" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
-                                </span></button>
+                                </span>
+                            </button>
+
+                            <a href="{{ route('list-vendor') }}" class="btn btn-secondary text-white" wire:navigate><i
+                                class="ti ti-arrow-left"></i> Back </a>
 
                         </div>
                     </form>

@@ -13,7 +13,7 @@ class EditVendors extends Component
     public $mobile = '';
     public $address = '';
     public $vendor_type = '';
-    public $account_details = '';
+    public $banks_details = '';
 
     public function mount($id)
     {
@@ -22,7 +22,7 @@ class EditVendors extends Component
         $this->mobile       = Vendor::find($id)->mobile;
         $this->address      = Vendor::find($id)->address;
         $this->vendor_type  = Vendor::find($id)->vendor_type;
-        $this->account_details = Vendor::find($id)->account_details;
+        $this->banks_details = Vendor::find($id)->banks_details;
     }
 
     public function updateVendors(){
@@ -31,7 +31,7 @@ class EditVendors extends Component
             'mobile'        => 'required',
             'address'       => 'required',
             'vendor_type'   => 'required',
-            'account_details' => 'required',
+            'banks_details' => 'required',
        ]);
 
         $Vendor = Vendor::find($this->id);
@@ -41,7 +41,7 @@ class EditVendors extends Component
             'mobile'        => $this->mobile,
             'address'       => $this->address,
             'vendor_type'   => $this->vendor_type,
-            'account_details' => $this->account_details
+            'banks_details' => $this->banks_details
         ]);
         
         $this->dispatch('swal', [

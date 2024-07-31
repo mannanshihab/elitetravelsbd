@@ -47,7 +47,7 @@
                             <th>Mobile</th>
                             <th>Address</th>
                             <th>Vendor Type</th>
-                            <th>Account Details</th>
+                            <th>Bank Account Details</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@
                             <td>{{ $vendor->mobile }}</td>
                             <td>{{ $vendor->address }}</td>
                             <td>{{ $vendor->vendor_type }}</td>
-                            <td>{{ $vendor->account_details }}</td>
+                            <td>{{ ucwords($vendor->banks_details) }}</td>
                             <td>
                                 <div class="demo-inline-spacing text-center">
                                     <!-- Start Edit Button -->

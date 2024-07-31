@@ -101,7 +101,10 @@
                                     <div class="spinner-border text-light" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
-                                </span></button>
+                                </span>
+                            </button>
+                            <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
+                                class="ti ti-arrow-left"></i> Back to Invoice </a>
 
                         </div>
                     </form>
