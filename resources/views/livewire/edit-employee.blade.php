@@ -125,9 +125,12 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="Bkash" class="form-label">Bkash</label>
-                                <input type="number" class="form-control" wire:model="bkash" id="bkash" name="bkash"/>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-phone"></i></span>
+                                    <input type="number" class="form-control" placeholder="01613456789" wire:model="bkash" aria-label="bkash"/>
+                                </div>
                             </div>
-                            @error('ta_da')
+                            @error('bkash')
                                 <p class="text-danger mt-2" id="password-error">{{ $message }}</p>
                             @enderror
                         </div>
