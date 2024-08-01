@@ -22,7 +22,7 @@
                             <label class="form-label" for="formValidationName">Name</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Please enter CEO Name"  wire:model="name" aria-label="name"  />
+                                <input type="text" class="form-control" placeholder="Please Enter Employee name"  wire:model="name" aria-label="name"  />
                             </div>
                            
                             @error('name')
@@ -34,7 +34,7 @@
                             <label class="form-label" for="formValidationEmail">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-mail"></i></span>
-                                <input type="email" class="form-control" placeholder="Please enter email" wire:model="email" aria-label="email"  />
+                                <input type="email" class="form-control" placeholder="Please Enter Your Email" wire:model="email" aria-label="email"  />
                             </div>
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>

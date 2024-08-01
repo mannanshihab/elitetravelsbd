@@ -1,5 +1,4 @@
 <div>
-<?php header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'); ?>
     @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <!-- Content -->
     <h4 class="py-3 mb-4">
@@ -30,7 +29,7 @@
                                     Customer</a>
                                 <select id="selectpickerLiveSearch" wire:model="customer_id"
                                     class="selectpicker form-select" data-style="btn-default" data-live-search="true"
-                                    required onchange="this.dispatchEvent(new InputEvent('input'))">
+                                    onchange="this.dispatchEvent(new InputEvent('input'))" required>
                                     <option value="">Select Work Type</option>
                                     @foreach ($customers as $customer)
                                         <option value="{{ $customer->id }}">
@@ -43,7 +42,6 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
 
 
                         <div class="col-md-6"->

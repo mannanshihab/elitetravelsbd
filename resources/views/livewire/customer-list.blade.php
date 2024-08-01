@@ -39,10 +39,10 @@
                 <table class="table table-hover table-bordered table-striped" id="my-table">
                     <thead>
                         <tr>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Mobile</th>
-                            <th>Gender</th>
+                            <th>Customer Info</th>
+                            <th>Passport</th>
+                            <th>Member Id</th>
+                            <th>Contacts</th>
                             <th>Address</th>
                             <th>Source</th>
                             <th>Action</th>
@@ -52,18 +52,9 @@
                         @foreach ($customers as $customer)
                             <tr>
                                 <td>
-                                    @if ($customer->gender == 'male')
-                                        <i class="ti ti-man ti-md text-success me-4"></i>
-                                    @else
-                                        <i class="ti ti-woman ti-md text-info me-4"></i>
-                                    @endif
-                                    <span class="fw-medium">{{ $customer->name }}</span>
-                                </td>
-                                <td><i class="ti ti-mail text-primary me-4"></i>{{ $customer->email }}</td>
-                                <td><i class="ti ti-phone ti-md text-danger me-4"></i>
-                                    <span class="fw-medium">{{ $customer->mobile }}</span>
-                                </td>
-                                <td>
+                                    Name: <span class="fw-medium">{{ $customer->name }}</span><br>
+                                    DOB: <span class="fw-medium">{{ $customer->dob }}</span><br>
+                                    Gender:
                                     @if ($customer->gender == 'male')
                                         <span
                                             class="badge bg-label-success me-1">{{ ucwords($customer->gender) }}</span>
@@ -71,6 +62,14 @@
                                         <span
                                             class="badge bg-label-primary me-1">{{ ucwords($customer->gender) }}</span>
                                     @endif
+                                </td>
+                                <td><span class="fw-bold"><i class="ti ti-id-badge text-primary me-4"></i>{{ $customer->passport }}</span></td>
+                                <td>{{ $customer->member_id }}</td>
+                                <td>
+                                    <span class="fw-medium"><i class="ti ti-mail text-primary me-4"></i>
+                                        <a href="mailto:{{ $customer->email }}">{{ $customer->email }}</a></span><br>
+                                    <span class="fw-medium"><i class="ti ti-phone ti-md text-danger me-4"></i><a
+                                            href="tel:{{ $customer->mobile }}">{{ $customer->mobile }}</a></span>
                                 </td>
                                 <td><span>{{ ucwords($customer->address) }}</span></td>
                                 <td><span>{{ ucwords($customer?->source) }}</span></td>

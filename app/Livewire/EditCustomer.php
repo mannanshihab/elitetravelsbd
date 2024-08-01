@@ -10,6 +10,9 @@ class EditCustomer extends Component
 {
     public $id;
     public $name = '';
+    public $dob = '';
+    public $passport = '';
+    public $member_id = '';
     public $email = '';
     public $mobile = '';
     public $address = '';
@@ -20,6 +23,9 @@ class EditCustomer extends Component
     {
         $this->id = $id;
         $this->name = Customer::find($id)->name;
+        $this->dob = Customer::find($id)->dob;
+        $this->passport = Customer::find($id)->passport;
+        $this->member_id = Customer::find($id)->member_id;
         $this->email = Customer::find($id)->email;
         $this->mobile = Customer::find($id)->mobile;
         $this->address = Customer::find($id)->address;
@@ -30,8 +36,11 @@ class EditCustomer extends Component
 
     public function updateCustomer()
     {
-        $this->validate([
+        $data = $this->validate([
             'name' => 'required',
+            'dob' => 'required',
+            'passport' => 'required',
+            'member_id' => 'required',
             'email' => 'required',
             'mobile' => 'required',
             'address' => 'required',
@@ -40,15 +49,7 @@ class EditCustomer extends Component
         ]);
 
         $customer = Customer::find($this->id);
-        $customer->update([
-            'name' => $this->name,
-            'email' => $this->email,
-            'mobile' => $this->mobile,
-            'address' => $this->address,
-            'source' => $this->source,
-            'gender' => $this->gender,
-        ]);
-
+        $customer->update($data);
         
         $this->dispatch('swal', [
             'title' => 'Customer updated successfully.',

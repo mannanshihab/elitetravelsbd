@@ -12,6 +12,9 @@ class AddCustomer extends Component
 {
 
     public $name = '';
+    public $dob = '';
+    public $passport = '';
+    public $member_id = '';
     public $email = '';
     public $mobile = '';
     public $address = '';
@@ -21,8 +24,12 @@ class AddCustomer extends Component
 
     public function addCustomer()
     {
-        $this->validate([
+
+        $data = $this->validate([
             'name' => 'required',
+            'dob' => 'required',
+            'passport' => 'required',
+            'member_id' => 'required',
             'email' => 'required|unique:customers',
             'mobile' => 'required',
             'address' => 'required',
@@ -30,14 +37,7 @@ class AddCustomer extends Component
             'gender' => 'required',
         ]);
 
-        Customer::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'mobile' => $this->mobile,
-            'address' => $this->address,
-            'source' => $this->source,
-            'gender' => $this->gender
-        ]);
+        Customer::create($data);
 
 
         $this->dispatch('swal', [
