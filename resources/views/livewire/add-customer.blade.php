@@ -36,7 +36,8 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-calendar"></i></span>
                                 <input type="text" class="form-control bsdatepicker" placeholder="31-12-1996"
-                                    wire:model="dob" aria-label="dob" onchange="this.dispatchEvent(new InputEvent('input'))" required/>
+                                    wire:model="dob" aria-label="dob"
+                                    onchange="this.dispatchEvent(new InputEvent('input'))" required />
                             </div>
                         </div>
 
@@ -112,9 +113,9 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationGender">Gender</label>
-                            <div class="input-group"  wire:ignore>
-                                <select id="selectpickerLiveSearch"  data-style="btn-default" data-live-search="true" class="selectpicker form-select"
-                                    name="formValidationGender" wire:model="gender"
+                            <div class="input-group" wire:ignore>
+                                <select id="selectpickerLiveSearch" data-style="btn-default" data-live-search="true"
+                                    class="selectpicker form-select" name="formValidationGender" wire:model="gender"
                                     onchange="this.dispatchEvent(new InputEvent('input'))">
                                     <option value="">Select Gender</option>
                                     <option value="male">Male</option>
@@ -137,10 +138,10 @@
                                     </div>
                                 </span></button>
 
+                            <a href="{{ route('list-customer') }}" class="btn btn-secondary text-white"
+                                wire:navigate><i class="ti ti-arrow-left"></i> Back Customers List </a>
                             <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
                                     class="ti ti-arrow-left"></i> Back to Invoice </a>
-                            <a href="{{ route('list-customers') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                class="ti ti-arrow-left"></i> Back Customers List </a>
                         </div>
 
                     </form>

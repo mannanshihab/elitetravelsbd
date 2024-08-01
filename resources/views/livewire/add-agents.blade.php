@@ -130,10 +130,10 @@
                                 </span>
                             </button>
 
+                            <a href="{{ route('list-agent') }}" class="btn btn-secondary text-white" wire:navigate><i
+                                    class="ti ti-arrow-left"></i> Back Agents List </a>
                             <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
                                     class="ti ti-arrow-left"></i> Back to Invoice </a>
-                            <a href="{{ route('list-agents') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                    class="ti ti-arrow-left"></i> Back Agents List </a>
                         </div>
                     </form>
                 </div>
