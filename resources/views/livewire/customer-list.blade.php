@@ -63,7 +63,9 @@
                                             class="badge bg-label-primary me-1">{{ ucwords($customer->gender) }}</span>
                                     @endif
                                 </td>
-                                <td><span class="fw-bold"><i class="ti ti-id-badge text-primary me-4"></i>{{ $customer->passport }}</span></td>
+                                <td><span class="fw-bold"><i
+                                            class="ti ti-id-badge text-primary me-4"></i>{{ $customer->passport }}</span>
+                                </td>
                                 <td>{{ $customer->member_id }}</td>
                                 <td>
                                     <span class="fw-medium"><i class="ti ti-mail text-primary me-4"></i>
