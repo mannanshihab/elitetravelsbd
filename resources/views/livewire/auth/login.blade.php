@@ -30,7 +30,7 @@
                         <!-- /flash message -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" wire:model="email" name="email-username"
+                            <input type="text" class="form-control @error('email') border-danger @enderror" wire:model="email" name="email-username"
                                 placeholder="Enter your email" autofocus />
                         </div>
                         @error('email')
@@ -39,12 +39,9 @@
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Password</label>
-                                <a href="{{ url('forgot-password') }}" wire:navigate>
-                                    <small>Forgot Password?</small>
-                                </a>
                             </div>
                             <div class="input-group input-group-merge">
-                                <input type="password" wire:model="password" class="form-control" name="password"
+                                <input type="password" wire:model="password" class="form-control @error('password') border-danger @enderror" name="password"
                                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                     aria-describedby="password" />
                                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
@@ -68,18 +65,6 @@
                             </span>
                         </button>
                     </form>
-
-                    <p class="text-center">
-                        <span>New on our platform?</span>
-                        <a href="{{ url('register') }}" wire:navigate>
-                            <span>Create an account</span>
-                        </a>
-                    </p>
-
-                    <div class="divider my-4">
-                        <div class="divider-text">or</div>
-                    </div>
-
                 </div>
             </div>
             <!-- /Login -->
