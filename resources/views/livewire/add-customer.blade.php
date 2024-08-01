@@ -139,6 +139,8 @@
 
                             <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
                                     class="ti ti-arrow-left"></i> Back to Invoice </a>
+                            <a href="{{ route('list-customers') }}" class="btn btn-secondary text-white" wire:navigate><i
+                                class="ti ti-arrow-left"></i> Back Customers List </a>
                         </div>
 
                     </form>

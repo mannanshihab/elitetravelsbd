@@ -95,7 +95,7 @@
                             </button>
 
                             <a href="{{ route('list-vendor') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                class="ti ti-arrow-left"></i> Back </a>
+                                class="ti ti-arrow-left"></i> Back Vendor List </a>
 
                         </div>
                     </form>

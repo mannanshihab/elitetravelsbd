@@ -158,7 +158,7 @@
                                 </span>
                             </button>
                             <a href="{{ route('list-employees') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                class="ti ti-arrow-left"></i> Back </a>
+                                class="ti ti-arrow-left"></i> Back Employee List </a>
                         </div>
                     </form>
                 </div>

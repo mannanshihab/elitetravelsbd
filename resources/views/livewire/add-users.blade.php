@@ -87,7 +87,7 @@
                                 </span>
                             </button>
                             <a href="{{ route('list-users') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                class="ti ti-arrow-left"></i> Back </a>
+                                class="ti ti-arrow-left"></i> Back Users list </a>
                         </div>
                     </form>
                 </div>

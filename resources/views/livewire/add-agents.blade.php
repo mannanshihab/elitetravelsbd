@@ -76,7 +76,8 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-armchair"></i></span>
                                 <input type="text" wire:model="company_name" id="formValidationName"
-                                    class="form-control" placeholder="Please enter Company Name" name="formValidationName" />
+                                    class="form-control" placeholder="Please enter Company Name"
+                                    name="formValidationName" />
                                 {{-- show error --}}
                                 @error('company_name')
                                     <span class="text-danger">{{ $message }}</span>
@@ -131,6 +132,8 @@
 
                             <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
                                     class="ti ti-arrow-left"></i> Back to Invoice </a>
+                            <a href="{{ route('list-agents') }}" class="btn btn-secondary text-white" wire:navigate><i
+                                    class="ti ti-arrow-left"></i> Back Agents List </a>
                         </div>
                     </form>
                 </div>
