@@ -1,6 +1,8 @@
 <div>
-      <!-- Content -->
-      <h4 class="py-3 mb-4">
+    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
+
+    <!-- Content -->
+    <h4 class="py-3 mb-4">
         <span class="text-muted fw-light">Vendors /</span> Add Vendors
     </h4>
     <div class="row">
@@ -22,9 +24,10 @@
                             <label class="form-label" for="formValidationVendorName">Vendor Name</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Please Enter Vendor Name" wire:model="vendor_name" aria-label="vendor_name"  />
+                                <input type="text" class="form-control" placeholder="Please Enter Vendor Name"
+                                    wire:model="vendor_name" aria-label="vendor_name" />
                             </div>
-                            
+
                             @error('vendor_name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -34,7 +37,8 @@
                             <label class="form-label" for="formValidationMobile">Mobile No</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-phone"></i></span>
-                                <input type="number" class="form-control" placeholder="01613456789" wire:model="mobile" aria-label="mobile"  />
+                                <input type="number" class="form-control" placeholder="01613456789" wire:model="mobile"
+                                    aria-label="mobile" />
                             </div>
                             {{-- show error --}}
                             @error('mobile')
@@ -46,9 +50,10 @@
                             <label class="form-label" for="address">Address</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-id-badge"></i></span>
-                                <input type="text" class="form-control" placeholder="Please Enter Address" wire:model="address" aria-label="address"  />
+                                <input type="text" class="form-control" placeholder="Please Enter Address"
+                                    wire:model="address" aria-label="address" />
                             </div>
-                           
+
                             {{-- show error --}}
                             @error('address')
                                 <span class="text-danger">{{ $message }}</span>
@@ -57,13 +62,15 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
-                            <select id="vendor_type" class="form-select" name="vendor_type"
-                                wire:model="vendor_type">
-                                <option value="">Select Vendor Type</option>
-                                <option value="Service Charge">Service Charge</option>
-                                <option value="Visa Fee">Visa Fee</option>
-                            </select>
-                            {{-- show error --}}
+                            <div class="input-group">
+                                <select id="vendor_type" class="selectpicker form-select" data-style="btn-default"
+                                    data-live-search="true" name="vendor_type" wire:model="vendor_type">
+                                    <option value="">Select Vendor Type</option>
+                                    <option value="Service Charge">Service Charge</option>
+                                    <option value="Visa Fee">Visa Fee</option>
+                                </select>
+                                {{-- show error --}}
+                            </div>
                             @error('vendor_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -83,7 +90,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div class="col-12">
                             <button type="submit" name="submitButton" class="btn btn-primary"><span
                                     wire:loading.remove>Submit</span>
@@ -95,7 +102,7 @@
                             </button>
 
                             <a href="{{ route('list-vendor') }}" class="btn btn-secondary text-white" wire:navigate><i
-                                class="ti ti-arrow-left"></i> Back Vendor List </a>
+                                    class="ti ti-arrow-left"></i> Back Vendor List </a>
 
                         </div>
                     </form>
@@ -107,3 +114,29 @@
 
     <!-- / Content -->
 </div>
+
+@script
+    <script>
+        setTimeout(() => {
+            const selectPicker = $(".selectpicker"),
+                select2 = $(".select2"),
+                select2Icons = $(".select2-icons");
+
+            // Bootstrap Select
+            // --------------------------------------------------------------------
+            if (selectPicker.length) {
+                selectPicker.selectpicker('destroy');
+                selectPicker.selectpicker();
+            }
+
+            // date by robi
+            const bsDatepickerFormat = $(".bsdatepicker")
+
+            if (bsDatepickerFormat.length) {
+                bsDatepickerFormat.datepicker({
+                    format: "dd-mm-yyyy",
+                });
+            }
+        }, 500);
+    </script>
+@endscript

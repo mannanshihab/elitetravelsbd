@@ -1,4 +1,5 @@
 <div>
+    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <!-- Content -->
     <h4 class="py-3 mb-4">
       <span class="text-muted fw-light">Vendors /</span> Edit Vendors
@@ -57,13 +58,15 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
-                            <select id="vendor_type" class="form-select" name="vendor_type"
-                                wire:model="vendor_type">
-                                <option value="">Select Vendor Type</option>
-                                <option value="Service Charge">Service Charge</option>
-                                <option value="Visa Fee">Visa Fee</option>
-                            </select>
-                            {{-- show error --}}
+                            <div class="input-group">
+                                <select id="vendor_type" class="selectpicker form-select" data-style="btn-default"
+                                    data-live-search="true" name="vendor_type" wire:model="vendor_type">
+                                    <option value="">Select Vendor Type</option>
+                                    <option value="Service Charge">Service Charge</option>
+                                    <option value="Visa Fee">Visa Fee</option>
+                                </select>
+                                {{-- show error --}}
+                            </div>
                             @error('vendor_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -106,3 +109,31 @@
   <!-- / Content -->
 </div>
 
+
+@script
+    <script>
+        setTimeout(() => {
+            const selectPicker = $(".selectpicker"),
+                select2 = $(".select2"),
+                select2Icons = $(".select2-icons");
+
+            // Bootstrap Select
+            // --------------------------------------------------------------------
+            if (selectPicker.length) {
+                selectPicker.selectpicker('destroy');
+                selectPicker.selectpicker();
+            }
+
+            // date by robi
+            const bsDatepickerFormat = $(".bsdatepicker")
+
+            if (bsDatepickerFormat.length) {
+                bsDatepickerFormat.datepicker({
+                    format: "dd-mm-yyyy",
+                });
+            }
+        }, 500);
+
+        
+    </script>
+@endscript

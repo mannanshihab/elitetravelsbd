@@ -14,6 +14,13 @@ class AddInvoice extends Component
 
     public $agents;
     public $customers;
+    public $mandatory;
+
+
+
+
+
+
 
     public $customer_id;
     public $agent_id;
@@ -32,6 +39,14 @@ class AddInvoice extends Component
     public $costing;
     public $visa_fee;
     public $service_charge;
+
+
+
+    public function getCustomer()
+    {
+        dd($this);
+    }
+
 
 
     public function addInvoice()
@@ -67,11 +82,22 @@ class AddInvoice extends Component
         ]);
     }
 
+
+
+
     public function render()
     {
+        if ($this->customer_id && $this->work_type) {
+            $customer = Customer::find($this->customer_id);
+            $this->date_of_birth = $customer->date_of_birth;
+            $this->passport_no = $customer->passport;
+            $this->member_id = $customer->member_id;
+            $this->mandatory = true;
+        }
+
         return view('livewire.add-invoice');
     }
-    
+
     public function mount()
     {
         $this->customers = Customer::get();
