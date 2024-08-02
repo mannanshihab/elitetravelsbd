@@ -19,14 +19,11 @@ class AddInvoice extends Component
 
 
 
-
-
-
     public $customer_id;
     public $agent_id;
     public $date_of_birth;
     public $passport_no;
-    public $web_file_no;
+    public $web_file_no = 'robi';
     public $token_no;
     public $member_id;
     public $work_type;
@@ -40,9 +37,6 @@ class AddInvoice extends Component
     public $costing;
     public $visa_fee;
     public $service_charge;
-
-
-
 
 
 

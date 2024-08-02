@@ -3,7 +3,7 @@
         <label class="form-label" for="Web FIle No">Web File No</label>
         <div class="input-group">
             <span class="input-group-text" id="basic-addon11"><i class="ti ti-file"></i></span>
-            <input type="text" class="form-control" placeholder="Please Enter Web FIle No" wire:model.live="web_file_no" />
+            <input type="text" class="form-control" placeholder="Please Enter Web FIle No" wire:model="web_file_no" />
 
             <!-- show error Validation-->
             @error('web_file_no')
