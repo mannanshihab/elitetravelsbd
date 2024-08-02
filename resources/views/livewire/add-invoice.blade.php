@@ -16,56 +16,89 @@
                         @include('livewire.partials.flash-session')
 
 
-                        <div class="col-md-6">
-                            <label class="form-label" for="Work Type">Work Type</label>
-                            <div class="input-group" wire:ignore>
-                                <select id="formValidationWorkType" class="selectpicker w-100" wire:model.live="work_type"
-                                    name="formValidationWorkType" required data-style="btn-default">
-                                    <option value="">Select Work Type</option>
-                                    <option value="visa">VISA</option>
-                                    <option value="air ticket">AIR Ticket</option>
-                                    <option value="tour package">Tour Packege</option>
-                                </select>
-                                {{-- show error --}}
+
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check custom-option custom-option-icon">
+                                        <label class="form-check-label custom-option-content" for="customRadioIcon1">
+                                            <span class="custom-option-body">
+                                                <i class="ti ti-e-passport text-primary"></i>
+                                                <span class="custom-option-title">VISA</span>
+                                                <small>A local citizen seeking to travel abroad.</small>
+                                            </span>
+                                            <input name="work_type" value="visa" wire:model.live="work_type"
+                                                class="form-check-input" type="radio" id="customRadioIcon1" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md mb-md-0 mb-2">
+                                    <div class="form-check custom-option custom-option-icon">
+                                        <label class="form-check-label custom-option-content" for="customRadioIcon2">
+                                            <span class="custom-option-body">
+                                                <i class="ti ti-plane text-success"></i>
+                                                <span class="custom-option-title"> AIR TICKET </span>
+                                                <small> An air ticket confirms a passenger’s seat on a flight.
+                                                </small>
+                                            </span>
+                                            <input name="work_type" value="air ticket" wire:model.live="work_type"
+                                                class="form-check-input" type="radio" value=""
+                                                id="customRadioIcon2" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-check custom-option custom-option-icon">
+                                        <label class="form-check-label custom-option-content" for="customRadioIcon3">
+                                            <span class="custom-option-body">
+                                                <i class="ti ti-beach  text-danger"></i>
+                                                <span class="custom-option-title"> Tour Packege </span>
+                                                <small> A tour package includes transport, lodging, and
+                                                    activities. </small>
+                                            </span>
+                                            <input name="work_type" value="tour package" wire:model.live="work_type"
+                                                class="form-check-input" type="radio" id="customRadioIcon3" />
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            @error('work_type')
+                            @error('status')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
-
-
-                        <div class="col-md-6">
-                            <label class="form-label" for="formValidationName">Full Name*</label>
-                            <div class="input-group" wire:ignore>
-                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}"
-                                    wire:navigate>Add
-                                    Customer</a>
-                                <select id="selectpickerLiveSearch" wire:model.live="customer_id"
-                                    class="selectpicker form-select" data-style="btn-default" data-live-search="true"
-                                    required>
-                                    <option value="">Select Work Type</option>
-                                    @foreach ($customers as $customer)
-                                        <option value="{{ $customer->id }}">
-                                            {{ $customer->name . ' - ' . $customer->mobile }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                        @if ($work_type)
+                            <div class="col-md-6 my-2">
+                                <label class="form-label" for="formValidationName">Full Name*</label>
+                                <div class="input-group" wire:ignore>
+                                    <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}"
+                                        wire:navigate>Add
+                                        Customer</a>
+                                    <select id="selectpickerLiveSearch" wire:model.live="customer_id"
+                                        class="selectpicker form-select" data-style="btn-default"
+                                        data-live-search="true" required>
+                                        <option value="">Select Work Type</option>
+                                        @foreach ($customers as $customer)
+                                            <option value="{{ $customer->id }}">
+                                                {{ $customer->name . ' - ' . $customer->mobile }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('customer_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                            @error('customer_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
+                        @endif
 
                         @if (@$mandatory)
-                            <div class="col-md-6"->
+                            <div class="col-md-6 my-2"->
                                 <label class="form-label" for="formValidationDob">Date of Birth*</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon11"><i
                                             class="ti ti-calendar"></i></span>
-                                    <input type="date" placeholder="DD/MM/YYYY" name="date_of_birth" wire:model="date_of_birth" readonly
-                                        class="form-control bsdatepicker" />
+                                    <input type="text" placeholder="DD/MM/YYYY" name="date_of_birth"
+                                        wire:model="date_of_birth" disabled class="form-control bsdatepicker" />
                                     <!-- show error Validation-->
                                     @error('date_of_birth')
                                         <span class="text-danger">{{ $message }}</span>
@@ -73,12 +106,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <label class="form-label" for="formValidationPassportNo">Passport No*</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon11"><i
                                             class="ti ti-e-passport"></i></span>
-                                    <input type="text" class="form-control" readonly
+                                    <input type="text" class="form-control" disabled
                                         placeholder="Please Enter Passport No" wire:model="passport_no" />
 
                                     <!-- show error Validation-->
@@ -89,12 +122,12 @@
                             </div>
 
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <label class="form-label" for="Member Id">Member Id</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon11"><i class="ti ti-award"></i></span>
 
-                                    <input type="text" class="form-control" readonly
+                                    <input type="text" class="form-control" disabled
                                         placeholder="Please Enter Member Id" wire:model="member_id" />
 
                                     <!-- show error Validation-->
@@ -106,6 +139,12 @@
                         @endif
 
 
+                        @if ($work_type == 'visa' && $customer_id)
+                            @livewire('add-invoice-visa')
+                        @endif
+
+                        <div class="my-3"></div>
+                        <hr>
                         <div class="col-md-12">
                             <div class="card">
                                 <h5 class="card-header">File Status</h5>
@@ -171,7 +210,7 @@
                             <hr class="mt-0" />
                         </div>
 
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
                             <div class="input-group" wire:ignore>
                                 <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
@@ -192,7 +231,7 @@
                             @error('agent_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
 
                         <div class="col-md-4">
@@ -290,26 +329,14 @@
 
 @script
     <script>
-        setTimeout(() => {
-            const selectPicker = $(".selectpicker"),
-                select2 = $(".select2"),
-                select2Icons = $(".select2-icons");
-
-            // Bootstrap Select
-            // --------------------------------------------------------------------
-            if (selectPicker.length) {
-                selectPicker.selectpicker('destroy');
-                selectPicker.selectpicker();
-            }
-
-            // date by robi
-            const bsDatepickerFormat = $(".bsdatepicker")
-
-            if (bsDatepickerFormat.length) {
-                bsDatepickerFormat.datepicker({
-                    format: "dd-mm-yyyy",
-                });
-            }
-        }, 500);
+        $(".form-check-input").click(function() {
+            setTimeout(() => {
+                const selectPicker = $(".selectpicker");
+                if (selectPicker.length) {
+                    selectPicker.selectpicker('destroy');
+                    selectPicker.selectpicker();
+                }
+            }, 700);
+        })
     </script>
 @endscript

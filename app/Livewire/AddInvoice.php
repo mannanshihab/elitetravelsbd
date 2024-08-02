@@ -26,10 +26,11 @@ class AddInvoice extends Component
     public $agent_id;
     public $date_of_birth;
     public $passport_no;
-    public $web_fIle_no;
+    public $web_file_no;
     public $token_no;
     public $member_id;
     public $work_type;
+    public $appoinment_date;
     public $rcv_date;
     public $delivery_date;
     public $status;
@@ -42,21 +43,18 @@ class AddInvoice extends Component
 
 
 
-    public function getCustomer()
-    {
-        dd($this);
-    }
 
 
 
     public function addInvoice()
     {
+        dd($this);
         $data = $this->validate([
             'customer_id' => 'required',
             'agent_id' => 'required',
             'date_of_birth' => 'required',
             'passport_no' => 'required',
-            'web_fIle_no' => 'required',
+            'web_file_no' => 'required',
             'token_no' => 'required',
             'member_id' => 'required',
             'work_type' => 'required',
