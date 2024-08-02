@@ -10,7 +10,7 @@ class EditCustomer extends Component
 {
     public $id;
     public $name = '';
-    public $dob = '';
+    public $date_of_birth = '';
     public $passport = '';
     public $member_id = '';
     public $email = '';
@@ -23,7 +23,7 @@ class EditCustomer extends Component
     {
         $this->id = $id;
         $this->name = Customer::find($id)->name;
-        $this->dob = Customer::find($id)->dob;
+        $this->date_of_birth = Customer::find($id)->date_of_birth;
         $this->passport = Customer::find($id)->passport;
         $this->member_id = Customer::find($id)->member_id;
         $this->email = Customer::find($id)->email;
@@ -38,7 +38,7 @@ class EditCustomer extends Component
     {
         $data = $this->validate([
             'name' => 'required',
-            'dob' => 'required',
+            'date_of_birth' => 'required',
             'passport' => 'required',
             'member_id' => 'required',
             'email' => 'required',

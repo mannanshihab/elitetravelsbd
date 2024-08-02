@@ -12,7 +12,7 @@ class AddCustomer extends Component
 {
 
     public $name = '';
-    public $dob = '';
+    public $date_of_birth = '';
     public $passport = '';
     public $member_id = '';
     public $email = '';
@@ -27,7 +27,7 @@ class AddCustomer extends Component
 
         $data = $this->validate([
             'name' => 'required',
-            'dob' => 'required',
+            'date_of_birth' => 'required',
             'passport' => 'required',
             'member_id' => 'required',
             'email' => 'required|unique:customers',

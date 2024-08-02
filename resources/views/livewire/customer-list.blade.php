@@ -53,7 +53,7 @@
                             <tr>
                                 <td>
                                     Name: <span class="fw-medium">{{ $customer->name }}</span><br>
-                                    DOB: <span class="fw-medium">{{ $customer->dob }}</span><br>
+                                    DOB: <span class="fw-medium">{{ $customer->date_of_birth }}</span><br>
                                     Gender:
                                     @if ($customer->gender == 'male')
                                         <span
