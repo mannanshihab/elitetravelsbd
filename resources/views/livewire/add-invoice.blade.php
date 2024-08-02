@@ -48,9 +48,8 @@
                             <label class="form-label" for="formValidationDob">Date of Birth*</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-calendar"></i></span>
-                                <input type="text" placeholder="DD/MM/YYYY" name="date_of_birth"
-                                    wire:model="date_of_birth" class="form-control bsdatepicker" autocomplete="off"
-                                    onchange="this.dispatchEvent(new InputEvent('input'))" />
+                                <input type="date" placeholder="DD/MM/YYYY" name="date_of_birth" value="{{ $customer->dob }}"
+                                    wire:model="date_of_birth" class="form-control bsdatepicker"/>
                                 <!-- show error Validation-->
                                 @error('date_of_birth')
                                     <span class="text-danger">{{ $message }}</span>
