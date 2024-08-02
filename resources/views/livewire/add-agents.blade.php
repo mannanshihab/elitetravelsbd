@@ -87,10 +87,14 @@
 
                         <div class="col-md-6">
                         </div>
+                        
                         <div class="col-md-6">
                             <label class="form-label" for="basic-default-upload-file">Trade License No</label>
-                            <input type="file" class="form-control" wire:model="trade_license_no"
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti ti-upload"></i></span>
+                                <input type="file" class="form-control" wire:model="trade_license_no"
                                 id="basic-default-upload-file" />
+                            </div>
                             @error('trade_license_no')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -98,8 +102,11 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="basic-default-upload-file">NID No</label>
-                            <input type="file" class="form-control" wire:model="nid_no"
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti ti-upload"></i></span>
+                                <input type="file" class="form-control" wire:model="nid_no"
                                 id="basic-default-upload-file" />
+                            </div>
                             @error('nid_no')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

@@ -55,14 +55,17 @@
                             @enderror
                         </div>
 
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
-                            <select id="vendor_type" class="form-select" name="vendor_type"
-                                wire:model="vendor_type">
-                                <option value="">Select Vendor Type</option>
-                                <option value="Service Charge">Service Charge</option>
-                                <option value="Visa Fee">Visa Fee</option>
-                            </select>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-building"></i></span>
+                                <select id="vendor_type" class="form-select" name="vendor_type"
+                                    wire:model="vendor_type">
+                                    <option value="">Select Vendor Type</option>
+                                    <option value="Service Charge">Service Charge</option>
+                                    <option value="Visa Fee">Visa Fee</option>
+                                </select>
+                            </div>
                             {{-- show error --}}
                             @error('vendor_type')
                                 <span class="text-danger">{{ $message }}</span>
