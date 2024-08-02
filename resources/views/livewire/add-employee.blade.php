@@ -81,9 +81,9 @@
                          
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="Sallery" class="form-label">Sallery</label>
+                                <label for="Salary" class="form-label">Salary</label>
                                 <div class="input-group">
-                                    <span class="input-group-text">৳</span>
+                                    <span class="input-group-text"><i class="ti ti-star"></i></span>
                                     <input type="number" class="form-control" placeholder="Please Enter salary" wire:model="salary" id="salary" name="salary"/>
                                     
                                 </div>
@@ -95,9 +95,9 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="TA / DA" class="form-label">TA / DA</label>
+                                <label for="TA-DA" class="form-label">TA DA</label>
                                 <div class="input-group">
-                                    <span class="input-group-text">৳</span>
+                                    <span class="input-group-text"><i class="ti ti-star"></i></span>
                                     <input type="number" class="form-control" placeholder="Please Enter TA | DA"  wire:model="ta_da" id="ta_da" name="ta_da"/>  
                                 </div>
                             </div>
@@ -108,7 +108,10 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="basic-default-upload-file">NID No</label>
-                            <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" required/>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti ti-upload"></i></span>
+                                <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" required/>
+                            </div>
                             @error('nid_no')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -116,7 +119,10 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="basic-default-upload-file">CV</label>
-                            <input type="file" class="form-control" wire:model="employee_cv" id="basic-default-upload-file" required/>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti ti-upload"></i></span>
+                                <input type="file" class="form-control" wire:model="employee_cv" id="basic-default-upload-file" required/>
+                            </div>
                             @error('employee_cv')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -141,7 +147,7 @@
                         <div class="col-md-12">
                             <div class="input-group">
                                 <span class="input-group-text">Banks</span>
-                                <textarea class="form-control" wire:model="banks_details" rows="6" aria-label="With textarea"></textarea>
+                                <textarea class="form-control" wire:model="banks_details" rows="3" aria-label="With textarea"></textarea>
                             </div>
                             @error('banks_details')
                                 <span class="text-danger">{{ $message }}</span>

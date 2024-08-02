@@ -60,7 +60,7 @@
                             @enderror
                         </div>
 
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
                             <div class="input-group">
                                 <select id="vendor_type" class="selectpicker form-select" data-style="btn-default"

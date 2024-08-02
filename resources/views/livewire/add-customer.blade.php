@@ -103,9 +103,11 @@
 
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationSource">Source</label>
-                            <input type="text" id="formValidationSource" class="form-control" wire:model="source"
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-package"></i></span>
+                                <input type="text" id="formValidationSource" class="form-control" wire:model="source"
                                 placeholder="Enter Source" name="formValidationSource" />
-
+                            </div>
                             @error('source')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
