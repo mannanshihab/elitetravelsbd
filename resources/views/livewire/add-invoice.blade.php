@@ -343,18 +343,5 @@
                 }
             }, 700);
         }
-
-        function runDatePicker() {
-            setTimeout(() => {
-                alert(5)
-                const bsDatepickerFormat = $(".bsdatepicker")
-
-                if (bsDatepickerFormat.length) {
-                    bsDatepickerFormat.datepicker({
-                        format: "dd-mm-yyyy",
-                    });
-                }
-            }, 700);
-        }
     </script>
 @endscript
