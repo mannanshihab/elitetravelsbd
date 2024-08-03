@@ -80,27 +80,37 @@ class AddInvoice extends Component
 
     public function getCustomerDetails()
     {
-        $customer = Customer::find($this->customer_id);
-        $this->date_of_birth = $customer->date_of_birth;
-        $this->passport_no = $customer->passport;
-        $this->member_id = $customer->member_id;
+        if (empty($this->customer_id)) {
+            $this->date_of_birth = '';
+            $this->passport_no = '';
+            $this->member_id = '';
+        }else{
+            $customer = Customer::find($this->customer_id);
+            $this->date_of_birth = $customer->date_of_birth;
+            $this->passport_no = $customer->passport;
+            $this->member_id = $customer->member_id;
+        }
     }
 
 
     public function render()
     {
-
-        
         $customers = Customer::get();
         if ($this->work_type == 'visa') {
             $this->html = view('livewire.invoice-of-visa', ['customers' => $customers])->render();
-            $this->customer_id = '';
-        }elseif($this->work_type == 'air ticket'){
+            $this->dispatch('picker', [
+                'status' => 'yes',
+            ]);
+        } elseif ($this->work_type == 'air ticket') {
             $this->html = view('livewire.invoice-of-air-ticket', ['customers' => $customers])->render();
-            $this->customer_id = '';
-        }elseif($this->work_type == 'tour package'){
+            $this->dispatch('picker', [
+                'status' => 'no',
+            ]);
+        } elseif ($this->work_type == 'tour package') {
             $this->html = view('livewire.invoice-of-tour', ['customers' => $customers])->render();
-            $this->customer_id = '';
+            $this->dispatch('picker', [
+                'status' => 'yes',
+            ]);
         }
 
         return view('livewire.add-invoice');
@@ -111,5 +121,4 @@ class AddInvoice extends Component
         $this->customers = Customer::get();
         $this->agents = Agent::get();
     }
-
 }

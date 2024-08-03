@@ -66,8 +66,79 @@
                             @enderror
                         </div>
                         <hr>
-                        {!! $html !!}
 
+
+                        @if ($work_type)
+                            <div class="col-md-6 my-2">
+                                <label class="form-label" for="formValidationName">Full Name*</label>
+                                <div class="input-group" wire:ignore>
+                                    <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}"
+                                        wire:navigate>Add
+                                        Customer</a>
+                                    <select id="selectpickerLiveSearch" wire:change.live="getCustomerDetails"
+                                        wire:model='customer_id' class="selectpicker form-select"
+                                        data-style="btn-default" data-live-search="true" required>
+                                        <option value="">Select Work Type</option>
+                                        @foreach ($customers as $customer)
+                                            <option value="{{ $customer->id }}">
+                                                {{ $customer->name . ' - ' . $customer->mobile }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('customer_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 my-2"->
+                                <label class="form-label" for="formValidationDob">Date of Birth*</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i
+                                            class="ti ti-calendar"></i></span>
+                                    <input type="text" placeholder="DD/MM/YYYY" name="date_of_birth"
+                                        wire:model="date_of_birth" disabled class="form-control bsdatepicker" />
+                                    <!-- show error Validation-->
+                                    @error('date_of_birth')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 my-2">
+                                <label class="form-label" for="formValidationPassportNo">Passport No*</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i
+                                            class="ti ti-e-passport"></i></span>
+                                    <input type="text" class="form-control" disabled
+                                        placeholder="Please Enter Passport No" wire:model="passport_no" />
+
+                                    <!-- show error Validation-->
+                                    @error('passport_no')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 my-2">
+                                <label class="form-label" for="Member Id">Member Id</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-award"></i></span>
+
+                                    <input type="text" class="form-control" disabled
+                                        placeholder="Please Enter Member Id" wire:model="member_id" />
+
+                                    <!-- show error Validation-->
+                                    @error('member_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
+
+
+                        {!! $html !!}
 
                         <div class="my-3"></div>
                         <hr>
@@ -255,26 +326,33 @@
 
 @script
     <script>
-        $(".form-check-input").click(function() {
-            runSelector();
-        })
+        // $(".form-check-input").click(function() {
+        //     runSelector();
+        // })
 
-        function runSelector() {
-            setTimeout(() => {
-                const selectPicker = $(".selectpicker");
-                if (selectPicker.length) {
-                    selectPicker.selectpicker('destroy');
-                    selectPicker.selectpicker();
-                }
+        document.addEventListener('picker', function(e) {
+            const status = e.detail[0].status;
+            if (status === 'yes') {
+                setTimeout(() => {
+                    const selectPicker = $(".selectpicker");
+                    if (selectPicker.length) {
+                        selectPicker.selectpicker('destroy');
+                        selectPicker.selectpicker();
+                    }
 
-                const bsDatepickerFormat = $(".bsdatepicker")
-
+                    const bsDatepickerFormat = $(".bsdatepicker");
+                    if (bsDatepickerFormat.length) {
+                        bsDatepickerFormat.datepicker({
+                            format: "dd-mm-yyyy",
+                        });
+                    }
+                }, 100);
+            } else if (status === 'no') {
+                const bsDatepickerFormat = $(".bsdatepicker");
                 if (bsDatepickerFormat.length) {
-                    bsDatepickerFormat.datepicker({
-                        format: "dd-mm-yyyy",
-                    });
+                    bsDatepickerFormat.datepicker("destroy");
                 }
-            }, 1000);
-        }
+            }
+        });
     </script>
 @endscript
