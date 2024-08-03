@@ -135,13 +135,102 @@
                                     @enderror
                                 </div>
                             </div>
+                            {!! $html !!}
+
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <h5 class="card-header">File Status</h5>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md mb-md-0 mb-2">
+                                                <div class="form-check custom-option custom-option-basic">
+                                                    <label class="form-check-label custom-option-content"
+                                                        for="customRadioTemp1">
+                                                        <input name="customRadioTemp" class="form-check-input"
+                                                            type="radio" value="file received"
+                                                            id="customRadioTemp1" />
+                                                        <span class="custom-option-header">
+                                                            <span class="h6 mb-0">File Received</span>
+                                                        </span>
+                                                        <span class="custom-option-body">
+                                                            <small>Document received and acknowledged processing.
+                                                            </small>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md mb-md-0 mb-2">
+                                                <div class="form-check custom-option custom-option-basic">
+                                                    <label class="form-check-label custom-option-content"
+                                                        for="customRadioTemp2">
+                                                        <input name="customRadioTemp" class="form-check-input"
+                                                            type="radio" value="processing"
+                                                            id="customRadioTemp2" />
+                                                        <span class="custom-option-header">
+                                                            <span class="h6 mb-0">Processing</span>
+                                                        </span>
+                                                        <span class="custom-option-body">
+                                                            <small>Tasks underway but not completed.</small>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md mb-md-0 mb-2">
+                                                <div class="form-check custom-option custom-option-basic">
+                                                    <label class="form-check-label custom-option-content"
+                                                        for="customRadioTemp3">
+                                                        <input name="customRadioTemp" class="form-check-input"
+                                                            type="radio" value="success" id="customRadioTemp3" />
+                                                        <span class="custom-option-header">
+                                                            <span class="h6 mb-0">Success</span>
+                                                        </span>
+                                                        <span class="custom-option-body">
+                                                            <small>Tasks completed successfully.</small>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md mb-md-0 mb-2">
+                                                <div class="form-check custom-option custom-option-basic">
+                                                    <label class="form-check-label custom-option-content"
+                                                        for="customRadioTemp4">
+                                                        <input name="customRadioTemp" class="form-check-input"
+                                                            type="radio" value="refused" id="customRadioTemp4" />
+                                                        <span class="custom-option-header">
+                                                            <span class="h6 mb-0">Refused</span>
+                                                        </span>
+                                                        <span class="custom-option-body">
+                                                            <small>Denying acceptance or declining request. </small>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md mb-md-0 mb-2">
+                                                <div class="form-check custom-option custom-option-basic">
+                                                    <label class="form-check-label custom-option-content"
+                                                        for="customRadioTemp5">
+                                                        <input name="customRadioTemp" class="form-check-input"
+                                                            type="radio" value="delivered"
+                                                            id="customRadioTemp5" />
+                                                        <span class="custom-option-header">
+                                                            <span class="h6 mb-0">Delivered</span>
+                                                        </span>
+                                                        <span class="custom-option-body">
+                                                            <small>Document successfully delivered. </small>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
 
 
-                        {!! $html !!}
 
                         <div class="my-3"></div>
-
+                        <hr>
                         <div class="col-12">
                             <h6>Payment Details</h6>
                         </div>
@@ -171,14 +260,14 @@
 
 
                         <div class="col-md-4">
-                            <label class="form-label" for="Amount">Amount</label>
+                            <label class="form-label" for="Main Amount">Main Amount</label>
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
-                                <input type="number" class="form-control" placeholder="Please Enter Amount"
-                                    wire:model="amount" aria-label="Amount (to the nearest dollar)" />
+                                <input type="number" class="form-control" placeholder="Please Enter Main Amount"
+                                    wire:model="main_amount" aria-label="Main Amount (to the nearest dollar)" />
                                 <span class="input-group-text">.00</span>
                                 <!-- show error Validation-->
-                                @error('amount')
+                                @error('main_amount')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -259,6 +348,14 @@
                     }
                 }, 100);
             } else if (status === 'no') {
+                setTimeout(() => {
+                    const selectPicker = $(".selectpicker");
+                    if (selectPicker.length) {
+                        selectPicker.selectpicker('destroy');
+                        selectPicker.selectpicker();
+                    }
+                }, 100);
+
                 const bsDatepickerFormat = $(".bsdatepicker");
                 if (bsDatepickerFormat.length) {
                     bsDatepickerFormat.datepicker("destroy");

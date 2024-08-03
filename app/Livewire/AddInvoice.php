@@ -34,7 +34,7 @@ class AddInvoice extends Component
     public $delivery_date;
     public $status;
     public $agent_id;
-    public $amount;
+    public $main_amount;
     public $qty;
     public $total_amount;
     public $costing;
