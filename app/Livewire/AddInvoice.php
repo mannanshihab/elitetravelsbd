@@ -29,7 +29,7 @@ class AddInvoice extends Component
     public $ticket_no;
     public $pnr_no;
     public $member_id;
-    public $appoinment_date;
+    public $appointment_date;
     public $rcv_date;
     public $delivery_date;
     public $status;
@@ -45,30 +45,54 @@ class AddInvoice extends Component
 
     public function addInvoice()
     {
-        dd($this);
-        $data = $this->validate([
-            'customer_id' => 'required',
-            'agent_id' => 'required',
-            'date_of_birth' => 'required',
-            'passport_no' => 'required',
-            'web_file_no' => 'required',
-            'token_no' => 'required',
-            'member_id' => 'required',
-            'work_type' => 'required',
-            'rcv_date' => 'required',
-            'delivery_date' => 'required',
-            'status' => 'required',
-            'amount' => 'required',
-            'qty' => 'required',
-            'total_amount' => 'required',
-            'costing' => 'required',
-            'visa_fee' => 'required',
-            'service_charge' => 'required',
-        ]);
+        if ($this->work_type == 'visa') {
+            $data = $this->validate([
+                'work_type' => 'required',
+                'customer_id' => 'required',
+                'date_of_birth' => 'required',
+                'passport_no' => 'required',
+                'member_id' => 'required',
+                'appointment_date' => 'required',
+                'web_file_no' => 'required',
+                'token_no' => 'required',
+                'rcv_date' => 'required',
+                'delivery_date' => 'required',
+                'status' => 'required',
+                'main_amount' => 'required',
+                'recive_amount' => 'required',
+            ]);
+           
+        }elseif($this->work_type == 'air ticket'){
+            $data = $this->validate([
+                'work_type' => 'required',
+                'customer_id' => 'required',
+                'date_of_birth' => 'required',
+                'passport_no' => 'required',
+                'member_id' => 'required',
+                'ticket_no' => 'required',
+                'pnr_no' => 'required',
+                'main_amount' => 'required',
+                'recive_amount' => 'required',
+            ]);
+        }elseif($this->work_type == 'tour package'){
+            $data = $this->validate([
+                'work_type' => 'required',
+                'customer_id' => 'required',
+                'date_of_birth' => 'required',
+                'passport_no' => 'required',
+                'member_id' => 'required',
+                'package_name' => 'required',
+                'main_amount' => 'required',
+                'recive_amount' => 'required',
+            ]);
+        }
+
+        if($this->costing > 0){
+            $data['costing'] = $this->costing;
+        }
         $data['user_id'] = auth()->user()->id;
         $data['invoice'] = rand(100000, 999999);
         Invoice::create($data);
-
 
         $this->dispatch('swal', [
             'title' => 'Invoice added successfully.',
@@ -84,7 +108,7 @@ class AddInvoice extends Component
             $this->date_of_birth = '';
             $this->passport_no = '';
             $this->member_id = '';
-        }else{
+        } else {
             $customer = Customer::find($this->customer_id);
             $this->date_of_birth = $customer->date_of_birth;
             $this->passport_no = $customer->passport;
