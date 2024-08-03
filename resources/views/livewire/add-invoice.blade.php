@@ -53,8 +53,7 @@
                                             <span class="custom-option-body">
                                                 <i class="ti ti-beach  text-danger"></i>
                                                 <span class="custom-option-title"> Tour Packege </span>
-                                                <small> A tour package includes transport, lodging, and
-                                                    activities. </small>
+                                                <small> A tour package includes transport, stay, and activities.</small>
                                             </span>
                                             <input name="work_type" value="tour package" wire:model.live="work_type"
                                                 class="form-check-input" type="radio" id="customRadioIcon3" />
@@ -66,82 +65,9 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        <hr>
+                        {!! $html !!}
 
-                        @if ($work_type)
-                            <div class="col-md-6 my-2">
-                                <label class="form-label" for="formValidationName">Full Name*</label>
-                                <div class="input-group" wire:ignore>
-                                    <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-customer') }}"
-                                        wire:navigate>Add
-                                        Customer</a>
-                                    <select id="selectpickerLiveSearch" wire:model.live="customer_id"
-                                        class="selectpicker form-select" data-style="btn-default"
-                                        data-live-search="true" required>
-                                        <option value="">Select Work Type</option>
-                                        @foreach ($customers as $customer)
-                                            <option value="{{ $customer->id }}">
-                                                {{ $customer->name . ' - ' . $customer->mobile }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @error('customer_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        @endif
-
-                        @if (@$mandatory)
-                            <div class="col-md-6 my-2"->
-                                <label class="form-label" for="formValidationDob">Date of Birth*</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon11"><i
-                                            class="ti ti-calendar"></i></span>
-                                    <input type="text" placeholder="DD/MM/YYYY" name="date_of_birth"
-                                        wire:model="date_of_birth" disabled class="form-control bsdatepicker" />
-                                    <!-- show error Validation-->
-                                    @error('date_of_birth')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 my-2">
-                                <label class="form-label" for="formValidationPassportNo">Passport No*</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon11"><i
-                                            class="ti ti-e-passport"></i></span>
-                                    <input type="text" class="form-control" disabled
-                                        placeholder="Please Enter Passport No" wire:model="passport_no" />
-
-                                    <!-- show error Validation-->
-                                    @error('passport_no')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6 my-2">
-                                <label class="form-label" for="Member Id">Member Id</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon11"><i class="ti ti-award"></i></span>
-
-                                    <input type="text" class="form-control" disabled
-                                        placeholder="Please Enter Member Id" wire:model="member_id" />
-
-                                    <!-- show error Validation-->
-                                    @error('member_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                        @endif
-
-
-                        @if ($work_type == 'visa' && $customer_id)
-                            @include('livewire.add-invoice-visa')
-                        @endif
 
                         <div class="my-3"></div>
                         <hr>
@@ -331,7 +257,6 @@
     <script>
         $(".form-check-input").click(function() {
             runSelector();
-            // runDatePicker();
         })
 
         function runSelector() {
@@ -341,7 +266,15 @@
                     selectPicker.selectpicker('destroy');
                     selectPicker.selectpicker();
                 }
-            }, 700);
+
+                const bsDatepickerFormat = $(".bsdatepicker")
+
+                if (bsDatepickerFormat.length) {
+                    bsDatepickerFormat.datepicker({
+                        format: "dd-mm-yyyy",
+                    });
+                }
+            }, 1000);
         }
     </script>
 @endscript
