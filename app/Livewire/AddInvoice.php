@@ -19,18 +19,18 @@ class AddInvoice extends Component
 
 
 
+    public $work_type;
     public $customer_id;
-    public $agent_id;
     public $date_of_birth;
     public $passport_no;
-    public $web_file_no = 'robi';
+    public $web_file_no = 'test';
     public $token_no;
     public $member_id;
-    public $work_type;
     public $appoinment_date;
     public $rcv_date;
     public $delivery_date;
     public $status;
+    public $agent_id;
     public $amount;
     public $qty;
     public $total_amount;

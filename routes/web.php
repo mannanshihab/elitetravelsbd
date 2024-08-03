@@ -1,25 +1,25 @@
 <?php
 
-use App\Livewire\AddAgents;
-use App\Livewire\AddCustomer;
-use App\Livewire\AddEmployee;
-use App\Livewire\AddInvoice;
+use App\Livewire\Home;
 use App\Livewire\AddUsers;
+use App\Livewire\UserList;
+use App\Livewire\AddAgents;
+use App\Livewire\AddInvoice;
 use App\Livewire\AddVendors;
 use App\Livewire\AgentsList;
 use App\Livewire\Auth\Login;
-use App\Livewire\CustomerList;
 use App\Livewire\EditAgents;
+use App\Livewire\AddCustomer;
+use App\Livewire\AddEmployee;
+use App\Livewire\EditVendors;
+use App\Livewire\InvoiceList;
+use App\Livewire\VendorsList;
+use App\Livewire\CustomerList;
 use App\Livewire\EditCustomer;
 use App\Livewire\EditEmployee;
-use App\Livewire\EditVendors;
 use App\Livewire\EmployeeList;
-use App\Livewire\Home;
-use App\Livewire\InvoiceList;
 use App\Livewire\InvoicePreview;
 use App\Livewire\ProfileSettings;
-use App\Livewire\UserList;
-use App\Livewire\VendorsList;
 use Illuminate\Support\Facades\Route;
 
 
@@ -64,6 +64,5 @@ Route::middleware('auth')->group(function () {
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
     Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
-
 });
 
