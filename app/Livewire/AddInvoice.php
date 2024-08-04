@@ -3,24 +3,29 @@
 namespace App\Livewire;
 
 use App\Models\Agent;
+use App\Models\Vendor;
+use App\Models\Invoice;
 use Livewire\Component;
 use App\Models\Customer;
-use App\Models\Invoice;
 use Livewire\Attributes\Title;
 
 #[Title('Add Invoice')]
 class AddInvoice extends Component
 {
 
-    public $agents;
+    // just for viewing purpose
+    public $agents; 
     public $customers;
-    public $mandatory;
+    public $vendors;
     public $html;
+    public $profit;  
 
 
-
+    // working purpose
     public $work_type;
     public $customer_id;
+    public $agent_id;
+    public $vendor_id;
     public $date_of_birth;
     public $package_name;
     public $passport_no;
@@ -33,23 +38,19 @@ class AddInvoice extends Component
     public $rcv_date;
     public $delivery_date;
     public $status;
-    public $agent_id;
-    public $main_amount;
-    public $qty;
-    public $total_amount;
+    public $our_amount;
+    public $received_amount;
     public $costing;
-    public $visa_fee;
-    public $service_charge;
-
+    public $agent_amount;
 
 
     public function addInvoice()
     {
+
         if ($this->work_type == 'visa') {
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
-                'date_of_birth' => 'required',
                 'passport_no' => 'required',
                 'member_id' => 'required',
                 'appointment_date' => 'required',
@@ -58,11 +59,12 @@ class AddInvoice extends Component
                 'rcv_date' => 'required',
                 'delivery_date' => 'required',
                 'status' => 'required',
-                'main_amount' => 'required',
-                'recive_amount' => 'required',
+                'agent_id' => 'required',
+                'our_amount' => 'required',
+                'received_amount' => 'required',
+                'agent_amount' => 'required',
             ]);
-           
-        }elseif($this->work_type == 'air ticket'){
+        } elseif ($this->work_type == 'air ticket') {
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
@@ -71,10 +73,11 @@ class AddInvoice extends Component
                 'member_id' => 'required',
                 'ticket_no' => 'required',
                 'pnr_no' => 'required',
-                'main_amount' => 'required',
-                'recive_amount' => 'required',
+                'our_amount' => 'required',
+                'received_amount' => 'required',
+                'agent_amount' => 'required',
             ]);
-        }elseif($this->work_type == 'tour package'){
+        } elseif ($this->work_type == 'tour package') {
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
@@ -82,16 +85,24 @@ class AddInvoice extends Component
                 'passport_no' => 'required',
                 'member_id' => 'required',
                 'package_name' => 'required',
-                'main_amount' => 'required',
-                'recive_amount' => 'required',
+                'our_amount' => 'required',
+                'received_amount' => 'required',
+                'agent_amount' => 'required',
             ]);
         }
 
-        if($this->costing > 0){
+        unset($data['date_of_birth']);
+        unset($data['passport_no']);
+        unset($data['member_id']);
+
+        if($this->vendor_id && $this->costing){
+            $data['vendor_id'] = $this->vendor_id;
             $data['costing'] = $this->costing;
         }
+
         $data['user_id'] = auth()->user()->id;
         $data['invoice'] = rand(100000, 999999);
+
         Invoice::create($data);
 
         $this->dispatch('swal', [
@@ -137,11 +148,30 @@ class AddInvoice extends Component
             ]);
         }
 
+
+        if ($this->our_amount && $this->received_amount) {
+            if($this->our_amount == $this->received_amount){
+                $this->agent_amount = 0;
+            }elseif ($this->our_amount < $this->received_amount) {
+                $this->agent_amount = str_replace('-', '', $this->our_amount - $this->received_amount);
+            }elseif($this->our_amount > $this->received_amount){
+                $this->agent_amount = $this->received_amount - $this->our_amount;
+            }
+        }
+
+
+        if ($this->status == 'delivered' && $this->our_amount && $this->received_amount && $this->costing) {
+            $this->profit = $this->our_amount - $this->costing;
+        }
+
+
+
         return view('livewire.add-invoice');
     }
 
     public function mount()
     {
+        $this->vendors = Vendor::get();
         $this->customers = Customer::get();
         $this->agents = Agent::get();
     }

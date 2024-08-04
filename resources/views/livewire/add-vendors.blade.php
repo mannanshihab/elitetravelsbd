@@ -60,16 +60,16 @@
                             @enderror
                         </div>
 
-                         <div class="col-md-6">
+                        <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
-                            <div class="input-group">
-                                <select id="vendor_type" class="selectpicker form-select" data-style="btn-default"
-                                    data-live-search="true" name="vendor_type" wire:model="vendor_type">
+                            <div class="input-group" wire:ignore>
+                                <select id="selectpickerLiveSearch" wire:model="vendor_type"
+                                    class="selectpicker form-control" data-style="btn-default" data-live-search="true"
+                                    tabindex="null" required>
                                     <option value="">Select Vendor Type</option>
                                     <option value="Service Charge">Service Charge</option>
                                     <option value="Visa Fee">Visa Fee</option>
                                 </select>
-                                {{-- show error --}}
                             </div>
                             @error('vendor_type')
                                 <span class="text-danger">{{ $message }}</span>
@@ -103,7 +103,8 @@
 
                             <a href="{{ route('list-vendor') }}" class="btn btn-secondary text-white" wire:navigate><i
                                     class="ti ti-arrow-left"></i> Back Vendor List </a>
-
+                            <a href="{{ route('invoice') }}" class="btn btn-warning" wire:navigate><i
+                                    class="ti ti-arrow-left"></i> Back to Invoice </a>
                         </div>
                     </form>
                 </div>
@@ -118,25 +119,12 @@
 @script
     <script>
         setTimeout(() => {
-            const selectPicker = $(".selectpicker"),
-                select2 = $(".select2"),
-                select2Icons = $(".select2-icons");
-
-            // Bootstrap Select
-            // --------------------------------------------------------------------
+            const selectPicker = $(".selectpicker");
             if (selectPicker.length) {
                 selectPicker.selectpicker('destroy');
                 selectPicker.selectpicker();
             }
 
-            // date by robi
-            const bsDatepickerFormat = $(".bsdatepicker")
-
-            if (bsDatepickerFormat.length) {
-                bsDatepickerFormat.datepicker({
-                    format: "dd-mm-yyyy",
-                });
-            }
-        }, 500);
+        }, 700);
     </script>
 @endscript

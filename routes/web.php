@@ -20,11 +20,12 @@ use App\Livewire\EditEmployee;
 use App\Livewire\EmployeeList;
 use App\Livewire\InvoicePreview;
 use App\Livewire\ProfileSettings;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/asdf', function(){
-    return view('content.apps.app-invoice-preview');
+    dd(Invoice::get());
 });
 
 

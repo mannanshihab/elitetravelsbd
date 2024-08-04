@@ -107,7 +107,7 @@
 
 
         <!-- vendor -->
-        <li class="menu-item" x-bind:class="$current('/vendor') || $current('/vendor-list') || $current('/edit-vendor*') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/add-vendor') || $current('/list-vendor') || $current('/edit-vendor*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
                 <div data-i18n="Vendor">Vendor</div>

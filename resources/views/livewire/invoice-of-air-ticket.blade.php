@@ -4,7 +4,7 @@
         <div class="input-group">
             <span class="input-group-text" id="basic-addon11"><i class="ti ti-calendar-event"></i></span>
             <input type="text" placeholder="Ticket No"  class="form-control" wire:model="ticket_no" autocomplete="off"
-                name="ticket_no" />
+                name="ticket_no" required/>
             <!-- show error Validation-->
             @error('ticket_no')
                 <span class="text-danger">{{ $message }}</span>
@@ -17,7 +17,7 @@
         <div class="input-group">
             <span class="input-group-text" id="basic-addon11"><i class="ti ti-file"></i></span>
             <input type="text" class="form-control" placeholder="Please Enter PNR No" wire:model="pnr_no" autocomplete="off"
-                name="pnr_no" />
+                name="pnr_no" required/>
             <!-- show error Validation-->
             @error('pnr_no')
                 <span class="text-danger">{{ $message }}</span>

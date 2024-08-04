@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @error('status')
+                            @error('work_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -147,8 +147,8 @@
                                                     <label class="form-check-label custom-option-content"
                                                         for="customRadioTemp1">
                                                         <input name="customRadioTemp" class="form-check-input"
-                                                            type="radio" value="file received"
-                                                            id="customRadioTemp1" />
+                                                            wire:model.live='status' type="radio"
+                                                            value="file received" id="customRadioTemp1" ' required/>
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">File Received</span>
                                                         </span>
@@ -163,9 +163,9 @@
                                                 <div class="form-check custom-option custom-option-basic">
                                                     <label class="form-check-label custom-option-content"
                                                         for="customRadioTemp2">
-                                                        <input name="customRadioTemp" class="form-check-input"
+                                                        <input name="customRadioTemp" class="form-check-input" wire:model.live='status'
                                                             type="radio" value="processing"
-                                                            id="customRadioTemp2" />
+                                                            id="customRadioTemp2" required/>
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Processing</span>
                                                         </span>
@@ -179,7 +179,7 @@
                                                 <div class="form-check custom-option custom-option-basic">
                                                     <label class="form-check-label custom-option-content"
                                                         for="customRadioTemp3">
-                                                        <input name="customRadioTemp" class="form-check-input"
+                                                        <input name="customRadioTemp" class="form-check-input" wire:model.live='status'
                                                             type="radio" value="success" id="customRadioTemp3" />
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Success</span>
@@ -194,8 +194,8 @@
                                                 <div class="form-check custom-option custom-option-basic">
                                                     <label class="form-check-label custom-option-content"
                                                         for="customRadioTemp4">
-                                                        <input name="customRadioTemp" class="form-check-input"
-                                                            type="radio" value="refused" id="customRadioTemp4" />
+                                                        <input name="customRadioTemp" class="form-check-input" wire:model.live='status'
+                                                            type="radio" value="refused" id="customRadioTemp4" required/>
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Refused</span>
                                                         </span>
@@ -209,9 +209,8 @@
                                                 <div class="form-check custom-option custom-option-basic">
                                                     <label class="form-check-label custom-option-content"
                                                         for="customRadioTemp5">
-                                                        <input name="customRadioTemp" class="form-check-input"
-                                                            type="radio" value="delivered"
-                                                            id="customRadioTemp5" />
+                                                        <input name="customRadioTemp" class="form-check-input" wire:model.live='status'
+                                                            type="radio" value="delivered" id="customRadioTemp5" required/>
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Delivered</span>
                                                         </span>
@@ -234,84 +233,142 @@
                         <div class="col-12">
                             <h6>Payment Details</h6>
                         </div>
-
-                        {{-- <div class="col-md-4">
-                            <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
-                            <div class="input-group" wire:ignore>
-                                <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
-                                    wire:navigate>Add
-                                    Agent</a>
-                                <select id="selectpickerLiveSearch" wire:model="agent_id"
-                                    class="selectpicker form-control" data-style="btn-default"
-                                    data-live-search="true" tabindex="null" required>
-                                    <option value="">Select Work Type</option>
-                                    @foreach ($agents as $agent)
-                                        <option value="{{ $agent->id }}">
-                                            {{ $agent->company_name . ' - ' . $agent->mobile }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <!-- show error Validation-->
-                            @error('agent_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div> --}}
-
-
-                        <div class="col-md-4">
-                            <label class="form-label" for="Main Amount">Main Amount</label>
-                            <div class="input-group">
-                                <span class="input-group-text">৳</span>
-                                <input type="number" class="form-control" placeholder="Please Enter Main Amount"
-                                    wire:model="main_amount" aria-label="Main Amount (to the nearest dollar)" />
-                                <span class="input-group-text">.00</span>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
+                                <div class="input-group" wire:ignore>
+                                    <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
+                                        wire:navigate>Add
+                                        Agent</a>
+                                    <select id="selectpickerLiveSearch" wire:model="agent_id"
+                                        class="selectpicker form-control" data-style="btn-default"
+                                        data-live-search="true" tabindex="null" required>
+                                        <option value="">Select Work Type</option>
+                                        @foreach ($agents as $agent)
+<option value="{{ $agent->id }}">
+                                                {{ $agent->company_name . ' - ' . $agent->mobile }}
+                                            </option>
+@endforeach
+                                    </select>
+                                </div>
                                 <!-- show error Validation-->
-                                @error('main_amount')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
+                                @error(' agent_id') <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                </div>
 
-                        <div class="col-md-4">
-                            <label class="form-label" for="Total">Total</label>
-                            <div class="input-group">
-                                <span class="input-group-text">৳</span>
-                                <input type="number" class="form-control" placeholder="120"
-                                    wire:model="total_amount" aria-label="Amount (to the nearest dollar)" />
-                                <span class="input-group-text">.00</span>
-                                <!-- show error Validation-->
-                                @error('total_amount')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <label class="form-label" for="Costing">Costing</label>
-                            <div class="input-group">
-                                <span class="input-group-text">৳</span>
-                                <input type="number" class="form-control" placeholder="120" wire:model="costing"
-                                    aria-label="Amount (to the nearest dollar)" />
-                                <span class="input-group-text">.00</span>
-                                <!-- show error Validation-->
-                                @error('costing')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
+                                                <div class="col">
+                                                    <label class="form-label" for="Our Amount">Our Amount</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">৳</span>
+                                                        <input type="number" class="form-control"
+                                                            placeholder="Please Enter Our Amount"
+                                                            wire:model.live.debounce.500ms="our_amount" min="0"
+                                                            aria-label="Our Amount (to the nearest dollar)" required />
+                                                        <span class="input-group-text">.00</span>
+                                                    </div>
+                                                    @error('our_amount')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
 
-                        <div class="col-12">
-                            <button type="submit" name="submitButton" class="btn btn-primary">
-                                <span wire:loading.remove>Submit</span>
-                                <span wire:loading>
-                                    <div class="spinner-border text-light" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </span>
-                            </button>
+                                                <div class="col">
+                                                    <label class="form-label" for="Received Amount">Received
+                                                        Amount</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">৳</span>
+                                                        <input type="number" class="form-control"
+                                                            placeholder="Please Enter Received Amount"
+                                                            wire:model.live.debounce.500ms="received_amount"
+                                                            min="0"
+                                                            aria-label="Received Amount (to the nearest dollar)"
+                                                            required />
+                                                        <span class="input-group-text">.00</span>
+                                                    </div>
+                                                    @error('received_amount')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
 
-                        </div>
+                                                <div class="col">
+                                                    <label class="form-label" for="Agent Amount">Agent Amount</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">৳</span>
+                                                        <input type="number" class="form-control"
+                                                            placeholder="Please Enter Agent Amount"
+                                                            wire:model="agent_amount" min="0"
+                                                            aria-label="Agent Amount (to the nearest dollar)"
+                                                            disabled />
+                                                        <span class="input-group-text">.00</span>
+                                                    </div>
+                                                    @error('agent_amount')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-4">
+                                                <label class="form-label" for="selectpickerLiveSearch">Working
+                                                    Vendors</label>
+                                                <div class="input-group" wire:ignore>
+                                                    <a class="btn btn-outline-secondary waves-effect"
+                                                        href="{{ route('add-vendor') }}" wire:navigate>Add Vendor</a>
+                                                    <select id="selectpickerLiveSearch" wire:model="vendor_id"
+                                                        class="selectpicker form-control" data-style="btn-default"
+                                                        data-live-search="true" tabindex="null">
+                                                        <option value="">Select Work Type</option>
+                                                        @foreach ($vendors as $vendor)
+                                                            <option value="{{ $vendor->id }}">
+                                                                {{ $vendor->vendor_name . ' - ' . $vendor->mobile }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <!-- show error Validation-->
+                                                @error('vendor_id')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="form-label" for="Costing">Costing</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">৳</span>
+                                                    <input type="number" class="form-control" min="0"
+                                                        placeholder="Enter Costing"
+                                                        wire:model.live.debounce.500ms="costing"
+                                                        aria-label="Costing" />
+                                                    <span class="input-group-text">.00</span>
+                                                    <!-- show error Validation-->
+                                                    @error('costing')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="form-label" for="Profit">Our Profit (show when status
+                                                    is delivered)</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">৳</span>
+                                                    <input type="number" class="form-control" min="0"
+                                                        placeholder="Enter Profit" wire:model="profit"
+                                                        aria-label="Profit" disabled />
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <button type="submit" name="submitButton" class="btn btn-primary">
+                                                    <span wire:loading.remove>Submit</span>
+                                                    <span wire:loading>
+                                                        <div class="spinner-border text-light" role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    </span>
+                                                </button>
+                                            </div>
                     </form>
                 </div>
             </div>
