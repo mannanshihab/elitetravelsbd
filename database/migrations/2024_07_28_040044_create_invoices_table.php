@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('rcv_date')->nullable();
             $table->string('delivery_date')->nullable();
             $table->string('ticket_no')->nullable();
-            $table->string('package_name')->nullable();
             $table->string('pnr_no')->nullable();
+            $table->string('going');
             $table->string('status');
             $table->integer('our_amount');
             $table->integer('received_amount');

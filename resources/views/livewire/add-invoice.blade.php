@@ -16,7 +16,6 @@
                         @include('livewire.partials.flash-session')
 
 
-
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md mb-md-0 mb-2">
@@ -91,7 +90,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6 my-2"->
+                            <div class="col-md-6 my-2">
                                 <label class="form-label" for="formValidationDob">Date of Birth*</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon11"><i
@@ -148,7 +147,7 @@
                                                         for="customRadioTemp1">
                                                         <input name="customRadioTemp" class="form-check-input"
                                                             wire:model.live='status' type="radio"
-                                                            value="file received" id="customRadioTemp1" ' required/>
+                                                            value="file received" id="customRadioTemp1" required/>
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">File Received</span>
                                                         </span>
@@ -233,29 +232,24 @@
                         <div class="col-12">
                             <h6>Payment Details</h6>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
-                                <div class="input-group" wire:ignore>
-                                    <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}"
-                                        wire:navigate>Add
-                                        Agent</a>
-                                    <select id="selectpickerLiveSearch" wire:model="agent_id"
-                                        class="selectpicker form-control" data-style="btn-default"
-                                        data-live-search="true" tabindex="null" required>
-                                        <option value="">Select Work Type</option>
-                                        @foreach ($agents as $agent)
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" for="selectpickerLiveSearch">Refer Agent</label>
+                                    <div class="input-group" wire:ignore>
+                                        <a class="btn btn-outline-secondary waves-effect" href="{{ route('add-agent') }}" wire:navigate>Add Agent</a>
+                                        <select id="selectpickerLiveSearch" wire:model="agent_id" class="selectpicker form-control" data-style="btn-default" data-live-search="true" tabindex="null" required>
+                                            <option value="">Select Agent</option>
+                                            @foreach ($agents as $agent)
 <option value="{{ $agent->id }}">
                                                 {{ $agent->company_name . ' - ' . $agent->mobile }}
                                             </option>
 @endforeach
-                                    </select>
-                                </div>
-                                <!-- show error Validation-->
-                                @error(' agent_id') <span class="text-danger">{{ $message }}</span>
+                                        </select>
+                                    </div>
+                                    @error(' agent_id') <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                 </div>
-
 
                                                 <div class="col">
                                                     <label class="form-label" for="Our Amount">Our Amount</label>
@@ -306,69 +300,71 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                        </div>
 
 
-                                            <div class="col-md-4">
-                                                <label class="form-label" for="selectpickerLiveSearch">Working
-                                                    Vendors</label>
-                                                <div class="input-group" wire:ignore>
-                                                    <a class="btn btn-outline-secondary waves-effect"
-                                                        href="{{ route('add-vendor') }}" wire:navigate>Add Vendor</a>
-                                                    <select id="selectpickerLiveSearch" wire:model="vendor_id"
-                                                        class="selectpicker form-control" data-style="btn-default"
-                                                        data-live-search="true" tabindex="null">
-                                                        <option value="">Select Work Type</option>
-                                                        @foreach ($vendors as $vendor)
-                                                            <option value="{{ $vendor->id }}">
-                                                                {{ $vendor->vendor_name . ' - ' . $vendor->mobile }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="selectpickerLiveSearch">Working
+                                                Vendors</label>
+                                            <div class="input-group" wire:ignore>
+                                                <a class="btn btn-outline-secondary waves-effect"
+                                                    href="{{ route('add-vendor') }}" wire:navigate>Add
+                                                    Vendor</a>
+                                                <select id="selectpickerLiveSearch" wire:model="vendor_id"
+                                                    class="selectpicker form-control" data-style="btn-default"
+                                                    data-live-search="true" tabindex="null">
+                                                    <option value="">Select Work Type</option>
+                                                    @foreach ($vendors as $vendor)
+                                                        <option value="{{ $vendor->id }}">
+                                                            {{ $vendor->vendor_name . ' - ' . $vendor->mobile }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <!-- show error Validation-->
+                                            @error('vendor_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="Costing">Costing</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">৳</span>
+                                                <input type="number" class="form-control" min="0"
+                                                    placeholder="Enter Costing"
+                                                    wire:model.live.debounce.500ms="costing" aria-label="Costing" />
+                                                <span class="input-group-text">.00</span>
                                                 <!-- show error Validation-->
-                                                @error('vendor_id')
+                                                @error('costing')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-4">
-                                                <label class="form-label" for="Costing">Costing</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-text">৳</span>
-                                                    <input type="number" class="form-control" min="0"
-                                                        placeholder="Enter Costing"
-                                                        wire:model.live.debounce.500ms="costing"
-                                                        aria-label="Costing" />
-                                                    <span class="input-group-text">.00</span>
-                                                    <!-- show error Validation-->
-                                                    @error('costing')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="Profit">Our Profit (show when
+                                                status
+                                                is delivered)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">৳</span>
+                                                <input type="number" class="form-control" min="0"
+                                                    placeholder="Enter Profit" wire:model="profit"
+                                                    aria-label="Profit" disabled />
+                                                <span class="input-group-text">.00</span>
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-4">
-                                                <label class="form-label" for="Profit">Our Profit (show when status
-                                                    is delivered)</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-text">৳</span>
-                                                    <input type="number" class="form-control" min="0"
-                                                        placeholder="Enter Profit" wire:model="profit"
-                                                        aria-label="Profit" disabled />
-                                                    <span class="input-group-text">.00</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <button type="submit" name="submitButton" class="btn btn-primary">
-                                                    <span wire:loading.remove>Submit</span>
-                                                    <span wire:loading>
-                                                        <div class="spinner-border text-light" role="status">
-                                                            <span class="visually-hidden">Loading...</span>
-                                                        </div>
-                                                    </span>
-                                                </button>
-                                            </div>
+                                        <div class="col-12">
+                                            <button type="submit" name="submitButton" class="btn btn-primary">
+                                                <span wire:loading.remove>Submit</span>
+                                                <span wire:loading>
+                                                    <div class="spinner-border text-light" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </span>
+                                            </button>
+                                        </div>
                     </form>
                 </div>
             </div>
