@@ -89,7 +89,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <td colspan="3">No records found</td>
+                            <td colspan="3" class="text-center">No records found</td>
                         @endforelse
 
                     </tbody>

@@ -41,8 +41,8 @@ class AddEmployee extends Component
             'banks_details' => 'required',
         ]);
 
-        $nidPath = $this->nid_no->store('uploads', 'real_public');
-        $ecvPath = $this->employee_cv->store('uploads', 'real_public');
+        $nidPath = $this->nid_no->store('uploads/Employees/NID', 'real_public');
+        $ecvPath = $this->employee_cv->store('uploads/Employees/CV', 'real_public');
 
         Employee::create([
             'name'          => $this->name,

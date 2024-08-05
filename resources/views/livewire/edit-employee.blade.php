@@ -110,7 +110,7 @@
                             <label class="form-label" for="basic-default-upload-file">NID No</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="ti ti-upload"></i></span>
-                                <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file" required/>
+                                <input type="file" class="form-control" wire:model="nid_no" id="basic-default-upload-file"/>
                             </div>
                             @error('nid_no')
                                 <span class="text-danger">{{ $message }}</span>
@@ -121,7 +121,7 @@
                             <label class="form-label" for="basic-default-upload-file">CV</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="ti ti-upload"></i></span>
-                                <input type="file" class="form-control" wire:model="employee_cv" id="basic-default-upload-file" required/>
+                                <input type="file" class="form-control" wire:model="employee_cv" id="basic-default-upload-file"/>
                             </div>
                             @error('employee_cv')
                                 <span class="text-danger">{{ $message }}</span>

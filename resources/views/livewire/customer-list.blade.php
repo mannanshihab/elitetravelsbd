@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @foreach ($customers as $customer)
+                        @forelse ($customers as $customer)
                             <tr>
                                 <td>
                                     Name: <span class="fw-medium">{{ $customer->name }}</span><br>
@@ -125,7 +125,11 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty 
+                            <tr>
+                                <td class="text-center" colspan="7">No records found</td>
+                            </tr>
+                        @endforelse
 
                     </tbody>
                 </table>

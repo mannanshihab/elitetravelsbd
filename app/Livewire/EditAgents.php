@@ -53,12 +53,12 @@ class EditAgents extends Component
         $agent->address = $this->address;
         $agent->banks_details = $this->banks_details;
         if (!empty($this->trade_license_no)) {
-            $trade_license_no = $this->trade_license_no->store('uploads', 'real_public');
+            $trade_license_no = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');
             $agent->trade_license_no = $trade_license_no;
         }
 
         if (!empty($this->nid_no)) {
-            $nid_no = $this->nid_no->store('uploads', 'real_public');
+            $nid_no = $this->nid_no->store('uploads/Agents/nid', 'real_public');
             $agent->nid_no = @$nid_no;
         }
         $agent->save();

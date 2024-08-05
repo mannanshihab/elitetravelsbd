@@ -60,11 +60,11 @@ class EditEmployee extends Component
         $employee->banks_details = $this->banks_details;
         
         if (!empty($this->nid_no)) {
-            $nid_no = $this->nid_no->store('uploads', 'real_public');
+            $nid_no = $this->nid_no->store('uploads/Employees/NID', 'real_public');
             $employee->nid_no = @$nid_no;
         }
         if (!empty($this->employee_cv)) {
-            $employee_cv = $this->employee_cv->store('uploads', 'real_public');
+            $employee_cv = $this->employee_cv->store('uploads/Employees/CV', 'real_public');
             $employee->employee_cv = @$employee_cv;
         }
         $employee->save();

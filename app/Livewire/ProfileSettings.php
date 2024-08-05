@@ -75,7 +75,7 @@ class ProfileSettings extends Component
             'photo' => 'image|max:1024', // 1MB Max
         ]);
 
-        $upload = $this->photo->store('uploads', 'real_public');
+        $upload = $this->photo->store('uploads/Users', 'real_public');
         $user = User::where('id', auth()->user()->id)->update([
             'photo' => $upload
         ]);

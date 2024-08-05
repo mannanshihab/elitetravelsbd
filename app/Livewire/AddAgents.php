@@ -32,8 +32,8 @@ class AddAgents extends Component
             'nid_no' => 'required|image', 
         ]);
 
-        $tradeLicensePath = $this->trade_license_no->store('uploads', 'real_public');
-        $nidPath = $this->nid_no->store('uploads', 'real_public');
+        $tradeLicensePath = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');
+        $nidPath = $this->nid_no->store('uploads/Agents/nid', 'real_public');
 
         Agent::create([
             'company_name'      => $this->company_name,
