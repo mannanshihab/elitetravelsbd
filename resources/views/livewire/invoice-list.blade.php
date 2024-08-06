@@ -104,6 +104,7 @@
                             <th>Billed</th>
                             <th>Customer Details</th>
                             <th>Work Type</th>
+                            <th>Going/Tour</th>
                             <th>Amount</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
@@ -113,7 +114,7 @@
 
                         @forelse ($invoices as $invoice)
                             <tr>
-                                <td class="sorting_1"><a href="#"
+                                <td class="sorting_1"><a href="{{ route('invoice-show', $invoice->invoice) }}"
                                         class="text-primary">#{{ $invoice->invoice }}</a></td>
                                 <td><span>{{ ucwords($invoice->billed->name) }}</span></td>
                                 <td>
@@ -122,6 +123,7 @@
                                     <span>Mobile No : {{ $invoice->customer->mobile }}</span>
                                 </td>
                                 <td>{{ ucwords($invoice->work_type) }}</td>
+                                <td>{{ ucwords($invoice->going) }}</td>
                                 <td>
                                     <span>Our Amount : {{ ucwords($invoice->our_amount) }}</span><br>
                                     <span>Rcv Amount : {{ ucwords($invoice->received_amount) }}</span><br>

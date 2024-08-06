@@ -41,31 +41,32 @@
                         <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-4 mb-sm-0 mb-4">
                             <h6 class="mb-3">Invoice To:</h6>
                             <p class="mb-1 fw-bold robi-black">{{$invoice->customer->name}}</p>
+                            <p class="mb-1 fw-bold robi-black">{{$invoice->customer->mobile}}</p>
                         </div>
                  
                     </div>
                 </div>
                 <div class="table-responsive border-top">
                     <table class="table m-0">
-                        <thead>
+                        <thead class="table-light">
                             <tr>
-                                <th>Item</th>
-                                <th>Description</th>
-                                <th>Amount</th>
-                                <th>Qty</th>
-                                <th>Price</th>
+                                <th class="fw-bold">Item</th>
+                                <th class="fw-bold">Description</th>
+                                <th class="fw-bold">Main Amount</th>
+                                <th class="fw-bold">Qty</th>
+                                <th class="fw-bold">Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="fw-bold">{{ ucwords($invoice->work_type) }}</td>
-                                <td class="text-nowrap">Travel of bangladesh</td>
-                                <td class="text-center">{{$invoice->amount}}</td>
-                                <td>{{$invoice->qty}}</td>
-                                <td>{{$invoice->qty * $invoice->amount}}</td>
+                                <td class="text-nowrap">{{ ucwords($invoice->going) }}</td>
+                                <td class="px-5">{{$invoice->our_amount}} (BDT)</td>
+                                <td class="px-4">1</td>
+                                <td>{{1 * $invoice->our_amount}} (BDT)</td>
                             </tr>
-                            <tr>
-                                <td colspan="3" class="align-top px-4 py-4">
+                            <tr> 
+                                <td colspan="3">
                                     <p class="mb-2 mt-3">
                                         <span class="ms-3 fw-medium">Salesperson:</span>
                                         <span>{{$invoice->billed->name}}</span>
@@ -73,14 +74,12 @@
                                     <span class="ms-3">Thanks you.</span>
                                 </td>
                                 <td class="text-end pe-3 py-4">
-                                    <p class="mb-2 pt-3">Subtotal:</p>
-                                    <p class="mb-2">Discount:</p>
-                                    <p class="mb-0 pb-3">Total:</p>
+                                    <p class="mb-2 pt-3">Total:</p>
+                                    <p class="mb-0 pb-3">Paid/Due:</p>
                                 </td>
                                 <td class="ps-2 py-4">
-                                    <p class="fw-medium mb-2 pt-3">$154.25</p>
-                                    <p class="fw-medium mb-2">$00.00</p>
-                                    <p class="fw-medium mb-0 pb-3">$204.25</p>
+                                    <p class="fw-medium mb-2 pt-3">{{$invoice->our_amount}} (BDT)</p>
+                                    <p class="fw-medium mb-0 pb-3">{{$invoice->our_amount - $invoice->received_amount}} (BDT)</p>
                                 </td>
                             </tr>
                         </tbody>
