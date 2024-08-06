@@ -17,6 +17,7 @@ use App\Livewire\VendorsList;
 use App\Livewire\CustomerList;
 use App\Livewire\EditCustomer;
 use App\Livewire\EditEmployee;
+use App\Livewire\EditInvoice;
 use App\Livewire\EmployeeList;
 use App\Livewire\InvoicePreview;
 use App\Livewire\ProfileSettings;
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('invoice', AddInvoice::class)->name('invoice');
     Route::get('invoice-list', InvoiceList::class)->name('invoice-list');
+    Route::get('invoice-edit/{invoice_id}', EditInvoice::class)->name('invoice-edit');
     Route::get('invoice-preview/{invoice_id}', InvoicePreview::class)->name('preview');
 
     Route::get('add-customer', AddCustomer::class)->name('add-customer');

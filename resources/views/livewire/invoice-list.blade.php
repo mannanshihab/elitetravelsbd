@@ -86,7 +86,7 @@
                 <div class="form-group d-flex card-header">
                     <label for="inputCity" class="mt-2">Search: </label>&nbsp;
                     <input type="text" wire:model.live.debounce.250ms="search" class="form-control" id="inputCity"
-                        placeholder="search ...">
+                        placeholder="Search ...">
                 </div>
             </div>
             {{-- End Search --}}
@@ -105,8 +105,6 @@
                             <th>Customer Details</th>
                             <th>Work Type</th>
                             <th>Amount</th>
-                            <th>Qty</th>
-                            <th>Total</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -119,14 +117,17 @@
                                         class="text-primary">#{{ $invoice->invoice }}</a></td>
                                 <td><span>{{ ucwords($invoice->billed->name) }}</span></td>
                                 <td>
-                                    <span>Name: {{ ucwords($invoice->customer->name) }}</span><br>
-                                    <span>Passport No: {{ $invoice->passport_no }}</span><br>
-                                    <span>Mobile No: {{ $invoice->customer->mobile }}</span>
+                                    <span>Name : {{ ucwords($invoice->customer->name) }}</span><br>
+                                    <span>Passport No : {{ $invoice->customer->passport }}</span><br>
+                                    <span>Mobile No : {{ $invoice->customer->mobile }}</span>
                                 </td>
                                 <td>{{ ucwords($invoice->work_type) }}</td>
-                                <td>{{ $invoice->amount }}</td>
-                                <td>{{ $invoice->qty }}</td>
-                                <td>{{ $invoice->total_amount }}</td>
+                                <td>
+                                    <span>Our Amount : {{ ucwords($invoice->our_amount) }}</span><br>
+                                    <span>Rcv Amount : {{ ucwords($invoice->received_amount) }}</span><br>
+                                    <span>Agent Amount : {{ ucwords($invoice->agent_amount) }}</span><br>
+                                </td>
+
                                 <td>
                                     @if ($invoice->status == 'pending')
                                         <span class="badge bg-label-primary">{{ strtoupper($invoice->status) }}</span>
@@ -139,24 +140,18 @@
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
-                                        <a class="btn rounded-pill btn-icon btn-primary" href="" wire:navigate>
+                                        <a class="btn rounded-pill btn-icon btn-primary" href="{{ route('invoice-edit', $invoice->id) }}" wire:navigate>
                                             <span class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
 
-                                        <!-- Start Make User Button -->
-                                        {{-- <a class="btn rounded-pill btn-icon btn-secondary" href="#" wire:navigate>
-                                            <span class="ti ti-eye"></span>
-                                        </a> --}}
-                                        <!-- End User Button -->
-
                                         <!-- Start Delete Button -->
                                         <a type="button" class="btn rounded-pill btn-icon btn-danger"
-                                            data-bs-toggle="modal" data-bs-target="#deleteModal-{{ @$user->id }}">
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal-{{ @$invoice->id }}">
                                             <span class="ti ti-trash text-white">
                                         </a><!--/End Delete Button -->
 
                                         <!-- Delete Modal -->
-                                        <div class="modal fade" id="deleteModal-{{ @$user->id }}" tabindex="-1"
+                                        <div class="modal fade" id="deleteModal-{{ @$invoice->id }}" tabindex="-1"
                                             aria-hidden="true">
                                             <div
                                                 class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
@@ -173,7 +168,7 @@
                                                         <div class="col-12 text-center">
                                                             <a type="reset" class="btn btn-label-secondary btn-reset"
                                                                 data-bs-dismiss="modal" aria-label="Close">No</a>
-                                                            <a type="submit" wire:click=""
+                                                            <a type="submit" wire:click="delete({{ $invoice->id }})"
                                                                 class="btn btn-danger me-sm-3 me-5"
                                                                 data-bs-dismiss="modal" aria-label="Close">Yes</a>
                                                         </div>

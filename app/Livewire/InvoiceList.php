@@ -35,4 +35,15 @@ class InvoiceList extends Component
 
         return view('livewire.invoice-list', ['invoices' => $invoices, 'total_clients' => $total_clients, 'total_invoices' => $total_invoices]);
     }
+
+    public function delete($id)
+    {
+        Invoice::find($id)->delete();
+
+        $this->dispatch('swal', [
+            'title' => 'Invoice Deleted Successfully.',
+            'icon' => 'success',
+            'iconColor' => 'blue',
+        ]);
+    }
 }
