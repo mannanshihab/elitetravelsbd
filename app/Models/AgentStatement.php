@@ -11,4 +11,10 @@ class AgentStatement extends Model
 
     protected $guarded = [];
 
+
+    public function agent()
+    {
+        return $this->belongsTo(Agent::class);
+    }
+
 }

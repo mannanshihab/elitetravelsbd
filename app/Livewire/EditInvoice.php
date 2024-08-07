@@ -104,7 +104,7 @@ class EditInvoice extends Component
 
                 $vendorexst = VendorStatement::where('source', $this->invoice_id)->first();
                 if($vendorexst){
-                    VendorStatement::where('source', $this->invoice_id)->update(['amount' => $this->costing]);
+                    VendorStatement::where('source', $this->invoice_id)->update(['amount' => $this->costing, 'pay via' => 'Added from invoice']);
                 }else{
                     VendorStatement::create([
                         'vendor_id' => $this->vendor_id,
@@ -114,7 +114,6 @@ class EditInvoice extends Component
                 }
 
             }
-
 
             if ($this->vendor_id && $this->costing) {
                 $data['vendor_id'] = $this->vendor_id;

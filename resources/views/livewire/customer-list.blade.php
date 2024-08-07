@@ -64,7 +64,7 @@
                                     @endif
                                 </td>
                                 <td><span class="fw-bold"><i
-                                            class="ti ti-id-badge text-primary me-4"></i>{{ $customer->passport }}</span>
+                                            class="ti ti-id-badge text-primary me-4"></i>{{ $customer->passport_no }}</span>
                                 </td>
                                 <td>{{ $customer->member_id }}</td>
                                 <td>

@@ -38,7 +38,7 @@
                             <label class="form-label" for="formValidationDob">Date of Birth (Passport)</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-calendar"></i></span>
-                                <input type="date" class="form-control bsdatepicker" placeholder="31-12-1996"
+                                <input type="text" class="form-control bsdatepicker" placeholder="31-12-1996"
                                     wire:model="date_of_birth" aria-label="dob"
                                     onchange="this.dispatchEvent(new InputEvent('input'))" required />
                             </div>
@@ -49,7 +49,7 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-id-badge"></i></span>
                                 <input type="text" class="form-control" placeholder="Please Enter Passport Number"
-                                    wire:model="passport" aria-label="passport" />
+                                    wire:model="passport_no" aria-label="passport" />
                             </div>
                         </div>
 

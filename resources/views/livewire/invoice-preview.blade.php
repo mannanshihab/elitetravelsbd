@@ -7,8 +7,7 @@
         <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4 card">
             <div class="invoice-preview-card p-5">
                 <div class="card-body invoice-preview-header rounded">
-                    <div
-                        class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
+                    <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
                         <div class="mb-xl-0 mb-1">
                             <div class="d-flex svg-illustration mb-2 gap-2 align-items-center">
                                 <div class="app-brand-logo">
@@ -20,7 +19,7 @@
                             <p class="mb-1">2no Gate, Panchlaish, Chattogram.</p>
                         </div>
                         <div>
-                            <h4 class="fw-medium mb-2">Invoice #{{$invoice->invoice}}</h4>
+                            <h4 class="fw-medium mb-2">Invoice #{{ $invoice->invoice }}</h4>
                             <div class="mb-2 pt-1">
                                 <span>Invoice Issues:</span>
                                 <span class="fw-medium">{{ $invoice->created_at->format('d-m-Y') }}</span>
@@ -40,10 +39,10 @@
                     <div class="row p-sm-3 p-0">
                         <div class="col-xl-6 col-md-12 col-sm-5 col-12 mb-xl-0 mb-md-4 mb-sm-0 mb-4">
                             <h6 class="mb-3">Invoice To:</h6>
-                            <p class="mb-1 fw-bold robi-black">{{$invoice->customer->name}}</p>
-                            <p class="mb-1 fw-bold robi-black">{{$invoice->customer->mobile}}</p>
+                            <p class="mb-1 fw-bold robi-black">{{ $invoice->customer->name }}</p>
+                            <p class="mb-1 fw-bold robi-black">{{ $invoice->customer->mobile }}</p>
                         </div>
-                 
+
                     </div>
                 </div>
                 <div class="table-responsive border-top">
@@ -61,15 +60,15 @@
                             <tr>
                                 <td class="fw-bold">{{ ucwords($invoice->work_type) }}</td>
                                 <td class="text-nowrap">{{ ucwords($invoice->going) }}</td>
-                                <td class="px-5">{{$invoice->our_amount}} (BDT)</td>
+                                <td class="px-5">{{ $invoice->our_amount }} (BDT)</td>
                                 <td class="px-4">1</td>
-                                <td>{{1 * $invoice->our_amount}} (BDT)</td>
+                                <td>{{ 1 * $invoice->our_amount }} (BDT)</td>
                             </tr>
-                            <tr> 
+                            <tr>
                                 <td colspan="3">
                                     <p class="mb-2 mt-3">
                                         <span class="ms-3 fw-medium">Salesperson:</span>
-                                        <span>{{$invoice->billed->name}}</span>
+                                        <span>{{ $invoice->billed->name }}</span>
                                     </p>
                                     <span class="ms-3">Thanks you.</span>
                                 </td>
@@ -78,8 +77,9 @@
                                     <p class="mb-0 pb-3">Paid/Due:</p>
                                 </td>
                                 <td class="ps-2 py-4">
-                                    <p class="fw-medium mb-2 pt-3">{{$invoice->our_amount}} (BDT)</p>
-                                    <p class="fw-medium mb-0 pb-3">{{$invoice->our_amount - $invoice->received_amount}} (BDT)</p>
+                                    <p class="fw-medium mb-2 pt-3">{{ $invoice->our_amount }} (BDT)</p>
+                                    <p class="fw-medium mb-0 pb-3">
+                                        {{ $invoice->our_amount - $invoice->received_amount }} (BDT)</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -87,13 +87,8 @@
                 </div>
 
                 <div class="card-body mx-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <span class="fw-medium">Note:</span>
-                            <span>It was a pleasure working with you and your team. 
-                                future freelance
-                                projects. Thank You!</span>
-                        </div>
+                    <div class="d-flex justify-content-center">
+                        <span>Your satisfaction is our priority. Thank you for traveling with us.</span>
                     </div>
                 </div>
             </div>

@@ -10,4 +10,9 @@ class VendorStatement extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
+
 }

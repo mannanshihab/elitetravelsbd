@@ -39,7 +39,7 @@
 
         <!-- invoice -->
 
-        <li class="menu-item" x-bind:class="$current('/invoice') || $current('/invoice-list') || $current('/invoice-edit*') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/invoice') || $current('/invoice-list') || $current('/invoice-edit*') || $current('/invoice-show*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-receipt"></i>
                 <div data-i18n="Invoice">Invoice</div>
@@ -52,7 +52,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/invoice-list') || $current('/invoice-edit*') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/invoice-list') || $current('/invoice-edit*') || $current('/invoice-show*') ? 'active' : ''">
                     <a href="{{ route('invoice-list') }}" wire:navigate class="menu-link">
                         <div data-i18n="Invoice">Invoice List</div>
                     </a>
@@ -181,18 +181,50 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Misc">Reports</span>
         </li>
-        <li class="menu-item">
-            <a href="#" target="_blank" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-lifebuoy"></i>
-                <div data-i18n="Support">Support</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="#" target="_blank" class="menu-link">
+
+        <li class="menu-item" x-bind:class="$current('/add-agent-bill') || $current('/agent-reports') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
-                <div data-i18n="Documentation">Documentation</div>
+                <div data-i18n="Reports">Agent Reports</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item" x-bind:class="$current('/add-agent-bill') ? 'active' : ''">
+                    <a href="{{ route('add-agent-bill') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Add Bill">Add Bill</div>
+                    </a>
+                </li>
+
+                <li class="menu-item" x-bind:class="$current('/agent-reports')  ? 'active' : ''">
+                    <a href="{{ route('agent-reports') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Reports">Reports</div>
+                    </a>
+                </li>
+            </ul>
         </li>
+
+        
+        <li class="menu-item" x-bind:class="$current('/add-vendor-bill') || $current('/vendor-reports') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-file-description"></i>
+                <div data-i18n="Vendor Reports">Vendor Reports</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" x-bind:class="$current('/add-vendor-bill') ? 'active' : ''">
+                    <a href="{{ route('add-vendor-bill') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Add Bill">Add Bill</div>
+                    </a>
+                </li>
+
+                <li class="menu-item" x-bind:class="$current('/vendor-reports')  ? 'active' : ''">
+                    <a href="{{ route('vendor-reports') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Reports">Reports</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
 </aside>
 <!-- / Menu -->

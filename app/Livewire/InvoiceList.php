@@ -2,7 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\AgentStatement;
 use App\Models\Invoice;
+use App\Models\Vendor;
+use App\Models\VendorStatement;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
@@ -46,6 +49,9 @@ class InvoiceList extends Component
 
     public function delete($id)
     {
+        $getInvoiceNo = Invoice::find($id)->invoice;
+        AgentStatement::where('source', $getInvoiceNo)->delete();
+        VendorStatement::where('source', $getInvoiceNo)->delete();
         Invoice::find($id)->delete();
 
         $this->dispatch('swal', [

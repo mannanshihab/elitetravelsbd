@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AddAgentBill;
 use App\Livewire\Home;
 use App\Livewire\AddUsers;
 use App\Livewire\UserList;
@@ -11,6 +12,8 @@ use App\Livewire\Auth\Login;
 use App\Livewire\EditAgents;
 use App\Livewire\AddCustomer;
 use App\Livewire\AddEmployee;
+use App\Livewire\AddVendorBill;
+use App\Livewire\AgentReports;
 use App\Livewire\EditVendors;
 use App\Livewire\InvoiceList;
 use App\Livewire\VendorsList;
@@ -21,6 +24,7 @@ use App\Livewire\EditInvoice;
 use App\Livewire\EmployeeList;
 use App\Livewire\InvoicePreview;
 use App\Livewire\ProfileSettings;
+use App\Livewire\VendorReports;
 use App\Models\Invoice;
 use Illuminate\Support\Facades\Route;
 
@@ -67,5 +71,10 @@ Route::middleware('auth')->group(function () {
     Route::get('add-vendor', AddVendors::class)->name('add-vendor');
     Route::get('edit-vendor/{id}', EditVendors::class)->name('edit-vendor');
     Route::get('list-vendor', VendorsList::class)->name('list-vendor');
+
+    Route::get('add-agent-bill', AddAgentBill::class)->name('add-agent-bill');
+    Route::get('agent-reports', AgentReports::class)->name('agent-reports');
+    Route::get('add-vendor-bill', AddVendorBill::class)->name('add-vendor-bill');
+    Route::get('vendor-reports', VendorReports::class)->name('vendor-reports');
 });
 
