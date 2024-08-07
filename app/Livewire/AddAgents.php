@@ -10,17 +10,18 @@ use Livewire\WithFileUploads;
 #[Title('Add Agents')]
 class AddAgents extends Component
 {
-    use WithFileUploads; 
+    use WithFileUploads;
     public $company_name = '';
     public $ceo_name = '';
     public $email = '';
     public $mobile = '';
-    public $address = '';  
+    public $address = '';
     public $trade_license_no;
-    public $nid_no;  
-    public $banks_details = '';  
+    public $nid_no;
+    public $banks_details = '';
 
-    public function addAgent(){
+    public function addAgent()
+    {
 
         $this->validate([
             'company_name' => 'required',
@@ -28,12 +29,16 @@ class AddAgents extends Component
             'email'        => 'required|unique:agents',
             'mobile'       => 'required',
             'address'      => 'required',
-            'trade_license_no' => 'image',
-            'nid_no' => 'image', 
+            'trade_license_no' => 'nullable|image',
+            'nid_no' => 'nullable|image',
         ]);
 
-        $tradeLicensePath = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');
-        $nidPath = $this->nid_no->store('uploads/Agents/nid', 'real_public');
+        if ($this->trade_license_no) {
+            $tradeLicensePath = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');
+        }
+        if ($this->nid_no) {
+            $nidPath = $this->nid_no->store('uploads/Agents/nid', 'real_public');
+        }
 
         Agent::create([
             'company_name'      => $this->company_name,
@@ -41,8 +46,8 @@ class AddAgents extends Component
             'email'             => $this->email,
             'mobile'            => $this->mobile,
             'address'           => $this->address,
-            'trade_license_no'  => $tradeLicensePath,
-            'nid_no'            => $nidPath,
+            'trade_license_no'  => @$tradeLicensePath,
+            'nid_no'            => @$nidPath,
             'banks_details'     => $this->banks_details
         ]);
 

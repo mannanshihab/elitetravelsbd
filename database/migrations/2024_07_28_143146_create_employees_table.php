@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('ta_da');
             $table->string('mobile');
             $table->string('address');
-            $table->string('nid_no');
-            $table->string('employee_cv');
+            $table->string('nid_no')->nullable();;
+            $table->string('employee_cv')->nullable();;
             $table->string('bkash')->nullable();
             $table->string('banks_details')->nullable();
             $table->timestamps();

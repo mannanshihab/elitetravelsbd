@@ -41,11 +41,17 @@ class EditEmployee extends Component
     public function editEmployee(){
 
         $this->validate([
-            'name'         => 'required',
-            'designation'  => 'required',
-            'email'        => 'required',
-            'mobile'       => 'required',
-            'address'      => 'required',
+            'name'          => 'required',
+            'email'         => 'required',
+            'designation'   => 'required',
+            'salary'       => 'required',
+            'ta_da'         => 'required',
+            'mobile'        => 'required',
+            'address'       => 'required',
+            'nid_no'        => 'nullable|mimes:jpeg,jpg,png,gif',
+            'employee_cv'   => 'nullable|file|mimes:pdf,jpg,jpeg,png',
+            'bkash'         => 'required',
+            // 'banks_details' => 'required',
         ]);
 
         $employee  = Employee::find($this->employee_id);

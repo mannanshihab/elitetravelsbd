@@ -20,12 +20,13 @@ class AddEmployee extends Component
     public $mobile = '';
     public $address = '';
     public $nid_no;
-    public $employee_cv ;
+    public $employee_cv;
     public $bkash = '';
     public $banks_details = '';
 
 
-    public function addEmployee(){
+    public function addEmployee()
+    {
 
         $this->validate([
             'name'          => 'required',
@@ -35,14 +36,19 @@ class AddEmployee extends Component
             'ta_da'         => 'required',
             'mobile'        => 'required',
             'address'       => 'required',
-            'nid_no'        => 'image',
-            'employee_cv'   => 'mimes:pdf,jpg,jpeg,png',
+            'nid_no'        => 'nullable|mimes:jpeg,jpg,png,gif',
+            'employee_cv'   => 'nullable|file|mimes:pdf,jpg,jpeg,png',
             'bkash'         => 'required',
             'banks_details' => 'required',
         ]);
 
-        $nidPath = $this->nid_no->store('uploads/Employees/NID', 'real_public');
-        $ecvPath = $this->employee_cv->store('uploads/Employees/CV', 'real_public');
+        if ($this->nid_no) {
+            $nidPath = $this->nid_no->store('uploads/Employees/NID', 'real_public');
+        }
+
+        if ($this->employee_cv) {
+            $ecvPath = $this->employee_cv->store('uploads/Employees/CV', 'real_public');
+        }
 
         Employee::create([
             'name'          => $this->name,
@@ -52,8 +58,8 @@ class AddEmployee extends Component
             'ta_da'         => $this->ta_da,
             'mobile'        => $this->mobile,
             'address'       => $this->address,
-            'nid_no'        => $nidPath,
-            'employee_cv'   => $ecvPath,
+            'nid_no'        => @$nidPath,
+            'employee_cv'   => @$ecvPath,
             'bkash'         => $this->bkash,
             'banks_details' => $this->banks_details,
         ]);
@@ -65,7 +71,6 @@ class AddEmployee extends Component
             'icon' => 'success',
             'iconColor' => 'blue',
         ]);
-
     }
     public function render()
     {

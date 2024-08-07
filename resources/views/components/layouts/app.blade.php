@@ -20,7 +20,7 @@
         'resources/assets/vendor/fonts/tabler-icons.scss',
         'resources/assets/vendor/scss/rtl/core.scss',
         'resources/assets/vendor/scss/rtl/theme-default.scss',
-        'resources/assets/css/demo.css',
+        'resources/assets/vendor/scss/demo.scss',
         'resources/assets/vendor/js/bootstrap.js',
         'resources/assets/vendor/libs/jquery/jquery.js',
         'resources/assets/vendor/libs/popper/popper.js',

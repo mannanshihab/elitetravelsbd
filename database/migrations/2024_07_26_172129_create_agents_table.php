@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile');
             $table->string('address');
-            $table->string('trade_license_no');
-            $table->string('nid_no');
+            $table->string('trade_license_no')->nullable();
+            $table->string('nid_no')->nullable();
             $table->string('banks_details');
             $table->timestamps();
         });

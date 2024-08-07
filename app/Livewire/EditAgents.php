@@ -42,6 +42,8 @@ class EditAgents extends Component
             'email'        => 'required',
             'mobile'       => 'required',
             'address'      => 'required',
+            'trade_license_no' => 'nullable|image',
+            'nid_no' => 'nullable|image',
         ]);
 
         
@@ -54,7 +56,7 @@ class EditAgents extends Component
         $agent->banks_details = $this->banks_details;
         if (!empty($this->trade_license_no)) {
             $trade_license_no = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');
-            $agent->trade_license_no = $trade_license_no;
+            $agent->trade_license_no = @$trade_license_no;
         }
 
         if (!empty($this->nid_no)) {
