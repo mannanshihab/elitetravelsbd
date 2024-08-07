@@ -13,7 +13,10 @@ class InvoiceList extends Component
     protected $paginationTheme = 'bootstrap';
     public $search = '';
     public $rows = 10;
-
+    public $total_clients;
+    public $total_invoices;
+    public $amount;
+    public $received_amount;
 
     public function render()
     {
@@ -30,10 +33,15 @@ class InvoiceList extends Component
             $invoices = Invoice::with('customer', 'billed')->orderBy('id', 'desc')->paginate($this->rows);
         }
 
-        $total_clients = Invoice::distinct()->count('customer_id');
-        $total_invoices = Invoice::count();
+        return view('livewire.invoice-list', ['invoices' => $invoices]);
+    }
 
-        return view('livewire.invoice-list', ['invoices' => $invoices, 'total_clients' => $total_clients, 'total_invoices' => $total_invoices]);
+    public function mount()
+    {
+        $this->total_clients = Invoice::distinct()->count('customer_id');
+        $this->total_invoices = Invoice::count();
+        $this->amount = Invoice::sum('our_amount');
+        $this->received_amount = Invoice::sum('received_amount');
     }
 
     public function delete($id)

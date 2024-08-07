@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         Customer::factory()->create([
             'name' => 'Lucky Akhter',
             'date_of_birth' => '10-02-1996',
-            'passport' => '98754368749145',
+            'passport_no' => '98754368749145',
             'member_id' => '123456789',
             'address' => 'Dhaka, Bangladesh',
             'source' => 'Robi bhai',

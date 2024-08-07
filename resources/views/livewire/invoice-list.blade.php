@@ -36,24 +36,26 @@
                         <div
                             class="d-flex justify-content-between align-items-start border-end pb-3 pb-sm-0 card-widget-3">
                             <div>
-                                <h3 class="mb-1 text-black">$2.46k</h3>
-                                <p class="mb-0 text-black">Paid</p>
+                                <h3 class="mb-1 text-black">{{ $amount }}</h3>
+                                <p class="mb-0 text-black">Invoices Amount</p>
                             </div>
                             <span class="avatar me-sm-4">
-                                <span class="avatar-initial bg-label-secondary rounded  text-black"><i
-                                        class="ti ti-checks ti-md"></i></span>
+                                <span class="avatar-initial bg-label-secondary rounded  text-black">
+                                    <i class="ti ti-currency-taka ti-md"></i>
+                                </span>
                             </span>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <h3 class="mb-1 text-black">$876</h3>
-                                <p class="mb-0 text-black">Unpaid</p>
+                                <h3 class="mb-1 text-black">{{ $received_amount }}</h3>
+                                <p class="mb-0 text-black">Invoices Received Amount</p>
                             </div>
                             <span class="avatar">
-                                <span class="avatar-initial bg-label-secondary rounded  text-black"><i
-                                        class="ti ti-circle-off ti-md"></i></span>
+                                <span class="avatar-initial bg-label-secondary rounded  text-black">
+                                    <i class="ti ti-checks ti-md"></i>
+                                </span>
                             </span>
                         </div>
                     </div>
@@ -142,7 +144,8 @@
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
-                                        <a class="btn rounded-pill btn-icon btn-primary" href="{{ route('invoice-edit', $invoice->id) }}" wire:navigate>
+                                        <a class="btn rounded-pill btn-icon btn-primary"
+                                            href="{{ route('invoice-edit', $invoice->id) }}" wire:navigate>
                                             <span class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
 
