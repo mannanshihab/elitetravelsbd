@@ -39,7 +39,7 @@
 
         <!-- invoice -->
 
-        <li class="menu-item" x-bind:class="$current('/invoice') || $current('/invoice-list') ? 'open' : ''">
+        <li class="menu-item" x-bind:class="$current('/invoice') || $current('/invoice-list') || $current('/invoice-edit*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-receipt"></i>
                 <div data-i18n="Invoice">Invoice</div>
@@ -52,7 +52,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/invoice-list') ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/invoice-list') || $current('/invoice-edit* ? 'active' : ''">
                     <a href="{{ route('invoice-list') }}" wire:navigate class="menu-link">
                         <div data-i18n="Invoice">Invoice List</div>
                     </a>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('date_of_birth');
-            $table->string('passport');
+            $table->string('passport_no');
             $table->string('member_id');
             $table->string('email')->unique();
             $table->string('gender');
