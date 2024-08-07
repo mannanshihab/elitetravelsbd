@@ -35,8 +35,8 @@ class AddEmployee extends Component
             'ta_da'         => 'required',
             'mobile'        => 'required',
             'address'       => 'required',
-            'nid_no'        => 'required|image',
-            'employee_cv'   => 'required|mimes:pdf,jpg,jpeg,png',
+            'nid_no'        => 'image',
+            'employee_cv'   => 'mimes:pdf,jpg,jpeg,png',
             'bkash'         => 'required',
             'banks_details' => 'required',
         ]);

@@ -28,8 +28,8 @@ class AddAgents extends Component
             'email'        => 'required|unique:agents',
             'mobile'       => 'required',
             'address'      => 'required',
-            'trade_license_no' => 'required|image',
-            'nid_no' => 'required|image', 
+            'trade_license_no' => 'image',
+            'nid_no' => 'image', 
         ]);
 
         $tradeLicensePath = $this->trade_license_no->store('uploads/Agents/tradeLicense', 'real_public');

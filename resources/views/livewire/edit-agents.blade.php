@@ -73,9 +73,11 @@
                             <span class="input-group-text" id="basic-addon11"><i class="ti ti-armchair"></i></span>
                             <input type="text" wire:model="company_name" id="formValidationName"
                                 class="form-control" placeholder="Please enter Company Name" name="formValidationName" />
+                        </div>
+                        <div>
                             {{-- show error --}}
                             @error('company_name')
-                                <span class="text-danger">{{ $message }}</span>
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
