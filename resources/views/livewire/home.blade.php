@@ -12,6 +12,7 @@
     <div class="row">
         <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card card-border-shadow-primary">
+                <a href="{{ route('list-customer') }}" wire:navigate>
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
@@ -25,11 +26,12 @@
                         <small class="text-muted">Total Customers</small>
                     </p>
                 </div>
+                </a>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card card-border-shadow-warning">
-                <a href="">
+                <a href="{{ route('list-agent') }}" wire:navigate>
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-2 pb-1">
                             <div class="avatar me-2">
@@ -49,6 +51,7 @@
         </div>
         <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card card-border-shadow-danger">
+                <a href="{{ route('list-vendor') }}" wire:navigate>
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
@@ -63,10 +66,12 @@
                         <small class="text-muted">Total Vendors</small>
                     </p>
                 </div>
+                </a>
             </div>
         </div>
         <div class="col-sm-6 col-lg-3 mb-4">
             <div class="card card-border-shadow-info">
+                <a href="{{ route('list-employees') }}" wire:navigate>
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
@@ -80,329 +85,21 @@
                         <small class="text-muted">Total Employees</small>
                     </p>
                 </div>
+                </a>
             </div>
         </div>
     </div>
     <!--/ Card Border Shadow -->
     
     <div class="row">
-        <!-- Vehicles overview -->
-        <div class="col-xxl-6 mb-4 order-5 order-xxl-0">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0">Vehicles overview</h5>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="d-none d-lg-flex vehicles-progress-labels mb-4">
-                        <div class="vehicles-progress-label on-the-way-text" style="width: 39.7%">On
-                            the way</div>
-                        <div class="vehicles-progress-label unloading-text" style="width: 28.3%">
-                            Unloading</div>
-                        <div class="vehicles-progress-label loading-text" style="width: 17.4%">
-                            Loading</div>
-                        <div class="vehicles-progress-label waiting-text text-nowrap" style="width: 14.6%">Waiting</div>
-                    </div>
-                    <div class="vehicles-overview-progress progress rounded-2 my-4" style="height: 46px">
-                        <div class="progress-bar fw-medium text-start bg-body text-dark px-3 rounded-0"
-                            role="progressbar" style="width: 39.7%" aria-valuenow="39.7" aria-valuemin="0"
-                            aria-valuemax="100">
-                            39.7%
-                        </div>
-                        <div class="progress-bar fw-medium text-start bg-primary px-3" role="progressbar"
-                            style="width: 28.3%" aria-valuenow="28.3" aria-valuemin="0" aria-valuemax="100">
-                            28.3%
-                        </div>
-                        <div class="progress-bar fw-medium text-start text-bg-info px-3" role="progressbar"
-                            style="width: 17.4%" aria-valuenow="17.4" aria-valuemin="0" aria-valuemax="100">
-                            17.4%
-                        </div>
-                        <div class="progress-bar fw-medium text-start bg-gray-900 px-2 rounded-0 px-lg-2 px-xxl-3"
-                            role="progressbar" style="width: 14.6%" aria-valuenow="14.6" aria-valuemin="0"
-                            aria-valuemax="100">
-                            14.6%
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table card-table">
-                            <tbody class="table-border-bottom-0">
-                                <tr>
-                                    <td class="w-50 ps-0">
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <div class="me-2">
-                                                <i class="ti ti-truck mt-n1"></i>
-                                            </div>
-                                            <h6 class="mb-0 fw-normal">On the way</h6>
-                                        </div>
-                                    </td>
-                                    <td class="text-end pe-0 text-nowrap">
-                                        <h6 class="mb-0">2hr 10min</h6>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-medium">39.7%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-50 ps-0">
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <div class="me-2">
-                                                <i class="ti ti-circle-arrow-down mt-n1"></i>
-                                            </div>
-                                            <h6 class="mb-0 fw-normal">Unloading</h6>
-                                        </div>
-                                    </td>
-                                    <td class="text-end pe-0 text-nowrap">
-                                        <h6 class="mb-0">3hr 15min</h6>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-medium">28.3%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-50 ps-0">
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <div class="me-2">
-                                                <i class="ti ti-circle-arrow-up mt-n1"></i>
-                                            </div>
-                                            <h6 class="mb-0 fw-normal">Loading</h6>
-                                        </div>
-                                    </td>
-                                    <td class="text-end pe-0 text-nowrap">
-                                        <h6 class="mb-0">1hr 24min</h6>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-medium">17.4%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-50 ps-0">
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <div class="me-2">
-                                                <i class="ti ti-clock mt-n1"></i>
-                                            </div>
-                                            <h6 class="mb-0 fw-normal">Waiting</h6>
-                                        </div>
-                                    </td>
-                                    <td class="text-end pe-0 text-nowrap">
-                                        <h6 class="mb-0">5hr 19min</h6>
-                                    </td>
-                                    <td class="text-end pe-0">
-                                        <span class="fw-medium">14.6%</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ Vehicles overview -->
-        <!-- Shipment statistics-->
-        <div class="col-lg-6 col-xxl-6 mb-4 order-3 order-xxl-1">
-            <div class="card">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Shipment statistics</h5>
-                        <small class="text-muted">Total number of deliveries 23.8k</small>
-                    </div>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-label-primary dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            January
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="javascript:void(0);">January</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">February</a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">March</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">April</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">May</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">June</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">July</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">August</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">September</a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">October</a></li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">November</a>
-                            </li>
-                            <li><a class="dropdown-item" href="javascript:void(0);">December</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="shipmentStatisticsChart"></div>
-                </div>
-            </div>
-        </div>
-        <!--/ Shipment statistics -->
-        <!-- Delivery Performance -->
-        <div class="col-lg-6 col-xxl-4 mb-4 order-2 order-xxl-2">
-            <div class="card h-100">
-                <div class="card-header d-flex align-items-center justify-content-between mb-2">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Delivery Performance</h5>
-                        <small class="text-muted">12% increase in this month</small>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="deliveryPerformance" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="ti ti-dots-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="deliveryPerformance">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-primary"><i
-                                        class="ti ti-package"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Packages in transit</h6>
-                                    <small class="text-success fw-normal d-block">
-                                        <i class="ti ti-chevron-up mb-1"></i>
-                                        25.8%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">10k</h6>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-info"><i class="ti ti-truck"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Packages out for delivery</h6>
-                                    <small class="text-success fw-normal d-block">
-                                        <i class="ti ti-chevron-up mb-1"></i>
-                                        4.3%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">5k</h6>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-success"><i
-                                        class="ti ti-circle-check"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Packages delivered</h6>
-                                    <small class="text-danger fw-normal d-block">
-                                        <i class="ti ti-chevron-down mb-1"></i>
-                                        12.5%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">15k</h6>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-warning"><i
-                                        class="ti ti-percentage"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Delivery success rate</h6>
-                                    <small class="text-success fw-normal d-block">
-                                        <i class="ti ti-chevron-up mb-1"></i>
-                                        35.6%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">95%</h6>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-secondary"><i
-                                        class="ti ti-clock"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Average delivery time</h6>
-                                    <small class="text-danger fw-normal d-block">
-                                        <i class="ti ti-chevron-down mb-1"></i>
-                                        2.15%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">2.5 Days</h6>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-danger"><i
-                                        class="ti ti-users"></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0 fw-normal">Customer satisfaction</h6>
-                                    <small class="text-success fw-normal d-block">
-                                        <i class="ti ti-chevron-up mb-1"></i>
-                                        5.7%
-                                    </small>
-                                </div>
-                                <div class="user-progress">
-                                    <h6 class="mb-0">4.5/5</h6>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--/ Delivery Performance -->
-        <!-- Reasons for delivery exceptions -->
-        <div class="col-md-6 col-xxl-4 mb-4 order-1 order-xxl-3">
-            <div class="card h-100">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Reasons for delivery exceptions</h5>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="deliveryExceptions" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="ti ti-dots-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="deliveryExceptions">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="deliveryExceptionsChart" class="pt-md-4"></div>
-                </div>
-            </div>
-        </div>
-        <!--/ Reasons for delivery exceptions -->
+        
         <!-- Orders by Countries -->
-        <div class="col-md-6 col-xxl-4 mb-4 order-0 order-xxl-4">
+        <div class="col-md-12 col-xxl-4 mb-4 order-0 order-xxl-4">
             <div class="card h-100">
                 <div class="card-header d-flex justify-content-between pb-2">
                     <div class="card-title mb-1">
-                        <h5 class="m-0 me-2">Orders</h5>
-                        <small class="text-muted">62 Deliveries in Progress</small>
+                        <h5 class="m-0 me-2">Invoices</h5>
+                        <small class="text-muted">{{$total_invoices}} Deliveries in Progress</small>
                     </div>
                     <div class="dropdown">
                         <button class="btn p-0" type="button" id="salesByCountryTabs" data-bs-toggle="dropdown"
@@ -421,205 +118,355 @@
                         <ul class="nav nav-tabs nav-fill" role="tablist">
                             <li class="nav-item">
                                 <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                                    data-bs-target="#navs-justified-new" aria-controls="navs-justified-new"
+                                    data-bs-target="#navs-justified-processing" aria-controls="navs-justified-processing"
                                     aria-selected="true">
-                                    New
+                                    Processing
+                                </button>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                    data-bs-target="#navs-justified-link-success"
+                                    aria-controls="navs-justified-link-success" aria-selected="false">
+                                    Success
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                    data-bs-target="#navs-justified-link-preparing"
-                                    aria-controls="navs-justified-link-preparing" aria-selected="false">
-                                    Preparing
+                                    data-bs-target="#navs-justified-link-refused"
+                                    aria-controls="navs-justified-link-refused" aria-selected="false">
+                                    Refused
                                 </button>
                             </li>
                             <li class="nav-item">
                                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                                    data-bs-target="#navs-justified-link-shipping"
-                                    aria-controls="navs-justified-link-shipping" aria-selected="false">
-                                    Shipping
+                                    data-bs-target="#navs-justified-link-delivered"
+                                    aria-controls="navs-justified-link-delivered" aria-selected="false">
+                                    Delivered
                                 </button>
                             </li>
                         </ul>
                         <div class="tab-content px-2 mx-1 pb-0">
-                            <div class="tab-pane fade show active" id="navs-justified-new" role="tabpanel">
-                                <ul class="timeline mb-0 pb-1">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Myrtle Ullrich</h6>
-                                            <p class="text-muted mb-0">101 Boulder, California(CA),
-                                                95959</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Barry Schowalter</h6>
-                                            <p class="text-muted mb-0">939 Orange, California(CA),
-                                                92118</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                <ul class="timeline mb-0">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Veronica Herman</h6>
-                                            <p class="text-muted mb-0">162 Windsor, California(CA),
-                                                95492</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Helen Jacobs</h6>
-                                            <p class="text-muted mb-0">487 Sunset, California(CA),
-                                                94043</p>
-                                        </div>
-                                    </li>
-                                </ul>
+
+                            <div class="tab-pane fade show active" id="navs-justified-processing" role="tabpanel">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <th style="width: 10%">#ID</th>
+                                        <th>Customer</th>
+                                        <th>Biller</th>
+                                    </thead>
+
+                                    <tbody class="table-border-bottom-0">
+                                        @forelse ($invoices_processing as $invoice)
+                                        <tr>
+                                            <td style="width: 10%">#{{ $invoice->invoice }}</td>
+                                            <!--Customer info-->
+                                            <td>
+                                                <ul class="timeline mb-0 pb-1">
+                                                    <li class="timeline-item ps-4 mt-2 border-left-dashed pb-1">
+                                                        <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                            <i class="ti ti-circle-check"></i>
+                                                        </span>
+                                                        <div class="timeline-event px-0 pb-0">
+                                                            <div class="timeline-header">
+                                                                <small class="text-success text-uppercase fw-medium">{{ $invoice->customer->name}}</small>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item ps-4 border-left-dashed">
+                                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                            <i class="ti ti-plane"></i>
+                                                        </span>
+                                                        <div class="timeline-event px-0 pb-0">
+                                                            <div class="timeline-header">
+                                                                <small class="text-primary text-uppercase fw-medium">{{ ucwords($invoice->going) }}</small>
+                                                            </div>
+                                                            <p class="text-muted mb-0">{{ ucwords($invoice->work_type) }}</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-item ps-4 border-transparent">
+                                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                            <i class="ti ti-map-pin"></i>
+                                                        </span>
+                                                        <div class="timeline-event px-0 pb-0">
+                                                            <div class="timeline-header">
+                                                                <small class="text-primary text-uppercase fw-medium">Address</small>
+                                                            </div>
+                                                            <p class="text-muted mb-0">{{ $invoice->customer->address}}</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <!--/ End Customer info-->
+
+                                            <!--Biller info-->
+                                            <td>
+                                                <ul class="timeline mt-2 mb-0 pb-1">
+                                                    <li class="timeline-item ps-4 border-0">
+                                                        <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                            <i class="ti ti-user"></i>
+                                                        </span>
+                                                        <div class="timeline-event px-0 pb-0">
+                                                            <div class="timeline-header">
+                                                                <small class="text-success text-uppercase fw-medium">{{ $invoice->billed->name}}</small>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <!--/ End Biller info-->
+                                        </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="9">No records found</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                                <br>
+                                {{ $invoices_processing->links() }}
                             </div>
 
-                            <div class="tab-pane fade" id="navs-justified-link-preparing" role="tabpanel">
-                                <ul class="timeline mb-0 pb-1">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Barry Schowalter</h6>
-                                            <p class="text-muted mb-0">939 Orange, California(CA),
-                                                92118</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Myrtle Ullrich</h6>
-                                            <p class="text-muted mb-0">101 Boulder, California(CA),
-                                                95959</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                <ul class="timeline mb-0">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Veronica Herman</h6>
-                                            <p class="text-muted mb-0">162 Windsor, California(CA),
-                                                95492</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Helen Jacobs</h6>
-                                            <p class="text-muted mb-0">487 Sunset, California(CA),
-                                                94043</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="tab-pane fade" id="navs-justified-link-success" role="tabpanel">
+                                <div class="tab-pane fade show active" id="navs-justified-success" role="tabpanel">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th style="width: 10%">#ID</th>
+                                            <th>Customer</th>
+                                            <th>Biller</th>
+                                        </thead>
+    
+                                        <tbody class="table-border-bottom-0">
+                                            @forelse ($invoices_success as $invoice)
+                                            <tr>
+                                                <td style="width: 10%">#{{ $invoice->invoice }}</td>
+                                                <!--Customer info-->
+                                                <td>
+                                                    <ul class="timeline mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 mt-2 border-left-dashed pb-1">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-circle-check"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->customer->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-left-dashed">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-plane"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">{{ ucwords($invoice->going) }}</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ ucwords($invoice->work_type) }}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-transparent">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-map-pin"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">Address</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ $invoice->customer->address}}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Customer info-->
+    
+                                                <!--Biller info-->
+                                                <td>
+                                                    <ul class="timeline mt-2 mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 border-0">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-user"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->billed->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Biller info-->
+                                            </tr>
+                                            @empty
+                                                <tr>
+                                                    <td class="text-center" colspan="9">No records found</td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table><br>
+                                    {{ $invoices_success->links() }}
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="navs-justified-link-shipping" role="tabpanel">
-                                <ul class="timeline mb-0 pb-1">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Veronica Herman</h6>
-                                            <p class="text-muted mb-0">101 Boulder, California(CA),
-                                                95959</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Barry Schowalter</h6>
-                                            <p class="text-muted mb-0">939 Orange, California(CA),
-                                                92118</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="border-bottom border-bottom-dashed mt-0 mb-4"></div>
-                                <ul class="timeline mb-0">
-                                    <li class="timeline-item ps-4 border-left-dashed pb-1">
-                                        <span class="timeline-indicator-advanced timeline-indicator-success">
-                                            <i class="ti ti-circle-check"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-success text-uppercase fw-medium">sender</small>
-                                            </div>
-                                            <h6 class="mb-1">Myrtle Ullrich</h6>
-                                            <p class="text-muted mb-0">162 Windsor, California(CA),
-                                                95492</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item ps-4 border-transparent">
-                                        <span class="timeline-indicator-advanced timeline-indicator-primary">
-                                            <i class="ti ti-map-pin"></i>
-                                        </span>
-                                        <div class="timeline-event px-0 pb-0">
-                                            <div class="timeline-header">
-                                                <small class="text-primary text-uppercase fw-medium">Receiver</small>
-                                            </div>
-                                            <h6 class="mb-1">Helen Jacobs</h6>
-                                            <p class="text-muted mb-0">487 Sunset, California(CA),
-                                                94043</p>
-                                        </div>
-                                    </li>
-                                </ul>
+
+                            <div class="tab-pane fade" id="navs-justified-link-refused" role="tabpanel">
+                                <div class="tab-pane fade show active" id="navs-justified-refused" role="tabpanel">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th style="width: 10%">#ID</th>
+                                            <th>Customer</th>
+                                            <th>Biller</th>
+                                        </thead>
+    
+                                        <tbody class="table-border-bottom-0">
+                                            @forelse ($invoices_refused as $invoice)
+                                            <tr>
+                                                <td style="width: 10%">#{{ $invoice->invoice }}</td>
+                                                <!--Customer info-->
+                                                <td>
+                                                    <ul class="timeline mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 mt-2 border-left-dashed pb-1">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-circle-check"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->customer->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-left-dashed">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-plane"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">{{ ucwords($invoice->going) }}</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ ucwords($invoice->work_type) }}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-transparent">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-map-pin"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">Address</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ $invoice->customer->address}}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Customer info-->
+    
+                                                <!--Biller info-->
+                                                <td>
+                                                    <ul class="timeline mt-2 mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 border-0">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-user"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->billed->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Biller info-->
+                                            </tr>
+                                            @empty
+                                                <tr>
+                                                    <td class="text-center" colspan="9">No records found</td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table><br>
+                                    {{ $invoices_refused->links() }}
+                                </div>
                             </div>
+
+                            <div class="tab-pane fade" id="navs-justified-link-delivered" role="tabpanel">
+                                <div class="tab-pane fade show active" id="navs-justified-refused" role="tabpanel">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th style="width: 10%">#ID</th>
+                                            <th>Customer</th>
+                                            <th>Biller</th>
+                                        </thead>
+    
+                                        <tbody class="table-border-bottom-0">
+                                            @forelse ($invoices_delivered as $invoice)
+                                            <tr>
+                                                <td style="width: 10%">#{{ $invoice->invoice }}</td>
+                                                <!--Customer info-->
+                                                <td>
+                                                    <ul class="timeline mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 mt-2 border-left-dashed pb-1">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-circle-check"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->customer->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-left-dashed">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-plane"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">{{ ucwords($invoice->going) }}</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ ucwords($invoice->work_type) }}</p>
+                                                            </div>
+                                                        </li>
+                                                        <li class="timeline-item ps-4 border-transparent">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-primary">
+                                                                <i class="ti ti-map-pin"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-primary text-uppercase fw-medium">Address</small>
+                                                                </div>
+                                                                <p class="text-muted mb-0">{{ $invoice->customer->address}}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Customer info-->
+    
+                                                <!--Biller info-->
+                                                <td>
+                                                    <ul class="timeline mt-2 mb-0 pb-1">
+                                                        <li class="timeline-item ps-4 border-0">
+                                                            <span class="timeline-indicator-advanced timeline-indicator-success">
+                                                                <i class="ti ti-user"></i>
+                                                            </span>
+                                                            <div class="timeline-event px-0 pb-0">
+                                                                <div class="timeline-header">
+                                                                    <small class="text-success text-uppercase fw-medium">{{ $invoice->billed->name}}</small>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <!--/ End Biller info-->
+                                            </tr>
+                                            @empty
+                                                <tr>
+                                                    <td class="text-center" colspan="9">No records found</td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table><br>
+                                    {{ $invoices_delivered->links() }}
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -627,45 +474,6 @@
         </div>
         <!--/ Orders by Countries -->
 
-        <!-- On route vehicles Table -->
-
-        <div class="col-12 order-5">
-            <div class="card">
-                <div class="card-header d-flex align-items-center justify-content-between">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">On route vehicles</h5>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="routeVehicles" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="ti ti-dots-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="routeVehicles">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-datatable table-responsive">
-                    <table class="dt-route-vehicles table">
-                        <thead class="border-top">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>location</th>
-                                <th>starting route</th>
-                                <th>ending route</th>
-                                <th>warnings</th>
-                                <th class="w-20">progress</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!--/ On route vehicles Table -->
     </div>
 
     <!-- / Content -->
