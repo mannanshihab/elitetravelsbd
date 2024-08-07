@@ -3,10 +3,12 @@
 namespace App\Livewire;
 
 use App\Models\Agent;
+use App\Models\AgentStatement;
 use App\Models\Vendor;
 use App\Models\Invoice;
 use Livewire\Component;
 use App\Models\Customer;
+use App\Models\VendorStatement;
 
 class EditInvoice extends Component
 {
@@ -43,15 +45,13 @@ class EditInvoice extends Component
         public $costing;
     
     
-        public function addInvoice()
+        public function EditInvoice()
         {
     
             if ($this->work_type == 'visa') {
                 $data = $this->validate([
                     'work_type' => 'required',
                     'customer_id' => 'required',
-                    'passport_no' => 'required',
-                    'member_id' => 'required',
                     'going' => 'required',
                     'appointment_date' => 'required',
                     'web_file_no' => 'required',
@@ -68,9 +68,6 @@ class EditInvoice extends Component
                 $data = $this->validate([
                     'work_type' => 'required',
                     'customer_id' => 'required',
-                    'date_of_birth' => 'required',
-                    'passport_no' => 'required',
-                    'member_id' => 'required',
                     'going' => 'required',
                     'ticket_no' => 'required',
                     'pnr_no' => 'required',
@@ -84,9 +81,6 @@ class EditInvoice extends Component
                 $data = $this->validate([
                     'work_type' => 'required',
                     'customer_id' => 'required',
-                    'date_of_birth' => 'required',
-                    'passport_no' => 'required',
-                    'member_id' => 'required',
                     'going' => 'required',
                     'status' => 'required',
                     'agent_id' => 'required',
@@ -95,10 +89,33 @@ class EditInvoice extends Component
                     'agent_amount' => 'required',
                 ]);
             }
-            unset($data['date_of_birth']);
-            unset($data['passport_no']);
-            unset($data['member_id']);
     
+            if($this->status == 'delivered'){
+                $agentexst = AgentStatement::where('source', $this->invoice_id)->first();
+                if($agentexst){
+                    AgentStatement::where('source', $this->invoice_id)->update(['amount' => $this->agent_amount]);
+                }else{
+                    AgentStatement::create([
+                        'agent_id' => $this->agent_id,
+                        'source' => $this->invoice_id,
+                        'amount' => $this->agent_amount
+                    ]);
+                }
+
+                $vendorexst = VendorStatement::where('source', $this->invoice_id)->first();
+                if($vendorexst){
+                    VendorStatement::where('source', $this->invoice_id)->update(['amount' => $this->costing]);
+                }else{
+                    VendorStatement::create([
+                        'vendor_id' => $this->vendor_id,
+                        'source' => $this->invoice_id,
+                        'amount' => $this->costing
+                    ]);
+                }
+
+            }
+
+
             if ($this->vendor_id && $this->costing) {
                 $data['vendor_id'] = $this->vendor_id;
                 $data['costing'] = $this->costing;

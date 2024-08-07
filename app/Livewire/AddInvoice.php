@@ -52,15 +52,13 @@ class AddInvoice extends Component
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
-                'passport_no' => 'required',
-                'member_id' => 'required',
                 'going' => 'required',
                 'appointment_date' => 'required',
                 'web_file_no' => 'required',
                 'token_no' => 'required',
                 'rcv_date' => 'required',
                 'delivery_date' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -70,13 +68,10 @@ class AddInvoice extends Component
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
-                'date_of_birth' => 'required',
-                'passport_no' => 'required',
-                'member_id' => 'required',
                 'going' => 'required',
                 'ticket_no' => 'required',
                 'pnr_no' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -86,11 +81,8 @@ class AddInvoice extends Component
             $data = $this->validate([
                 'work_type' => 'required',
                 'customer_id' => 'required',
-                'date_of_birth' => 'required',
-                'passport_no' => 'required',
-                'member_id' => 'required',
                 'going' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -98,9 +90,8 @@ class AddInvoice extends Component
             ]);
         }
 
-        unset($data['date_of_birth']);
-        unset($data['passport_no']);
-        unset($data['member_id']);
+        
+
 
         if ($this->vendor_id && $this->costing) {
             $data['vendor_id'] = $this->vendor_id;
@@ -129,7 +120,7 @@ class AddInvoice extends Component
         } else {
             $customer = Customer::find($this->customer_id);
             $this->date_of_birth = $customer->date_of_birth;
-            $this->passport_no = $customer->passport;
+            $this->passport_no = $customer->passport_no;
             $this->member_id = $customer->member_id;
         }
     }

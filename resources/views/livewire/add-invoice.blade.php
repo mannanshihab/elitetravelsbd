@@ -182,7 +182,7 @@
                                                         for="customRadioTemp3">
                                                         <input name="customRadioTemp" class="form-check-input"
                                                             wire:model.live='status' type="radio" value="success"
-                                                            id="customRadioTemp3" />
+                                                            id="customRadioTemp3" disabled />
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Success</span>
                                                         </span>
@@ -198,7 +198,7 @@
                                                         for="customRadioTemp4">
                                                         <input name="customRadioTemp" class="form-check-input"
                                                             wire:model.live='status' type="radio" value="refused"
-                                                            id="customRadioTemp4" required />
+                                                            id="customRadioTemp4" required disabled />
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Refused</span>
                                                         </span>
@@ -214,7 +214,7 @@
                                                         for="customRadioTemp5">
                                                         <input name="customRadioTemp" class="form-check-input"
                                                             wire:model.live='status' type="radio" value="delivered"
-                                                            id="customRadioTemp5" required />
+                                                            id="customRadioTemp5" disabled required />
                                                         <span class="custom-option-header">
                                                             <span class="h6 mb-0">Delivered</span>
                                                         </span>
@@ -225,6 +225,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @error('status')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div><!--/End File Status -->
@@ -238,7 +241,7 @@
 
                         @if ($work_type && $status)
                             <!-- Payment Details -->
-                            
+
                             <div class="col-md-12">
                                 <div class="row">
                                     <h6>Payment Details</h6>
@@ -313,58 +316,58 @@
                             </div>
 
 
-                            @if(!empty($status) && $status != 'file received')
-                            <div class="col-md-4 my-2">
-                                <label class="form-label" for="selectpickerLiveSearch">Working
-                                    Vendors</label>
-                                <div class="input-group" wire:ignore>
-                                    <a class="btn btn-outline-secondary waves-effect"
-                                        href="{{ route('add-vendor') }}" wire:navigate>Add
-                                        Vendor</a>
-                                    <select id="selectpickerLiveSearch" wire:model="vendor_id"
-                                        class="selectpicker form-control" data-style="btn-default"
-                                        data-live-search="true" tabindex="null" {{ $status ? '' : 'disabled' }}>
-                                        <option value="">Select Work Type</option>
-                                        @foreach ($vendors as $vendor)
-                                            <option value="{{ $vendor->id }}">
-                                                {{ $vendor->vendor_name . ' - ' . $vendor->mobile }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <!-- show error Validation-->
-                                @error('vendor_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-4 my-2">
-                                <label class="form-label" for="Costing">Costing</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">৳</span>
-                                    <input type="number" class="form-control" min="0"
-                                        placeholder="Enter Costing" wire:model.live.debounce.500ms="costing"
-                                        aria-label="Costing" />
-                                    <span class="input-group-text">.00</span>
+                            @if (!empty($status) && $status != 'file received')
+                                <div class="col-md-4 my-2">
+                                    <label class="form-label" for="selectpickerLiveSearch">Working
+                                        Vendors</label>
+                                    <div class="input-group" wire:ignore>
+                                        <a class="btn btn-outline-secondary waves-effect"
+                                            href="{{ route('add-vendor') }}" wire:navigate>Add
+                                            Vendor</a>
+                                        <select id="selectpickerLiveSearch" wire:model="vendor_id"
+                                            class="selectpicker form-control" data-style="btn-default"
+                                            data-live-search="true" tabindex="null" {{ $status ? '' : 'disabled' }}>
+                                            <option value="">Select Work Type</option>
+                                            @foreach ($vendors as $vendor)
+                                                <option value="{{ $vendor->id }}">
+                                                    {{ $vendor->vendor_name . ' - ' . $vendor->mobile }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <!-- show error Validation-->
-                                    @error('costing')
+                                    @error('vendor_id')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
 
-                            <div class="col-md-4 my-2">
-                                <label class="form-label" for="Profit">Our Profit (show when
-                                    status
-                                    is delivered)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">৳</span>
-                                    <input type="number" class="form-control" min="0"
-                                        placeholder="Enter Profit" wire:model="profit" aria-label="Profit"
-                                        disabled />
-                                    {{-- <span class="input-group-text">.00</span> --}}
+                                <div class="col-md-4 my-2">
+                                    <label class="form-label" for="Costing">Costing</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">৳</span>
+                                        <input type="number" class="form-control" min="0"
+                                            placeholder="Enter Costing" wire:model.live.debounce.500ms="costing"
+                                            aria-label="Costing" />
+                                        <span class="input-group-text">.00</span>
+                                        <!-- show error Validation-->
+                                        @error('costing')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="col-md-4 my-2">
+                                    <label class="form-label" for="Profit">Our Profit (show when
+                                        status
+                                        is delivered)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">৳</span>
+                                        <input type="number" class="form-control" min="0"
+                                            placeholder="Enter Profit" wire:model="profit" aria-label="Profit"
+                                            disabled />
+                                        {{-- <span class="input-group-text">.00</span> --}}
+                                    </div>
+                                </div>
                             @endif
                             <!--/End Payment Details -->
                             <div class="col-12">
