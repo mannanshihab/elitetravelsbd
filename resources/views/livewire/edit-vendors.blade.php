@@ -59,25 +59,14 @@
                         <div class="col-md-6">
                             <label class="form-label" for="vendor_type">Vendor Type</label>
                             <div class="input-group">
-<<<<<<< HEAD
                                 <select id="vendor_type" class="selectpicker form-select" data-style="btn-default"
                                     data-live-search="true" name="vendor_type" wire:model="vendor_type">
-=======
-                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-building"></i></span>
-                                <select id="vendor_type" class="form-select" name="vendor_type"
-                                    wire:model="vendor_type">
->>>>>>> c155979d5130b77e0e483bc26dafff86b3e2f5c5
                                     <option value="">Select Vendor Type</option>
                                     <option value="Service Charge">Service Charge</option>
                                     <option value="Visa Fee">Visa Fee</option>
                                 </select>
-<<<<<<< HEAD
-                                {{-- show error --}}
-                            </div>
-=======
                             </div>
                             {{-- show error --}}
->>>>>>> c155979d5130b77e0e483bc26dafff86b3e2f5c5
                             @error('vendor_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

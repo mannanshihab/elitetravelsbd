@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Agent;
 use App\Models\Customer;
+use App\Models\Employee;
 use App\Models\User;
 use App\Models\Vendor;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'mobile' => '01613456789',
             'gender' => 'female',
         ]);
+        Customer::factory(200)->create();
 
         Agent::factory()->create([
             'company_name' => 'Robi bhai',
@@ -48,6 +50,7 @@ class DatabaseSeeder extends Seeder
             'nid_no' => '98754368749145',
             'banks_details' => '123456789',
         ]);
+        Agent::factory(15)->create();
 
         Vendor::factory()->create([
            'vendor_name' => 'Vendor bhai',
@@ -56,5 +59,21 @@ class DatabaseSeeder extends Seeder
            'vendor_type' => 'Visa',
            'banks_details' => '123456789',
         ]);
+        Vendor::factory(20)->create();
+
+        Employee::factory()->create([
+            'name' => 'Employee',
+            'email' => 'robirobictg@gmail.com',
+            'designation' => 'CEO',
+            'salary' => '20000',
+            'ta_da' => '200',
+            'mobile' => '01613456789',
+            'nid_no' => '870134567',
+            'address' => 'Dhaka, Bangladesh',
+            'bkash' => '01613456789',
+            'banks_details' => '123456789',
+        ]);
+
+        Employee::factory(30)->create();
     }
 }

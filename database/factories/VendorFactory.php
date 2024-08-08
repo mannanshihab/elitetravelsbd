@@ -17,7 +17,11 @@ class VendorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'vendor_name' => fake()->word,
+            'mobile' => fake()->phoneNumber,
+            'address' => fake()->address,
+            'vendor_type' => fake()->randomElement(['Service Charge', 'Visa Fee']),
+            'banks_details' => fake()->bankAccountNumber,
         ];
     }
 }

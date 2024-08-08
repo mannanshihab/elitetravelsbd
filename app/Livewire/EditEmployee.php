@@ -3,9 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Employee;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+#[Title('Edit Employee')]
 class EditEmployee extends Component
 {
     use WithFileUploads;

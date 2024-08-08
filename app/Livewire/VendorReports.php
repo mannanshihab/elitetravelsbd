@@ -5,7 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\VendorStatement;
+use Livewire\Attributes\Title;
 
+#[Title('Vendor Reports')]
 class VendorReports extends Component
 {
 

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Agent>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
  */
-class AgentFactory extends Factory
+class EmployeeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,13 +17,15 @@ class AgentFactory extends Factory
     public function definition(): array
     {
         return [
-            'company_name' => fake()->name,
-            'ceo_name' => 'Ceo bhai',
+            'name' => fake()->name,
             'email' => fake()->unique()->safeEmail(),
+            'designation' => 'CEO',
+            'salary' => '20000',
+            'ta_da' => '200',
             'mobile' => '01613456789',
+            'nid_no' => '870134567',
             'address' => 'Dhaka, Bangladesh',
-            'trade_license_no' => '123456789',
-            'nid_no' => '98754368749145',
+            'bkash' => '01613456789',
             'banks_details' => '123456789',
         ];
     }

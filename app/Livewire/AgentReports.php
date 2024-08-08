@@ -5,7 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\AgentStatement;
+use Livewire\Attributes\Title;
 
+#[Title('Agents Reports')]
 class AgentReports extends Component
 {
     use WithPagination;
