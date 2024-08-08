@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('agent_id');
             $table->string('source');
-            $table->double('amount', 8, 2);
+            $table->string('amount');
             $table->string('pay_via')->nullable();
             $table->timestamps();
         });

@@ -60,7 +60,8 @@
                                 <td>
                                     <span>
                                         @if (is_numeric($statement->source))
-                                            <a href="{{ route('invoice-show', $statement->source) }}" class="text-primary">#{{ ($statement->source) }}</a>
+                                            <a href="{{ route('invoice-show', $statement->source) }}"
+                                                class="text-primary">#{{ $statement->source }}</a>
                                         @else
                                             {{ ucwords($statement->source) }}
                                         @endif
@@ -68,7 +69,7 @@
                                 </td>
                                 <td>{{ ucwords($statement->amount) }} (BDT)</td>
                                 <td>{{ ucwords($statement->pay_via) }}</td>
-                                
+
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
@@ -79,10 +80,24 @@
                                         <!-- End Edit Button -->
 
                                         <!-- Start Delete Button -->
-                                        <a type="button" class="btn rounded-pill btn-icon btn-danger"
-                                            data-bs-toggle="modal" data-bs-target="#deleteModal-{{ @$statement->id }}">
-                                            <span class="ti ti-trash text-white">
-                                        </a><!--/End Delete Button -->
+
+
+                                        @if (is_numeric($statement->source))
+                                            <div class="tooltip-wrapper" data-bs-toggle="tooltip"
+                                                title="This item cannot be deleted due to invoice association">
+                                                <button type="button" class="btn rounded-pill btn-icon btn-danger"
+                                                    disabled>
+                                                    <span class="ti ti-trash text-white"></span>
+                                                </button>
+                                            </div>
+                                        @else
+                                            <a type="button" class="btn rounded-pill btn-icon btn-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal-{{ @$statement->id }}">
+                                                <span class="ti ti-trash text-white">
+                                            </a>
+                                        @endif
+                                        <!--/End Delete Button -->
 
                                         <!-- Delete Modal -->
                                         <div class="modal fade" id="deleteModal-{{ @$statement->id }}" tabindex="-1"
@@ -126,7 +141,7 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th class="fw-bold">Total Amount =  {{ $statements->sum('amount') }} (BDT)</th>
+                            <th class="fw-bold">Total Amount = {{ $statements->sum('amount') }} (BDT)</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </tfoot>

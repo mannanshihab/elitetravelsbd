@@ -349,7 +349,7 @@
                                     <label class="form-label" for="Costing">Costing</label>
                                     <div class="input-group">
                                         <span class="input-group-text">৳</span>
-                                        <input type="number" class="form-control" min="0"
+                                        <input type="number" class="form-control"
                                             placeholder="Enter Costing" wire:model.live.debounce.500ms="costing"
                                             aria-label="Costing" />
                                         <span class="input-group-text">.00</span>

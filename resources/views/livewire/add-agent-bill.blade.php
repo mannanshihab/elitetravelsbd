@@ -53,16 +53,16 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="Our Amount">Amount</label>
+                            <label class="form-label" for="Our Amount">Amount </label> 
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
                                 <input type="number" class="form-control"
-                                    placeholder="Please Enter Amount"
+                                    placeholder="When You Pay to agent use (-)"
                                     wire:model="amount"
                                     aria-label="Amount (to the nearest dollar)" required />
                                 <span class="input-group-text">.00</span>
                             </div>
-                            @error('our_amount')
+                            @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

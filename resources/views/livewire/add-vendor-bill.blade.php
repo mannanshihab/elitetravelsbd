@@ -1,7 +1,7 @@
 <div>
     @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Vendor</span> Bill
+        <span class="text-muted fw-light">Vendor /</span> Bill
     </h4>
     <div class="row">
         <!-- FormValidation -->
@@ -21,12 +21,11 @@
                         <div class="col-md-6">
                             <label class="form-label" for="selectpickerLiveSearch">Add Vendor</label>
                             <div class="input-group" wire:ignore>
-                                <a class="btn btn-outline-secondary waves-effect"
-                                    href="{{ route('add-agent') }}" wire:navigate>Add Agent</a>
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
                                 <select id="selectpickerLiveSearch" wire:model="vendor_id"
                                     class="selectpicker form-control" data-style="btn-default"
                                     data-live-search="true" tabindex="null" required>
-                                    <option value="">Select Agent</option>
+                                    <option value="">Select Vendor</option>
                                     @if (!is_null($vendors))
                                         @foreach ($vendors as $vendor)
                                             <option value="{{ $vendor->id }}">
@@ -36,7 +35,7 @@
                                     @endif
                                 </select>
                             </div>
-                            @error(' agent_id')
+                            @error('agent_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -54,19 +53,20 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="Our Amount">Our Amount</label>
+                            <label class="form-label" for="Our Amount">Amount </label> 
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
                                 <input type="number" class="form-control"
-                                    placeholder="Please Enter Our Amount"
-                                    wire:model="amount" min="0"
-                                    aria-label="Our Amount (to the nearest dollar)" required />
+                                    placeholder="When You Pay to agent use (-)"
+                                    wire:model="amount"
+                                    aria-label="Amount (to the nearest dollar)" required />
                                 <span class="input-group-text">.00</span>
                             </div>
-                            @error('our_amount')
+                            @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        
                         
                         <div class="col-md-6">
                             <label class="form-label" for="formValidationPaymentBy">Payment By</label>
