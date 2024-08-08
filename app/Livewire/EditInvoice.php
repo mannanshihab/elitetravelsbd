@@ -93,23 +93,25 @@ class EditInvoice extends Component
             if($this->status == 'delivered'){
                 $agentexst = AgentStatement::where('source', $this->invoice_id)->first();
                 if($agentexst){
-                    AgentStatement::where('source', $this->invoice_id)->update(['amount' => $this->agent_amount]);
+                    AgentStatement::where('source', $this->invoice_id)->update(['amount' => $this->agent_amount, 'pay_via' => "Added from invoice"]);
                 }else{
                     AgentStatement::create([
                         'agent_id' => $this->agent_id,
                         'source' => $this->invoice_id,
-                        'amount' => $this->agent_amount
+                        'amount' => $this->agent_amount,
+                        'pay_via' => "Added from invoice"
                     ]);
                 }
 
                 $vendorexst = VendorStatement::where('source', $this->invoice_id)->first();
                 if($vendorexst){
-                    VendorStatement::where('source', $this->invoice_id)->update(['amount' => $this->costing, 'pay via' => 'Added from invoice']);
+                    VendorStatement::where('source', $this->invoice_id)->update(['amount' => $this->costing, 'pay_via' => "Added from invoice"]);
                 }else{
                     VendorStatement::create([
                         'vendor_id' => $this->vendor_id,
                         'source' => $this->invoice_id,
-                        'amount' => $this->costing
+                        'amount' => $this->costing,
+                        'pay_via' => "Added from invoice",
                     ]);
                 }
 

@@ -1,7 +1,7 @@
 <div>
     @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.scss', 'resources/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js'])
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Agents</span> Bill
+        <span class="text-muted fw-light">Agents /</span> Bill
     </h4>
     <div class="row">
         <!-- FormValidation -->
@@ -19,10 +19,9 @@
                         @include('livewire.partials.flash-session')
 
                         <div class="col-md-6">
-                            <label class="form-label" for="selectpickerLiveSearch">Add Agent</label>
+                            <label class="form-label" for="selectpickerLiveSearch">Select Agent</label>
                             <div class="input-group" wire:ignore>
-                                <a class="btn btn-outline-secondary waves-effect"
-                                    href="{{ route('add-agent') }}" wire:navigate>Add Agent</a>
+                                <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
                                 <select id="selectpickerLiveSearch" wire:model="agent_id"
                                     class="selectpicker form-control" data-style="btn-default"
                                     data-live-search="true" tabindex="null" required>
@@ -36,13 +35,13 @@
                                     @endif
                                 </select>
                             </div>
-                            @error(' agent_id')
+                            @error('agent_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationSource">Source</label>
+                            <label class="form-label" for="formValidationSource">Source/Purpose</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-package"></i></span>
                                 <input type="text" id="formValidationSource" class="form-control" wire:model="source"
@@ -54,13 +53,13 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="Our Amount">Our Amount</label>
+                            <label class="form-label" for="Our Amount">Amount</label>
                             <div class="input-group">
                                 <span class="input-group-text">৳</span>
                                 <input type="number" class="form-control"
-                                    placeholder="Please Enter Our Amount"
-                                    wire:model="amount" min="0"
-                                    aria-label="Our Amount (to the nearest dollar)" required />
+                                    placeholder="Please Enter Amount"
+                                    wire:model="amount"
+                                    aria-label="Amount (to the nearest dollar)" required />
                                 <span class="input-group-text">.00</span>
                             </div>
                             @error('our_amount')
@@ -69,10 +68,10 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationPaymentBy">Payment By</label>
+                            <label class="form-label" for="formValidationPaymentBy">Payment Via (optional)</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Please enter Name"
+                                <input type="text" class="form-control" placeholder="Please Enter Payment Via"
                                     wire:model="pay_via" aria-label="payment_by" />
                             </div>
                             @error('pay_via')

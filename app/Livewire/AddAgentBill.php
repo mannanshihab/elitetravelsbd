@@ -6,6 +6,7 @@ use App\Models\Agent;
 use App\Models\AgentStatement;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+
 #[Title('Add Agents Bill')]
 class AddAgentBill extends Component
 {
@@ -15,7 +16,8 @@ class AddAgentBill extends Component
     public $amount;
     public $pay_via;
 
-    public function addAgentBill(){
+    public function addAgentBill()
+    {
         $data = $this->validate([
             'agent_id'   => 'required',
             'source'     => 'required',
@@ -40,8 +42,6 @@ class AddAgentBill extends Component
 
     public function mount()
     {
-
         $this->agents = Agent::get();
-        
     }
 }

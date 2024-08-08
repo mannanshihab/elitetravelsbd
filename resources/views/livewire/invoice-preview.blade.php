@@ -99,7 +99,7 @@
         <div class="col-xl-3 col-md-4 col-12 invoice-actions">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ url('app/invoice/edit') }}" class="btn btn-info d-grid w-100 mb-2">
+                    <a href="{{ route('invoice-edit', $invoice->id) }}" class="btn btn-info d-grid w-100 mb-2">
                         Edit Invoice
                     </a>
                     <button class="btn btn-primary d-grid w-100 mb-2">

@@ -1,68 +1,8 @@
 <div>
 
-    <div class="card mb-4">
-        <div class="card-widget-separator-wrapper">
-            <div class="card-body card-widget-separator">
-                <div class="row gy-4 gy-sm-1">
-                    <div class="col-sm-6 col-lg-3">
-                        <div
-                            class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-3 pb-sm-0">
-                            <div>
-                                <h3 class="mb-1 text-black">{{ @$total_clients }}</h3>
-                                <p class="mb-0 text-black">Clients</p>
-                            </div>
-                            <span class="avatar me-sm-4">
-                                <span class="avatar-initial bg-label-secondary rounded text-black"><i
-                                        class="ti ti-user ti-md"></i></span>
-                            </span>
-                        </div>
-                        <hr class="d-none d-sm-block d-lg-none me-4">
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div
-                            class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-3 pb-sm-0">
-                            <div>
-                                <h3 class="mb-1 text-black">{{ @$total_invoices }}</h3>
-                                <p class="mb-0 text-black">Invoices</p>
-                            </div>
-                            <span class="avatar me-lg-4">
-                                <span class="avatar-initial bg-label-secondary rounded  text-black"><i
-                                        class="ti ti-file-invoice ti-md"></i></span>
-                            </span>
-                        </div>
-                        <hr class="d-none d-sm-block d-lg-none">
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div
-                            class="d-flex justify-content-between align-items-start border-end pb-3 pb-sm-0 card-widget-3">
-                            <div>
-                                <h3 class="mb-1 text-black">{{ @$amount }}</h3>
-                                <p class="mb-0 text-black">Invoices Amount</p>
-                            </div>
-                            <span class="avatar me-sm-4">
-                                <span class="avatar-initial bg-label-secondary rounded  text-black">
-                                    <i class="ti ti-currency-taka ti-md"></i>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div>
-                                <h3 class="mb-1 text-black">{{ @$received_amount }}</h3>
-                                <p class="mb-0 text-black">Invoices Received Amount</p>
-                            </div>
-                            <span class="avatar">
-                                <span class="avatar-initial bg-label-secondary rounded  text-black">
-                                    <i class="ti ti-checks ti-md"></i>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h4 class="py-3 mb-4">
+        <span class="text-muted fw-light">Vendor /</span> Reports
+    </h4>
     <div class="card">
 
         <h5 class="card-header pb-0">Vendor Reports</h5>
@@ -105,6 +45,7 @@
                             <th>Vendors Details</th>
                             <th>Source Of Money</th>
                             <th>Amount</th>
+                            <th>Pay Via</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -125,6 +66,7 @@
                                     </span>
                                 </td>
                                 <td>{{ ucwords($statement->amount) }} (BDT)</td>
+                                <td>{{ ucwords($statement->pay_via) }} (BDT)</td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
@@ -177,6 +119,14 @@
                         @endforelse
 
                     </tbody>
+                    <tfoot class="table-border-bottom-0">
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th class="fw-bold">Total Amount =  {{ $statements->sum('amount') }} (BDT)</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <br>
