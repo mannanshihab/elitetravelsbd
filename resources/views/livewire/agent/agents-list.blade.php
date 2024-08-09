@@ -1,12 +1,14 @@
 <div>
+
+
     <h4 class="py-1 mb-4">
         <span class="text-muted fw-light">Agents /</span> List
     </h4>
     <hr class="my-2">
-  
+
     <div class="card">
-  
-        <h5 class="card-header pb-0">Agents  List</h5>
+
+        <h5 class="card-header pb-0">Agents List</h5>
         {{-- table header --}}
         <div class="row">
             {{-- view Pages --}}
@@ -22,8 +24,8 @@
                     </select>
                     &nbsp;<label for="inputCity" class="mt-2">entries</label>
                 </div>
-            </div>{{--/ view Pages --}}
-  
+            </div>{{-- / view Pages --}}
+
             {{-- Search --}}
             <div class="col-md-6 d-flex justify-content-end">
                 <div class="form-group d-flex card-header">
@@ -32,10 +34,10 @@
                         placeholder="search ...">
                 </div>
             </div>
-            {{--End Search --}}
+            {{-- End Search --}}
         </div>
-        {{--/ table header --}}
-  
+        {{-- / table header --}}
+
         {{-- Table List --}}
         <div class="card-body">
             @include('livewire.partials.flash-session')
@@ -55,55 +57,64 @@
                             <tr>
                                 <td>
                                     <span>CEO Name : {{ $agent->ceo_name }}</span><br>
-                                    <span>Email : <a href="mailto:{{ $agent->email }}">{{ $agent->email }}</a></span><br>
-                                    <span class="fw-medium">Mobile : <a href="tel:{{ $agent->mobile }}">{{ $agent->mobile }}</a></span>
+                                    <span>Email : <a
+                                            href="mailto:{{ $agent->email }}">{{ $agent->email }}</a></span><br>
+                                    <span class="fw-medium">Mobile : <a
+                                            href="tel:{{ $agent->mobile }}">{{ $agent->mobile }}</a></span>
                                 </td>
-                                <td> 
+                                <td>
                                     <span>Company Name : {{ $agent->company_name }}</span><br>
                                     <span>Address : {{ ucwords($agent->address) }}</span>
                                 </td>
                                 <td>
                                     <a href="{{ asset($agent->trade_license_no) }}" target="_blank">
                                         <img src="{{ asset($agent->trade_license_no) }}" alt="user-avatar"
-                                        class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar"/>
+                                            class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" />
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ asset($agent->nid_no) }}" target="_blank"><img src="{{ asset($agent->nid_no) }}" alt="user-avatar"
-                                    class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
+                                    <a href="{{ asset($agent->nid_no) }}" target="_blank"><img
+                                            src="{{ asset($agent->nid_no) }}" alt="user-avatar"
+                                            class="d-block w-px-50 h-px-50 rounded avatar" id="uploadedAvatar" /></a>
                                 </td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
-                                        <a class="btn rounded-pill btn-icon btn-primary" 
-                                           href="{{ route('edit-agent', $agent->id) }}"
-                                           wire:navigate><span class="ti ti ti-pencil text-white"></span>
+                                        <a class="btn rounded-pill btn-icon btn-primary"
+                                            href="{{ route('edit-agent', $agent->id) }}" wire:navigate><span
+                                                class="ti ti ti-pencil text-white"></span>
                                         </a><!-- End Edit Button -->
-                                        
+
                                         <!-- Start Delete Button -->
-                                        <a type="button" 
-                                                class="btn rounded-pill btn-icon btn-danger" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#deleteModal-{{ $agent->id }}"> <span class="ti ti-trash text-white"> 
+                                        <a type="button" class="btn rounded-pill btn-icon btn-danger"
+                                            data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $agent->id }}">
+                                            <span class="ti ti-trash text-white">
                                         </a><!--/End Delete Button -->
 
                                         <!-- Delete Modal -->
-                                        <div class="modal fade" id="deleteModal-{{ $agent->id }}" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-                                            <div class="modal-content p-3 p-md-5">
-                                                <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <div class="text-center mb-4">
-                                                    <h3 class="mb-2">Delete </h3>
-                                                    <p class="text-muted">Are you sure you want to delete this Agent?</p>
-                                                </div>
+                                        <div class="modal fade" id="deleteModal-{{ $agent->id }}" tabindex="-1"
+                                            aria-hidden="true">
+                                            <div
+                                                class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                                <div class="modal-content p-3 p-md-5">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                        <div class="text-center mb-4">
+                                                            <h3 class="mb-2">Delete </h3>
+                                                            <p class="text-muted">Are you sure you want to delete this
+                                                                Agent?</p>
+                                                        </div>
 
-                                                <div class="col-12 text-center">
-                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
-                                                    <a type="submit" wire:click="delete({{ $agent->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        <div class="col-12 text-center">
+                                                            <a type="reset" class="btn btn-label-secondary btn-reset"
+                                                                data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                            <a type="submit" wire:click="delete({{ $agent->id }})"
+                                                                class="btn btn-danger me-sm-3 me-5"
+                                                                data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div><!--/ Delete Modal -->
                                     </div>
@@ -114,14 +125,13 @@
                                 <td class="text-center" colspan="5">No records found</td>
                             </tr>
                         @endforelse
-                        
+
                     </tbody>
                 </table>
             </div>
             <br>
             {{ $agents->links() }}
         </div>
-        {{--/ End Table List --}}
+        {{-- / End Table List --}}
     </div>
-  </div>
-  
+</div>

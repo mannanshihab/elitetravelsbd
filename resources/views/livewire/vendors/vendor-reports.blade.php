@@ -1,4 +1,5 @@
 <div>
+    @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.scss', 'resources/assets/vendor/libs/moment/moment.js', 'resources/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js'])
 
     <h4 class="py-3 mb-4">
         <span class="text-muted fw-light">Vendor /</span> Reports
@@ -24,9 +25,26 @@
             </div>{{-- / view Pages --}}
 
             {{-- Search --}}
-            <div class="col-md-6 d-flex justify-content-end">
-                <div class="form-group d-flex card-header">
-                    <label for="inputCity" class="mt-2">Search: </label>&nbsp;
+            <div class="col-md-6 d-flex">
+                <div class="col-md-4 px-2">
+                    <label for="bs-rangepicker-basic" class="form-label">Date Range</label>
+                    <input type="text" id="bs-rangepicker-basic" name="datefilter" class="form-control"
+                        placeholder="08/09/2024 - 08/09/2024" autocomplete="off" wire:model="datefilter" />
+                </div>
+
+                <div class="col-md-4" wire:ignore>
+                    <label for="bs-rangepicker-basic" class="form-label">vendors</label>
+                    <select id="selectpickerLiveSearch" data-size="5" wire:model.live='vendor_id'
+                        class="selectpicker form-select" data-style="btn-default" data-live-search="true" required>
+                        <option value="">Select Vendor</option>
+                        @foreach ($vendors as $vendor)
+                            <option value="{{ $vendor->id }}">{{ $vendor->vendor_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="bs-rangepicker-basic" class="form-label">Search:</label>
                     <input type="text" wire:model.live.debounce.250ms="search" class="form-control" id="inputCity"
                         placeholder="Search ...">
                 </div>
@@ -46,6 +64,7 @@
                             <th>Source Of Money</th>
                             <th>Amount</th>
                             <th>Pay Via</th>
+                            <th>Created At</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -68,6 +87,7 @@
                                 </td>
                                 <td>{{ ucwords($statement->amount) }} (BDT)</td>
                                 <td>{{ ucwords($statement->pay_via) }} (BDT)</td>
+                                <td>{{ $statement->created_at->format('d-m-Y g:i A') }}</td>
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
@@ -149,3 +169,46 @@
         {{-- / End Table List --}}
     </div>
 </div>
+
+@script
+    <script>
+        setTimeout(() => {
+            const selectPicker = $(".selectpicker");
+            if (selectPicker.length) {
+                // selectPicker.selectpicker('destroy');
+                selectPicker.selectpicker();
+            }
+
+            $('input[name="datefilter"]').daterangepicker({
+                autoUpdateInput: false,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                        'month').endOf('month')]
+                },
+                showCustomRangeLabel: false,
+                alwaysShowCalendars: true,
+                locale: {
+                    format: 'DD-MM-YYYY',
+                    firstDay: 1
+                }
+            }, function(start, end) {
+                $('input[name="datefilter"]').val(start.format('DD-MM-YYYY') + ' - ' + end.format(
+                    'DD-MM-YYYY'));
+
+                var dateRange = start.format('DD-MM-YYYY') + ' - ' + end.format('DD-MM-YYYY');
+                @this.set('datefilter', dateRange);
+                // $wire.datefilter = dateRange;
+                // console.log($wire.datefilter);
+
+            });
+
+
+
+        }, 700);
+    </script>
+@endscript
