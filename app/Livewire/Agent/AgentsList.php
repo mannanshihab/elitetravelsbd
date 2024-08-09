@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Agent;
 
 use App\Models\Agent;
 use Livewire\Attributes\Title;
@@ -27,7 +27,7 @@ class AgentsList extends Component
         }else{
             $agents = Agent::orderBy('id', 'desc')->paginate($this->rows);
         }
-        return view('livewire.agents-list', ['agents' => $agents]);
+        return view('livewire.agent.agents-list', ['agents' => $agents]);
     }
 
     public function delete($id)

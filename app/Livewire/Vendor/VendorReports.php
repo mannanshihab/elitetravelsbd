@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Vendor;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,7 +24,7 @@ class VendorReports extends Component
             $statements = VendorStatement::with('vendor')->orderBy('id', 'desc')->paginate($this->rows);
         }
 
-        return view('livewire.vendor-reports', ['statements' => $statements]);
+        return view('livewire.vendors.vendor-reports', ['statements' => $statements]);
     }
 
     public function delete($id)

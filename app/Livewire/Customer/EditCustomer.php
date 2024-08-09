@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
 use App\Models\Customer;
 use Livewire\Attributes\Title;
@@ -61,6 +61,6 @@ class EditCustomer extends Component
 
     public function render()
     {
-        return view('livewire.edit-customer');
+        return view('livewire.customer.edit-customer');
     }
 }

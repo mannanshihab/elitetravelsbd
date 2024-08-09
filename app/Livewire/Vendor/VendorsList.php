@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Vendor;
 
 use App\Models\Vendor;
 use Livewire\Attributes\Title;
@@ -27,7 +27,7 @@ class VendorsList extends Component
             $vendors = Vendor::orderBy('id', 'desc')->paginate($this->rows);
         }
 
-        return view('livewire.vendors-list', ['vendors' => $vendors]);
+        return view('livewire.vendors.vendors-list', ['vendors' => $vendors]);
     }
 
     public function delete($id)

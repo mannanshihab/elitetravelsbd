@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Invoice;
 
 use App\Models\Agent;
-use App\Models\AgentStatement;
 use App\Models\Vendor;
 use App\Models\Invoice;
 use Livewire\Component;
 use App\Models\Customer;
-use App\Models\VendorStatement;
+use Livewire\Attributes\Title;
 
-class EditInvoice extends Component
+#[Title('Add Invoice')]
+class AddInvoice extends Component
 {
+
     // just for viewing purpose
     public $agents;
     public $customers;
@@ -22,7 +23,6 @@ class EditInvoice extends Component
 
 
     // working purpose
-    public $invoice_id;
     public $work_type;
     public $customer_id;
     public $agent_id;
@@ -41,11 +41,11 @@ class EditInvoice extends Component
     public $status;
     public $our_amount;
     public $received_amount;
-    public $agent_amount;
     public $costing;
+    public $agent_amount;
 
 
-    public function EditInvoice()
+    public function addInvoice()
     {
 
         if ($this->work_type == 'visa') {
@@ -58,7 +58,7 @@ class EditInvoice extends Component
                 'token_no' => 'required',
                 'rcv_date' => 'required',
                 'delivery_date' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -71,7 +71,7 @@ class EditInvoice extends Component
                 'going' => 'required',
                 'ticket_no' => 'required',
                 'pnr_no' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -82,7 +82,7 @@ class EditInvoice extends Component
                 'work_type' => 'required',
                 'customer_id' => 'required',
                 'going' => 'required',
-                'status' => 'required',
+                'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
                 'received_amount' => 'required',
@@ -90,42 +90,21 @@ class EditInvoice extends Component
             ]);
         }
 
+        
 
-        if ($this->status == 'delivered') {
-            $agentexst = AgentStatement::where('source', $this->invoice_id)->first();
-            if ($agentexst) {
-                AgentStatement::where('source', $this->invoice_id)->update(['amount' => $this->agent_amount, 'pay_via' => "Added from invoice"]);
-            } else {
-                AgentStatement::create([
-                    'agent_id' => $this->agent_id,
-                    'source' => $this->invoice_id,
-                    'amount' => $this->agent_amount,
-                    'pay_via' => "Added from invoice"
-                ]);
-            }
-
-            $vendorexst = VendorStatement::where('source', $this->invoice_id)->first();
-            if ($vendorexst) {
-                VendorStatement::where('source', $this->invoice_id)->update(['amount' => '-' . $this->costing, 'pay_via' => "Added from invoice"]);
-            } else {
-                VendorStatement::create([
-                    'vendor_id' => $this->vendor_id,
-                    'source' => $this->invoice_id,
-                    'amount' => $this->costing,
-                    'pay_via' => "Added from invoice",
-                ]);
-            }
-        }
 
         if ($this->vendor_id && $this->costing) {
             $data['vendor_id'] = $this->vendor_id;
             $data['costing'] = $this->costing;
         }
 
-        Invoice::where('invoice', $this->invoice_id)->update($data);
+        $data['user_id'] = auth()->user()->id;
+        $data['invoice'] = rand(100000, 999999);
+
+        Invoice::create($data);
 
         $this->dispatch('swal', [
-            'title' => 'Invoice updated successfully.',
+            'title' => 'Invoice added successfully.',
             'icon' => 'success',
             'iconColor' => 'blue',
         ]);
@@ -141,7 +120,7 @@ class EditInvoice extends Component
         } else {
             $customer = Customer::find($this->customer_id);
             $this->date_of_birth = $customer->date_of_birth;
-            $this->passport_no = $customer->passport;
+            $this->passport_no = $customer->passport_no;
             $this->member_id = $customer->member_id;
         }
     }
@@ -151,17 +130,17 @@ class EditInvoice extends Component
     {
         $customers = Customer::get();
         if ($this->work_type == 'visa') {
-            $this->html = view('livewire.invoice-of-visa', ['customers' => $customers, 'countries' => $this->countries])->render();
+            $this->html = view('livewire.invoice.invoice-of-visa', ['customers' => $customers, 'countries' => $this->countries])->render();
             $this->dispatch('picker', [
                 'status' => 'yes',
             ]);
         } elseif ($this->work_type == 'air ticket') {
-            $this->html = view('livewire.invoice-of-air-ticket', ['customers' => $customers, 'countries' => $this->countries])->render();
+            $this->html = view('livewire.invoice.invoice-of-air-ticket', ['customers' => $customers, 'countries' => $this->countries])->render();
             $this->dispatch('picker', [
                 'status' => 'no',
             ]);
         } elseif ($this->work_type == 'tour package') {
-            $this->html = view('livewire.invoice-of-tour', ['customers' => $customers])->render();
+            $this->html = view('livewire.invoice.invoice-of-tour', ['customers' => $customers])->render();
             $this->dispatch('picker', [
                 'status' => 'yes',
             ]);
@@ -185,37 +164,11 @@ class EditInvoice extends Component
 
 
 
-        return view('livewire.edit-invoice');
+        return view('livewire.invoice.add-invoice');
     }
 
-    public function mount($invoice_id)
+    public function mount()
     {
-        $invoice = Invoice::with('customer')->find($invoice_id);
-        $this->invoice_id = $invoice->invoice;
-        $this->work_type = $invoice->work_type;
-        $this->customer_id = $invoice->customer_id;
-        $this->date_of_birth = $invoice->date_of_birth;
-        $this->passport_no = $invoice->passport_no;
-        $this->member_id = $invoice->member_id;
-        $this->going = $invoice->going;
-        $this->status = $invoice->status;
-        $this->agent_id = $invoice->agent_id;
-        $this->our_amount = $invoice->our_amount;
-        $this->received_amount = $invoice->received_amount;
-        $this->agent_amount = $invoice->agent_amount;
-        $this->costing = $invoice->costing;
-        $this->profit = $invoice->profit;
-        $this->vendor_id = $invoice->vendor_id;
-        $this->appointment_date = $invoice->appointment_date;
-        $this->web_file_no = $invoice->web_file_no;
-        $this->token_no = $invoice->token_no;
-        $this->rcv_date = $invoice->rcv_date;
-        $this->delivery_date = $invoice->delivery_date;
-        $this->date_of_birth = $invoice->customer->date_of_birth;
-        $this->passport_no = $invoice->customer->passport_no;
-        $this->member_id = $invoice->customer->member_id;
-
-
         $this->vendors = Vendor::get();
         $this->customers = Customer::get();
         $this->agents = Agent::get();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Vendor;
 
 use App\Models\Vendor;
 use Livewire\Attributes\Title;
@@ -52,6 +52,6 @@ class EditVendors extends Component
 
     public function render()
     {
-        return view('livewire.edit-vendors');
+        return view('livewire.vendors.edit-vendors');
     }
 }

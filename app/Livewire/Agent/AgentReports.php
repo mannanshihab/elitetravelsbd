@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Agent;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,7 +24,7 @@ class AgentReports extends Component
             $statements = AgentStatement::with('agent')->orderBy('id', 'desc')->paginate($this->rows);
         }
 
-        return view('livewire.agent-reports', ['statements' => $statements]);
+        return view('livewire.agent.agent-reports', ['statements' => $statements]);
     }
 
     public function delete($id)

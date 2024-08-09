@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -88,6 +88,6 @@ class ProfileSettings extends Component
 
     public function render()
     {
-        return view('livewire.profile-settings');
+        return view('livewire.user.profile-settings');
     }
 }

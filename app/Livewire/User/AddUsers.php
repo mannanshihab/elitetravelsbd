@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -39,6 +39,6 @@ class AddUsers extends Component
 
     public function render()
     {
-        return view('livewire.add-users');
+        return view('livewire.user.add-users');
     }
 }

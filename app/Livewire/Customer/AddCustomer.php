@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
 use App\Models\Customer;
 use Livewire\Component;
@@ -13,7 +13,7 @@ class AddCustomer extends Component
 
     public $name = '';
     public $date_of_birth = '';
-    public $passport = '';
+    public $passport_no = '';
     public $member_id = '';
     public $email = '';
     public $mobile = '';
@@ -28,7 +28,7 @@ class AddCustomer extends Component
         $data = $this->validate([
             'name' => 'required',
             'date_of_birth' => 'required',
-            'passport' => 'required',
+            'passport_no' => 'required',
             'member_id' => 'required',
             'email' => 'required|unique:customers',
             'mobile' => 'required',
@@ -49,6 +49,6 @@ class AddCustomer extends Component
 
     public function render()
     {
-        return view('livewire.add-customer');
+        return view('livewire.customer.add-customer');
     }
 }

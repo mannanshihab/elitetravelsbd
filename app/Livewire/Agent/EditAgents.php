@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Agent;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
@@ -76,6 +76,6 @@ class EditAgents extends Component
 
     public function render()
     {
-        return view('livewire.edit-agents');
+        return view('livewire.agent.edit-agents');
     }
 }

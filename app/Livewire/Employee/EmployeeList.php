@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Employee;
 
 use App\Models\Employee;
 use App\Models\User;
@@ -41,7 +41,7 @@ class EmployeeList extends Component
         }else{
             $employees = Employee::orderBy('id', 'desc')->paginate($this->rows);
         }
-        return view('livewire.employee-list', ['employees' =>  $employees]);
+        return view('livewire.employee.employee-list', ['employees' =>  $employees]);
     }
 
     public function delete($id)

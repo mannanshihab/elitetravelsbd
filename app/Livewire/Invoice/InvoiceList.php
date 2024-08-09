@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Invoice;
 
 use App\Models\AgentStatement;
 use App\Models\Invoice;
@@ -36,7 +36,7 @@ class InvoiceList extends Component
             $invoices = Invoice::with('customer', 'billed')->orderBy('id', 'desc')->paginate($this->rows);
         }
 
-        return view('livewire.invoice-list', ['invoices' => $invoices]);
+        return view('livewire.invoice.invoice-list', ['invoices' => $invoices]);
     }
 
     public function mount()

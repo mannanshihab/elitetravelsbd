@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\User;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +30,7 @@ class UserList extends Component
         }else{
             $users = User::orderBy('id', 'desc')->paginate($this->rows);
         }
-        return view('livewire.user-list', ['users' =>$users]);
+        return view('livewire.user.user-list', ['users' =>$users]);
         
     }
 

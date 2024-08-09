@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Vendor;
 
 use App\Models\Vendor;
 use App\Models\VendorStatement;
@@ -33,7 +33,7 @@ class AddVendorBill extends Component
     }
     public function render()
     {
-        return view('livewire.add-vendor-bill');
+        return view('livewire.vendors.add-vendor-bill');
     }
 
     public function mount()

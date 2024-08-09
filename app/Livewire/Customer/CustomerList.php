@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Customer;
 
 use Livewire\Component;
 use App\Models\Customer;
@@ -40,6 +40,6 @@ class CustomerList extends Component
         }else{
             $customers = Customer::orderBy('id', 'desc')->paginate($this->rows);
         }
-        return view('livewire.customer-list', ['customers' => $customers]);
+        return view('livewire.customer.customer-list', ['customers' => $customers]);
     }
 }

@@ -46,7 +46,7 @@
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-id-badge"></i></span>
                                 <input type="text" class="form-control" placeholder="Please Enter Passport Number"
-                                    wire:model="passport" aria-label="passport" />
+                                    wire:model="passport_no" aria-label="passport" />
                             </div>
                         </div>
 

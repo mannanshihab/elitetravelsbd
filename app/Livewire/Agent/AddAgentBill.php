@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Agent;
 
 use App\Models\Agent;
 use App\Models\AgentStatement;
@@ -37,7 +37,7 @@ class AddAgentBill extends Component
     public function render()
     {
 
-        return view('livewire.add-agent-bill');
+        return view('livewire.agent.add-agent-bill');
     }
 
     public function mount()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Invoice;
 
 use App\Models\Invoice;
 use Livewire\Component;
@@ -16,6 +16,6 @@ class InvoicePreview extends Component
     
     public function render()
     {
-        return view('livewire.invoice-preview');
+        return view('livewire.invoice.invoice-preview');
     }
 }

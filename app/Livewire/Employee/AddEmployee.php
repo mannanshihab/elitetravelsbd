@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Employee;
 
 use App\Models\Employee;
 use Livewire\Attributes\Title;
@@ -74,6 +74,6 @@ class AddEmployee extends Component
     }
     public function render()
     {
-        return view('livewire.add-employee');
+        return view('livewire.employee.add-employee');
     }
 }
