@@ -162,9 +162,8 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
-                            <th class="text-center"></th>
                             <th class="fw-bold">Total Amount = {{ $statements->sum('amount') }} (BDT)</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </tfoot>
                 </table>
