@@ -8,9 +8,9 @@
 
         <h5 class="card-header pb-0">Vendor Reports</h5>
         {{-- table header --}}
-        <div class="row">
-            {{-- view Pages --}}
-            <div class="col-md-6 d-flex justify-content-start">
+        <div class="row d-flex justify-content-between">
+            
+            <div class="col-md-3">
                 <div class="form-group d-flex card-header">
                     <label for="inputCity" class="mt-2">Show: </label>&nbsp;
                     <select wire:model.change="rows" name="rows" class="form-select"
@@ -22,18 +22,19 @@
                     </select>
                     &nbsp;<label for="inputCity" class="mt-2">entries</label>
                 </div>
-            </div>{{-- / view Pages --}}
-
-            {{-- Search --}}
-            <div class="col-md-6 d-flex">
-                <div class="col-md-4 px-2">
-                    <label for="bs-rangepicker-basic" class="form-label">Date Range</label>
+            </div>
+          
+            <div class="col-md-3">
+                <label for="bs-rangepicker-basic" class="form-label px-2">Date Range</label>
+                <div class="form-group px-2">
                     <input type="text" id="bs-rangepicker-basic" name="datefilter" class="form-control"
-                        placeholder="08/09/2024 - 08/09/2024" autocomplete="off" wire:model="datefilter" />
+                    placeholder="08/09/2024 - 08/09/2024" autocomplete="off" wire:model="datefilter" />
                 </div>
+            </div>
 
-                <div class="col-md-4" wire:ignore>
-                    <label for="bs-rangepicker-basic" class="form-label">vendors</label>
+            <div class="col-md-3" wire:ignore>
+                <label for="bs-rangepicker-basic" class="form-label px-2">Vendors</label>
+                <div class="form-group px-2">
                     <select id="selectpickerLiveSearch" data-size="5" wire:model.live='vendor_id'
                         class="selectpicker form-select" data-style="btn-default" data-live-search="true" required>
                         <option value="">Select Vendor</option>
@@ -42,14 +43,16 @@
                         @endforeach
                     </select>
                 </div>
+            </div>
 
-                <div class="col-md-4">
-                    <label for="bs-rangepicker-basic" class="form-label">Search:</label>
+            <div class="col-md-3">
+                <label for="bs-rangepicker-basic" class="form-label px-3">Search:</label>
+                <div class="form-group px-3">
                     <input type="text" wire:model.live.debounce.250ms="search" class="form-control" id="inputCity"
-                        placeholder="Search ...">
+                    placeholder="Search ...">
                 </div>
             </div>
-            {{-- End Search --}}
+           
         </div>
         {{-- / table header --}}
 
@@ -61,10 +64,10 @@
                     <thead>
                         <tr>
                             <th>Vendors Details</th>
-                            <th>Source Of Money</th>
-                            <th>Amount</th>
-                            <th>Pay Via</th>
                             <th>Created At</th>
+                            <th>Source Of Money</th>
+                            <th>Pay Via</th>
+                            <th>Amount</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -75,6 +78,7 @@
                                     Company Name: <span>{{ $statement->vendor->vendor_name }}</span><br>
                                     Mobile: <span>{{ $statement->vendor->mobile }}</span>
                                 </td>
+                                <td>{{ $statement->created_at->format('d-m-Y g:i A') }}</td>
                                 <td>
                                     <span>
                                         @if (is_numeric($statement->source))
@@ -85,9 +89,9 @@
                                         @endif
                                     </span>
                                 </td>
-                                <td>{{ ucwords($statement->amount) }} (BDT)</td>
                                 <td>{{ ucwords($statement->pay_via) }} (BDT)</td>
-                                <td>{{ $statement->created_at->format('d-m-Y g:i A') }}</td>
+                                <td>{{ ucwords($statement->amount) }} (BDT)</td>
+                                
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Edit Button -->
@@ -147,18 +151,16 @@
                             </tr>
                         @empty
                             <tr>
-                                <td class="text-center" colspan="9">No records found</td>
+                                <td class="text-center" colspan="6">No records found</td>
                             </tr>
                         @endforelse
 
                     </tbody>
                     <tfoot class="table-border-bottom-0">
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th colspan="4"></th>
                             <th class="fw-bold">Total Amount = {{ $statements->sum('amount') }} (BDT)</th>
-                            <th class="text-center">Action</th>
+                            <th colspan="1"></th>
                         </tr>
                     </tfoot>
                 </table>
