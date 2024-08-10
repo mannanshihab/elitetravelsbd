@@ -1,36 +1,39 @@
 <?php
 
-use App\Livewire\Agent\AddAgentBill;
 use App\Livewire\Home;
+use App\Models\Invoice;
+use App\Livewire\Auth\Login;
+use App\Livewire\InvoicePrint;
 use App\Livewire\User\AddUsers;
 use App\Livewire\User\UserList;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Livewire\Agent\AddAgents;
-use App\Livewire\Invoice\AddInvoice;
-use App\Livewire\Vendor\AddVendors;
 use App\Livewire\Agent\AgentsList;
-use App\Livewire\Auth\Login;
 use App\Livewire\Agent\EditAgents;
+use App\Livewire\Vendor\AddVendors;
+use App\Livewire\Agent\AddAgentBill;
+use App\Livewire\Agent\AgentReports;
+use App\Livewire\Invoice\AddInvoice;
+use App\Livewire\Vendor\EditVendors;
+use App\Livewire\Vendor\VendorsList;
+use App\Livewire\Invoice\EditInvoice;
+use App\Livewire\Invoice\InvoiceList;
+use Illuminate\Support\Facades\Route;
 use App\Livewire\Customer\AddCustomer;
 use App\Livewire\Employee\AddEmployee;
+use App\Livewire\User\ProfileSettings;
 use App\Livewire\Vendor\AddVendorBill;
-use App\Livewire\Agent\AgentReports;
-use App\Livewire\Vendor\EditVendors;
-use App\Livewire\Invoice\InvoiceList;
-use App\Livewire\Vendor\VendorsList;
+use App\Livewire\Vendor\VendorReports;
 use App\Livewire\Customer\CustomerList;
 use App\Livewire\Customer\EditCustomer;
 use App\Livewire\Employee\EditEmployee;
-use App\Livewire\Invoice\EditInvoice;
 use App\Livewire\Employee\EmployeeList;
 use App\Livewire\Invoice\InvoicePreview;
-use App\Livewire\User\ProfileSettings;
-use App\Livewire\Vendor\VendorReports;
-use App\Models\Invoice;
-use Illuminate\Support\Facades\Route;
 
 
-Route::get('/asdf', function(){
-    dd(Invoice::get());
+Route::get('/asdf/{id}', function(){
+    $invoice = Invoice::with('customer', 'billed')->where('invoice', '655655')->first();
+    return view('livewire.invoice-print', ['invoice' => $invoice]);
 });
 
 
@@ -51,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('invoice-list', InvoiceList::class)->name('invoice-list');
     Route::get('invoice-edit/{invoice_id}', EditInvoice::class)->name('invoice-edit');
     Route::get('invoice-show/{invoice_id}', InvoicePreview::class)->name('invoice-show');
+    Route::get('invoice-print/{invoice_id}', InvoicePrint::class)->name('invoice-print');
 
     Route::get('add-customer', AddCustomer::class)->name('add-customer');
     Route::get('edit-customer/{id}', EditCustomer::class)->name('edit-customer');

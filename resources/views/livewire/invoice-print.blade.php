@@ -1,18 +1,15 @@
 <div>
-
-    @vite('resources/assets/vendor/scss/pages/app-invoice.scss')
-
+    @vite('resources/assets/vendor/scss/pages/app-invoice-print.scss', 'resources/assets/vendor/scss/pages/app-invoice.scss', 'resources/assets/js/app-invoice-print.js')
     <div class="row invoice-preview">
         <!-- Invoice -->
         <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4 card">
-            <div class="invoice-preview-card p-5" id="invoice-preview">
+            <div class="invoice-preview-card p-5">
                 <div class="card-body invoice-preview-header rounded">
                     <div class="d-flex justify-content-between flex-xl-row flex-md-column flex-sm-row flex-column">
                         <div class="mb-xl-0 mb-1">
                             <div class="d-flex svg-illustration mb-2 gap-2 align-items-center">
                                 <div class="app-brand-logo">
-                                    <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt=""
-                                        height="60">
+                                    <img src="{{ asset('images/Elite-Travels-Logo.png') }}" alt="" height="60">
                                 </div>
                             </div>
                             <p class="mb-1">191 Commerce View Complex (4th Floor)</p>
@@ -103,10 +100,10 @@
                     <a href="{{ route('invoice-edit', $invoice->id) }}" class="btn btn-info d-grid w-100 mb-2">
                         Edit Invoice
                     </a>
-                    <button class="btn btn-primary d-grid w-100 mb-2" wire:click='pdf'>
+                    <button class="btn btn-primary d-grid w-100 mb-2">
                         Download PDF
                     </button>
-                    <a class="btn btn-success d-grid w-100 mb-2" wire:click='print' href="#">
+                    <a class="btn btn-success d-grid w-100 mb-2" target="_blank" href="{{ url('app/invoice/print') }}">
                         Print
                     </a>
                 </div>
@@ -115,44 +112,3 @@
         <!-- /Invoice Actions -->
     </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-@script
-    <script>
-        window.addEventListener('PrintThisInvoice', e => {
-            var printContents = document.getElementById('invoice-preview').innerHTML;
-            var originalContents = document.body.innerHTML;
-            document.body.innerHTML = printContents;
-
-            window.print();
-            document.body.innerHTML = originalContents;
-
-        })
-
-        window.addEventListener('GetPDF', e => {
-            // Get the element to print
-            const invoiceElement = document.getElementById('invoice-preview');
-
-            // Use html2canvas to capture the invoice as an image
-            html2canvas(invoiceElement, {
-                scale: 2
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
-
-                // Calculate the width and height for the PDF based on A4 size
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-                // Add the image to the PDF
-                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-                // Download the PDF
-                pdf.save('invoice.pdf');
-            });
-
-        })
-    </script>
-@endscript
