@@ -133,9 +133,15 @@
                                 </td>
 
                                 <td>
-                                    @if ($invoice->status == 'pending')
+                                    @if ($invoice->status == 'file received')
                                         <span class="badge bg-label-primary">{{ strtoupper($invoice->status) }}</span>
-                                    @elseif($invoice->status == 'complete')
+                                    @elseif($invoice->status == 'processing')
+                                        <span class="badge bg-label-warning">{{ strtoupper($invoice->status) }}</span>
+                                    @elseif($invoice->status == 'success')
+                                        <span class="badge bg-label-success">{{ strtoupper($invoice->status) }}</span>
+                                    @elseif($invoice->status == 'refused')
+                                        <span class="badge bg-label-danger">{{ strtoupper($invoice->status) }}</span>
+                                    @elseif($invoice->status == 'delivered')
                                         <span class="badge bg-label-success">{{ strtoupper($invoice->status) }}</span>
                                     @else
                                         <span class="badge bg-label-danger">{{ strtoupper($invoice->status) }}</span>
