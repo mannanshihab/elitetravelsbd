@@ -6,7 +6,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Invoice;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 #[Title('Invoice-Preview')]
 
