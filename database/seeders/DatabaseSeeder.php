@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('323232'),
         ]);
 
-
         Customer::factory()->create([
             'name' => 'Lucky Akhter',
             'date_of_birth' => '10-02-1996',

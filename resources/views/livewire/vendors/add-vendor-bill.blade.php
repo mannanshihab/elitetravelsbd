@@ -69,10 +69,10 @@
                         
                         
                         <div class="col-md-6">
-                            <label class="form-label" for="formValidationPaymentBy">Payment By</label>
+                            <label class="form-label" for="formValidationPaymentBy">Payment Via (optional)</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti ti-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Please enter Name"
+                                <input type="text" class="form-control" placeholder="Please enter Payment Via"
                                     wire:model="pay_via" aria-label="payment_by" />
                             </div>
                             @error('pay_via')
