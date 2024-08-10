@@ -1,5 +1,4 @@
 <div>
-
     @vite('resources/assets/vendor/scss/pages/app-invoice.scss')
 
     <div class="row invoice-preview">
@@ -94,23 +93,6 @@
             </div>
         </div>
         <!-- /Invoice -->
-
-        <!-- Invoice Actions -->
-        <div class="col-xl-3 col-md-4 col-12 invoice-actions">
-            <div class="card">
-                <div class="card-body">
-                    <a href="{{ route('invoice-edit', $invoice->id) }}" class="btn btn-info d-grid w-100 mb-2">
-                        Edit Invoice
-                    </a>
-                    <button wire:click="pdf({{ $invoice->id }})" class="btn btn-primary d-grid w-100 mb-2">
-                        Download PDF
-                    </button>
-                    <a class="btn btn-success d-grid w-100 mb-2" target="_blank" href="{{ url('app/invoice/print') }}">
-                        Print
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- /Invoice Actions -->
     </div>
 </div>
+
