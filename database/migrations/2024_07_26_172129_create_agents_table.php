@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('trade_license_no')->nullable();
             $table->string('nid_no')->nullable();
             $table->string('banks_details');
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

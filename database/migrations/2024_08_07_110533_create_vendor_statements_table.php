@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('source');
             $table->string('amount');
             $table->string('pay_via')->nullable();
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,7 @@ class Home extends Component
     public function render()
     {
         $agentCount     = Agent::count();
-        $customerCount  = Customer::count();
+        $customerCount  = Customer::whereNull('deleted_at')->count();
         $employeesCount = Employee::count();
         $vendorsCount   = Vendor::count();
 

@@ -4,6 +4,7 @@ namespace App\Livewire\Customer;
 
 use Livewire\Component;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 #[Title('Customer List')]
@@ -18,7 +19,10 @@ class CustomerList extends Component
 
     public function delete($id)
     {
-        Customer::find($id)->delete();
+        $Customer = Customer::find($id);
+        $Customer->deleted_at = now();
+        $Customer->deleted_by = Auth::user()->id;
+        $Customer->save();
 
         $this->dispatch('swal', [
             'title' => 'Customer Deleted Successfully.',
@@ -30,7 +34,7 @@ class CustomerList extends Component
     public function render()
     {
         if($this->search){
-            $customers = Customer::where('name', 'like', '%'.$this->search.'%')
+            $customers = Customer::whereNull('deleted_at')->where('name', 'like', '%'.$this->search.'%')
             ->orWhere('email', 'like', '%'.$this->search.'%')
             ->orWhere('mobile', 'like', '%'.$this->search.'%')
             ->orWhere('address', 'like', '%'.$this->search.'%')
@@ -38,7 +42,7 @@ class CustomerList extends Component
             ->orderBy('id', 'desc')->paginate($this->rows);
             
         }else{
-            $customers = Customer::orderBy('id', 'desc')->paginate($this->rows);
+            $customers = Customer::whereNull('deleted_at')->orderBy('id', 'desc')->paginate($this->rows);
         }
         return view('livewire.customer.customer-list', ['customers' => $customers]);
     }

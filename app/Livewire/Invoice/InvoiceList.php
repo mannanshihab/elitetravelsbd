@@ -6,6 +6,7 @@ use App\Models\AgentStatement;
 use App\Models\Invoice;
 use App\Models\Vendor;
 use App\Models\VendorStatement;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
@@ -52,7 +53,10 @@ class InvoiceList extends Component
         $getInvoiceNo = Invoice::find($id)->invoice;
         AgentStatement::where('source', $getInvoiceNo)->delete();
         VendorStatement::where('source', $getInvoiceNo)->delete();
-        Invoice::find($id)->delete();
+        $Invoice = Invoice::find($id);
+        $Invoice->deleted_at = now();
+        $Invoice->deleted_by = Auth::user()->id;
+        $Invoice->save();
 
         $this->dispatch('swal', [
             'title' => 'Invoice Deleted Successfully.',

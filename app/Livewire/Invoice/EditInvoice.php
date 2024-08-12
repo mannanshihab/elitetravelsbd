@@ -149,7 +149,7 @@ class EditInvoice extends Component
 
     public function render()
     {
-        $customers = Customer::get();
+        $customers = Customer::whereNull('deleted_at')->get();
         if ($this->work_type == 'visa') {
             $this->html = view('livewire.invoice.invoice-of-visa', ['customers' => $customers, 'countries' => $this->countries])->render();
             $this->dispatch('picker', [
@@ -216,9 +216,9 @@ class EditInvoice extends Component
         $this->member_id = $invoice->customer->member_id;
 
 
-        $this->vendors = Vendor::get();
-        $this->customers = Customer::get();
-        $this->agents = Agent::get();
+        $this->vendors = Vendor::whereNull('deleted_at')->get();
+        $this->customers = Customer::whereNull('deleted_at')->get();
+        $this->agents = Agent::whereNull('deleted_at')->get();
         $this->countries = [
             'Afghanistan',
             'Albania',

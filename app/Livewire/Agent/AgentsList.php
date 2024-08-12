@@ -3,6 +3,7 @@
 namespace App\Livewire\Agent;
 
 use App\Models\Agent;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,7 +18,7 @@ class AgentsList extends Component
     public function render()
     {   
         if($this->search){
-            $agents = Agent::where('ceo_name', 'like', '%'.$this->search.'%')
+            $agents = Agent::whereNull('deleted_at')->where('ceo_name', 'like', '%'.$this->search.'%')
             ->orWhere('company_name', 'like', '%'.$this->search.'%')
             ->orWhere('email', 'like', '%'.$this->search.'%')
             ->orWhere('mobile', 'like', '%'.$this->search.'%')
@@ -25,14 +26,17 @@ class AgentsList extends Component
             ->orderBy('id', 'desc')->paginate($this->rows);
             
         }else{
-            $agents = Agent::orderBy('id', 'desc')->paginate($this->rows);
+            $agents = Agent::whereNull('deleted_at')->orderBy('id', 'desc')->paginate($this->rows);
         }
         return view('livewire.agent.agents-list', ['agents' => $agents]);
     }
 
     public function delete($id)
     {
-        Agent::find($id)->delete();
+        $Agent=Agent::find($id);
+        $Agent->deleted_at = now();
+        $Agent->deleted_by = Auth::user()->id;
+        $Agent->save();
 
         $this->dispatch('swal', [
             'title' => 'Agent Deleted Successfully.',

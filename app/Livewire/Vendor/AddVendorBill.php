@@ -39,7 +39,7 @@ class AddVendorBill extends Component
     public function mount()
     {
 
-        $this->vendors = Vendor::get();
+        $this->vendors = Vendor::whereNull('deleted_at')->get();
         
     }
 }

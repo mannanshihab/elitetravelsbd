@@ -6,6 +6,7 @@ use App\Models\Agent;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\AgentStatement;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 
 #[Title('Agents Reports')]
@@ -31,7 +32,7 @@ class AgentReports extends Component
             $explode = explode(' - ', $this->datefilter);
             $start = date('Y-m-d', strtotime($explode[0])) . ' 00:00:00';
             $end = date('Y-m-d', strtotime($explode[1])) . ' 23:59:59';
-            $statements = AgentStatement::with('agent')->whereHas('agent', function ($query) {
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->whereHas('agent', function ($query) {
                 $query->where('id', $this->agent_id);
             })
                 ->where('source', 'like', '%' . $this->search . '%')
@@ -43,11 +44,11 @@ class AgentReports extends Component
             $explode = explode(' - ', $this->datefilter);
             $start = date('Y-m-d', strtotime($explode[0])) . ' 00:00:00';
             $end = date('Y-m-d', strtotime($explode[1])) . ' 23:59:59';
-            $statements = AgentStatement::with('agent')->whereHas('agent', function ($query) {
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->whereHas('agent', function ($query) {
                 $query->where('id', $this->agent_id);
             })->whereBetween('created_at', [$start, $end])->orderBy('id', 'desc')->paginate($this->rows);
         } elseif ($this->agent_id && $this->search) {
-            $statements = AgentStatement::with('agent')->whereHas('agent', function ($query) {
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->whereHas('agent', function ($query) {
                 $query->where('id', $this->agent_id);
             })->where('source', 'like', '%' . $this->search . '%')
                 ->orWhere('amount', 'like', '%' . $this->search . '%')
@@ -58,15 +59,15 @@ class AgentReports extends Component
             $explode = explode(' - ', $this->datefilter);
             $start = date('Y-m-d', strtotime($explode[0])) . ' 00:00:00';
             $end = date('Y-m-d', strtotime($explode[1])) . ' 23:59:59';
-            $statements = AgentStatement::with('agent')->whereBetween('created_at', [$start, $end])->orderBy('id', 'desc')->paginate($this->rows);
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->whereBetween('created_at', [$start, $end])->orderBy('id', 'desc')->paginate($this->rows);
         } elseif ($this->agent_id) {
-            $statements = AgentStatement::with('agent')->whereHas('agent', function ($query) {
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->whereHas('agent', function ($query) {
                 $query->where('id', $this->agent_id);
             })->orderBy('id', 'desc')->paginate($this->rows);
         } elseif ($this->search) {
-            $statements = AgentStatement::with('agent')->where('source', 'like', '%' . $this->search . '%')->orWhere('amount', 'like', '%' . $this->search . '%')->orWhere('pay_via', 'like', '%' . $this->search . '%')->orWhere('created_at', 'like', '%' . $this->search . '%')->orderBy('id', 'desc')->paginate($this->rows);
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->where('source', 'like', '%' . $this->search . '%')->orWhere('amount', 'like', '%' . $this->search . '%')->orWhere('pay_via', 'like', '%' . $this->search . '%')->orWhere('created_at', 'like', '%' . $this->search . '%')->orderBy('id', 'desc')->paginate($this->rows);
         } else {
-            $statements = AgentStatement::with('agent')->orderBy('id', 'desc')->paginate($this->rows);
+            $statements = AgentStatement::with('agent')->whereNull('deleted_at')->orderBy('id', 'desc')->paginate($this->rows);
         }
 
         return view('livewire.agent.agent-reports', ['statements' => $statements]);
@@ -81,7 +82,10 @@ class AgentReports extends Component
 
     public function delete($id)
     {
-        AgentStatement::find($id)->delete();
+        $AgentStatement = AgentStatement::find($id);
+        $AgentStatement->deleted_at = now();
+        $AgentStatement->deleted_by = Auth::user()->id;
+        $AgentStatement->save();
 
         $this->dispatch('swal', [
             'title' => 'Agent Statement Deleted Successfully.',

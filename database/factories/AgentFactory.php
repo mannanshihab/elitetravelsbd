@@ -18,7 +18,7 @@ class AgentFactory extends Factory
     {
         return [
             'company_name' => fake()->name,
-            'ceo_name' => 'Ceo bhai',
+            'ceo_name' => fake()->name,
             'email' => fake()->unique()->safeEmail(),
             'mobile' => '01613456789',
             'address' => 'Dhaka, Bangladesh',

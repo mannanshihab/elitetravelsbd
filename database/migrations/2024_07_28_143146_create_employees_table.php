@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('employee_cv')->nullable();;
             $table->string('bkash')->nullable();
             $table->string('banks_details')->nullable();
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

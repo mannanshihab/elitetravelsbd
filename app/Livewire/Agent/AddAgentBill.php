@@ -42,6 +42,6 @@ class AddAgentBill extends Component
 
     public function mount()
     {
-        $this->agents = Agent::get();
+        $this->agents = Agent::whereNull('deleted_at')->get();
     }
 }

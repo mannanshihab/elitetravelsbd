@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('address');
             $table->string('source');
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

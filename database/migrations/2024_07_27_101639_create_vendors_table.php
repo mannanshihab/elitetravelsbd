@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('vendor_type');
             $table->string('banks_details');
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

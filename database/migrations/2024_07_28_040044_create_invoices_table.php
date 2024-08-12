@@ -32,6 +32,8 @@ return new class extends Migration
             $table->integer('received_amount');
             $table->integer('costing')->nullable();
             $table->integer('agent_amount')->nullable();
+            $table->integer('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

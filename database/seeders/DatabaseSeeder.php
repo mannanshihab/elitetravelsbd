@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'mobile' => '01613456789',
             'gender' => 'female',
         ]);
-        Customer::factory(200)->create();
+        Customer::factory(5)->create();
 
         Agent::factory()->create([
             'company_name' => 'Robi bhai',
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'nid_no' => '98754368749145',
             'banks_details' => '123456789',
         ]);
-        Agent::factory(15)->create();
+        Agent::factory(5)->create();
 
         Vendor::factory()->create([
            'vendor_name' => 'Vendor bhai',
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
            'vendor_type' => 'Visa',
            'banks_details' => '123456789',
         ]);
-        Vendor::factory(20)->create();
+        Vendor::factory(5)->create();
 
         Employee::factory()->create([
             'name' => 'Employee',
@@ -73,6 +73,6 @@ class DatabaseSeeder extends Seeder
             'banks_details' => '123456789',
         ]);
 
-        Employee::factory(30)->create();
+        Employee::factory(5)->create();
     }
 }
