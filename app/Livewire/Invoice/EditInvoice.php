@@ -55,7 +55,6 @@ class EditInvoice extends Component
                 'going' => 'required',
                 'appointment_date' => 'required',
                 'web_file_no' => 'required',
-                'token_no' => 'required',
                 'rcv_date' => 'required',
                 'delivery_date' => 'required',
                 'status' => 'required',
@@ -90,6 +89,10 @@ class EditInvoice extends Component
             ]);
         }
 
+
+        if($this->token_no){
+            $data['token_no'] = $this->token_no;
+        }
 
         if ($this->status == 'delivered') {
             $agentexst = AgentStatement::where('source', $this->invoice_id)->first();

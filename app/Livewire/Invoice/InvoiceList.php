@@ -25,13 +25,21 @@ class InvoiceList extends Component
     public function render()
     {
         if($this->search){
-            $invoices = Invoice::with('customer', 'billed')->where('invoice', 'like', '%'.$this->search.'%')
-            ->orWhere('passport_no', 'like', '%'.$this->search.'%')
-            ->orWhere('web_file_no', 'like', '%'.$this->search.'%')
-            ->orWhere('token_no', 'like', '%'.$this->search.'%')
-            ->orWhere('member_id', 'like', '%'.$this->search.'%')
-            ->orWhere('work_type', 'like', '%'.$this->search.'%')
-            ->orderBy('id', 'desc')->paginate($this->rows);
+            $invoices = Invoice::with('customer', 'billed')
+            ->where(function($query) {
+                $query->whereHas('customer', function($q) {
+                    $q->where('name', 'like', '%'.$this->search.'%')
+                      ->orWhere('email', 'like', '%'.$this->search.'%')
+                      ->orWhere('mobile', 'like', '%'.$this->search.'%')
+                      ->orWhere('passport_no', 'like', '%'.$this->search.'%');
+                })
+                ->orWhere('invoice', 'like', '%'.$this->search.'%')
+                ->orWhere('web_file_no', 'like', '%'.$this->search.'%')
+                ->orWhere('token_no', 'like', '%'.$this->search.'%')
+                ->orWhere('work_type', 'like', '%'.$this->search.'%');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate($this->rows);
             
         }else{
             $invoices = Invoice::with('customer', 'billed')->orderBy('id', 'desc')->paginate($this->rows);
