@@ -7,6 +7,7 @@ use App\Models\Vendor;
 use App\Models\Invoice;
 use Livewire\Component;
 use App\Models\Customer;
+use App\Models\Expense;
 use Livewire\Attributes\Title;
 
 #[Title('Add Invoice')]
@@ -29,6 +30,8 @@ class AddInvoice extends Component
     public $vendor_id;
     public $date_of_birth;
     public $going;
+    public $visa_type;
+    public $service_fee;
     public $passport_no;
     public $web_file_no;
     public $token_no;
@@ -53,10 +56,10 @@ class AddInvoice extends Component
                 'work_type' => 'required',
                 'customer_id' => 'required',
                 'going' => 'required',
+                'visa_type' => 'required',
+                'service_fee' => 'required',
                 'appointment_date' => 'required',
                 'web_file_no' => 'required',
-                'rcv_date' => 'required',
-                'delivery_date' => 'required',
                 'status' => 'required|in:file received,processing',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
@@ -89,7 +92,10 @@ class AddInvoice extends Component
             ]);
         }
 
-        if($this->token_no){
+
+
+
+        if ($this->token_no) {
             $data['token_no'] = $this->token_no;
         }
 
@@ -102,7 +108,19 @@ class AddInvoice extends Component
         $data['user_id'] = auth()->user()->id;
         $data['invoice'] = rand(100000, 999999);
 
-        Invoice::create($data);
+        if ($this->status == 'file received') {
+            $data['rcv_date'] = date('d-m-Y');
+        }
+
+        $invoice = Invoice::create($data);
+
+        if ($this->service_fee) {
+            Expense::create([
+                'type_of_expense' => 'Service Fee',
+                'purpose' => $invoice->invoice,
+                'amount' => $this->service_fee,
+            ]);
+        }
 
         $this->dispatch('swal', [
             'title' => 'Invoice added successfully.',
@@ -162,7 +180,6 @@ class AddInvoice extends Component
         if ($this->status == 'delivered' && $this->our_amount && $this->received_amount && $this->costing) {
             $this->profit = $this->our_amount - $this->costing;
         }
-
 
 
         return view('livewire.invoice.add-invoice');

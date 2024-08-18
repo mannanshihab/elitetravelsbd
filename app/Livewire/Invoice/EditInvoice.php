@@ -3,11 +3,12 @@
 namespace App\Livewire\Invoice;
 
 use App\Models\Agent;
-use App\Models\AgentStatement;
 use App\Models\Vendor;
+use App\Models\Expense;
 use App\Models\Invoice;
 use Livewire\Component;
 use App\Models\Customer;
+use App\Models\AgentStatement;
 use App\Models\VendorStatement;
 
 class EditInvoice extends Component
@@ -29,6 +30,8 @@ class EditInvoice extends Component
     public $vendor_id;
     public $date_of_birth;
     public $going;
+    public $visa_type;
+    public $service_fee;
     public $passport_no;
     public $web_file_no;
     public $token_no;
@@ -53,10 +56,10 @@ class EditInvoice extends Component
                 'work_type' => 'required',
                 'customer_id' => 'required',
                 'going' => 'required',
+                'visa_type' => 'required',
+                'service_fee' => 'required',
                 'appointment_date' => 'required',
                 'web_file_no' => 'required',
-                'rcv_date' => 'required',
-                'delivery_date' => 'required',
                 'status' => 'required',
                 'agent_id' => 'required',
                 'our_amount' => 'required',
@@ -90,7 +93,7 @@ class EditInvoice extends Component
         }
 
 
-        if($this->token_no){
+        if ($this->token_no) {
             $data['token_no'] = $this->token_no;
         }
 
@@ -125,7 +128,28 @@ class EditInvoice extends Component
             $data['costing'] = $this->costing;
         }
 
+
+        if ($this->status == 'delivered') {
+            $data['delivery_date'] = date('d-m-Y');
+        }
+
+
         Invoice::where('invoice', $this->invoice_id)->update($data);
+
+        if ($this->service_fee) {
+            $check = Expense::where('purpose', $this->invoice_id)->first();
+            if ($check) {
+                Expense::where('purpose', $this->invoice_id)->update([
+                    'amount' => $this->service_fee,
+                ]);
+            } else {
+                Expense::create([
+                    'type_of_expense' => 'Service Fee',
+                    'purpose' => $this->invoice_id,
+                    'amount' => $this->service_fee,
+                ]);
+            }
+        }
 
         $this->dispatch('swal', [
             'title' => 'Invoice updated successfully.',
@@ -187,7 +211,6 @@ class EditInvoice extends Component
         }
 
 
-
         return view('livewire.invoice.edit-invoice');
     }
 
@@ -201,6 +224,8 @@ class EditInvoice extends Component
         $this->passport_no = $invoice->passport_no;
         $this->member_id = $invoice->member_id;
         $this->going = $invoice->going;
+        $this->visa_type = $invoice->visa_type;
+        $this->service_fee = $invoice->service_fee;
         $this->status = $invoice->status;
         $this->agent_id = $invoice->agent_id;
         $this->our_amount = $invoice->our_amount;

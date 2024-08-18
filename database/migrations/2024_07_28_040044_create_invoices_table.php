@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('customer_id');
             $table->integer('agent_id');
             $table->integer('vendor_id')->nullable();
+            $table->string('visa_type')->nullable();
+            $table->string('service_fee')->nullable();
             $table->string('web_file_no')->nullable();
             $table->string('token_no')->nullable();
             $table->string('appointment_date')->nullable();

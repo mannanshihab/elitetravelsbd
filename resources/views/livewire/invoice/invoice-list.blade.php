@@ -134,15 +134,23 @@
 
                                 <td>
                                     @if ($invoice->status == 'file received')
-                                        <span class="badge bg-label-primary">{{ strtoupper($invoice->status) }}</span>
+                                        <span class="badge bg-label-primary">
+                                            {{ strtoupper($invoice->status) }}
+                                        </span><br>
+                                        <span> File Received: {{ $invoice->rcv_date }} </span>
                                     @elseif($invoice->status == 'processing')
                                         <span class="badge bg-label-warning">{{ strtoupper($invoice->status) }}</span>
+                                        <span> File Received: {{ $invoice->rcv_date }} </span>
                                     @elseif($invoice->status == 'success')
                                         <span class="badge bg-label-success">{{ strtoupper($invoice->status) }}</span>
+                                        <span> File Received: {{ $invoice->rcv_date }} </span>
                                     @elseif($invoice->status == 'refused')
                                         <span class="badge bg-label-danger">{{ strtoupper($invoice->status) }}</span>
+                                        <span> File Received: {{ $invoice->rcv_date }} </span>
                                     @elseif($invoice->status == 'delivered')
-                                        <span class="badge bg-label-success">{{ strtoupper($invoice->status) }}</span>
+                                        <span class="badge bg-label-success">{{ strtoupper($invoice->status) }}</span><br>
+                                        <span> File Received: {{ $invoice->rcv_date }} </span><br>
+                                        <span>Delivered: {{ $invoice->delivery_date }}</span>
                                     @else
                                         <span class="badge bg-label-danger">{{ strtoupper($invoice->status) }}</span>
                                     @endif

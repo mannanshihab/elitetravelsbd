@@ -59,29 +59,40 @@
                                 <td>
                                     <div class="demo-inline-spacing text-center">
                                         <!-- Start Delete Button -->
-                                        <a type="button" 
-                                                class="btn rounded-pill btn-icon btn-danger" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#deleteModal-{{ $user->id }}"> <span class="ti ti-trash text-white"> 
-                                        </a><!--/ End Delete Button -->
+
+                                        <div class="tooltip-wrapper" data-bs-toggle="tooltip"
+                                            title="This item cannot be deleted">
+                                            <button type="button" class="btn rounded-pill btn-icon btn-danger"
+                                                disabled>
+                                                <span class="ti ti-trash text-white"></span>
+                                            </button>
+                                        </div>
+
 
                                         <!-- Delete Modal -->
-                                        <div class="modal fade" id="deleteModal-{{ $user->id }}" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-                                            <div class="modal-content p-3 p-md-5">
-                                                <div class="modal-body">
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <div class="text-center mb-4">
-                                                    <h3 class="mb-2">Delete </h3>
-                                                    <p class="text-muted">Are you sure you want to delete this User?</p>
-                                                </div>
+                                        <div class="modal fade" id="deleteModal-{{ $user->id }}" tabindex="-1"
+                                            aria-hidden="true">
+                                            <div
+                                                class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+                                                <div class="modal-content p-3 p-md-5">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                        <div class="text-center mb-4">
+                                                            <h3 class="mb-2">Delete </h3>
+                                                            <p class="text-muted">Are you sure you want to delete this
+                                                                User?</p>
+                                                        </div>
 
-                                                <div class="col-12 text-center">
-                                                    <a type="reset" class="btn btn-label-secondary btn-reset" data-bs-dismiss="modal" aria-label="Close">No</a>
-                                                    <a type="submit" wire:click="delete({{ $user->id }})" class="btn btn-danger me-sm-3 me-5" data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        <div class="col-12 text-center">
+                                                            <a type="reset" class="btn btn-label-secondary btn-reset"
+                                                                data-bs-dismiss="modal" aria-label="Close">No</a>
+                                                            <a type="submit" wire:click="delete({{ $user->id }})"
+                                                                class="btn btn-danger me-sm-3 me-5"
+                                                                data-bs-dismiss="modal" aria-label="Close">Yes</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <!--/ Delete Modal -->

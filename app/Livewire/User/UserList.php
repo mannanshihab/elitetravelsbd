@@ -36,12 +36,12 @@ class UserList extends Component
 
     public function delete($id)
     {
-        User::find($id)->delete();
-        $this->dispatch('swal', [
-            'title' => 'User Deleted Successfully.',
-            'icon' => 'success',
-            'iconColor' => 'blue',
-        ]);
+        // User::find($id)->delete();
+        // $this->dispatch('swal', [
+        //     'title' => 'User Deleted Successfully.',
+        //     'icon' => 'success',
+        //     'iconColor' => 'blue',
+        // ]);
     }
 
 }

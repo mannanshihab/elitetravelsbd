@@ -7,6 +7,7 @@ use App\Livewire\InvoicePrint;
 use App\Livewire\User\AddUsers;
 use App\Livewire\User\UserList;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Livewire\FinalStatement;
 use App\Livewire\Agent\AddAgents;
 use App\Livewire\Agent\AgentsList;
 use App\Livewire\Agent\EditAgents;
@@ -16,11 +17,13 @@ use App\Livewire\Agent\AgentReports;
 use App\Livewire\Invoice\AddInvoice;
 use App\Livewire\Vendor\EditVendors;
 use App\Livewire\Vendor\VendorsList;
+use App\Livewire\Expenses\AddExpense;
 use App\Livewire\Invoice\EditInvoice;
 use App\Livewire\Invoice\InvoiceList;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Customer\AddCustomer;
 use App\Livewire\Employee\AddEmployee;
+use App\Livewire\Expenses\ExpenseList;
 use App\Livewire\User\ProfileSettings;
 use App\Livewire\Vendor\AddVendorBill;
 use App\Livewire\Vendor\VendorReports;
@@ -80,5 +83,11 @@ Route::middleware('auth')->group(function () {
     Route::get('agent-reports', AgentReports::class)->name('agent-reports');
     Route::get('add-vendor-bill', AddVendorBill::class)->name('add-vendor-bill');
     Route::get('vendor-reports', VendorReports::class)->name('vendor-reports');
+
+
+    Route::get('/add-expense', AddExpense::class)->name('add-expense');
+    Route::get('/expense-reports', ExpenseList::class)->name('expense-reports');
+
+    Route::get('final-statment', FinalStatement::class)->name('final-statment');
 });
 

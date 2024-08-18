@@ -39,7 +39,9 @@
 
         <!-- invoice -->
 
-        <li class="menu-item" x-bind:class="$current('/invoice') || $current('/invoice-list') || $current('/invoice-edit*') || $current('/invoice-show*') ? 'open' : ''">
+        <li class="menu-item"
+            x-bind:class="$current('/invoice') || $current('/invoice-list') || $current('/invoice-edit*') || $current(
+                '/invoice-show*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-receipt"></i>
                 <div data-i18n="Invoice">Invoice</div>
@@ -52,7 +54,9 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/invoice-list') || $current('/invoice-edit*') || $current('/invoice-show*') ? 'active' : ''">
+                <li class="menu-item"
+                    x-bind:class="$current('/invoice-list') || $current('/invoice-edit*') || $current('/invoice-show*') ? 'active' :
+                        ''">
                     <a href="{{ route('invoice-list') }}" wire:navigate class="menu-link">
                         <div data-i18n="Invoice">Invoice List</div>
                     </a>
@@ -61,7 +65,8 @@
         </li>
 
         <!-- customer -->
-        <li class="menu-item" x-bind:class="$current('/add-customer') || $current('/list-customer') || $current('/edit-customer*')  ? 'open' : ''">
+        <li class="menu-item"
+            x-bind:class="$current('/add-customer') || $current('/list-customer') || $current('/edit-customer*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Customer">Customers</div>
@@ -74,7 +79,8 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-customer') || $current('/edit-customer*') ? 'active' : ''">
+                <li class="menu-item"
+                    x-bind:class="$current('/list-customer') || $current('/edit-customer*') ? 'active' : ''">
                     <a href="{{ route('list-customer') }}" wire:navigate class="menu-link">
                         <div data-i18n="Customer">List Customer</div>
                     </a>
@@ -84,7 +90,8 @@
 
 
         <!-- Agent -->
-        <li class="menu-item" x-bind:class="$current('/add-agent') || $current('/list-agent') || $current('/edit-agent*') ? 'open' : ''">
+        <li class="menu-item"
+            x-bind:class="$current('/add-agent') || $current('/list-agent') || $current('/edit-agent*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-a-b"></i>
                 <div data-i18n="Agent">Agent</div>
@@ -97,7 +104,8 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-agent') || $current('/edit-agent*') ? 'active' : ''">
+                <li class="menu-item"
+                    x-bind:class="$current('/list-agent') || $current('/edit-agent*') ? 'active' : ''">
                     <a href="{{ route('list-agent') }}" wire:navigate class="menu-link">
                         <div data-i18n="Agent">List Agent</div>
                     </a>
@@ -107,7 +115,8 @@
 
 
         <!-- vendor -->
-        <li class="menu-item" x-bind:class="$current('/add-vendor') || $current('/list-vendor') || $current('/edit-vendor*') ? 'open' : ''">
+        <li class="menu-item"
+            x-bind:class="$current('/add-vendor') || $current('/list-vendor') || $current('/edit-vendor*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
                 <div data-i18n="Vendor">Vendor</div>
@@ -120,7 +129,8 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-vendor') || $current('/edit-vendor*') ? 'active' : ''">
+                <li class="menu-item"
+                    x-bind:class="$current('/list-vendor') || $current('/edit-vendor*') ? 'active' : ''">
                     <a href="{{ route('list-vendor') }}" wire:navigate class="menu-link">
                         <div data-i18n="Vendor">List Vendor</div>
                     </a>
@@ -130,7 +140,8 @@
 
 
         <!-- Employee -->
-        <li class="menu-item" x-bind:class="$current('/add-employee') || $current('/list-employees') || $current('/edit-employees*') ? 'open' : ''">
+        <li class="menu-item"
+            x-bind:class="$current('/add-employee') || $current('/list-employees') || $current('/edit-employees*') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-briefcase"></i>
                 <div data-i18n="Employees">Employee</div>
@@ -144,7 +155,8 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/list-employees') || $current('/edit-employees*') ? 'active' : ''">
+                <li class="menu-item"
+                    x-bind:class="$current('/list-employees') || $current('/edit-employees*') ? 'active' : ''">
                     <a href="{{ route('list-employees') }}" wire:navigate class="menu-link">
                         <div data-i18n="Users">List Employee</div>
                     </a>
@@ -176,7 +188,7 @@
             </ul>
         </li>
         <!--/ Users -->
-        
+
         <!-- Misc -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Misc">Reports</span>
@@ -195,7 +207,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/agent-reports')  ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/agent-reports') ? 'active' : ''">
                     <a href="{{ route('agent-reports') }}" wire:navigate class="menu-link">
                         <div data-i18n="Reports">Reports</div>
                     </a>
@@ -203,8 +215,9 @@
             </ul>
         </li>
 
-        
-        <li class="menu-item" x-bind:class="$current('/add-vendor-bill') || $current('/vendor-reports') ? 'open' : ''">
+
+        <li class="menu-item"
+            x-bind:class="$current('/add-vendor-bill') || $current('/vendor-reports') ? 'open' : ''">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-file-description"></i>
                 <div data-i18n="Vendor Reports">Vendor Reports</div>
@@ -217,13 +230,51 @@
                     </a>
                 </li>
 
-                <li class="menu-item" x-bind:class="$current('/vendor-reports')  ? 'active' : ''">
+                <li class="menu-item" x-bind:class="$current('/vendor-reports') ? 'active' : ''">
                     <a href="{{ route('vendor-reports') }}" wire:navigate class="menu-link">
                         <div data-i18n="Reports">Reports</div>
                     </a>
                 </li>
             </ul>
         </li>
+
+
+        <li class="menu-item" x-bind:class="$current('/add-expense') || $current('/expense-reports') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-file-description"></i>
+                <div data-i18n="Vendor Reports">Expenses Reports</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" x-bind:class="$current('/add-expense') ? 'active' : ''">
+                    <a href="{{ route('add-expense') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Add Bill">Add Bill</div>
+                    </a>
+                </li>
+
+                <li class="menu-item" x-bind:class="$current('/expense-reports') ? 'active' : ''">
+                    <a href="{{ route('expense-reports') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Reports">Reports</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item" x-bind:class="$current('/final-statment') ? 'open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-file-description"></i>
+                <div data-i18n="Vendor Reports">Final Statements</div>
+                <div class="badge bg-primary rounded-pill ms-auto"></div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" x-bind:class="$current('/final-statment') ? 'active' : ''">
+                    <a href="{{ route('final-statment') }}" wire:navigate class="menu-link">
+                        <div data-i18n="Reports">Reports</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
 
     </ul>
 </aside>
