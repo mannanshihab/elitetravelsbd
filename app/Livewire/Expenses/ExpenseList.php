@@ -5,7 +5,9 @@ namespace App\Livewire\Expenses;
 use App\Models\Expense;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
+#[Title('Expense List')]
 class ExpenseList extends Component
 {
     use WithPagination;

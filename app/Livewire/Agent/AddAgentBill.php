@@ -12,6 +12,7 @@ class AddAgentBill extends Component
 {
     public $agents;
     public $agent_id;
+    public $pay_or_receive;
     public $source;
     public $amount;
     public $pay_via;
@@ -20,10 +21,15 @@ class AddAgentBill extends Component
     {
         $data = $this->validate([
             'agent_id'   => 'required',
+            'pay_or_receive' => 'required',
             'source'     => 'required',
             'amount'     => 'required',
             'pay_via' => 'required',
         ]);
+        
+        if($this->pay_or_receive == 'pay'){
+            $data['amount'] = '-'.$data['amount'];
+        }
 
         AgentStatement::create($data);
 

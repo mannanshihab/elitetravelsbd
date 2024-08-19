@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('agent_statements', function (Blueprint $table) {
             $table->id();
             $table->integer('agent_id');
+            $table->string('pay_or_receive');
             $table->string('source');
             $table->string('amount');
             $table->string('pay_via')->nullable();

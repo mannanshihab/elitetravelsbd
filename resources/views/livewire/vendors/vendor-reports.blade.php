@@ -65,6 +65,7 @@
                         <tr>
                             <th>Vendors Details</th>
                             <th>Created At</th>
+                            <th>Pay or Receive</th>
                             <th>Source Of Money</th>
                             <th>Pay Via</th>
                             <th>Amount</th>
@@ -79,6 +80,7 @@
                                     Mobile: <span>{{ $statement->vendor->mobile }}</span>
                                 </td>
                                 <td>{{ $statement->created_at->format('d-m-Y g:i A') }}</td>
+                                <td>{{ ucwords($statement->pay_or_receive) }}</td>
                                 <td>
                                     <span>
                                         @if (is_numeric($statement->source))

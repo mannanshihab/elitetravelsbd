@@ -260,19 +260,12 @@
             </ul>
         </li>
 
-        <li class="menu-item" x-bind:class="$current('/final-statment') ? 'open' : ''">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-file-description"></i>
+        <li class="menu-item" x-bind:class="$current('/final-statment') ? 'active' : ''">
+            <a href="{{ route('final-statment') }}" wire:navigate class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-money"></i>
                 <div data-i18n="Vendor Reports">Final Statements</div>
                 <div class="badge bg-primary rounded-pill ms-auto"></div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item" x-bind:class="$current('/final-statment') ? 'active' : ''">
-                    <a href="{{ route('final-statment') }}" wire:navigate class="menu-link">
-                        <div data-i18n="Reports">Reports</div>
-                    </a>
-                </li>
-            </ul>
         </li>
 
 

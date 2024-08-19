@@ -3,11 +3,11 @@
     @vite(['resources/assets/vendor/libs/bootstrap-select/bootstrap-select.scss', 'resources/assets/vendor/libs/bootstrap-select/bootstrap-select.js', 'resources/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.scss', 'resources/assets/vendor/libs/moment/moment.js', 'resources/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js'])
 
     <h4 class="py-3 mb-4">
-        <span class="text-muted fw-light">Expense /</span> Reports
+        <span class="text-muted fw-light">Final /</span> Reports
     </h4>
     <div class="card">
 
-        <h5 class="card-header pb-0">Expense Reports</h5>
+        <h5 class="card-header pb-0">Final Reports</h5>
         {{-- table header --}}
         <div class="row  d-flex justify-content-between">
 
@@ -53,7 +53,7 @@
                 <table class="table table-hover table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Invoice Amount</th>
+                            <th>Invoice Amount (received amout)</th>
                             <th>Expenses Amount</th>
                             <th>Agent Amount</th>
                             <th>Vendor Amount</th>
@@ -61,7 +61,7 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                         <tr>
-                            <td class="sorting_1">{{ $invoice }} (BDT)</td>
+                            <td class="sorting_1">{{ $invoice }} (BDT) - Delivered</td>
                             <td>{{ $expense }} (BDT)</td>
                             <td>{{ $agent }} (BDT)</td>
                             <td>{{ $vendor }} (BDT)</td>
